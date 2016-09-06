@@ -1,0 +1,8 @@
+---
+layout: default
+img: dog.png
+category: Services
+title: Cloud Services
+description: |
+---
+Ocelot consultants are AWS certified Solution Architects. We have experience migrating applications, data and data workflows to the Cloud for Fortune 500 companies. We can help you take on seemingly enormous tasks, like data center migrations. We can train you and your team to get up to speed on the latest in Cloud technologies.
