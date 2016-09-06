@@ -1,6 +1,6 @@
 ---
 layout: default
-img: dog.png
+img: cloud.jpg
 category: Services
 title: Cloud Services
 description: |
