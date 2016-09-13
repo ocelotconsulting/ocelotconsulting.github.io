@@ -11,6 +11,9 @@ description: > # "Ocelot Consulting specializes in Cloud technologies, custom ap
   Fortune 500 companies.
 copyright: 'Copyright &copy; 2016 Ocelot Consulting LLC. All Rights Reserved.'
 
+about: 'Ocelot Consulting specializes in Cloud technologies, custom application development and enterprise security.
+Ocelot Consultants are certified AWS Solution Architects and have experience migrating enterprise applications and data for
+Fortune 500 companies.'
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
@@ -45,3 +48,6 @@ people:
       url: #
     - title: stack-overflow
       url: #
+- name: Chris Coffman
+  pic: chris
+  position: Co-Founder
