@@ -166,7 +166,7 @@ p.copyright {
 }
 
 .team-member {
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     text-align: center;
 }
 
@@ -262,10 +262,6 @@ section#contact:-ms-input-placeholder {
 
 section#contact .text-danger {
     color: #e74c3c;
-}
-
-ul.social-buttons {
-    margin-bottom: 0;
 }
 
 ul.social-buttons li a {
