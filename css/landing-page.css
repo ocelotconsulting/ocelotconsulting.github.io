@@ -185,6 +185,16 @@ p.copyright {
     margin-top: 0;
 }
 
+.footer-social {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.footer-social img {
+    margin: 0 auto;
+    border: 7px solid #fff;
+}
+
 section {
     padding: 50px 0;
 }
