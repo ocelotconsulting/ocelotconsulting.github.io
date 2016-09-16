@@ -38,7 +38,7 @@ social:
 
 # Team names, titles and social links
 people:
-- name: Tyler Rober
+- name: Tyler Robert
   pic: tyler
   position: Co-Founder
   social:
@@ -70,7 +70,7 @@ people:
       url: #
     - title: stack-overflow
       url: #
-      
+
 - name: Chris Coffman
   pic: chris
   position: Co-Founder
