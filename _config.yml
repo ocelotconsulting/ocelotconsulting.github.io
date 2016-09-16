@@ -54,11 +54,11 @@ people:
   position: Co-Founder
   social:
     - title: twitter
-      url: #
-    - title: facebook
-      url: #
+      url: https://twitter.com/therealloa
+    - title: github
+      url: https://github.com/larryboymi
     - title: stack-overflow
-      url: #
+      url: http://stackoverflow.com/users/1380238/larry-anderson
 
 - name: John O'Malley
   pic: john
