@@ -38,8 +38,8 @@ social:
 
 # Team names, titles and social links
 people:
-- name: Larry Anderson
-  pic: 1
+- name: Tyler Rober
+  pic: tyler
   position: Co-Founder
   social:
     - title: twitter
@@ -48,6 +48,36 @@ people:
       url: #
     - title: stack-overflow
       url: #
+
+- name: Larry Anderson
+  pic: larry
+  position: Co-Founder
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
+
+- name: John O'Malley
+  pic: john
+  position: Co-Founder
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
+      
 - name: Chris Coffman
   pic: chris
   position: Co-Founder
+  social:
+    - title: twitter
+      url: #
+    - title: facebook
+      url: #
+    - title: stack-overflow
+      url: #
