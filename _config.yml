@@ -42,19 +42,17 @@ people:
   pic: tyler
   position: Co-Founder
   social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+    - title: linkedin
+      url: https://www.linkedin.com/in/tyler-robert
+    - title: github
+      url: https://github.com/tylerrobert
 
 - name: Larry Anderson
   pic: larry
   position: Co-Founder
   social:
-    - title: twitter
-      url: https://twitter.com/therealloa
+    - title: linkedin
+      url: https://www.linkedin.com/in/larryanderson
     - title: github
       url: https://github.com/larryboymi
     - title: stack-overflow
