@@ -38,8 +38,8 @@ h6 {
 
 .intro-message {
     position: relative;
-    padding-top: 20%;
-    padding-bottom: 20%;
+    padding-top: 10%;
+    padding-bottom: 10%;
 }
 
 .intro-message > h1 {
@@ -90,12 +90,12 @@ h6 {
 }
 
 .content-section-a {
-    padding: 50px 0;
+    padding: 25px 0;
     background-color: #f8f8f8;
 }
 
 .content-section-b {
-    padding: 50px 0;
+    padding: 25px 0;
     border-top: 1px solid #e7e7e7;
     border-bottom: 1px solid #e7e7e7;
 }
