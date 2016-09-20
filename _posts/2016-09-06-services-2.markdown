@@ -5,4 +5,7 @@ category: Services
 title: Custom Application Development
 description: |
 ---
-Ocelot Consulting specializes in developing modern applications, using best in class technologies. We utilize small teams and Agile principles to iteratively deliver quality software and solutions. We are experienced in writing anything from custom websites to enterprise workflows and big data pipelines.
+Ocelot Consulting specializes in developing modern applications, using best in class technologies. We utilize small teams and Agile principles to iteratively deliver quality software and solutions.  We develop:
++ Web and mobile applications
++ Enterprise workflows
++ Big data pipelines
