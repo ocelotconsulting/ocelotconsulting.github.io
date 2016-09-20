@@ -37,6 +37,8 @@ social:
     url: https://www.linkedin.com/company/ocelot-consulting-llc
   - title: facebook
     url: https://facebook.com/ocelotconsultingllc/
+  - title: rss
+    url: /feed.xml
 
 # Team names, titles and social links
 people:
