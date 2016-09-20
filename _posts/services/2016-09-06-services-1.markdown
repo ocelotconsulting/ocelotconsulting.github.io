@@ -2,6 +2,7 @@
 layout: default
 img: cloud.jpg
 category: Services
+hidden: true
 title: Cloud Services
 description: |
 ---

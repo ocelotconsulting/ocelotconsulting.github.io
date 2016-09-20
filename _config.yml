@@ -20,7 +20,9 @@ Fortune 500 companies.'
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+gems: [jekyll-paginate, jekyll-feed]
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 # ----------------------- #
 #   3rd Party Settings    #

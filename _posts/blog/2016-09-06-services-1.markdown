@@ -1,8 +1,0 @@
----
-layout: default
-img: cloud.jpg
-category: Blog
-title: Chimpanzees
-description: |
----
-Monkeys    

@@ -2,6 +2,7 @@
 layout: default
 img: app_dev.jpg
 category: Services
+hidden: true
 title: Custom Application Development
 description: |
 ---
