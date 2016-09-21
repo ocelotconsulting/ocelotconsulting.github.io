@@ -5,54 +5,45 @@ subTitle: Quality software from experienced developers
 ---
 
 <section id="services">
-<!-- Page Content -->
-{% for post in site.categories.Services reversed %}
-  {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
-    {% if thecycle == 'odd' %}
+<!-- Page Content Repeat Section A for odd services, b for even-->
     <div class="content-section-a">
-
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead">{{ post.content }}</div>
+                    <h2 class="section-heading">Cloud Services</h2>
+                    <div class="lead">Ocelot consultants are AWS certified Solution Architects.  We have experience migrating applications, data and workflows to the Cloud for Fortune 500 companies.
+                    Do you need to replace your expensive data center with cloud resources?  We can help, from beginning to end.  Does your IT team need training and assistance to enable
+                    your cloud transformation?  We can accelerate your team's abilities.</div>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/services/{{ post.img }}" alt="">
+                    <img class="img-responsive" src="img/services/cloud.jpg" alt="">
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-a -->
-    {% else %}
 
     <div class="content-section-b">
-
         <div class="container">
-
             <div class="row">
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">{{ post.title }}</h2>
-                    <div class="lead">{{ post.content }}</div>
+                    <h2 class="section-heading">Custom Application Development</h2>
+                    <div class="lead">Ocelot Consulting specializes in developing modern applications, using best in class technologies. We utilize small teams and Agile principles to iteratively deliver quality software and solutions.  We develop:
+                    + Web and mobile applications
+                    + Enterprise workflows
+                    + Big data pipelines</div>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                  <img class="img-responsive" src="img/services/{{ post.img }}" alt="">
+                  <img class="img-responsive" src="img/services/app_dev.jpg" alt="">
                 </div>
             </div>
-
         </div>
         <!-- /.container -->
-
     </div>
     <!-- /.content-section-b -->
-    {% endif %}
-{% endfor %}
 </section>
