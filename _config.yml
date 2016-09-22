@@ -6,12 +6,12 @@ url: http://ocelotconsulting.com
 title: Ocelot Consulting
 email: info@ocelotconsulting.com
 author: Ocelot Developers
-description: > # "Ocelot Consulting specializes in Cloud technologies, custom application development and enterprise security.
+description: > # "Ocelot Consulting specializes in cloud technologies, custom application development and enterprise security.
   Ocelot Consultants are certified AWS Solution Architects and have experience migrating enterprise applications and data for
   Fortune 500 companies.
 copyright: 'Copyright &copy; 2016 Ocelot Consulting LLC. All Rights Reserved.'
 
-about: 'Ocelot Consulting specializes in Cloud technologies, custom application development and enterprise security.
+about: 'Ocelot Consulting specializes in cloud technologies, custom application development and enterprise security.
 Ocelot Consultants are certified AWS Solution Architects and have experience migrating enterprise applications and data for
 Fortune 500 companies.'
 # ----------------------- #
@@ -20,7 +20,9 @@ Fortune 500 companies.'
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+gems: [jekyll-paginate, jekyll-feed]
+paginate: 5
+paginate_path: "/blog/page:num/"
 
 # ----------------------- #
 #   3rd Party Settings    #
@@ -35,6 +37,8 @@ social:
     url: https://www.linkedin.com/company/ocelot-consulting-llc
   - title: facebook
     url: https://facebook.com/ocelotconsultingllc/
+  - title: rss
+    url: /feed.xml
 
 # Team names, titles and social links
 people:
