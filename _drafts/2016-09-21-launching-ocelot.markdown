@@ -8,7 +8,7 @@ header-img: "img/blog/launch.jpg"
 ---
 
 
-<p>The first blog post for a new company, might as well start off with and introduction. Welcome to Ocelot Consulting.  Sounds really good to say that, but who are we, what do we do, why do you care?  </p>
+<p>Welcome to Ocelot Consulting.  Sounds really good to say that, but who are we, what do we do, why do you care?  </p>
 
 <p>Let us start with the who we are.  A group of dedicated technology experts, who have a passion for solving complex problems. That has led us to deep expertise in cloud, security, web development, and analytics. We recently completed building an enterprise web platform followed enterprise cloud platform for a Fortune 200 company.  Adoption was easy, and rapid because the automation and tooling made it developer friendly.  Most of all, adoption was easy because it flat out worked. </p>
 
