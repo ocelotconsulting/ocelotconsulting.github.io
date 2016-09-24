@@ -4,6 +4,7 @@ title:      "Launching Ocelot"
 subtitle:   "Ocelot Consulting introduction"
 date:       2016-09-22 09:05:00
 author:     "Tyler, Larry, Chris, and John"
+description: "Who we are and what we have set out to accomplish!"
 header-img: "img/blog/launch.jpg"
 ---
 
