@@ -39,6 +39,8 @@ social:
     url: https://facebook.com/ocelotconsultingllc/
   - title: rss
     url: /feed.xml
+  - title: slack
+    url: http://slack-registration.foxeared.com
 
 # Team names, titles and social links
 people:
@@ -48,6 +50,8 @@ people:
   social:
     - title: linkedin
       url: https://www.linkedin.com/in/tyler-robert
+    - title: facebook
+      url: http://www.facebook.com/tyler.robert.161
     - title: github
       url: https://github.com/tylerrobert
 
@@ -67,19 +71,16 @@ people:
   position: Co-Founder
   social:
     - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+      url: https://twitter.com/omalley70
+    - title: github
+      url: https://github.com/johnomalley
+
 
 - name: Chris Coffman
   pic: chris
   position: Co-Founder
   social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
+    - title: linkedin
+      url: https://www.linkedin.com/in/chris-coffman
+    - title: github
+      url: https://github.com/theodorick
