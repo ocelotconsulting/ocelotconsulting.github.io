@@ -39,6 +39,8 @@ social:
     url: https://facebook.com/ocelotconsultingllc/
   - title: rss
     url: /feed.xml
+  - title: slack
+    url: http://slack-registration.foxeared.com
 
 # Team names, titles and social links
 people:
