@@ -7,23 +7,47 @@ author:     "Chris Coffman"
 header-img: "img/blog/launch.jpg"
 ---
 
-Hello, my name is Chris Coffman and this is my first blog post on Ocelot Consulting. Recently, I was developing a website for a fortune 200 company that needed to be globally available. The site also needed to be secured so only employees could access the content. Up to this point I had been hosting my websites in AWS EC2 instances and I wanted to try hosting this site using S3 and Cloudfront. I ran into an issue securing the site. We had been using a security gateway to provide security to our VPC. If I was going to secure Cloudfront, what was the best way to enable security?
+Recently, I was developing a website for a fortune 200 company that needed to be globally available. The site also needed to be secured so only employees could access the content. Up to this point I had been hosting my websites in AWS EC2 instances and I wanted to try hosting this site using S3 and CloudFront. I ran into an issue securing the site. We had been using a security gateway to provide security to our VPC. If I was going to secure CloudFront, what was the best way to enable security?
 
-One solution is to use AWS signed URLs or Cloudfront cookies. Cookies are a simpler solution if the entirety of your site will be hosted in Cloudfront. Therefore, how do you generate the cookies and set them for your domain? If you secure your Cloudfront distribution, no content will be accessible.
+The solution suggested by Amazon documentation is to use pre-signed URLs or CloudFront cookies. Cookies are a simple solution when the majority of your website is hosted in CloudFront. They also work best when accessing videos in modern formats such as HLS and MPEG Dash. So, how do you generate the cookies and set in the browser, but only for authenticated users?
 
-To solve this problem, I started off by setting up an S3 bucket with the following structure:
-* www
-  * public
-* keys
+The solution I came up with involves taking advantage of the error pages in a CloudFront distribution. In CloudFront you can secure your distribution and provide a custom error page when a user does not have permissions to view a given page. The error page can either take care of authenticating the user or simply redirect to an unsecured login page. The login page is responsible for logging in the user and calling a backend to generate the CloudFront cookies. Once the cookies are generated, the login page can set the cookies and redirect the user back to their original requested content. With the cookies now set, the original content will load. If the user cannot authenticate, the login page is responsible for redirecting to another page explaining that they do not have access or allowing them to sign up.
 
-The www folder hosts my website, and the public folder hosts some unsecured HTML pages. The keys folder holds my Cloudfront private key file, used to generate cookies to access the content in the www folder.
+<solution diagram>
 
-In Cloudfront I created a web distribution for my S3 origin, serving content out of the the www folder. The distribution was secured by default. I created an additional behavior for the public folder for the purpose of unsecuring it. Next, I created an error handler for HTTP 403 errors. Now, instead of giving back a cryptic forbidden response, Cloudfront would serve up a webpage that would redirect users to the login page in the public folder. The URL would include a state parameter that could be used to direct the user back to their original request once the login process was complete.
+To implement this solution, I started by setting up an S3 bucket with the following structure:
 
-The login page I wrote at the previous company was specific to their authentication server and entitlement system. Therefore, for the purpose of this blog post, I decided to reengineer it to give you an example of how I generate the Cloudfront cookies. The code lives [in this github repo](https://github.com/ocelotconsulting/s3nator) if you would like to follow along.
+<image goes here>
 
-The new code authenticates with Google via OAuth using their [documentation]( https://developers.google.com/identity/sign-in/web/). Once the user is authenticated, the login page uses AWS Cognito to call an AWS Lambda backend, passing the OpenID token from Google. Only authenticated Google users are allowed to invoke the Lambda. The Lambda then decodes the token by calling the Google token info endpoint and makes a decision on whether you should view the protected content.
+The www folder hosts my website, and the public folder hosts my unsecured HTML pages. The keys folder contains my CloudFront private key file, used to generate cookies to access the content in the www folder.
 
-In the code example, if your Google email address is for the ocelotconsulting domain, it generates Cloudfront cookies. To generate the Cloudfront cookies, it accesses the S3 bucket's keys folder to obtain the Cloudfront secret key. The Lambda returns the cookies to the login page, which in turn sets the cookies and redirects you back to your originally requested page. If for any reason you could not log in or the Lambda decides not to let you view the content, it redirects you to the access denied page in the public folder.
+In CloudFront I created a secure web distribution for my S3 origin, serving content out of the the www folder. I created an additional behavior for the public folder for the purpose of unsecuring it.
 
-And that's it! There are several moving parts, but in this one example we accomplished quite a lot. All of this was done without hosting a traditional server. Therefore, this website is quite scalable and very responsive since it takes advantage of Cloudfront. There are no servers to maintain and no autoscaling policies to tweak.
+<image goes here>
+
+Next, I created an error handler for HTTP 403 errors. Now, instead of giving back a cryptic forbidden response, CloudFront would serve up a webpage that would redirect users to the login page in the public folder.
+
+<image goes here>
+
+In the login page I provided as an example, users log in with their Google credentials using the vanilla example from Google's [documentation]( https://developers.google.com/identity/sign-in/web/).
+
+<image goes here>
+Once authenticated, the login page receives an OpenID token for the user. Once obtained, I used AWS Cognito to obtain temporary AWS credentials to directly invoke an AWS Lambda. This is possible because my Cognito federated user pool is integrated with Google+ and anyone in the user pool is allowed to invoke my Lambda.
+
+<image goes here>
+
+The Lambda calls the Google auth-token API with the user's OpenID token to obtain information about the current user. The code then decides if the user is allowed to view the website based off this information. If so, the CloudFront cookies are generated and sent back to the login page. To generate the cookies our Lambda access the private CloudFront key in the /keys directory of our S3 bucket. Using a library makes generating the cookies a breeze.
+
+<image goes here>
+
+After the login page successfully invoked the Lambda using the AWS SDK, it then manually sets the cookies in the browser. The code then validates the redirect location to prevent URL redirection attacks. The login page can then redirect the user back to their originally requested content. With the cookies set the user can view all secured pages in their browser.
+
+<image goes here>
+
+And that's it! There are several really cool advantages to taking this approach. We are not hosting any servers, so we never have to maintain or scale them. We are using federated identity built into AWS, which can integrate with a lot more than just Google. That means we can easily let users log in or sign up with their various personal accounts, without the overhead of maintaining an identity store. And finally, we are taking advantage of CloudFront, which makes our website load quickly by caching our content in edge locations around the globe!
+
+So feel free to contact me with any questions. Look over the code in the github repo and try it yourself. With some small adjustments this can be working to secure your web application in no time at all.
+
+About the code
+
+The s3nator project contains a public folder which corresponds to your S3 /www/public folder. In the login.html page does have references to your identity pool and Lambda ARN. You will need to change these to match the ones in your AWS account. It also checks the redirect URI, so make sure to update that. The Lambda code lives in lambda.js. Update the file to include the name of your private key name. The private key refers to a CloudFront private key that you drop into the /keys folder in your S3 directory. The If you install the project, the folder can be zipped and uploaded to your AWS Lambda. Name the handler lambda.handler since the file is named lambda.
