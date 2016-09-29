@@ -70,11 +70,12 @@ people:
   pic: john
   position: Co-Founder
   social:
-    - title: twitter
-      url: https://twitter.com/omalley70
+    - title: linkedin
+      url: https://www.linkedin.com/in/john-o-malley-9213802
     - title: github
       url: https://github.com/johnomalley
-
+    - title: stack-overflow
+      url: http://stackoverflow.com/users/1949840/john-omalley
 
 - name: Chris Coffman
   pic: chris
