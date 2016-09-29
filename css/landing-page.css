@@ -21,9 +21,20 @@ h6 {
     font-weight: 700;
 }
 
+.navbar-header img {
+    float: left;
+    margin-top: 6px;
+    margin-right: 15px;
+    margin-left: 5px;
+}
+
 .lead {
     font-size: 18px;
     font-weight: 400;
+}
+
+.lead ul {
+    margin-top: 5px;
 }
 
 .intro-header {
@@ -190,7 +201,7 @@ p.copyright {
 }
 
 section {
-    padding: 50px 0;
+    padding: 25px 0;
 }
 
 section#contact {
