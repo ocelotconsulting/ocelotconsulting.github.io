@@ -339,3 +339,11 @@ section#blog-preview {
     font-size: 36px;
   }
 }
+
+section#post {
+    margin-top: 25px;
+}
+
+section#post .post-heading {
+    margin-bottom: 25px;
+}
