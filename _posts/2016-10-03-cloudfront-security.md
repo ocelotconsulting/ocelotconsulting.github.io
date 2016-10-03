@@ -4,6 +4,7 @@ title:      "Securing CloudFront"
 subtitle:   "Secure, scalable and worry free websites"
 date:       2016-10-03 00:00:00
 author:     "Chris Coffman"
+description: "Securing your AWS CloudFront distribution using Cognito and Lambda"
 header-img: "img/blog/code.jpg"
 ---
 
