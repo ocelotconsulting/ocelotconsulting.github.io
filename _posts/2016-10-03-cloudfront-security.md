@@ -17,7 +17,7 @@ The solution I came up with involves taking advantage of the error pages in a Cl
 
 ---
 
-![solution diagram](/img/blog/2016-09-23-cloudfront-security/flow.jpg)
+![solution diagram](/img/blog/2016-10-03-cloudfront-security/flow.jpg)
 
 ---
 
@@ -27,7 +27,7 @@ To implement this solution, I started by setting up an S3 bucket with the follow
 
 ---
 
-![S3 layout](/img/blog/2016-09-23-cloudfront-security/heirarchy.jpg)
+![S3 layout](/img/blog/2016-10-03-cloudfront-security/heirarchy.jpg)
 
 ---
 
@@ -39,7 +39,7 @@ In CloudFront I created a secure web distribution for my S3 origin, serving cont
 
 ---
 
-![Distribution behavior](/img/blog/2016-09-23-cloudfront-security/behaviors.jpg)
+![Distribution behavior](/img/blog/2016-10-03-cloudfront-security/behaviors.jpg)
 
 ---
 
@@ -47,7 +47,7 @@ Next, I created an error handler for HTTP 403 errors. Now, instead of giving bac
 
 ---
 
-![Error page](/img/blog/2016-09-23-cloudfront-security/error_pages.jpg)
+![Error page](/img/blog/2016-10-03-cloudfront-security/error_pages.jpg)
 
 ---
 
@@ -57,7 +57,7 @@ In the login page I provided as an example, users log in with their Google crede
 
 ---
 
-![Login page](/img/blog/2016-09-23-cloudfront-security/login.jpg)
+![Login page](/img/blog/2016-10-03-cloudfront-security/login.jpg)
 
 ---
 
@@ -67,7 +67,7 @@ Once authenticated, the login page receives an OpenID token for the user. Once o
 
 ---
 
-![Cognito Integration](/img/blog/2016-09-23-cloudfront-security/auth_providers.jpg)
+![Cognito Integration](/img/blog/2016-10-03-cloudfront-security/auth_providers.jpg)
 
 ---
 
@@ -77,7 +77,7 @@ The Lambda calls the Google auth-token API with the user's OpenID token to obtai
 
 ---
 
-![Code](/img/blog/2016-09-23-cloudfront-security/code.jpg)
+![Code](/img/blog/2016-10-03-cloudfront-security/code.jpg)
 
 ---
 
