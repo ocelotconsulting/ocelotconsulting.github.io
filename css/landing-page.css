@@ -340,10 +340,31 @@ section#blog-preview {
   }
 }
 
+section#about {
+    padding-bottom: 10px;
+}
+
 section#post {
     margin-top: 25px;
 }
 
 section#post .post-heading {
     margin-bottom: 25px;
+}
+
+div.whats-new {
+    text-align: center;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+div.whats-new .title {
+    color: #ee6400;
+    font-size: 14px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+div.whats-new .link {
+    margin-right: 10px;
 }
