@@ -69,6 +69,12 @@ h6 {
     text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
 }
 
+article img {
+  border-style: solid;
+  border-width: 1px;
+  border-color: gray;
+}
+
 @media(max-width:767px) {
     .intro-message {
         padding-bottom: 15%;
@@ -332,4 +338,12 @@ section#blog-preview {
   .post-preview > a > .post-title {
     font-size: 36px;
   }
+}
+
+section#post {
+    margin-top: 25px;
+}
+
+section#post .post-heading {
+    margin-bottom: 25px;
 }
