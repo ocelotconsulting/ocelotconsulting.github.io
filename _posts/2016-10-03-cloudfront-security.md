@@ -73,7 +73,7 @@ Once authenticated, the login page receives an OpenID token for the user. Once o
 
 ## Lambda
 
-The Lambda calls the Google auth-token API with the user's OpenID token to obtain information about the current user. The code then decides if the user is allowed to view the website based off this information. If so, the CloudFront cookies are generated and sent back to the login page. To generate the cookies our Lambda access the private CloudFront key in the /keys directory of our S3 bucket. Using a library makes generating the cookies a breeze.
+The Lambda calls the Google auth-token API with the user's OpenID token to obtain information about the current user. The code then decides if the user is allowed to view the website based off this information. If so, the CloudFront cookies are generated and sent back to the login page. To generate the cookies our Lambda accesses the private CloudFront key in the /keys directory of our S3 bucket. Using a library makes generating the cookies a breeze.
 
 ---
 
