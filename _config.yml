@@ -20,7 +20,7 @@ Fortune 500 companies.'
 
 # Build settings
 markdown: kramdown
-gems: [jekyll-paginate, jekyll-feed, jekyll-seo-tag]
+gems: [jekyll-paginate, jekyll-feed, jekyll-seo-tag, jekyll-sitemap]
 paginate: 5
 paginate_path: "/blog/page:num/"
 
