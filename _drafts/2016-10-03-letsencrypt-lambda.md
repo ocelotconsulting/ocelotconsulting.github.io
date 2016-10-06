@@ -13,7 +13,7 @@ header-img: "img/blog/fence.jpg"
 
 That is awesome, I think most people can get behind free, especially since typical SSL cert costs range from $150-700 a year, and for a company managing a large number of domains the cost of procuring and managment of those certificates can be significant.
 
-SSL/TLS certificates are necessary in order to encrypt content over a web connection (think bank websites, online merchants, etc.) A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure (generating/renewing/configuring) using this certificate authority (CA), and how flexible can it be?
+SSL/TLS certificates are necessary in order to encrypt content over a web connection (think bank websites, online merchants, etc.) A big problem at enterprise clients is managing certificates, with procurement, expiration, and configuration management all driving costs. Users coming to Let's Encrypt are often trying to answer how to automate their SSL infrastructure (generating/renewing/configuring) using it as a certificate authority (CA), and how to take advantage of its flexibility.
 
 Unfortunately, most client implementations of the Let's Encrypt (LE)/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
 
