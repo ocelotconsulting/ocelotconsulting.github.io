@@ -11,17 +11,17 @@ header-img: "img/blog/fence.jpg"
 ### Free Certificates!
 >Let’s Encrypt is a free, automated, and open certificate authority brought to you by the non-profit Internet Security Research Group (ISRG). - [Lets-Encrypt](https://letsencrypt.org/)
 
-That is awesome, I think most people can get behind free. Thanks Lets-Encrypt (LE) ! A big question when venturing out of the hobby world of personal websites, is how can I automate using this CA, and how flexible can it be?
+That is awesome, I think most people can get behind free. Thanks Lets-Encrypt (LE) ! A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure using this certificate authority (CA), and how flexible can it be?
 
-Unfortunately, most client implementations of the LE/ACME protocol leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
+Unfortunately, most client implementations of the LE/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
 
-Partly as a response to finding this to be the case, I've created [node-letsencrypt-lambda](https://github.com/ocelotconsulting/node-letsencrypt-lambda), which aims to make managing certificates for domains even more automated for users who want to leverage infrastructure in AWS. Once you are able to create your own SSL certificates using this tool, you can use them to secure your personal website, or automate your SSL infrastructure on several hosts/various services depending on your organization's domain/host setup.
+Partly as a response to this, I've created [node-letsencrypt-lambda](https://github.com/ocelotconsulting/node-letsencrypt-lambda), which aims to make managing certificates for domains even simpler to automate for users who want to leverage infrastructure in AWS. Once you are able to create your own SSL certificates using this tool, you can use them to secure your personal website, or automate your SSL infrastructure on several hosts/various services depending on your personal/organization's domain and host setup.
 
 ### At a glance...
 
 Lets-Encrypt can be simple to use, as long as you understand what the ACME protocol needs:
 
-* First, a domain admin register's his/her public key with LE (in an automated fashion).
+* First, a domain admin registers his or her public key with LE (in an automated fashion).
 
 * Second, the admin proves to the LE CA that they control one or more domains.
 
@@ -31,11 +31,11 @@ Lets-Encrypt can be simple to use, as long as you understand what the ACME proto
 ### Proving domain control
 >With Let’s Encrypt, you do this using software that uses the ACME protocol, which typically runs on your web host. --[ Lets Encrypt](https://letsencrypt.org/getting-started/)
 
-Runs on our web host? But that means I have to have an endpoint dedicated to serving whatever challenge responses LE would like. Of course I could stand it up just-in-time if I wanted to, but nonetheless it limits when and where I could execute the challenges from.
+Runs on our web host? But that means that I would have to have an endpoint dedicated to serving whatever challenge responses LE would like. Of course, I could stand it up just-in-time if I wanted to, but nonetheless that would limit when and where I could execute the challenges from.
 
-Luckily for us, the fine people at Lets-Encrypt have implemented a challenge for DNS validation back in early 2016, which is the challenge type I targeted for this project.
+Luckily for us, the fine people at Lets-Encrypt have implemented a challenge for DNS validation in early 2016, which is the challenge type that I have targeted for this project.
 
-After admin registration, the lambda writes a challenge response to a TXT record in DNS, then polls DNS until it returns the new value (if a previous TXT record had been written). Once the lambda verifies the DNS TXT record should be there, it instructs the LE system to verify that it owns the domain via DNS, and if LE is satisfied, it makes a certificate available for download.
+After admin registration, the lambda writes a challenge response to a DNS TXT record. It then polls DNS until it returns the new value (if a previous TXT record had been written). Once the lambda verifies the DNS TXT record is being returned from DNS, it instructs the LE system to verify the record, and if LE is satisfied, LE makes a certificate available for download.
 
 ### Pseudocode
 On an initial run of the lambda, the following high-level events take place:
