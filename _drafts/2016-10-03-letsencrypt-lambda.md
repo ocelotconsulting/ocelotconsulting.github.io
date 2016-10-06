@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Lets-Encrypt Lambda"
+title:      "Let's Encrypt Lambda"
 subtitle:   "Free SSL certificate automation via AWS Lambda"
 date:       2016-10-03 00:00:00
 author:     "Larry Anderson"
@@ -9,17 +9,17 @@ header-img: "img/blog/fence.jpg"
 ---
 
 ### Free Certificates!
->Let’s Encrypt is a free, automated, and open certificate authority brought to you by the non-profit Internet Security Research Group (ISRG). - [Lets-Encrypt](https://letsencrypt.org/)
+>Let’s Encrypt is a free, automated, and open certificate authority brought to you by the non-profit Internet Security Research Group (ISRG). - [Let's Encrypt](https://letsencrypt.org/)
 
-That is awesome, I think most people can get behind free. Thanks Lets-Encrypt (LE) ! A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure using this certificate authority (CA), and how flexible can it be?
+That is awesome, I think most people can get behind free. Certificates are necessary in order to encrypt content (TLS) over a web connection (think bank websites, online merchants, etc.) A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure (generating/renewing/configuring) using this certificate authority (CA), and how flexible can it be?
 
-Unfortunately, most client implementations of the LE/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
+Unfortunately, most client implementations of the Let's Encrypt (LE)/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
 
-Partly as a response to this, I've created [node-letsencrypt-lambda](https://github.com/ocelotconsulting/node-letsencrypt-lambda), which aims to make managing certificates for domains even simpler to automate for users who want to leverage infrastructure in AWS. Once you are able to create your own SSL certificates using this tool, you can use them to secure your personal website, or automate your SSL infrastructure on several hosts/various services depending on your personal/organization's domain and host setup.
+Partly as a response to this, I've created [node-letsencrypt-lambda](https://github.com/ocelotconsulting/node-letsencrypt-lambda), which leverages the serverless capabilities of [AWS Lambda](https://aws.amazon.com/lambda/) to make managing certificates for domains even simpler to automate, for those users who want to leverage infrastructure in AWS. Once you are able to create/renew your own SSL certificates using this tool, you can use them to secure your personal website, or automate your SSL infrastructure on several hosts/various services depending on your personal/organization's domain and host setup.
 
-### At a glance...
+### Let's Encrypt/ACME protocol at a glance...
 
-Lets-Encrypt can be simple to use, as long as you understand what the ACME protocol needs:
+Let's Encrypt can be simple to use, as long as you understand what the ACME protocol needs:
 
 * First, a domain admin registers his or her public key with LE (in an automated fashion).
 
@@ -27,13 +27,22 @@ Lets-Encrypt can be simple to use, as long as you understand what the ACME proto
 
 * Lastly, the automation procures certificates according to the domains it can prove control over.
 
+---
+
+{: .blog-center}
+![Let's Encrypt Challenge Process](/img/blog/2016-10-07-letsencrypt-lambda/howitworks_authorization.png){:width="75%"}
+
+{: .blog-center}
+Fig. 1 - The Let's Encrypt Challenge Process
+
+---
 
 ### Proving domain control
 >With Let’s Encrypt, you do this using software that uses the ACME protocol, which typically runs on your web host. --[ Lets Encrypt](https://letsencrypt.org/getting-started/)
 
 Runs on our web host? But that means that I would have to have an endpoint dedicated to serving whatever challenge responses LE would like. Of course, I could stand it up just-in-time if I wanted to, but nonetheless that would limit when and where I could execute the challenges from.
 
-Luckily for us, the fine people at Lets-Encrypt have implemented a challenge for DNS validation in early 2016, which is the challenge type that I have targeted for this project.
+Luckily for us, the fine people at Let's Encrypt have implemented a challenge for DNS validation in early 2016, which is the challenge type that I have targeted for this project.
 
 After admin registration, the lambda writes a challenge response to a DNS TXT record. It then polls DNS until it returns the new value (if a previous TXT record had been written). Once the lambda verifies the DNS TXT record is being returned from DNS, it instructs the LE system to verify the record, and if LE is satisfied, LE makes a certificate available for download.
 
@@ -41,6 +50,16 @@ After admin registration, the lambda writes a challenge response to a DNS TXT re
 On an initial run of the lambda, the following high-level events take place:
 
 1. Check to see if certificate is close to expiring (within 30 days of the expiration date). If it's fine, exit... if not, #2.
+
+    ---
+
+    {: .blog-center}
+    ![Certificate Expiration Notice](/img/blog/2016-10-07-letsencrypt-lambda/expired-cert.jpg){:width="75%"}
+
+    {: .blog-center}
+    Fig. 2 - Expired Certificate... *don't let this happen to you!*
+
+    ---
 
 2. Register a configured admin (generate a keypair and send the public key in with the email to register). Write the admin data (keypair and registration info) to a file in S3.
 

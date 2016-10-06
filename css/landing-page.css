@@ -368,3 +368,7 @@ div.whats-new .title {
 div.whats-new .link {
     margin-right: 10px;
 }
+
+.blog-center {
+  text-align: center;
+}
