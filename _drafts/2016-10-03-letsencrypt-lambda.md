@@ -15,11 +15,10 @@ That is awesome, I think most people can get behind free, especially since typic
 
 SSL/TLS certificates are necessary in order to encrypt content over a web connection (think bank websites, online merchants, etc.) A big problem at enterprise clients is managing certificates, with procurement, expiration, and configuration management all driving costs. Users coming to Let's Encrypt are often trying to answer how to automate their SSL infrastructure (generating/renewing/configuring) using it as a certificate authority (CA), and how to take advantage of its flexibility.
 
-Unfortunately, most client implementations of the Let's Encrypt (LE)/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
+### Let's Encrypt/ACME protocol at a glance...
+Unfortunately, most client implementations of the Let's Encrypt (LE)/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance, or they require a server to respond to domain challenges at a specific endpoint.
 
 Partly as a response to this, I've created [node-letsencrypt-lambda](https://github.com/ocelotconsulting/node-letsencrypt-lambda), which leverages the serverless capabilities of [AWS Lambda](https://aws.amazon.com/lambda/) to make managing certificates for domains even simpler to automate, for those users who want to leverage infrastructure in AWS. Once you are able to create/renew your own SSL certificates using this tool, you can use them to secure your personal website, or automate your SSL infrastructure on several hosts/various services depending on your personal/organization's domain and host setup.
-
-### Let's Encrypt/ACME protocol at a glance...
 
 Let's Encrypt can be simple to use, as long as you understand what the ACME protocol needs:
 
