@@ -71,6 +71,15 @@ On an initial run of the lambda, the following high-level events take place:
 
     2. Take a token from LE's DNS challenge and insert a TXT record for the domain in Route53 corresponding to a digest of the token using the private key of the admin.
 
+        ---
+
+        {: .blog-center}
+        ![Certificate Expiration Notice](/img/blog/2016-10-07-letsencrypt-lambda/TXT_Record.png)
+
+        {: .blog-center}
+        Fig. 3 - DNS TXT Record
+
+        ---
     3. Poll DNS for the TXT record containing the latest digest value.
 
     4. Once verified, send confirmation to LE, which will then validate the digest using the admin's public key.
@@ -83,16 +92,7 @@ On an initial run of the lambda, the following high-level events take place:
 
 7. If configured, an S3 SNS event will occur on the PUT of the domain certificate to the bucket, which will allow follow-on lambdas to run and automatically configure services based upon the received notification.
 
-### Still to come...
+### Wrapping Up...
+Procurement of certificates in some organizations can be a lengthy ordeal, and incur substantial real costs both in terms of dollars and time spent managing. The goal of this project and Let's Encrypt was to lessen the burden of encrypting traffic.
 
-* As defined in the project [roadmap](https://github.com/ocelotconsulting/node-letsencrypt-lambda/blob/master/ROADMAP.md), additional services need to be created to automate things further.
-
-  * Create a lambda to listen to the S3 events of certificates and configure them in IAM.
-
-  * Create a lambda to listen to the S3 events of certificates and configure them in ELB's.
-
-* Possibly create other cron-type automation to load certificates from the S3 bucket.
-
-* Create run mode for creating local PEM files of cert/chain.
-
-* Support DNS services outside of Route53.
+This is likely the first project in a series that will further the certificate management automation of an SSL infrastructure. Still necessary are tools that take the newly created certificates and help configure their usage. Please check out the project's [roadmap](https://github.com/ocelotconsulting/node-letsencrypt-lambda/blob/master/ROADMAP.md) for status of those efforts and others to come!
