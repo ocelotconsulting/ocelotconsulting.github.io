@@ -11,7 +11,9 @@ header-img: "img/blog/fence.jpg"
 ### Free Certificates!
 >Let’s Encrypt is a free, automated, and open certificate authority brought to you by the non-profit Internet Security Research Group (ISRG). - [Let's Encrypt](https://letsencrypt.org/)
 
-That is awesome, I think most people can get behind free. Certificates are necessary in order to encrypt content (TLS) over a web connection (think bank websites, online merchants, etc.) A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure (generating/renewing/configuring) using this certificate authority (CA), and how flexible can it be?
+That is awesome, I think most people can get behind free, especially since typical SSL cert costs range from $150-700 a year, and for a company managing a large number of domains the cost of procuring and managment of those certificates can be significant.
+
+SSL/TLS certificates are necessary in order to encrypt content over a web connection (think bank websites, online merchants, etc.) A big question when venturing out of the hobby world of personal websites, is how can I automate my SSL infrastructure (generating/renewing/configuring) using this certificate authority (CA), and how flexible can it be?
 
 Unfortunately, most client implementations of the Let's Encrypt (LE)/[ACME protocol](https://github.com/ietf-wg-acme/acme/) leave something wanting. Either they're designed as more of a CLI option, which is great for an individual server/EC2 instance or they require a server to respond to domain challenges at a specific endpoint.
 
