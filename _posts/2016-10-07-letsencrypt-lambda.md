@@ -11,7 +11,7 @@ header-img: "img/blog/fence.jpg"
 ### Free Certificates!
 >Let’s Encrypt is a free, automated, and open certificate authority brought to you by the non-profit Internet Security Research Group (ISRG). - [Let's Encrypt](https://letsencrypt.org/)
 
-That is awesome, I think most people can get behind free, especially since typical SSL certificate costs can range from $150-700 a year, and for a company managing a large number of domains the cost of procuring and managment of those certificates can be significant.
+That is awesome -- I think most people can get behind free, especially since typical SSL certificate costs can range from $150-700 a year, and for a company managing a large number of domains the cost of procuring and managment of those certificates can be significant.
 
 SSL/TLS certificates are necessary in order to encrypt content over a web connection (think bank websites, online merchants, etc.). A big problem at enterprise clients is managing certificates, with procurement, expiration, and configuration management all driving costs. Users investigating Let's Encrypt are often trying to answer how to automate their SSL infrastructure (generating/renewing/configuring) by using it as a certificate authority (CA), and how to take advantage of its flexibility.
 
@@ -92,6 +92,6 @@ On an initial run of the lambda, the following high-level events take place:
 7. If configured, an S3 SNS event will occur on the PUT of the domain certificate to the bucket, which will allow follow-on lambdas to run and automatically configure services based upon the received notification.
 
 ### Wrapping Up...
-Procurement of certificates in some organizations can be a lengthy ordeal, and incur substantial real costs both in terms of dollars and time spent managing. The goal of this project and Let's Encrypt was to lessen the burden of encrypting traffic.
+Procurement of certificates in some organizations can be a lengthy ordeal, and can incur substantial real costs both in terms of dollars and time spent managing. The goal of this project and Let's Encrypt was to lessen the burden of encrypting traffic.
 
 This is likely the first project in a series that will further the certificate management automation of an SSL infrastructure. Still necessary are tools that take the newly created certificates and help configure their usage. Please check out the project's [roadmap](https://github.com/ocelotconsulting/node-letsencrypt-lambda/blob/master/ROADMAP.md) for status of those efforts and others to come!
