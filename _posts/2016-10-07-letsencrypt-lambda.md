@@ -89,7 +89,7 @@ On an initial run of the lambda, the following high-level events take place:
 
 6. Write the domain certificates (PEM format of certificate and issuer chain) and the domain keypair to a file in S3.
 
-7. If configured, an S3 SNS event will occur on the PUT of the domain certificate to the bucket, which will allow follow-on lambdas to run and automatically configure services based upon the received notification.
+7. If configured, an S3 PUT event will trigger on upload of the domain certificate to the bucket, which will allow follow-on lambdas to run and automatically configure services based upon the received notification. In addition, the S3 bucket could fire to an SNS topic, etc.
 
 ### Wrapping Up...
 Procurement of certificates in some organizations can be a lengthy ordeal, and can incur substantial real costs both in terms of dollars and time spent managing. The goal of this project and Let's Encrypt was to lessen the burden of encrypting traffic.
