@@ -16,7 +16,7 @@ Our legacy services relied on a combination of an aging home-grown entitlement s
  
 Granting access was a frustrating process.  In the case of AD groups the process required creating a ticket in a generic workflow management tool and then waiting for an approval. The process relied on two rounds of email and could take a week or more in the worst case.  The older, home-grown system was actually a bit more convenient to use but still required manual intervention.
 
-What was perhaps the most frustrating for teams was the lack of automation.  Generally, if you joined an organization a baseline of entitlements was implied; if, for example you joined the 'Foo Bar' organization it was expected that your request for the `FOO_BAR_USER` entitlement would of course be approved. But someone would still have to respond the the approval email.
+What was perhaps the most frustrating for teams was the lack of automation.  Generally, if you joined an organization a baseline of entitlements was implied; if, for example you joined the 'Foo Bar' organization it was expected that your request for the `FOO_BAR_USER` entitlement would of course be approved. But someone would still have to respond to the approval email.
 
 To address this last point, the concept of *dynamic entitlements* was proposed; i.e. entitlements implied by metadata rather than explicitly associated with a user or group. 
 
