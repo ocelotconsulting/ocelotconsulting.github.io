@@ -28,7 +28,7 @@ As a model centered on entities and relationships emerged, two choices for the d
 + Often, the same relationship (semantically speaking) can exist between two pairs of nodes whose logical schemas may not match. For instance, in the example model below the `:GRANTED_TO` relationship is defined as a relationship between an entitlement and a user OR and entitlement and an organization.   Modeling such a concept in a relational database would be unnecessarily complex.
 + Neo4j doesn't require that you produce a strict schema while still allowing integrity constraints and indices.
 
-### Installing Neo4j
+### Installing and running Neo4j
 
 If you're the type of person that learns best by doing, I recommend you install Neo4j and follow along with the example below. Even if you're entirely unfamiliar with graph databases you'll find that the barrier to entry is small -- it has a nice web interface that makes interacting with the DB easy.  You can download Community Edition [directly from Neo4j](https://Neo4j.com/download/) or if you're like me you might prefer [docker](https://www.docker.com/products/docker) and the official [Neo4j image](https://hub.docker.com/_/Neo4j/). Once you're up and running open [http://localhost:7474](http://localhost:7474), log in, set your admin password, and you're ready to start building your model:
 
