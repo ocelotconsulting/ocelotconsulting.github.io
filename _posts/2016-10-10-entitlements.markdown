@@ -7,7 +7,7 @@ author:     "John O'Malley"
 header-img: "img/blog/nodes.png"
 ---
 
-Around a year ago my team was given the task of creating a cloud infrastructure in AWS for a new generation of custom application development for a Fortune 500 company. One necessary piece of the puzzle would be a new entitlement system; our legacy systems were clearly obsolete and inadequate.  We decided to model our entitlement system using [Neo4j](https://Neo4j.com/), a popular graph database.
+Around a year ago my team was given the task of creating a cloud infrastructure in AWS for a new generation of custom application development for a Fortune 500 company. One necessary piece of the puzzle would be a new entitlement system; our legacy systems were clearly obsolete and inadequate.  We decided to model our entitlement system using [Neo4j](https://neo4j.com/), a popular graph database.
 
 ### The legacy environment
 
@@ -30,12 +30,12 @@ As a model centered on entities and relationships emerged, two choices for the d
 
 ### Installing and running Neo4j
 
-If you're the type of person that learns best by doing, I recommend you install Neo4j and follow along with the example below. Even if you're entirely unfamiliar with graph databases you'll find that the barrier to entry is small -- it has a nice web interface that makes interacting with the DB easy.  You can download Community Edition [directly from Neo4j](https://Neo4j.com/download/) or if you're like me you might prefer [docker](https://www.docker.com/products/docker) and the official [Neo4j image](https://hub.docker.com/_/Neo4j/). Once you're up and running open [http://localhost:7474](http://localhost:7474), log in, set your admin password, and you're ready to start building your model:
+If you're the type of person that learns best by doing, I recommend you install Neo4j and follow along with the example below. Even if you're entirely unfamiliar with graph databases you'll find that the barrier to entry is small -- it has a nice web interface that makes interacting with the DB easy.  You can download Community Edition [directly from Neo4j](https://neo4j.com/download/) or if you're like me you might prefer [docker](https://www.docker.com/products/docker) and the official [Neo4j image](https://hub.docker.com/_/neo4j/). Once you're up and running open [http://localhost:7474](http://localhost:7474), log in, set your admin password, and you're ready to start building your model:
 
 ---
 
 {: .blog-center}
-![Neo4j welcome](/img/blog/2016-10-10-entitlements/Neo4j-welcome.png){:width="100%"}
+![Neo4j welcome](/img/blog/2016-10-10-entitlements/neo4j-welcome.png){:width="100%"}
 
 ---
 
@@ -43,7 +43,7 @@ If you're the type of person that learns best by doing, I recommend you install 
 
 Graph databases aim to express relationships in an easier, less restrictive way than relational databases. To illustrate that, let's run some Cypher statements to populate our database.  Note the intuitive syntax for inserting a relationship; there's no need to worry about the implementation details that are required to express relationships in SQL (foreign keys, joins, many-to-many resolvers, etc.).
 
-[Cypher](https://Neo4j.com/developer/cypher-query-language/) is the elegant and intuitive query language for Neo4j. If you're familiar with SQL and JavaScript/JSON you won't have much trouble picking it up. We start off by creating a few users, Alice and Bob [(of course)](https://en.wikipedia.org/wiki/Alice_and_Bob).
+[Cypher](https://neo4j.com/developer/cypher-query-language/) is the elegant and intuitive query language for Neo4j. If you're familiar with SQL and JavaScript/JSON you won't have much trouble picking it up. We start off by creating a few users, Alice and Bob [(of course)](https://en.wikipedia.org/wiki/Alice_and_Bob).
 
 ```
 create (:User {id: 'alice', name: 'Alice'})
@@ -56,7 +56,7 @@ Run these statements one at a time in the Neo4j console and take note of the res
 ---
 
 {: .blog-center}
-![Neo4j welcome](/img/blog/2016-10-10-entitlements/Neo4j-feedback.png){:width="100%"}
+![Neo4j welcome](/img/blog/2016-10-10-entitlements/neo4j-feedback.png){:width="100%"}
 
 ---
 
