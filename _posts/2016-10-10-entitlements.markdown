@@ -5,6 +5,7 @@ subtitle:   "using Neo4j"
 date:       2016-10-10 10:05:00
 author:     "John O'Malley"
 header-img: "img/blog/nodes.png"
+description: "Enabling dynamic entitlements using neo4j"
 ---
 
 Around a year ago my team was given the task of creating a cloud infrastructure in AWS for a new generation of custom application development for a Fortune 500 company. One necessary piece of the puzzle would be a new entitlement system; our legacy systems were clearly obsolete and inadequate.  We decided to model our entitlement system using [Neo4j](https://neo4j.com/), a popular graph database.
