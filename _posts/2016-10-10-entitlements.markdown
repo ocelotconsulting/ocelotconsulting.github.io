@@ -13,17 +13,17 @@ Around a year ago my team was given the task of creating a cloud infrastructure 
 ### The legacy environment
 
 Our legacy services relied on a combination of an aging home-grown entitlement system and [Active Directory](https://en.wikipedia.org/wiki/Active_Directory) groups, with an abstraction layer on top which represented an attempt to unify and simplify the two disparate designs. All entitlements existed in a single global namespace; so one would have a global role list with values like `FOO_BAR_EDITOR` and `SOME_APP_USER`.
- 
+
 Granting access was a frustrating process.  In the case of AD groups the process required creating a ticket in a generic workflow management tool and then waiting for an approval. The process relied on two rounds of email and could take a week or more in the worst case.  The older, home-grown system was actually a bit more convenient to use but still required manual intervention.
 
 What was perhaps the most frustrating for teams was the lack of automation.  Generally, if you joined an organization a baseline of entitlements was implied; if, for example you joined the 'Foo Bar' organization it was expected that your request for the `FOO_BAR_USER` entitlement would of course be approved. But someone would still have to respond to the approval email.
 
-To address this last point, the concept of *dynamic entitlements* was proposed; i.e. entitlements implied by metadata rather than explicitly associated with a user or group. 
+To address this last point, the concept of *dynamic entitlements* was proposed; i.e. entitlements implied by metadata rather than explicitly associated with a user or group.
 
 ### Why Neo4j?
 
 As a model centered on entities and relationships emerged, two choices for the data layer become evident: a traditional relational DB (using RDS) or a graph DB (which we would have to host ourselves on EC2). While RDS has obvious advantages, Neo4j ultimately won out for a number of reasons:
-    
+
 + Traditional relational databases can model arbitrary depth hierarchical relationships, but generally require a complex query syntax. With Neo4j such relationships were straightforward.
 + Neo4j and Cypher offer an elegant and succinct way to create, query, and visualize relationships.
 + Often, the same relationship (semantically speaking) can exist between two pairs of nodes whose logical schemas may not match. For instance, in the example model below the `:GRANTED_TO` relationship is defined as a relationship between an entitlement and a user OR and entitlement and an organization.   Modeling such a concept in a relational database would be unnecessarily complex.
@@ -52,7 +52,7 @@ create (:User {id: 'alice', name: 'Alice'})
 create (:User {id: 'bob', name: 'Bob'})
 ```
 
-Run these statements one at a time in the Neo4j console and take note of the results. Neo4j tells you exactly what was created: 
+Run these statements one at a time in the Neo4j console and take note of the results. Neo4j tells you exactly what was created:
 
 ---
 
@@ -61,9 +61,9 @@ Run these statements one at a time in the Neo4j console and take note of the res
 
 ---
 
-Next let's create a slice of an organizational hierarchy.  In our example the *IT* organization contains an 
+Next let's create a slice of an organizational hierarchy.  In our example the *IT* organization contains an
 *Application Development* organization that in turn contains a *Web Application Development* organization:
-  
+
 ```
 create (:Org {id: 'IT', name: 'Information Technology'})
 
@@ -73,43 +73,43 @@ create (:Org {id: 'WEB', name: 'Web Application Development'})
 ```
 
 At this point we have three unconnected nodes.  To express the hierarchy needed we'll need a few relationships:
-  
+
 ```
 match (o1:Org {id: 'IT'}) match (o2:Org {id: 'APP'}) create unique (o1)-[:CONTAINS]->(o2)
 
 match (o1:Org {id: 'APP'}) match (o2:Org {id: 'WEB'}) create unique (o1)-[:CONTAINS]->(o2)
 ```
 
-Cypher's syntax for creating relationships makes our query succinct and readable, and there's no need to build any kind of schema ahead of time. 
+Cypher's syntax for creating relationships makes our query succinct and readable, and there's no need to build any kind of schema ahead of time.
 
 The use of `create unique` is important here - it's possible to have multiple relationships with the same label between two nodes but we don't want that for this use case. If you went through this example and omitted the `unique` keyword it would in fact work exactly the same provided that you started out with an empty Neo4j instance, but using `create unique` gives you some added safety - if you accidentally run a create statement twice you won't end up with a duplicate relationship.
 
 Continuing on, let's make Alice a member of the *Web Application Development* organization and Bob a member of the root *IT* organization:
-  
+
 ```
 match (u:User {id: 'alice'}) match (o:Org {id: 'WEB'}) create unique (u)-[:BELONGS_TO]->(o)
 
 match (u:User {id: 'bob'}) match (o:Org {id: 'IT'}) create unique (u)-[:BELONGS_TO]->(o)
 ```
-  
+
 ### Constraints
 
 You may be assuming that Neo4j will enforce the uniqueness of the *id* field of each node, but that's not necessarily so.  An integrity constraint is needed to enforce uniqueness. We're going to end up needing four such constraints so we might as well add them now:
-  
+
 ```
 create constraint on (u:User) assert u.id is unique
-  
+
 create constraint on (o:Org) assert o.id is unique
-  
+
 create constraint on (a:App) assert a.id is unique  
-  
+
 create constraint on (e:Entitlement) assert e.id is unique
 ```  
 
 ### Apps and Entitlements
 
 Now suppose we want to define two entitlements related to our company home page - one allows basic read access while another allows write access (a contrived scenario). To avoid using global entitlements like `MY_APP_READ_ONLY`, we need to have some way of namespacing our entitlements - in this case we use an 'app', and associate each entitlement with that namespace:
-     
+
 ```
 create (:App {id: 'HOME', name: "Home"})
 
@@ -153,11 +153,11 @@ The Neo4j web console provides a nice visualization for our simplified model:
 ### Querying a user's entitlements
 
 Alice doesn't belong to the IT organization directly... she belongs through one of its contained organizations. Intuitively the previous grant should apply to her. Luckily we can elegantly express this relationship in Cypher:
- 
+
 ```
 match (u:User)-[:BELONGS_TO]->(:Org)<-[:CONTAINS*0..]-(:Org)<-[:GRANTED_TO]-(e:Entitlement)
-  return u, e 
-union 
+  return u, e
+union
 match(u:User)<-[:GRANTED_TO]-(e:Entitlement)
   return u, e
 ```
@@ -174,14 +174,14 @@ The expression `[:CONTAINS*0..]` implies that there may be zero or more relation
 ---
 
 ### Extensions
-   
+
 Given the base design described here for dynamic entitlements, some extensions naturally followed:
 
 + **Entitlements by geographic location or site** - a user's physical work location could imply an entitlement. As with organizations, the containment hierarchy or locations together with Neo4j's capabilities made that easy -- imagine the ability to grant an entitlement to anyone in the US, or to a specific site in a specific city.
-+ **Entitlements by employment status** - some entitlements might only apply to employees, while others might apply to employees and contractors but not external users. 
-  
++ **Entitlements by employment status** - some entitlements might only apply to employees, while others might apply to employees and contractors but not external users.
+
 ### Wrapping up
 
 For brevity's sake I've left out a lot of detail - such as how we kept the entitlement model in sync with AD and our legacy systems and how we used a basic workflow system and web UI to speed adoption. Also the actual model was far more complex than I've illustrated here.
 
-Thanks for reading --- I hope you've found this material useful. Let us know what you think via [twitter](https://twitter.com/ocelot_llc).
+Thanks for reading --- I hope you've found this material useful. Let us know what you think via [twitter](https://twitter.com/ocelot_llc) or comment below.
