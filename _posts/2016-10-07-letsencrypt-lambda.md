@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Let's Encrypt Lambda"
+title:      "Lets Encrypt Lambda"
 subtitle:   "Free SSL Certificate Automation via AWS Lambda"
 date:       2016-10-07 08:30:00
 author:     "Larry Anderson"
