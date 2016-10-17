@@ -55,7 +55,7 @@ Where I ran into a slight snag was when I realized slack wants a response within
 {: .blog-center}
 ![Slack timeout error](/img/blog/2016-10-17-snap-slack/timeout.jpg){:width="75%"}
 
-{: .blog-center}painstakingly
+{: .blog-center}
 Fig. 3 - The slack timeout error
 
 ---
