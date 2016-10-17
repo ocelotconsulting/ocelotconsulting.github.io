@@ -11,7 +11,7 @@ description: "A snapchat style slack bot implemented in AWS Lambda"
 ## We Love Slack
 Here at Ocelot Consulting, we use [Slack](https://slack.com/) quite heavily for our inter-team communication. In fact, as indicated in the footer of our website, we have a [public Slack](http://slack-registration.foxeared.com/) which anyone can join to converse with us. Slack integrations have formed a large part of our automation/notification strategy in the past to facilitate DevOps (or ChatOps) practices, and will likely do so in the future.
 
-For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar purpose. Occasionally when messaging between the team and other groups, certain recipients of messages had not been the intended target, or perhaps the content of the message was not appropriate for certain recipients. In these extremely limited situations, it became obvious that usage of Slack's `Delete message` button was an ally. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
+For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar purpose. Occasionally when messaging between the team and other groups, certain recipients of messages had not been the intended target, or perhaps the content of the message was not appropriate for certain recipients. In these extremely limited situations, it became obvious that Slack's `Delete message` button was an ally. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
 
 ---
 
@@ -38,7 +38,7 @@ Fig. 2 - The resulting custom Slack integrations
 ---
 
 ## Lambda Setup
-On the AWS side, there currently exists a [blueprint to create a Slack echo Lambda](https://aws.amazon.com/blogs/aws/new-slack-integration-blueprints-for-aws-lambda/) for Node.js which
+On the AWS side, there currently exists a [blueprint to create a Slack 'echo' Lambda](https://aws.amazon.com/blogs/aws/new-slack-integration-blueprints-for-aws-lambda/) for Node.js which
 configures an API Gateway HTTPS route to call the new Lambda, as well as provides instructions on how to do some of what I'm talking about here in comments. As it states, part of the additional setup is encrypting the token received when creating the slash command in Slack via KMS:
 
     $ aws kms encrypt --key-id alias/<KMS key name> --plaintext "<slash command token>"
@@ -48,7 +48,7 @@ This encrypted token will be verified on incoming slack commands to ensure the c
 Most of the development of this project was pretty straightforward and simple, Slack has done a great job with [documenting their APIs](https://api.slack.com/methods) and making them easily testable. Once I got going with the correct configuration, it was a matter of no time doing the operations I was needing to perform.
 
 ## We live in an async world
-Where I ran into a slight snag was when I realized slack wants a response within 3 seconds from any command that is called. Lambda is decently quick to operate and respond to commands, but if new container is spun up and you experience latency over the internet, you can easily go over this limit.
+Where I ran into a slight snag was when I realized slack wants a response within 3 seconds from any command that is called. Lambda is decently quick to operate and respond to commands, but if a new container is spun up and you experience latency over the internet, you can easily go over this limit.
 
 ---
 
