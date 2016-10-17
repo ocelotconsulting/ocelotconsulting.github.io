@@ -2,16 +2,16 @@
 layout:     post
 title:      "Snap-Slack Bot"
 subtitle:   "leveraging AWS lambda for asynchronous slack activities"
-date:       2016-10-17 10:05:00
+date:       2016-10-17 13:45:00
 author:     "Larry Anderson"
 header-img: "img/blog/snap-slack.jpg"
 description: "A Snapchat-style slack bot implemented in AWS Lambda"
 ---
 
 ## We Love Slack
-Here at Ocelot Consulting, we use [Slack](https://slack.com/) quite heavily for our inter-team communication. In fact, as indicated in the footer of our website, we have a [public Slack](http://slack-registration.foxeared.com/) which anyone can join to converse with us. Slack integrations have formed a large part of our automation/notification strategy in the past to facilitate DevOps (or ChatOps) practices, and will likely do so in the future.
+Here at Ocelot Consulting, we use [Slack](https://slack.com/) quite heavily for our inter-team communication. In fact, we have a [public Slack](http://slack-registration.foxeared.com/) which anyone can join to converse with us. Slack integrations have formed a large part of our automation/notification strategy in the past to facilitate DevOps (or ChatOps) practices, and will likely do so in the future.
 
-For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar purpose. Similar to [Snapchat](https://www.snapchat.com/), sometimes you want to send a message, but not have it live on in perpetuity. Unfortunately one must manually click the `Delete message` button in order to achieve this functionality with normal Slack. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
+For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar, purpose. Similar to [Snapchat](https://www.snapchat.com/), sometimes you want to send a message, but not have it live on in perpetuity. Unfortunately one must manually click the `Delete message` button in order to achieve this functionality with normal Slack. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
 
 ---
 
@@ -60,7 +60,9 @@ Fig. 3 - The slack timeout error
 
 ---
 
-Compounding the problem is that Slack expects an HTTP response (200 is normal, others are acceptable if a true response). The slash command invocation provides a `response_url` to issue other asynchronous responses to, but that is intended for use past the initial response. Whenever returning a response from a Node Lambda, the event processing completes, so providing that snappy response before performing the real logic of the bot will result in erroneous execution.
+Compounding the problem is that Slack expects an HTTP response (a status code of 200 is normal, others are acceptable). The slash command invocation provides a `response_url` to issue other asynchronous responses to, but that is intended for use past the initial response.
+
+Whenever returning a response from a Node Lambda, the event processing completes, so providing that snappy response before performing the real logic of the bot will result in erroneous execution. Likewise, performing something like a `setTimeout` to execute some code after responding from the Lambda wouldn't work either as the Lambda function is terminated by AWS.
 
 After a few minutes of Google-sleuthing I ran across what I would use as the solution to this asynchronous problem -- [*invoking a second Lambda function*](https://github.com/ocelotconsulting/snap-slack-lambda/blob/master/src/aws/lambda/invokeLambda.js#L4). So essentially what the initial Lambda call does now is proxy an invocation to a second Lambda ([with `InvocationType` parameter set to a value of `Event`](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Lambda.html#invoke-property)), and then return the response so that the Slack slash command is satisfied before its 3 second command timeout.
 
@@ -77,4 +79,4 @@ Fig. 4 - The Slack slash command in action.
 ## Wrap-up
 So now our command is working, and messages are being deleted before they can cause any undue harm. Whew!
 
-While this was certainly a whimsical usage of Slack and Lambda to perform some light automation, the two form a pretty powerful DevOps/ChatOps duo, which can be leveraged for a large number of potential usages. Comments/suggestions? Feel free to drop us a line on [twitter](https://twitter.com/ocelot_llc) or in the comments below. Thanks!
+While this was certainly a whimsical usage of Slack and Lambda to perform some light automation, the two form a pretty powerful DevOps/ChatOps duo, which can be leveraged for a large number of potential usages. Comments/suggestions? Feel free to drop us a line on [twitter](https://twitter.com/ocelot_llc) or comment below. Thanks!
