@@ -5,13 +5,13 @@ subtitle:   "leveraging AWS lambda for asynchronous slack activities"
 date:       2016-10-17 10:05:00
 author:     "Larry Anderson"
 header-img: "img/blog/snap-slack.jpg"
-description: "A snapchat style slack bot implemented in AWS Lambda"
+description: "A Snapchat-style slack bot implemented in AWS Lambda"
 ---
 
 ## We Love Slack
 Here at Ocelot Consulting, we use [Slack](https://slack.com/) quite heavily for our inter-team communication. In fact, as indicated in the footer of our website, we have a [public Slack](http://slack-registration.foxeared.com/) which anyone can join to converse with us. Slack integrations have formed a large part of our automation/notification strategy in the past to facilitate DevOps (or ChatOps) practices, and will likely do so in the future.
 
-For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar purpose. Occasionally when messaging between the team and other groups, certain recipients of messages had not been the intended target, or perhaps the content of the message was not appropriate for certain recipients. In these extremely limited situations, it became obvious that Slack's `Delete message` button was an ally. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
+For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar purpose. Similar to [Snapchat](https://www.snapchat.com/), sometimes you want to send a message, but not have it live on in perpetuity. Unfortunately one must manually click the `Delete message` button in order to achieve this functionality with normal Slack. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
 
 ---
 
@@ -55,7 +55,7 @@ Where I ran into a slight snag was when I realized slack wants a response within
 {: .blog-center}
 ![Slack timeout error](/img/blog/2016-10-17-snap-slack/timeout.jpg){:width="75%"}
 
-{: .blog-center}
+{: .blog-center}painstakingly
 Fig. 3 - The slack timeout error
 
 ---
