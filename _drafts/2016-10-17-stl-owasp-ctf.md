@@ -40,7 +40,7 @@ I found the first few flags relatively quickly, and found myself doing rather we
 ---
 
 {: .blog-center}
-![Yours Truly](/img/blog/2016-10-27-stl-owasp-ctf/kali-browser.png){:width="75%"}
+![Yours Truly](/img/blog/2016-10-27-stl-owasp-ctf/yours_truly.jpeg){:width="75%"}
 
 {: .blog-center}
 Fig. 2 - Yours truly @ the 10/20/2016 STL OWASP CTF at T-Rex downtown.
