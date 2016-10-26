@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "GlobalHack VI"
-subtitle:   "caffeine, coding, and contributing for a cause"
+subtitle:   "Caffeine, Coding, and Contributing for a Cause"
 date:       2016-10-17 13:45:00
 author:     "John, Larry, and Tyler"
 header-img: "img/blog/homeless.jpg"
@@ -9,17 +9,15 @@ description: "The Ocelot team's experience participating in GlobalHack 6 (for St
 ---
 
 ## **The Cause**
-As a team we decided to participate in this year's [GlobalHack 6](https://globalhack.org/globalhack-vi/) to help support the cause of fighting homelessness, using the [St. Patrick Center](http://www.stpatrickcenter.org/) in St. Louis as an example for the project's premise. The problem's [project brief](https://drive.google.com/drive/folders/0B2mfdDRureR9Yk8wSk9MX1ZCME0) centered the problem around 4 main areas:
+We participated in this year's [GlobalHack 6](https://globalhack.org/globalhack-vi/) to support the cause of fighting homelessness.  It was a grueling weekend of non-stop design and coding with very little sleep. The challenge presented to us had [project brief](https://drive.google.com/drive/folders/0B2mfdDRureR9Yk8wSk9MX1ZCME0) four areas of focus:
 
-* **Prevention** -- helping to divert the need for homeless assistance by finding ways to help prior to a person becoming homeless
-* **Emergency Shelter** -- helping to quickly get someone into housing assistance
+* **Prevention** -- identifying those at risk of becoming homeless and potential strategies to keep such individuals housed
+* **Emergency Shelter** -- streamlining the process of getting emergency housing for those on the streets
 * **Electronic Referrals/Data Sharing** -- helping a Continuum of Care (CoC) become more integrated and refer people from one service to another
 * **Data visualization** -- helping a CoC to be able to quickly view changes in performance of initiatives and be able to compare with other CoC's nationally
 
-Homelessness is definitely not something which can be solved in a weekend spent writing code, but it was a good cause nonetheless which we were more than happy to be involved with.
-
 ## **The Logistics**
-The team wanted to get the entire experience, so we arrived at noon on Friday so as to survey the playing field. GlobalHack did a good job with setting up the event, which was located in the Chaifetz Center on the campus of Saint Louis University. They had the entire floor of the arena set up with buffet tables from end-to-end. We found a good corner to setup shop in, and prepared ourselves for the weekend "marathon".
+We arrived at noon on Friday and got set up early.  Virtually the entire surface of the floor of Chaifetz arena was covered with tables and power cords:
 
 ---
 
@@ -27,13 +25,13 @@ The team wanted to get the entire experience, so we arrived at noon on Friday so
 ![Chaifetz Arena](/img/blog/2016-10-25-global-hack-6/chaifetz.jpg){:width="75%"}
 
 {: .blog-center}
-Fig. 1 - The setup inside the arena.
+Fig. 1 - After everyone arrived
 
 ---
 
 Around 6pm they began the keynote, which was a series of small speeches by sponsors, the mayor of St. Louis, people from the St. Patrick Center, and the founders of GlobalHack. I believe we received the project brief and dataset(s) around 7:30pm Friday, which officially kicked off the time period for contributing towards our submission.
 
-GlobalHack also provided meals, power, Wi-Fi access, and other amenities to participants. I'd say for the most part they did what they could to make the weekend the best it could be for participants, but it is definitely hard to ever write code for an entire weekend on minimal sleep.
+GlobalHack provided meals, Wi-Fi access, and other amenities to participants. I'd say for the most part they did what they could to make the weekend the best it could be for participants, but it is definitely hard to ever write code for an entire weekend on minimal sleep.
 
 ---
 
@@ -41,14 +39,14 @@ GlobalHack also provided meals, power, Wi-Fi access, and other amenities to part
 ![Mass of Developers](/img/blog/2016-10-25-global-hack-6/dev_mass.jpg){:width="75%"}
 
 {: .blog-center}
-Fig. 2 - A fair amount of participants...
+Fig. 2 - The field
 
 ---
 
-There were around 1200 developers, tons of sponsors, and lots of various activities going on at all hours of the day. The event's slack instance was abuzz with requests for help, images from giphy, and lightheartedness of other participants trying to enjoy the experience.
+There were around 1200 developers, tons of sponsors, and lots of activities going on at all hours of the day. The event's slack instance was abuzz with requests for help, images from giphy, and lightheartedness of other participants trying to enjoy the experience.
 
 ## **Our experience**
-As far as our team, we had 3 of Ocelot Consulting's founders (Chris had a prior commitment for a family vacation) as well as 3 of our biggest fans (Bryan Young, Patrick Byrne, and Derek Tandy). None of us had ever participated in a hackathon, so it was going to be new for everyone.
+As far as our team, we had 3 of Ocelot Consulting's founders (Chris had a prior commitment for a family vacation) as well as 3 of our former coworkers (Bryan Young, Patrick Byrne, and Derek Tandy). None of us had ever participated in a hackathon, but we all felt ready for the challenge.
 
 ---
 
@@ -130,4 +128,4 @@ We might have focused more on just making something that looked good if we felt 
 
 * [Submission for GlobalHack 6](https://devpost.com/software/ocelot-consulting-s-global-hack-6-project)
 * [Github Repository](https://github.com/ocelotconsulting/global-hack-6/tree/1.0)
-* [Hosting location (most likely no longer live when you're reading this)](https://gh6.ocelotconsulting.com/)
+* [Our Application](https://gh6.ocelotconsulting.com/)
