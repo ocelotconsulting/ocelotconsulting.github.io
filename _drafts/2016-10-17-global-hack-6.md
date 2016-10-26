@@ -117,10 +117,29 @@ We were pleased that what we made was completely functional from end-to-end. We 
 ---
 
 {: .blog-center}
-![Judges Presentation](/img/blog/2016-10-25-global-hack-6/judges_presentation.jpg){:width="75%"}
+<div class='globalhack-screenshots'>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/home.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/home.png">
+    </a>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/main_menu.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/main_menu.png">
+    </a>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/find_beds.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/find_beds.png">
+    </a>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/register.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/register.png">
+    </a>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/client_history.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/client_history.png">
+    </a>
+    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/shelter.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/shelter.png">
+    </a>
+</div>
 
 {: .blog-center}
-Fig. 7 - Tyler and Larry presenting the final submission to some judges
+Screenshots
 
 ---
 
@@ -129,3 +148,4 @@ We might have focused more on just making something that looked good if we felt 
 * [Submission for GlobalHack 6](https://devpost.com/software/ocelot-consulting-s-global-hack-6-project)
 * [Github Repository](https://github.com/ocelotconsulting/global-hack-6/tree/1.0)
 * [Our Application](https://gh6.ocelotconsulting.com/)
+
