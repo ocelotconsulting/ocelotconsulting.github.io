@@ -75,7 +75,7 @@ It was very grueling, with the injections of caffeine and snacks in our stomachs
 ---
 
 {: .blog-center}
-![Cookies](/img/blog/2016-10-27-global-hack-6/cookies.jpg){:width="75%"}
+![Cookies](/img/blog/2016-10-27-global-hack-6/cookies.jpg){:width="50%"}
 
 {: .blog-center}
 Fig. 5 - Some branded cookies courtesy of Tyler's wife
