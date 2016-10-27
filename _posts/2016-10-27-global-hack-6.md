@@ -2,14 +2,14 @@
 layout:     post
 title:      "GlobalHack VI"
 subtitle:   "Caffeine, Coding, and Contributing for a Cause"
-date:       2016-10-17 13:45:00
+date:       2016-10-27 08:00:00
 author:     "John, Larry, and Tyler"
 header-img: "img/blog/homeless.jpg"
 description: "The Ocelot team's experience participating in GlobalHack 6 (for St. Patrick's Center in St. Louis)"
 ---
 
 ## **The Cause**
-We participated in this year's [GlobalHack 6](https://globalhack.org/globalhack-vi/) to support the cause of fighting homelessness.  It was a grueling weekend of non-stop design and coding with very little sleep. The challenge presented to us had [project brief](https://drive.google.com/drive/folders/0B2mfdDRureR9Yk8wSk9MX1ZCME0) four areas of focus:
+We participated in this year's [GlobalHack 6](https://globalhack.org/globalhack-vi/) to support the cause of fighting homelessness.  It was a grueling weekend of non-stop design and coding with very little sleep. The challenge presented to us had a [project brief](https://drive.google.com/drive/folders/0B2mfdDRureR9Yk8wSk9MX1ZCME0) with four areas of focus:
 
 * **Prevention** -- identifying those at risk of becoming homeless and potential strategies to keep such individuals housed
 * **Emergency Shelter** -- streamlining the process of getting emergency housing for those on the streets
@@ -22,7 +22,7 @@ We arrived at noon on Friday and got set up early.  Virtually the entire surface
 ---
 
 {: .blog-center}
-![Chaifetz Arena](/img/blog/2016-10-25-global-hack-6/chaifetz.jpg){:width="75%"}
+![Chaifetz Arena](/img/blog/2016-10-27-global-hack-6/chaifetz.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 1 - After everyone arrived
@@ -36,7 +36,7 @@ GlobalHack provided meals, Wi-Fi access, and other amenities to participants. I'
 ---
 
 {: .blog-center}
-![Mass of Developers](/img/blog/2016-10-25-global-hack-6/dev_mass.jpg){:width="75%"}
+![Mass of Developers](/img/blog/2016-10-27-global-hack-6/dev_mass.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 2 - The field
@@ -51,7 +51,7 @@ As far as our team, we had 3 of Ocelot Consulting's founders (Chris had a prior 
 ---
 
 {: .blog-center}
-![Our team](/img/blog/2016-10-25-global-hack-6/team.jpg){:width="75%"}
+![Our team](/img/blog/2016-10-27-global-hack-6/team.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 3 - The team
@@ -63,7 +63,7 @@ The weekend itself proved very tiring. Most of us were there from around noon on
 ---
 
 {: .blog-center}
-![Ocelots](/img/blog/2016-10-25-global-hack-6/ocelot.jpg){:width="75%"}
+![Ocelots](/img/blog/2016-10-27-global-hack-6/ocelot.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 4 - We each had a personal stuffed mascot (an ocelot)
@@ -75,7 +75,7 @@ It was very grueling, with the injections of caffeine and snacks in our stomachs
 ---
 
 {: .blog-center}
-![Cookies](/img/blog/2016-10-25-global-hack-6/cookies.jpg){:width="75%"}
+![Cookies](/img/blog/2016-10-27-global-hack-6/cookies.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 5 - Some branded cookies courtesy of Tyler's wife
@@ -90,7 +90,7 @@ We spent the first hour dissecting the problem and what would be our approach. W
 ---
 
 {: .blog-center}
-![Ocelot Whiteboard](/img/blog/2016-10-25-global-hack-6/whiteboard.jpg){:width="75%"}
+![Ocelot Whiteboard](/img/blog/2016-10-27-global-hack-6/whiteboard.jpg){:width="75%"}
 
 {: .blog-center}
 Fig. 6 - The Ocelot whiteboard, pre-planning
@@ -118,23 +118,23 @@ We were pleased that what we made was completely functional from end-to-end. We 
 
 {: .blog-center}
 <div class='globalhack-screenshots'>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/home.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/home.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/home.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/home.png">
     </a>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/main_menu.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/main_menu.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/main_menu.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/main_menu.png">
     </a>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/find_beds.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/find_beds.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/find_beds.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/find_beds.png">
     </a>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/register.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/register.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/register.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/register.png">
     </a>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/client_history.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/client_history.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/client_history.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/client_history.png">
     </a>
-    <a href="/img/blog/2016-10-25-global-hack-6/screenshots/shelter.png" data-lightbox="screenshots" data-title="Main Menu">
-    <img src="/img/blog/2016-10-25-global-hack-6/screenshots/shelter.png">
+    <a href="/img/blog/2016-10-27-global-hack-6/screenshots/shelter.png" data-lightbox="screenshots" data-title="Main Menu">
+    <img src="/img/blog/2016-10-27-global-hack-6/screenshots/shelter.png">
     </a>
 </div>
 
@@ -143,9 +143,12 @@ Screenshots
 
 ---
 
-We might have focused more on just making something that looked good if we felt that St. Patrick Center and similar organizations would benefit most from that, but we find value in function and meeting a need, not in smoke and mirrors. Had we to do the competition over again, we might have included more placeholders or templates faking out parts of non-implemented functionality, or perhaps polished the user interface and presentation to please the judges more. Normally in iterative software development the goal of having working software wins out initially, and client needs get met going forward whether that be polishing a UI or extended functionality. We have no doubt in our user interface and presentation skills, but we chose certain priorities for this competition and are pleased with the results.
+We might have focused more on just making something that looked good if we felt that St. Patrick Center and similar organizations would benefit most from that, but we find value in function and meeting a need, not in smoke and mirrors. Had we to do the competition over again, we might have included more placeholders or templates faking out parts of non-implemented functionality, or perhaps polished the user interface and presentation to please the judges more.
+
+Normally in iterative software development the goal of having working software wins out initially, and client needs get met going forward whether that be polishing a UI or extended functionality. We have no doubt in our user interface and presentation skills, but we chose certain priorities for this competition and are pleased with the results.
+
+If you would like to view our work, check out the links below, and feel free to drop us a line via twitter or comment.
 
 * [Submission for GlobalHack 6](https://devpost.com/software/ocelot-consulting-s-global-hack-6-project)
 * [Github Repository](https://github.com/ocelotconsulting/global-hack-6/tree/1.0)
 * [Our Application](https://gh6.ocelotconsulting.com/)
-
