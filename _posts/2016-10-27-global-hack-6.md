@@ -66,7 +66,7 @@ The weekend itself proved very tiring. Most of us were there from around noon on
 ![Ocelots](/img/blog/2016-10-27-global-hack-6/ocelot.jpg){:width="75%"}
 
 {: .blog-center}
-Fig. 4 - We each had a personal stuffed mascot (an ocelot)
+Fig. 4 - Our team mascot was there for support
 
 ---
 
