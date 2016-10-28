@@ -375,4 +375,5 @@ div.whats-new .link {
 .globalhack-screenshots img {
     width: 25%;
     height: 25%;
+    margin: 5px;
 }
