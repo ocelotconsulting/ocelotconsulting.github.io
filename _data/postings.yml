@@ -1,0 +1,26 @@
+- date: 01-17-2017
+  title: Full Stack Developer
+  subtitle: "Senior software engineer"
+  general_experience: eight years professional experience in software development
+  specific_experience: and a minimum of four years of web UI development experience
+  skills:
+  - skill: Experience with a modern web UI framework such as React.js (preferred) or Angular.js.
+  - skill: Web develpment experience using Node.js.
+  - skill: "Server-side development experience in at least one of:"
+    tech:
+      - Node.js
+      - Scala
+      - Java/J2EE
+  - skill: "Experience with both non-relational and relational databases:"
+    tech:
+      - Oracle
+      - MongoDB
+      - CouchDB
+  - skill: "Automation/DevOps experience:"
+    tech:
+      - test-driven-development
+      - CI/CD
+      - cloud deployment
+      - Docker or PAAS (Heroku, CloudFoundry)
+  personal:   A passion for software excellence and a desire to be a part of a growing software development startup.
+  response_method:  Please submit your resume and introductory email to careers@ocelotconsulting.com.
