@@ -11,16 +11,16 @@
       - Node.js
       - Scala
       - Java/J2EE
-  - skill: "Experience with both non-relational and relational databases:"
+  - skill: "Experience with both non-relational and relational databases (e.g.):"
     tech:
       - Oracle
       - MongoDB
       - CouchDB
-  - skill: "Automation/DevOps experience:"
+  - skill: "Automation/DevOps experience (e.g.):"
     tech:
-      - test-driven-development
+      - Test-Driven-Development
       - CI/CD
-      - cloud deployment
+      - Cloud Deployment
       - Docker or PAAS (Heroku, CloudFoundry)
-  personal:   A passion for software excellence and a desire to be a part of a growing software development startup.
+  personal:  A passion for software excellence and a desire to be a part of a growing software development startup.
   response_method:  Please submit your resume and introductory email to <a href="mailto:careers@ocelotconsulting.com?Subject=Full%20%Stack%20Developer%20Opening" target="_top">careers@ocelotconsulting.com</a>.

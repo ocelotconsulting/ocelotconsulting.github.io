@@ -6,11 +6,11 @@
         {% for posting in site.data.postings %}
         <div class="post-preview">
           <h2 class="post-title">
-            <u>{{ posting.title }}</u>
+            {{ posting.title }}
           </h2>
-          <h3 class="post-subtitle">
+          <h4 class="post-subtitle">
               {{ posting.subtitle }} with a minimum of {{ posting.general_experience }} {% if posting.specific_experience %}{{ posting.specific_experience }}{% endif %}.
-          </h3>
+          </h4>
           <hr>
           <h4>Desired skills include:</h4>
           <ul>
