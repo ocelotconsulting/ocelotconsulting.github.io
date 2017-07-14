@@ -85,3 +85,19 @@ people:
       url: https://www.linkedin.com/in/chris-coffman
     - title: github
       url: https://github.com/theodorick
+
+- name: Patrick Byrne
+  pic: patrick
+  position: Partner
+  social:
+    - title: linkedin
+      url: https://www.linkedin.com/in/patrickmbyrne/
+    - title: github
+      url: https://github.com/PMByrne
+
+- name: Derek Tandy
+  pic: derek
+  position: Partner
+  social:
+    - title: github
+      url: https://github.com/DerekTandy
