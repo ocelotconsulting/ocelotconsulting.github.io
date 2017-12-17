@@ -73,9 +73,9 @@ aws cloudformation deploy \
 
 lambda_arn=$(aws cloudformation describe-stacks --stack-name hello-api --output json | jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "ARN") | .OutputValue')
 
-test_url=$(aws cloudformation describe-stacks --stack-name hello-api --output json | jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "V2InvokeURL") | .OutputValue')
+test_url=$(aws cloudformation describe-stacks --stack-name hello-api --output json | jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "TestInvokeURL") | .OutputValue')
 
-prod_url=$(aws cloudformation describe-stacks --stack-name hello-api --output json | jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "V1InvokeURL") | .OutputValue')
+prod_url=$(aws cloudformation describe-stacks --stack-name hello-api --output json | jq -r '.Stacks[0].Outputs[] | select(.OutputKey == "ProdInvokeURL") | .OutputValue')
 ```
 
 
