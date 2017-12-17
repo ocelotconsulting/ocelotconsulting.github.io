@@ -5,7 +5,7 @@ subtitle:   "Simple Deployment via CloudFormation"
 date:       2017-12-18 09:45:00
 author:     "Larry Anderson"
 header-img: "img/blog/gateway-lambda.png"
-description: "Deploying a simple lambda with a API Gateway integration including a custom authorizer and custom domain name."
+description: "Deploying a simple lambda with an API Gateway integration including custom authorizer and domain name."
 ---
 
 ## Lambda
@@ -48,7 +48,7 @@ Fig. 2 - Authorizer created by combo of the Cloudformation used below and an exi
 All that is necessary to run the CI/CD automation for this project is the ability to run AWS CLI commands. The detailed process is to:
 
   1. Deploy an initial version of the lambda
-  2. Create 2 aliases for the lambda (in this case we use `TEST` and `PROD`, however some clients have data locality concerns and prefer separate accounts, in which case switching to a generc `V1` and `V2` might be a better option). [Stage variables](https://aws.amazon.com/blogs/compute/using-api-gateway-stage-variables-to-manage-lambda-functions/) were used as a way to combine Lambda versioning with API Gateway Stages.
+  2. Create 2 aliases for the lambda (in this case we use `TEST` and `PROD`, however some clients have data locality concerns and prefer separate accounts, in which case switching to a generic `V1` and `V2` might be a better option). [Stage variables](https://aws.amazon.com/blogs/compute/using-api-gateway-stage-variables-to-manage-lambda-functions/) were used as a way to combine Lambda versioning with API Gateway Stages.
   3. Initially `TEST` and `PROD` both point to the same alias, but with each `TEST` or `V2` (`V3`, `V4`, etc) release of new functionality, it would diverge.
   4. Create a model of the request/response for the deployment.
   5. Establish the authorizer
