@@ -183,6 +183,6 @@ The contents of the `swagger.json` file would look something like the following:
 ```
 
 ## Summary
-The above integration work combines the needs that an organization would have around deploying multiple API endpoints for a given project, and fitting a cloud-native solution for Functions As A Service (FaaS) into a larger CI/CD framework.
+The above integration work combines the needs that an organization would have around deploying multiple API endpoints for a given project, and fitting a cloud-native solution for Functions As A Service (FaaS) into a larger CI/CD framework. CloudFormation and API Documentation (swagger) offer convenient ways of expressing API's so that all parties are clear on requirements as well as infrastructure needs. Lambdas are a powerful tool with their ability to serve as stand-alone ephemeral functionality. 
 
-In addition to the CI/CD work necessary to deploy Lambda's via the gateway, things like access to logging and accurate eventing/monitoring are still needed to come full circle in serverless infrastructure.
+In addition to the CI/CD work necessary to deploy Lambda's via the Gateway, things like access to logging and accurate eventing/monitoring are still needed to come full circle in serverless infrastructure. Perhaps that's a blog topic for another day!
