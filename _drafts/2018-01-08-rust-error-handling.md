@@ -1,10 +1,11 @@
 ---
 layout:     post
-title:      "Rust Error Handling"
-date:       2018-01-06 09:45:00
+title:      "Rebooting Error Handling"
+subtitle:   "Using the Rust programming language"
+date:       2018-01-08 10:00:00
 author:     "John O'Malley"
 header-img: "img/blog/code.jpg"
-description: "error handling in the Rust programming language"
+description: "Error handling in the Rust programming language"
 ---
 
 Software engineering is a constant learning experience, but sometimes we get stuck in a rut solving the same sort of 
