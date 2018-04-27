@@ -6,30 +6,8 @@
         {% for posting in site.data.postings %}
         <div class="post-preview">
           <h2 class="post-title">
-            {{ posting.title }}
+            <a href={{ posting.url }}>{{ posting.title }}</a>
           </h2>
-          <h4 class="post-subtitle">
-              {{ posting.subtitle }} with a minimum of {{ posting.general_experience }} {% if posting.specific_experience %}{{ posting.specific_experience }}{% endif %}.
-          </h4>
-          <hr>
-          <h4>Desired skills include:</h4>
-          <ul>
-          {% for skill in posting.skills %}
-          <li>{{ skill.skill }}
-            {% if skill.tech %}
-              <ul>{% for tech in skill.tech %}
-                <li>{{ tech }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          </li>
-          {% endfor %}
-        </ul>
-        <p><b><u>Must have:</u></b><i>&nbsp;&nbsp;{{ posting.personal }}</i></p>
-        <p>{{ posting.response_method }}</p>
-          <p class="post-meta">Posted by {% if posting.posted_by %}{{ posting.posted_by }}{% else %}{{ site.title }}{% endif %} on {{ posting.date | date: "%B %-d, %Y" }}</p>
-        </div>
-        <hr>
         {% endfor %}
       </div>
     </div>
