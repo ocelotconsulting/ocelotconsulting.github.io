@@ -32,3 +32,6 @@ As a CloudOps engineer you will build and automate highly available, elastic, an
 
 # Perks
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
+
+# Contact
+Interested candidates please submit resumes to: [careers@ocelotconsulting.com](mailto:careers@ocelotconsulting.com).

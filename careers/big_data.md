@@ -31,3 +31,6 @@ Experience with modern JavaScript
 
 # Perks
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
+
+# Contact
+Interested candidates please submit resumes to: [careers@ocelotconsulting.com](mailto:careers@ocelotconsulting.com).
