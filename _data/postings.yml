@@ -7,7 +7,7 @@
   title: Big Data Engineer
   url: "big_data"
   indeed: https://www.indeed.com/job/big-data-engineer-b32c98372dde463b
-  description: For developers who are comfortable processing terabytes of data.  You know your TensorFlow from your Spark.
+  description: For developers who are comfortable processing terabytes of data.  You know your Kafka from your Spark.
 - date: 05-19-2018
   title: CloudOps Engineer
   url: "cloudops"
