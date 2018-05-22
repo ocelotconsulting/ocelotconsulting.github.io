@@ -1,15 +1,31 @@
 {% include home.html %}
-<section id="blog-preview">
+<section id="careers">
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        {% for posting in site.data.postings %}
-        <div class="post-preview">
-          <h2 class="post-title">
-            <a href={{ posting.url }}>{{ posting.title }}</a>
-          </h2>
-        {% endfor %}
+      {% for posting in site.data.postings %}
+      <div class="col-sm-12 col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4>
+              <a href={{ posting.url }}>{{ posting.title }}</a>
+            </h4>
+          </div>
+          <div class="panel-body">
+            {{ posting.description }}
+          </div>
+          <div class="panel-footer">
+            <a href={{ posting.url }}>
+              <button type="button" class="btn btn-default">Details</button>
+            </a>
+            <a href={{ posting.indeed }} class="pull-right">
+              <button type="button" class="btn btn-primary" target="_indeed">
+                Apply
+                <i class="fa fa-external-link" aria-hidden="true"></i>
+              </button>
+            </a>
+          </div>
+        </div>
       </div>
-    </div>
+      {% endfor %}
   </div>
 </section>

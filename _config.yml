@@ -23,6 +23,8 @@ markdown: kramdown
 gems: [jekyll-paginate, jekyll-feed, jekyll-seo-tag, jekyll-sitemap]
 paginate: 5
 paginate_path: "/blog/page:num/"
+sass:
+  style: compact # possible values: nested expanded compact compressed
 
 # ----------------------- #
 #   3rd Party Settings    #
