@@ -44,6 +44,21 @@ social:
   - title: slack
     url: http://slack-registration.foxeared.com
 
+#
+picrows:
+  - pics:
+    - name: Kara.jpg
+    - name: ocelot1.jpg
+    - name: logo.jpg
+  - pics:
+    - name: ping-pong.jpg
+    - name: ocelot2.jpg
+    - name: Bilal.jpg
+  - pics:
+    - name: Marquis.jpg
+    - name: ocelot3.jpg
+    - name: all-hands.jpg
+
 # Team names, titles and social links
 people:
 - name: Tyler Robert
