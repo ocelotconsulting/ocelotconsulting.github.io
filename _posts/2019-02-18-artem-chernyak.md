@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      "Check out Artem's Blog"
-date:       2018-02-18 15:05:00
+date:       2019-02-18 15:05:00
 author:     "John O'Malley"
 description: "Artem Chernyak's personal blog"
 header-img: "img/blog/code.jpg"
