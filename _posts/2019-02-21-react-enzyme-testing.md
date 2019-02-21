@@ -1,18 +1,16 @@
 ---
 layout:     post
-title:      "Enzyme and React"
-subtitle:   "Finding the right balance in front-end unit testing"
-date:       2019-02-20 14:00:00
+title:      "Unit testing with React and Enzyme"
+date:       2019-02-21 09:00:00
 author:     "John O'Malley"
 header-img: "img/blog/code.jpg"
-description: "Using enzyme"
 ---
 
 One of the benefits of [React](https://reactjs.org/) is that rendering logic is completely independent of the DOM.
 This feature provides a number of advantages - server-side rendering, for instance - but perhaps the greatest is that 
 unit testing using Node is made much easier.
 
-An application developed using Angular 1 + jQuery, for example, pretty much required that a DOM implementation exist
+Applications developed using Angular 1 + jQuery, for example, pretty much required that a DOM implementation exist
 in the global namespace. This was relatively easy to do with [jsdom](https://github.com/jsdom/jsdom) but required 
 management of global state, which could be painful at times. Also, loading a full DOM implementation added significant
 overhead.
@@ -49,29 +47,36 @@ with unit testing.
 
 I frequently find bugs during unit testing that never make it into the repository. When I refactor older code that 
 seems structured strangely I often am reminded of why it was designed that way the unit tests. Unit tests give us a  
-window into what the developer was thinking when he or she wrote the code - and that insight is invaluable.  
+window into what the developer was thinking when he or she wrote the code - and that insight is invaluable.
+
+Functional testing via selenium or some other tool is often slow and brittle and can be painful to maintain.  It's best
+to limit such testing to the critical paths in my experience.  By contrast unit tests are fast when implemented 
+correctly and can be run continuously during development.
 
 Our UI components will need to be refactored like any other source file and therefore need unit tests. The challenge
-is to write unit tests that are free (or nearly free) of tedious boilerplate and are easy to read.
+is to write unit tests that are fast, free (or nearly free) of tedious boilerplate, and easy to read.
 
 ## What about TDD?
 
-I've been carefully stressing that we're talking about unit testing; that is, having one's code mostly covered by unit 
-tests. Test-driven-development is another matter. In my experience TDD is an awkward fit for web UIs;  so much of UI
-development is experimentation - spikes and the like. An orthodox TDD approach would, in my experience, just result in
-too much throwaway test code to be time-efficient.  
+If you've ever learned test-driven-development you might wonder how effective it is for developing web UIs.  Based on
+my experience, it's only occasionally useful.  It's a good idea, for example, to write a failing unit test that 
+reproduces a known bug before you fix it.  Or if you've got a certain implementation in mind before you start coding
+and you're reasonably confident it's the right way to go then TDD is a good approach. 
+
+But mostly TDD is an awkward fit for web UIs. So much of UI development is experimentation - spikes and the like. An 
+orthodox TDD approach would, in my experience, just result in too much throwaway test code to be time-efficient.  
 
 More generally (and subjectively), there's an argument to be made that understanding a test-first/test-driven philosophy
-is far more valuable than actually practicing TDD. A key advantage of test-first is that ones tests are self-verifying
-- that is, because they start in a broken state and can only be fixed by writing the corresponding implementation you 
-essentially test your test code at the same time.  
+is far more valuable than actually practicing TDD. A key advantage of test-first is that your tests are 
+self-verifying - that is, because they start in a broken state and can only be fixed by writing the corresponding 
+implementation you essentially test your test code at the same time.  
 
 I would assert that it's worthwhile to go through the exercise to intuitively grasp the concept of test-first but less
 important to be orthodox when writing your code. By being careful and specific in one's assertions and breaking tests
-here and there as a sanity check it's possible to realized the benefits of test-first without being blocked by the 
+here and there as a sanity check it's possible to realized the benefits of test-first without being encumbered by the 
 process.
 
-## Keeping your unit tests fast and maintainable
+## Keeping your unit tests maintainable and readable
 
 To realize the value of UI unit testing, a little discipline is needed. Perhaps the most important concept is 
 good old [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). I personally think there's too much copy/paste 
@@ -252,7 +257,7 @@ fine-grained testing of every individual attribute, but we might still want to m
 even after minor changes.  
 
 Jest [snapshots](https://jestjs.io/docs/en/snapshot-testing) fit this role perfectly. For example, in the 
-`binds to fields` test above suppose we decide to add the class `input-field` to each input element. The test will
+`'binds to fields'` test above suppose we decide to add the class `input-field` to each input element. The test will
 start to fail and we have to write some code to maintain it, even if `input-field` is a purely cosmetic change that
 we don't feel provides any value in testing.
 
@@ -273,7 +278,7 @@ it('binds to fields', () => {
 })
 ```
 
-Then add a snapshot test for the InputForm component.   
+Then add a snapshot test for the InputForm component:  
 
 ``` javascript
 it('matches snapshot', () => {
@@ -287,7 +292,7 @@ and pushed on initial creation and each time it changes. Thanks to the
 [enzyme-to-json](https://github.com/adriantoine/enzyme-to-json) library we can also see the history of the structure
 of the component in a readable form. 
 
-## Wrap up - striking a balance
+## Wrapping up - striking a balance
 
 Testing every detail of the markup we generate is tedious and of dubious value.  Testing logic is not.  By keeping our
 tests free from noise and duplication and judicious use of snapshot testing, we can have the best of both worlds.
