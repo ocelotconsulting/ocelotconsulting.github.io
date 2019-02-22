@@ -2,14 +2,14 @@
   title: Full Stack Developer
   url: "full_stack"
   description: For developers who are comfortable building an app from UI to API, and Database to Cloud provisioning.
-  indeed: https://www.indeed.com/job/full-stack-developer-6013a9b6c4315aea
+  indeed: https://www.indeed.com/job/full-stack-developer-b9cabef406d8fab4
 - date: 04-27-2018
   title: Big Data Engineer
   url: "big_data"
-  indeed: https://www.indeed.com/job/big-data-engineer-78cddf6db6d769d1
+  indeed: https://www.indeed.com/job/big-data-engineer-da955477be15034c
   description: For developers who are comfortable processing terabytes of data.  You know your Kafka from your Spark.
 - date: 05-19-2018
   title: CloudOps Engineer
   url: "cloudops"
   description: For developers who are comfortable enabling and expanding Cloud adoption and proficiency via automation and best practices.
-  indeed: https://www.indeed.com/job/cloudops-d127d6bdeb806eda
+  indeed: https://www.indeed.com/job/cloudops-f5054377602ab8b9
