@@ -25,6 +25,10 @@ layout: blog
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
                 {{ content }}
+                {% if page.cross-post-link and page.cross-post-text %}
+                  <hr>
+                  <p class="light-text">Originally posted on: <a href="{{ page.cross-post-link }}" title="{{ page.cross-post-text }}">{{ page.cross-post-text }}</a></p>
+                {% endif %}
                 <ul class="pager">
                     {% if page.previous.url %}
                     <li class="previous">
