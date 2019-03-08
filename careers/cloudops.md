@@ -14,7 +14,7 @@ As a CloudOps engineer you will build and automate highly available, elastic, an
 
 ## Requirements
 
-* Proficiency in one or more common common infrastructure automation languages (Shell Scripting, Python, Golang, etc)
+* Proficiency in one or more common infrastructure automation languages (Shell Scripting, Python, Golang, etc)
 * Deploying and maintaining infrastructure on a major cloud provider (AWS, GCP, Azure)
 * Experience using common infrastructure as code tool-sets (CloudFormation, TerraForm, Cloud Deployment Manager)
 * Working with common CI/CD and version control technologies (Jenkins, Git, etc)
