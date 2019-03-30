@@ -6,12 +6,17 @@
                 <h2 class="section-heading">Ocelots in the Wild</h2>
             </div>
         </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <img src="img/team/team-photo-2019-03-07.jpg" class="img-responsive team-pic" alt="">
+            </div>
+        </div>
         {% for row in site.picrows %}
         <div class="row">
             {% for pic in row.pics %}
             <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="team-member">
-                    <img src="img/team/{{pic.name}}" class="img-responsive team-pic" alt="">
+                    <img src="img/team/{{pic.name}}" class="img-responsive" alt="">
                 </div>
             </div>
             {% endfor %}
