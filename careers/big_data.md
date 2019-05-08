@@ -10,24 +10,23 @@ Ocelot Consulting was born out of an idea that autonomy and mastery are worthy g
 We aim to give our Ocelot family challenging and rewarding work, competitive compensation and the opportunity to make their role into everything they want it to become. The establishment of a collaborative community of experts is the goal we aim to integrate all new team members into.
 
 # The Role
-As a big data engineer you will develop innovative software using state of the art big data streaming architectures.
+As a Big Data Engineer, you will develop innovative software using distributed data processing frameworks and techniques.  Ocelot Big Data Engineers define and build data pipelines that enable our clients to make faster, better, data-informed business decision.  You will work in a team environment with software engineers, analysts, and data scientists with the opportunity to mentor colleagues on your team and across other engineering teams.
 
 ## Requirements
 
-* Extensive experience setting up and doing development for a distributed platform, such as HBASE, Hadoop/Spark, AWS EMR, Cassandra
-* Extensive ETL experience
-* General Purpose Programming languages (Java, C, Scala, Python, Erlang, etc.)
-* Database Technology - (Postgres, Mongo, Cassandra, Elastic Search, Oracle, etc.) as well as SQL and related query languages
+* Hands-on experience implementing, debugging, identifying performance bottlenecks and fine-tuning batch and real-time Big Data integration frameworks in private or public cloud, preferably AWS, using various technologies (Hadoop, Spark, Kafka, AWS EMR, etc.)
+* Experience applying principles, best practices, and trade-offs of schema design to various types of database systems: relational (Oracle, Postgres, MySQL, etc.), NoSQL (HBase, DynamoDB, MongoDB, etc.) and in-memory (ElastiCache) with understanding and proficiency in data manipulation techniques
+* Experience designing optimal ETL infrastructures from a variety of data sources
+* Experience in one or more general purpose programming languages (Java, Scala, Python, etc.)
+
 
 ## Nice to have
-* Data lakes
-* Experience with cloud big data technology (AWS Data Pipeline, GCP DataFlow, Azure HDInsight)
-* Experience with Business Intelligence Platforms
-Experience with modern JavaScript
-* API Development (proper microservice separation, HTTP verb usage)
-* DevOps – understanding of OS and Container Management
-  * Distributed microservice architectures providing elasticity, redundancy, failover, and intelligent routing.
-  * Docker/Kubernetes/Cloud Foundry experience
+* Experience implementing a data lake architecture
+* Experience with cloud-based data workflow orchestration services (AWS Data Pipeline, GCP DataFlow, Azure HDInsight)
+* Experience with Business Intelligence platforms 
+* Knowledge of API development (proper microservice separation, HTTP verb usage) and distributed microservice architectures providing elasticity, redundancy, failover, and intelligent routing
+* Familiarity with DevOps practices, specifically understanding of OS and container management (Docker, Kubernetes, Cloud Foundry)
+
 
 # Perks
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
