@@ -10,25 +10,25 @@ Ocelot Consulting was born out of an idea that autonomy and mastery are worthy g
 We aim to give our Ocelot family challenging and rewarding work, competitive compensation and the opportunity to make their role into everything they want it to become. The establishment of a collaborative community of experts is the goal we aim to integrate all new team members into.
 
 # The Role
-As a CloudOps engineer you will build and automate highly available, elastic, and secure cloud-based infrastructure to support the needs of our client workloads.
+As a cloud engineer, you will build and automate highly available, elastic, and secure cloud-based infrastructure to support the needs of our client workloads. You will have the opportunity to work in a wide variety of areas including infrastructure automation, security, configuration management, continuous integration, continuous deployment as well as mentoring colleagues on your team and across other engineering teams.
 
 ## Requirements
 
-* Proficiency in one or more common infrastructure automation languages (Shell Scripting, Python, Golang, etc)
-* Deploying and maintaining infrastructure on a major cloud provider (AWS, GCP, Azure)
-* Experience using common infrastructure as code tool-sets (CloudFormation, TerraForm, Cloud Deployment Manager)
-* Working with common CI/CD and version control technologies (Jenkins, Git, etc)
-* Creating and running Docker containers
+* Experience deploying and maintaining infrastructure on a major cloud provider (AWS, GCP, Azure)
+* Experience using common infrastructure as code tool-sets (AWS CloudFormation, Terraform, Cloud Deployment Manager)
+* Working with common CI/CD and version control technologies (Jenkins, Git, etc.)
+* Creating, configuring, and running containers (Docker, Kubernetes, etc.)
+* Proficiency in one or more common infrastructure automation languages (Shell Scripting, Python, Golang, etc.)
 * Basic Linux OS setup and configuration
 
 ## Nice to have
 
 * Serverless technologies (Lambda, Google Functions, Azure Functions)
-* Experience working in an Agile team oriented environment
-* General Purpose Programming languages (Java, C, Scala, Python, Erlang, etc.)
-* Docker Swarm/Kubernetes/Cloud Foundry experience
+* Experience working in an Agile team-oriented environment
+* General-purpose programming languages (Java, Scala, Python, Erlang, etc.)
+* Docker Swarm / Kubernetes /Cloud Foundry experience
 * Networking and Firewall concepts and troubleshooting
-* Experience with common configuration management software (Ansible, Puppet, AWS SSM, etc)
+* Experience with common configuration management software (Ansible, Puppet, AWS SSM, etc.)
 
 # Perks
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
