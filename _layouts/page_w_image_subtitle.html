@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+{% include header.html %}
+
+<body>
+  {% include nav.html %}
+  <div class='nav-spacer page-contents'>
+    <div id="highlights">
+      <section class="section grey-gradiant">
+        {% if page.background %}
+        <div class="background {{ page.background }}">
+          <div class="dot-background"></div>
+        </div>
+        {% else %}
+        <div class="background">
+          <div class="dot-background"></div>
+        </div>
+        {% endif %}
+        <div class="container">
+          <div class="content">
+            <div class="columns welcome-text is-hidden-mobile">
+              <div class="column is-5">
+                <ul class="is-size-1 welcome-text__small-margin">
+                  <li> {{ page.title }}</li>
+                </ul>
+              </div>
+              <div class="column" style="margin-top: {{ page.topMargin }}">
+                <img src="{{ page.image }}" width="{{ page.imageWidth }}" height="{{ page.imageHeight }}" />
+              </div>
+            </div>
+            <div class="columns welcome-text is-hidden-tablet">
+              <div class="column is-5">
+                <ul style="padding-left: 2rem;" class="is-size-1 has-text-left is-capitalized">
+                  <li> {{ page.title }}</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          {{ content }}
+      </section>
+    </div>
+  </div>
+  {% include contact-us.html %}
+</body>
+
+</html>

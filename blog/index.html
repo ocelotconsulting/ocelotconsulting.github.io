@@ -1,47 +1,61 @@
 ---
-layout: blog
-title: Ocelot Consulting
-subTitle: Blog
+layout: page_w_header
+title:  "Blog"
+subtitle: "Ocelot has opportunities for developers of all skill levels utilizing many different skills and technologies"
+background: mediumBackground
 ---
 
-{% include home.html %}
-<section id="blog-preview">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-        {% for post in paginator.posts %}
-        <div class="post-preview">
-            <a href="{{ post.url | prepend: site.baseurl }}">
-                <h2 class="post-title">
-                  {{ post.title }}
-                </h2>
-                {% if post.subtitle %}
-                <h3 class="post-subtitle">
-                    {{ post.subtitle }}
-                </h3>
-                {% endif %}
-            </a>
-            <p class="post-meta">Posted by {% if post.author %}{{ post.author }}{% else %}{{ site.title }}{% endif %} on {{ post.date | date: "%B %-d, %Y" }}</p>
-        </div>
-        <hr>
-        {% endfor %}
+{% assign rows = site.posts.size | divided_by: 3.0 | ceil %}
+{% for i in (0..rows) %}
+<div class="columns">
+{% assign offset = i | times: 3.0 %}
+{% assign limit = offset | minus: 3 %}
+{% if forloop.first %}
+{% for post in site.posts limit:3 offset:0 %}
+<div class="column">
+  <div class="columns is-centered">
+    <div class="column is-11">
+      <a href="{{ post.url | prepend: site.baseurl }}">
+      <div class="image-card" style="background-image: linear-gradient(to right bottom, #4d5358c7 5%, #f05f0090 100%), url('../{{ post.headerImg }}')">
+          <div class="image-card__title">
+            {{ post.title }}
+          </div>
+          <div class="image-card__subtitle">
+            {{ post.subtitle }}
+          </div>
+          <div class="image-card__author-date">
+            {{ post.author }} - {{ post.date | date: "%B %-d, %Y" }}
+          </div>
 
-        <!-- Pager -->
-        {% if paginator.total_pages > 1 and paginator.total_posts > 1 %}
-        <ul class="pager">
-            {% if paginator.previous_page %}
-            <li class="previous">
-                <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&larr; Newer Posts</a>
-            </li>
-            {% endif %}
-            {% if paginator.next_page %}
-            <li class="next">
-                <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Older Posts &rarr;</a>
-            </li>
-            {% endif %}
-        </ul>
-        {% endif %}
-      </div>
+        </div>
+      </a>
     </div>
   </div>
-</section>
+</div>
+{% endfor %}
+{% else %}
+{% for post in site.posts limit:3 offset:offset %}
+<div class="column">
+  <div class="columns is-centered">
+    <div class="column is-11">
+      <a href="{{ post.url | prepend: site.baseurl }}">
+      <div class="image-card" style="background-image: linear-gradient(to right bottom, #4d5358c7, #f05f0090), url('../{{ post.headerImg }}')">
+          <div class="image-card__title">
+            {{ post.title }}
+          </div>
+          <div class="image-card__subtitle">
+            {{ post.subtitle }}
+          </div>
+          <div class="image-card__author-date">
+            {{ post.author }} - {{ post.date | date: "%B %-d, %Y" }}
+          </div>
+
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endfor %}

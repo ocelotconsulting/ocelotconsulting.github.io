@@ -1,0 +1,92 @@
+<section class="section grey-dark-1">
+<div id="contact">
+    <section class="hero is-medium">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <h1 class="title is-white">
+            Begin your journey today
+          </h1>
+          <h3 class="subtitle subtitle__white">
+            Give us a call at <a href="tel:+1314-384-3225" class="subtitle__link">+1 314 384 3225</a> or send us a message.
+          </h3>
+          <form name="sentMessage" id="contactForm" action="https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/" method="POST" novalidate>
+            <input type="hidden" id="_to" name="_to" value="info@ocelotconsulting.com" >
+            <input type="hidden" id="_honeypot" name="_honeypot" value="" >
+            <div class="columns">
+              <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <input type="text" class="input" placeholder="Your Name *" id="name" name="name" required data-validation-required-message="Please enter your name.">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input type="email" class="input" placeholder="Your Email *" id="email" name="email" required data-validation-required-message="Please enter your email address.">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <input type="text" class="input" placeholder="Subject *" id="subject" name="subject" required data-validation-required-message="Please enter a subject.">
+                    </div>
+                </div>
+              </div>
+              <div class="column">
+                <div class="field">
+                    <div class="control">
+                        <textarea class="textarea" placeholder="Your Message *" rows="4" id="message" name="message" required data-validation-required-message="Please enter a message." style="height: 132px;" ></textarea>
+                    </div>
+                </div>
+                <input type="hidden" name="_redirect" value="https://ocelotconsulting.com" />
+              </div>
+            </div>
+            <button type="submit" class="button button--white is-outlined">Send Message</button>
+        </form>
+        </div>
+      </div>
+      <div class="social-media-container">
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="https://twitter.com/ocelot_llc">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </span>
+
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="https://github.com/ocelotconsulting/">
+            <i class="fab fa-github"></i>
+          </a>
+        </span>
+
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="https://www.linkedin.com/company/ocelot-consulting-llc/">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+        </span>
+
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="https://www.facebook.com/ocelotconsultingllc/">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </span>
+
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="https://www.ocelotconsulting.com/feed.xml">
+            <i class="fas fa-rss"></i>
+          </a>
+        </span>
+
+        <span class="social-media-container__icon">
+          <a class="button button--rounded-button" href="http://slack-registration.foxeared.com/">
+            <i class="fab fa-slack"></i>
+          </a>
+        </span>
+      </div>
+      {% if page.attribution %}
+      <div class="columns">
+        <div class="column attribution">
+          <div>{{ page.attribution }}</div>
+        </div>
+      </div>
+      {% endif %}
+    </section>
+  </div>
+</section>

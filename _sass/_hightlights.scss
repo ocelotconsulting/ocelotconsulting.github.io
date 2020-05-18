@@ -1,0 +1,132 @@
+#highlights {
+  .section {
+    .background {
+      height: 45rem;
+      clip-path: polygon(50% 0%, 100% 0, 100% 85%, 25% 100%, 0% 75%, 0 0);
+      -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 85%, 25% 100%, 0% 75%, 0 0);
+      background-image: linear-gradient(to right, rgba(black, .90) 50%, rgba(black, .75) 100%), url(/assets/images/ocelot-wallpaper.jpg);
+      background-size: cover;
+      background-position: left center;
+      background-repeat: repeat-y;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.5), 0 0 0 1px rgba(10, 10, 10, 0.25);
+
+      @include mobile {
+        clip-path: polygon(50% 0%, 100% 0, 100% 90%, 25% 100%, 0% 90%, 0 0);
+        -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 90%, 25% 100%, 0% 90%, 0 0);
+      }
+    }
+    .dot-background {
+      height: 45rem;
+      clip-path: polygon(50% 0%, 100% 0, 100% 85%, 25% 100%, 0% 75%, 0 0);
+      -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 85%, 25% 100%, 0% 75%, 0 0);
+      background-image: url(/assets/images/mosaic.png);
+      background-color: transparent;
+      background-position: right center;
+      background-repeat: repeat-y;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.5), 0 0 0 1px rgba(10, 10, 10, 0.25);
+      @include mobile {
+        background-image: none;
+        clip-path: polygon(50% 0%, 100% 0, 100% 95%, 25% 100%, 0% 85%, 0 0);
+        -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 95%, 25% 100%, 0% 85%, 0 0);
+      }
+    }
+    .shortBackground {
+      height: 25rem !important;
+    }
+
+    .mediumBackground {
+      height: 31rem !important;
+    }
+
+    .container {
+      z-index: 2;
+      &--padding {
+        padding: 6rem 0rem;
+        @include mobile {
+          padding: 12rem 1rem;
+        }
+      }
+      .card {
+        .content {
+          color: $grey-dark;
+        }
+      }
+      .content {
+        color: $grey-light;
+        .welcome-text {
+          ul {
+            margin: 6rem 0 0 ;
+            list-style: none;
+            //min-height: 15rem;
+            text-transform: uppercase;
+            letter-spacing: 1rem;
+            font-size: 3rem;
+          }
+
+          @include mobile {
+            ul{
+              font-size: 2.5rem;
+              text-align: center;
+              letter-spacing: .5rem;
+            }
+          }
+          animation: moveInTop .5s ease-in .5s;
+          animation-fill-mode: backwards;
+
+          &__subtitle {
+            margin: 12rem 0 0;
+            color: white;
+          }
+        }
+        .welcome-cards {
+          &--moved-up {
+            margin-top: -5rem;
+          }
+
+          &--with-height {
+            height: 10rem;
+          }
+
+          .card {
+            min-height: 20rem;
+            background-color: $grey-light;
+            border-radius: .25rem;
+            transition: all .3s;
+
+            &:hover {
+              transform: scale(1.02);
+            }
+
+            figure.image {
+              margin: 0;
+              img {
+                border-radius: .3rem .3rem 0 0;
+              }
+            }
+            .card-content {
+              .content {
+                color: $grey-dark;
+              }
+            }
+          }
+          .fas {
+            margin-left: 8px;
+          }
+        }
+        .dark-text {
+          color: black;
+        }
+      }
+    }
+  }
+}

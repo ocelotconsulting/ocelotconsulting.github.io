@@ -1,0 +1,46 @@
+.subtitle {
+    &__spacing-medium {
+        font-size: 1.5rem;
+        line-height: 2rem;
+        
+        &--white {
+            color: white;
+        }
+    }
+
+    &__spacing-small {
+        padding: 0 5rem 0 5rem;
+        font-size: 1.5rem;
+        line-height: 2rem;
+        
+        &--white {
+            color: white;
+        }
+
+        @include mobile {
+            padding: 1rem;
+        }
+    }
+}
+
+.title {
+    color: $primary;
+    &__spacing-medium {
+        font-size: 2.5rem;
+        word-break: keep-all;
+
+        &--white {
+            color: white;
+        }
+    }
+
+    &__spacing-small {
+        padding: 0 5rem 0 5rem;
+        font-size: 2.5rem;
+        word-break: keep-all;
+
+        &--white {
+            color: white;
+        }
+    }
+}

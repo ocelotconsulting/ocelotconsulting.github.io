@@ -1,0 +1,73 @@
+<div id='nav' class='navbar'>
+  <div class='navbar-brand'>
+      <a class="navbar-item" href='/'>
+        <img src='/assets/images/ocelot.svg'>
+      </a>
+      <a class="navbar-item is-size-5 is-capitalized is-roboto" href='/'>
+        Ocelot Consulting
+      </a>
+      <div class="navbar-burger burger" data-target="ocelot-navbar-menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+  </div>
+  <div id="ocelot-navbar-menu" class="navbar-menu">
+    <div class="navbar-start">
+    </div>
+    <div class="navbar-end">
+      <a class="navbar-item" href="/#who-we-are-1">Who We Are</a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          What We Do
+        </a>
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" href="/services">
+            Services
+          </a>
+          <a class="navbar-item" href="/industries">
+            Industries
+          </a>
+        </div>
+      </div>
+      <a class="navbar-item" href="#contact">Contact</a>
+      <div class="navbar-item is-hidden-touch">|</div>
+      <a class="navbar-item" href="/careers">Careers</a>
+      <a class="navbar-item" href="/blog">Blog</a>
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var burgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0)
+
+    // Open navbar on click.
+    if (burgers.length > 0) {
+      burgers.forEach(function (el) {
+        el.addEventListener('click', function () {
+          var target = document.getElementById(el.dataset.target)
+          el.classList.toggle('is-active')
+          target.classList.toggle('is-active')
+        })
+      })
+    }
+
+    var items = document.querySelectorAll('.navbar-item')
+
+    // Close navbar on same-page link click.
+    if (items.length > 0) {
+      var target = document.getElementById('ocelot-navbar-menu')
+      items.forEach(function (el) {
+        el.addEventListener('click', function () {
+          target.classList.toggle('is-active')
+
+          if (burgers.length > 0) {
+            burgers.forEach(function (burg) {
+              burg.classList.toggle('is-active')
+            })
+          }
+        })
+      })
+    }
+  })
+</script>

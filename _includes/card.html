@@ -1,0 +1,19 @@
+<div class="card">
+    <div class="card-image career-icon">
+      <figure class="image is-4by3" style="margin: 0;">
+        <img src="{{ include.cardImage }}" class="is-16by9" alt="Placeholder image">
+      </figure>
+    </div>
+    <div class="card-content">
+      <div class="media">
+        <div class="media-content has-text-centered">
+          <p class="title is-4">{{ include.title }}</p>
+        </div>
+      </div>
+      <div class="content">
+        {{ include.description }}
+      </div>
+      <a class="button is-outlined" href="{{ include.route }}">Learn More</a>
+      <a class="button is-primary is-outlined" href="{{ include.applyRoute }}" target="_blank">Apply&nbsp;<i class="fas fa-chevron-circle-right"></i></a>
+    </div>
+</div>

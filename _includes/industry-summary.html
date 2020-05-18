@@ -1,0 +1,46 @@
+<script>
+  /*
+  Provides a new industry card with basic information and a link to get more information
+  Includes
+  - linkId: The id used for intra-page navigation
+  - link: The link to go to for more information
+  - image: The image associated with the industry card
+  - title: The name of the industry to use as the title
+  - problem: One or two sentences describing a common problem the industry faces
+  - solution: One or two sentences describing how Ocelot can help solve the problem
+  */
+</script>
+<div class="columns">
+  <span id="{{ include.linkId }}" />
+  <br/>
+  <div class="column is-full">
+    <a href="{{ include.link }}">
+      <div class="box">
+        <article class="media">
+          <div class="media-left is-hidden-mobile">
+            <div class="image is-20x15">
+              <img src="{{ include.image }}" alt="{{ include.title }}" />
+            </div>
+          </div>
+          <div class="media-content">
+            <div class="is-hidden-tablet" style="padding-bottom: 1rem;">
+              <div class="image">
+                <img src="{{ include.image }}" alt="{{ include.title }}" />
+              </div>
+            </div>
+            <div class="content dark-text">
+              <h3 class="title is-3 industry-title">{{ include.title }}</h3>
+              <div class="has-text-weight-semibold">
+                {{ include.problem }}
+              </div>
+              <br />
+              <div class="has-text-weight-light">
+                {{ include.solution }}
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </a>
+  </div>
+</div>

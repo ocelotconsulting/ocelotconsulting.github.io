@@ -1,0 +1,34 @@
+.columns {
+    &--top-spacing-small {
+        margin-top: -4rem;
+    }
+}
+
+.attribution {
+    color: white;
+    padding-left: 2rem;
+}
+
+.subtitle {
+    &__white {
+        color: white;
+    }
+
+    &__link {
+        color: white;
+        font-weight: 600;
+        transition: .3s;
+
+        &:hover {
+            color: $primary
+        }
+    }
+}
+
+.social-media-container {
+    text-align: center;
+    line-height: 4rem;
+    &__icon {
+        padding: 1rem;
+    }
+}

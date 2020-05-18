@@ -1,14 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-	{% include head.html %}
-	<body>
-		{% include header.html %}
-		{% include home.html %}
-		{% include about.html %}
-		{{ content }}
-		{% include team.html %}
-		{% include contact.html %}
-		{% include footer.html %}
-		{% include js.html %}
-	</body>
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+  </head>
+  <body>
+    {{ content }}
+  </body>
 </html>

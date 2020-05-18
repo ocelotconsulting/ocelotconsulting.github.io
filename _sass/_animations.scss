@@ -1,0 +1,79 @@
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        /* animates in y direction 2rem, more in left in beginning */
+        /* transform: translateY(30px) */
+        transform: translateY(2rem)
+    }
+
+    100% {
+        opacity: 1;
+
+        /* Looks exactly the way in which it does right now */
+        transform: translate(0)
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+        /* animates in y direction 2rem, more in left in beginning */
+        /* transform: translateY(30px) */
+
+    }
+
+    100% {
+        opacity: 1;
+
+        /* Looks exactly the way in which it does right now */
+
+    }
+}
+
+@keyframes moveInTop {
+    0% {
+        opacity: 0;
+        /* animates in y direction 2rem, more in left in beginning */
+        /* transform: translateY(30px) */
+        transform: translateY(-2rem)
+    }
+
+    100% {
+        opacity: 1;
+
+        /* Looks exactly the way in which it does right now */
+        transform: translate(0)
+    }
+}
+
+@keyframes moveInBottomLight {
+    0% {
+        opacity: 0;
+        /* animates in the y direction 1rem, more in left in beginning */
+        /* transform: translateY(30px) */
+        transform: translateY(1rem)
+    }
+
+    100% {
+        opacity: 1;
+
+        /* Looks exactly the way in which it does right now */
+        transform: translate(0)
+    }
+}
+
+@keyframes moveInLeftLight {
+    0% {
+        opacity: 0;
+        /* animates in x direction, more in left in beginning */
+        /* transform: translateY(30px) */
+        transform: translateX(1rem)
+    }
+
+    100% {
+        opacity: 1;
+
+        /* Looks exactly the way in which it does right now */
+        transform: translate(0)
+    }
+}
