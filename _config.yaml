@@ -1,0 +1,63 @@
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
+
+url: http://ocelotconsulting.com
+title: Ocelot Consulting
+email: info@ocelotconsulting.com
+author: Ocelot Developers
+description: >
+  Ocelot Consultants are certified AWS Solution Architects and have experience
+  migrating enterprise applications and data for Fortune 500 companies.
+copyright: 'Copyright &copy; 2018 Ocelot Consulting LLC. All Rights Reserved.'
+about: >
+  Ocelot Consulting specializes in cloud technologies, custom application development
+  and enterprise security. Ocelot Consultants are certified AWS Solution Architects
+  and have experience migrating enterprise applications and data for Fortune 500 companies.
+
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
+
+# Build settings
+timezone: America/Chicago
+encoding: utf-8
+plugins:
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - rouge
+paginate: 5
+paginate_path: "/blog/page:num/"
+sass:
+  style: compact # possible values: nested expanded compact compressed
+
+# Markdown conversion
+markdown: kramdown
+markdown_ext: "md"
+highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: html
+    css_class: 'syntax'
+
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
+
+social:
+  - title: twitter
+    url: https://twitter.com/ocelot_llc
+  - title: github
+    url: https://github.com/ocelotconsulting/
+  - title: linkedin
+    url: https://www.linkedin.com/company/ocelot-consulting-llc
+  - title: facebook
+    url: https://facebook.com/ocelotconsultingllc/
+  - title: rss
+    url: /feed.xml
+  - title: slack
+    url: http://slack-registration.foxeared.com

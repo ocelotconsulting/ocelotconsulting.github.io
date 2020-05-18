@@ -1,0 +1,28 @@
+.button {
+  transition: all .3s;
+
+  &--rounded-button {
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.5rem;
+
+    &:hover {
+      background-color: $primary;
+      border-color: $primary;
+      color: white
+    }
+  }
+
+  &--white {
+    color: white;
+    border-color: white;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $primary;
+      color: white;
+      border-color: $primary;
+    }
+  }
+}

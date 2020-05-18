@@ -1,0 +1,61 @@
+---
+layout: page_w_header
+title:  "Blog"
+subtitle: "Ocelot has opportunities for developers of all skill levels utilizing many different skills and technologies"
+background: mediumBackground
+---
+
+{% assign rows = site.posts.size | divided_by: 3.0 | ceil %}
+{% for i in (0..rows) %}
+<div class="columns">
+{% assign offset = i | times: 3.0 %}
+{% assign limit = offset | minus: 3 %}
+{% if forloop.first %}
+{% for post in site.posts limit:3 offset:0 %}
+<div class="column">
+  <div class="columns is-centered">
+    <div class="column is-11">
+      <a href="{{ post.url | prepend: site.baseurl }}">
+      <div class="image-card" style="background-image: linear-gradient(to right bottom, #4d5358c7 5%, #f05f0090 100%), url('../{{ post.headerImg }}')">
+          <div class="image-card__title">
+            {{ post.title }}
+          </div>
+          <div class="image-card__subtitle">
+            {{ post.subtitle }}
+          </div>
+          <div class="image-card__author-date">
+            {{ post.author }} - {{ post.date | date: "%B %-d, %Y" }}
+          </div>
+
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% else %}
+{% for post in site.posts limit:3 offset:offset %}
+<div class="column">
+  <div class="columns is-centered">
+    <div class="column is-11">
+      <a href="{{ post.url | prepend: site.baseurl }}">
+      <div class="image-card" style="background-image: linear-gradient(to right bottom, #4d5358c7, #f05f0090), url('../{{ post.headerImg }}')">
+          <div class="image-card__title">
+            {{ post.title }}
+          </div>
+          <div class="image-card__subtitle">
+            {{ post.subtitle }}
+          </div>
+          <div class="image-card__author-date">
+            {{ post.author }} - {{ post.date | date: "%B %-d, %Y" }}
+          </div>
+
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+</div>
+{% endfor %}

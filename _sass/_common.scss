@@ -1,0 +1,171 @@
+section.grey-gradiant {
+  background-image: url('/assets/images/white-grid-pattern-full.png'), linear-gradient(-181deg, $grey-light, #ededed);
+  background-position: bottom left, top left;
+  background-repeat: repeat-x, no-repeat;
+  padding: 0 0 12rem 0 !important;
+}
+
+section.dark-grey-gradiant {
+  background-image: url('/assets/images/white-grid-pattern-full.png'), linear-gradient(-181deg, $grey-light, $grey-dark);
+  background-position: bottom left, top left;
+  background-repeat: repeat-x, no-repeat;
+  padding: 0 0 12rem 0 !important;
+}
+
+section.grey-dark-1 {
+  background-image: url('/assets/images/white-grid-pattern-full.png'), linear-gradient(to bottom, $grey-dark-1 60%, rgba($grey-dark-1, .8) 100%);
+  clip-path: polygon(25% 0, 100% 15%, 100% 100%, 50% 100%, 0 100%, 0 15%);
+  -webkit-clip-path: polygon(25% 0, 100% 15%, 100% 100%, 50% 100%, 0 100%, 0 15%);
+  background-position: bottom left, top left;
+  background-repeat: repeat-x, no-repeat;
+  padding: 0 0 12rem 0 !important;
+  margin-top: -8rem;
+  @include mobile {
+    clip-path: polygon(25% 0, 100% 3%, 100% 100%, 50% 100%, 0 100%, 0 3%);
+    -webkit-clip-path: polygon(25% 0, 100% 3%, 100% 100%, 50% 100%, 0 100%, 0 3%);
+  }
+}
+
+columns {
+  .padding-bottom {
+    margin-top: 2rem;
+  }
+}
+
+.hero {
+  &--dark-background {
+    background-color: #eeeeee;
+    transform: skewY(5deg);
+    margin-top: -5rem;
+    @include mobile {
+      margin-top: 0rem;
+    }
+  }
+
+  &--light-background {
+    background-color: #F8F8F8;
+  }
+
+  &--light-background-with-space {
+    background-color: #F8F8F8;
+    margin-top: -5rem;
+  }
+
+  &--light-background-with-large {
+    background-color: #F8F8F8;
+    margin-top: -10rem;
+  }
+}
+
+.hero-body {
+  &--dark-background {
+    transform: skewY(-5deg);
+  }
+
+  &--spacing {
+    margin-top: -10rem;
+    @include mobile {
+      margin-top: 10rem;
+    }
+  }
+}
+
+.box {
+  transition: transform .2s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+.line {
+  width: 1rem;
+  height: 10rem;
+  position: absolute;
+  top: 37rem;
+  left: 24.7%;
+  z-index: 1;
+  transition: opacity .3s;
+
+  .block-1 {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:0;
+    background-color: orangered;
+    animation: appear .2s ease-in 1.5s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-2 {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:1.5rem;
+    background-color: orangered;
+    animation: appear .2s ease-in 1.8s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-3 {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:3rem;
+    background-color: orangered;
+    animation: appear .2s ease-in 2.1s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-4 {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:4.5rem;
+    background-color: rgb(255,157,93);
+    animation: appear .2s ease-in 2.4s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-5 {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:6rem;
+    background-color: rgb(255,157,93);
+    animation: appear .2s ease-in 2.7s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-6a {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:4.5rem;
+    left: -1.5rem;
+    background-color: rgb(255,157,93);
+    animation: appear .2s ease-in 3s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-6b {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:4.5rem;
+    left: 1.5rem;
+    background-color: rgb(255,157,93);
+    animation: appear .2s ease-in 3s;
+    animation-fill-mode: backwards;
+  }
+
+  .block-6c {
+    width: .8rem;
+    height: .8rem;
+    position: absolute;
+    top:-1.5rem;
+    background-color: rgb(255,157,93);
+    animation: appear .2s ease-in 1.2s;
+    animation-fill-mode: backwards;
+  }
+}

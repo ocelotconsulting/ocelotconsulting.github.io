@@ -1,0 +1,29 @@
+.page-contents {
+  .section {
+    padding: 0 1.5rem;
+    h1 {
+      font-weight: bold;
+      font-size: $size-1;
+      &.title {
+        margin-bottom: 1rem;
+      }
+    }
+    h2 {
+      font-weight: bold;
+      font-size: $size-3;
+    }
+    h3 {
+      font-weight: bold;
+    }
+    p {
+      margin-bottom: 1rem;
+    }
+    ul {
+      margin-bottom: 1rem;
+      list-style-type: disc;
+      list-style-position: inside;
+      li {
+      }
+    }
+  }
+}

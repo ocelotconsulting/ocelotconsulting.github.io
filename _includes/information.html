@@ -1,0 +1,124 @@
+<section class="section grey-gradiant">
+  <div id="who-we-are-1">
+    <section class="hero hero--light-background is-large">
+      <div class="columns is-centered">
+        <div class="column is-half ">
+          <div class="hero-body hero-body--spacing">
+            <div class="has-text-centered">
+              <h1 class="title title__spacing-medium">
+                What makes Ocelot an exceptional partner for your business?
+              </h1>
+              <br />
+              <h2 class="subtitle subtitle__spacing-medium subtitle__spacing-medium">
+                Every company has a technology journey ahead of them. Whether you are looking to modernize existing
+                platforms, migrate to cloud architectures,
+                or design a completely custom solution from the ground up, Ocelot employs the absolute best engineers to
+                turn your goals into reality.
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="services">
+    <section class="hero hero--dark-background is-medium">
+      <div class="hero-body hero-body--dark-background">
+        <div class="container has-text-centered">
+          <h1 class="title title__spacing-small">Services</h1>
+          <h2 class="subtitle subtitle__spacing-small">How can Ocelot help transform your business?</h2>
+          {% for group in page.serviceGroups %}
+            <div class="columns">
+              {% for service in group.services %}
+                <div class="column is-4 {{ service.customClass }}">
+                  <div class="card">
+                    <div class="card-image">
+                      <figure class="image is-5by3" style="margin: 0;">
+                        <img src="{{ service.image }}" class="is-16by9" alt="{{ service.title }}">
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                      <div class="media">
+                        <div class="media-content">
+                          <p class="title is-4">{{ service.title }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+          <br />
+          <a href="/services" class="button is-primary is-outlined">Explore Our Services</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="who-we-are-2">
+    <section class="hero hero--light-background-with-space is-large">
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column is-4">
+              <img src="/assets/images/collage-ocelot-3.jpg" class="is-16by9" alt="Placeholder image">
+            </div>
+            <div class="column is-8">
+              <h1 class="title title__spacing-medium">
+                How we work
+              </h1>
+              <br />
+              <h2 class="subtitle subtitle__spacing-small">
+                Through our culture of learning and design excellence, our teams are always bringing cutting edge
+                solutions forward while training each other
+                and our clients on how to leverage the best tools for the right purpose. As a community, Ocelots across
+                multiple organizations in the St. Louis
+                area have created differentiating capabilities that are fine-tuned to our clients’ needs.
+              </h2>
+
+              <a href="/ocelots" class="button is-primary is-outlined">Meet The Ocelots</a>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="solutions">
+    <section class="hero hero--dark-background is-medium">
+      <div class="hero-body hero-body hero-body--dark-background">
+        <div class="container has-text-centered">
+          <h1 class="title">
+            Success Stories
+          </h1>
+          <h2 class="subtitle subtitle__spacing-small"> Industries that we've empowered so far </h2>
+          {% for industries in page.industryGroups %}
+            <div class="columns padding-bottom">
+              {% for industry in industries.industries %}
+                <div class="column is-6 {{ industry.customClass }}">
+                  <div class="columns is-vcentered">
+                    <div class="column is-4">
+                      <div>
+                        <a href="{{ industry.caseStudy }}"><i class="fas {{ industry.icon }} fa-3x is-primary"></i></a>
+                      </div>
+                    </div>
+                    <div class="column is-8" style="text-align: left;">
+                      <div class="icon-title icon-title--padding-bottom">{{ industry.title }}</div>
+                      <div>{{ industry.description }}</div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endfor %}
+          <br />
+          <a href="/industries/" class="button is-primary is-outlined">Learn more about the industries we serve </a>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

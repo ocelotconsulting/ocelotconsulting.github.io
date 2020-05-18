@@ -1,0 +1,71 @@
+<section>
+  <div class="container padding-no-top-2">
+    <section class="caseSection">
+      <div class="is-size-2">
+        Overview
+      </div>
+      <div class="columns padding-top-2">
+        <div class="column is-three-fifths is-size-4">
+          {{ include.overviewStatement }}
+        </div>
+        <div class="column is-size-5">
+          <ul class="menu-list">
+            {% for item in include.overviewList %}
+              <li>{{ item }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<div class="is-divider sectionDivider"></div>
+<section>
+  <div class="container padding-2">
+    <section class="caseSection">
+      <div class="is-size-2">
+        The Need
+      </div>
+      <div class="columns padding-top-2">
+        <div class="column is-three-fifths is-size-4">
+          {{ include.needStatement }}
+        </div>
+        <div class="column is-one-fifth is-offset-one-fifth">
+          <div class="image is-3by2">
+            <img src="{{ include.needImage }}" alt="{{ include.needImageAlt }}" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<div class="is-divider sectionDivider"></div>
+<section>
+  <div class="container padding-2">
+    <section class="caseSection">
+      <div class="is-size-2">
+        The Solution
+      </div>
+      <div class="columns padding-top-2">
+        <div class="column is-size-5">
+          {{ include.solutionStatement }}
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<div class="is-divider sectionDivider"></div>
+<section>
+  <div class="container padding-2">
+    <section class="caseSection">
+      <div class="is-size-2">
+        The Results
+      </div>
+      <div class="columns padding-top-2">
+        <div class="column is-size-5">
+          {{ include.resultsStatement }}
+        </div>
+      </div>
+    </section>
+  </div>
+</section>

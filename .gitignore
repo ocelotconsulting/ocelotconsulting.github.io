@@ -1,0 +1,7 @@
+.sass-cache
+_site*
+.jekyll*
+
+# Stupid mac file
+*.DS_Store
+.idea
