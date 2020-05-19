@@ -37,7 +37,7 @@ jobs:
       # Push to preview repository.
       # TODO: setup a PAT for this
       - name: "Push preview site"
-        working-directory: ./preview
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT }}
+          directory: ./preview
