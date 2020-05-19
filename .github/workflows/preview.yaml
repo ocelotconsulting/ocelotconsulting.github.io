@@ -1,0 +1,43 @@
+name: Build Preview
+
+on: [ pull_request ]
+
+jobs:
+  preview:
+    name: "Build preview site"
+    runs-on: ubuntu-latest
+    steps:
+      # Check out the pull request under "site/".
+      - name: "Clone pull request"
+        uses: actions/checkout@v2
+        with:
+          path: site
+
+      # Check out the preview site repo under "preview/".
+      # TODO: setup a PAT for this
+      - name: "Clone preview site"
+        uses: actions/checkout@v2
+        with:
+          repository: ocelotconsulting/ocelot.github.io
+          path: preview
+          token: ${{ secrets.PAT }}
+
+      # Create patch file for this pull request.
+      - name: "Create patch file for pull request"
+        shell: bash
+        working-directory: ./site
+        run: git format-patch master --stdout > pr.patch
+
+      # Apply patch file to preview repository.
+      - name: "Apply patch to preview site"
+        shell: bash
+        working-directory: ./preview
+        run: git am $GITHUB_WORKSPACE/site/pr.patch
+
+      # Push to preview repository.
+      # TODO: setup a PAT for this
+      - name: "Push preview site"
+        working-directory: ./preview
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
