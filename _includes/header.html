@@ -10,6 +10,46 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
   <link rel="stylesheet" href="{{ '/assets/css/code.css' | relative_url }}" />
 
+  <!-- Author for blog posts. -->
+  {% if page.author %}
+    <meta name="author" content="{{ page.author }}" />
+  {% endif %}
+
+  <!-- Description or subtitle. -->
+  {% if page.description %}
+    <meta name="description" content="{{ page.description }}" />
+    <meta property="og:description" content="{{ page.description }}" />
+    <meta name="twitter:description" content="{{ page.description }}" />
+  {% elsif page.subtitle %}
+    <meta name="description" content="{{ page.subtitle }}" />
+    <meta property="og:description" content="{{ page.subtitle }}" />
+    <meta name="twitter:description" content="{{ page.subtitle }}" />
+  {% else %}
+    <meta name="description" content="Expert solutions, built together." />
+    <meta property="og:description" content="Expert solutions, built together." />
+    <meta name="twitter:description" content="Expert solutions, built together." />
+  {% endif %}
+
+  <!-- Open Graph tags. -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ site.url | append: page.url }}" />
+  <meta property="og:title" content="{{ page.title }}" />
+
+  <!-- Twitter tags. -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ocelot_llc" />
+  <meta name="twitter:title" content="{{ page.title }}" />
+
+  <!-- Blog post image or logo. -->
+  {% if page.headerImg %}
+    <meta property="og:image" content="{{ site.url | append: page.headerImg }}" />
+    <meta name="twitter:image" content="{{ site.url | append: page.headerImg }}" />
+  {% else %}
+    <meta property="og:image" content="{{ site.url | append: "/assets/images/ocelot.svg" }}" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta name="twitter:image" content="{{ site.url | append: "/assets/images/ocelot.svg" }}" />
+  {% endif %}
+
   <!-- Favicon legacy fallback. -->
   <link rel="shortcut icon" href="{{ '/assets/images/icons/favicon.ico' | relative_url }}" />
 
