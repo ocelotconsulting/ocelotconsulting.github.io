@@ -29,26 +29,26 @@
           <h1 class="title title__spacing-small">Services</h1>
           <h2 class="subtitle subtitle__spacing-small">How can Ocelot help transform your business?</h2>
           {% for group in page.serviceGroups %}
-            <div class="columns">
-              {% for service in group.services %}
-                <div class="column is-4 {{ service.customClass }}">
-                  <div class="card">
-                    <div class="card-image">
-                      <figure class="image is-5by3" style="margin: 0;">
-                        <img src="{{ service.image }}" class="is-16by9" alt="{{ service.title }}">
-                      </figure>
-                    </div>
-                    <div class="card-content">
-                      <div class="media">
-                        <div class="media-content">
-                          <p class="title is-4">{{ service.title }}</p>
-                        </div>
-                      </div>
+          <div class="columns">
+            {% for service in group.services %}
+            <div class="column is-4 {{ service.customClass }}">
+              <div class="card">
+                <div class="card-image">
+                  <figure class="image is-5by3" style="margin: 0;">
+                    <img src="{{ service.image }}" class="is-16by9" alt="{{ service.title }}">
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <p class="title is-4" style="overflow: hidden; line-height: 1.25;">{{ service.title }}</p>
                     </div>
                   </div>
                 </div>
-              {% endfor %}
+              </div>
             </div>
+            {% endfor %}
+          </div>
           {% endfor %}
           <br />
           <a href="/services" class="button is-primary is-outlined">Explore Our Services</a>
@@ -97,23 +97,23 @@
           </h1>
           <h2 class="subtitle subtitle__spacing-small"> Industries that we've empowered so far </h2>
           {% for industries in page.industryGroups %}
-            <div class="columns padding-bottom">
-              {% for industry in industries.industries %}
-                <div class="column is-6 {{ industry.customClass }}">
-                  <div class="columns is-vcentered">
-                    <div class="column is-4">
-                      <div>
-                        <a href="{{ industry.caseStudy }}"><i class="fas {{ industry.icon }} fa-3x is-primary"></i></a>
-                      </div>
-                    </div>
-                    <div class="column is-8" style="text-align: left;">
-                      <div class="icon-title icon-title--padding-bottom">{{ industry.title }}</div>
-                      <div>{{ industry.description }}</div>
-                    </div>
+          <div class="columns padding-bottom">
+            {% for industry in industries.industries %}
+            <div class="column is-6 {{ industry.customClass }}">
+              <div class="columns is-vcentered">
+                <div class="column is-4">
+                  <div>
+                    <a href="{{ industry.caseStudy }}"><i class="fas {{ industry.icon }} fa-3x is-primary"></i></a>
                   </div>
                 </div>
-              {% endfor %}
+                <div class="column is-8" style="text-align: left;">
+                  <div class="icon-title icon-title--padding-bottom">{{ industry.title }}</div>
+                  <div>{{ industry.description }}</div>
+                </div>
+              </div>
             </div>
+            {% endfor %}
+          </div>
           {% endfor %}
           <br />
           <a href="/industries/" class="button is-primary is-outlined">Learn more about the industries we serve </a>
