@@ -30,13 +30,11 @@ application hosted on a private API Gateway.
 
 **Key Considerations for this approach:**
 
-* The use of VPC endpoints restricts all of our traffic to the internal AWS
+- The use of VPC endpoints restricts all of our traffic to the internal AWS
 network.  
-
-* We are exposing a single API Gateway endpoint, but use the `X-APIGW-API-ID` header
+- We are exposing a single API Gateway endpoint, but use the `X-APIGW-API-ID` header
 to delineate which lambda is invoked behind the gateway
-
-* Security Groups further restrict allowed traffic.  In this case, a security
+- Security Groups further restrict allowed traffic.  In this case, a security
 group is created specifically for our Canaries, limiting egress to only our 
 VPC endpoints
 
@@ -75,15 +73,11 @@ information.
 
 **Required Information**
 
-* The URL of the VPC endpoint exposing the APIs.  Refer to [the documentation](https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/) for how to set up private VPC endpoints
-
-* The ID of the API you intend to use
-
-* The URI of the API
-
-* The Subnets in which the API Endpoint is located
-
-* A security group that allows egress on port 443 to the VPC Endpoint
+- The URL of the VPC endpoint exposing the APIs.  Refer to [the documentation](https://aws.amazon.com/blogs/compute/introducing-amazon-api-gateway-private-endpoints/) for how to set up private VPC endpoints
+- The ID of the API you intend to use
+- The URI of the API
+- The Subnets in which the API Endpoint is located
+- A security group that allows egress on port 443 to the VPC Endpoint
 
 ### Setup
 
@@ -118,22 +112,21 @@ prefixed with `CloudWatchSyntheticsRole-`.
 1. For demonstration, we can simply modify the attached policy to include the
 necessary EC2 permissions.
 
-1. Add the following actions
+1. Add the following actions and save the policy
 
-    ```            "Sid": "VisualEditor2",
-                "Effect": "Allow",
-                "Action": [
-                    "ec2:CreateNetworkInterface",
-                    "ec2:DescribeNetworkInterfaces",
-                    "s3:ListAllMyBuckets",
-                    "ec2:DeleteNetworkInterface"
-                ],
-                "Resource": "*"
-    ```
+```json         
+"Sid": "VisualEditor2",  
+"Effect": "Allow",  
+"Action": [  
+    "ec2:CreateNetworkInterface",  
+    "ec2:DescribeNetworkInterfaces",  
+    "s3:ListAllMyBuckets",  
+    "ec2:DeleteNetworkInterface"  
+],  
+"Resource": "*"  
+```
 
-1. Save the policy.
-
-Now, we need to configure our canary to work with the private endpoint.
+**Private Endpoint Configuration**
 
 1. Go back to your Canary in the Cloudwatch console.
 
@@ -142,11 +135,9 @@ Now, we need to configure our canary to work with the private endpoint.
 1. Scroll down and expand the *VPC Settings*.  Fill in the details with the
 information you looked up for the VPC Endpoint
 
-    * Select the VPC in which your VPC endpoint resides
-
-    * Select the subnets in which your VPC endpoint is deployed
-
-    * Select a security group that allows traffic to the VPC Endpoint
+    - Select the VPC in which your VPC endpoint resides
+    - Select the subnets in which your VPC endpoint is deployed
+    - Select a security group that allows traffic to the VPC Endpoint
 
 1. Scroll up to the *Schedule* section, and select *Run Continuously*.  Select
 an interval - currently health checks are scheduled to run on 5 minute intervals.
@@ -163,15 +154,11 @@ a few minutes you should see the canary running successfully:
 
 The Synthetics Canary is simply a wrapper that does the following things:
 
-* Creates a lambda function with an existing AWS Synthetics layer in NodeJS
-
-* Creates a bucket for logging
-
-* Creates a new Cloudwatch Metrics namespace called *CloudWatchSynthetics*
-
-* Cloudwatch Alarms (if you configured them in the GUI)
-
-* An IAM role with a policy
+- Creates a lambda function with an existing AWS Synthetics layer in NodeJS
+- Creates a bucket for logging
+- Creates a new Cloudwatch Metrics namespace called *CloudWatchSynthetics*
+- Cloudwatch Alarms (if you configured them in the GUI)
+- An IAM role with a policy
 
 #### The Synthetic Lambda
 
@@ -181,9 +168,8 @@ canary.
 
 There are two layers:
 
-* Generic synthetic layer provided by AWS
-
-* A custom layer dynamically built based on your configuration.
+- Generic synthetic layer provided by AWS
+- A custom layer dynamically built based on your configuration.
 
 {: .blog-center}
 ![Synthetic Lambda](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/synthetic-lambda.png)
@@ -208,11 +194,9 @@ a per-canary basis, as well as an aggregate across all canaries.
 
 Each canary has three metrics:
 
-* Duration
-
-* Failed
-
-* Success Percent
+- Duration
+- Failed
+- Success Percent
 
 It is important to note that **Failed** values indicate a **non-200 return code**,
 and are not measuring the failure of the lambda service itself.
