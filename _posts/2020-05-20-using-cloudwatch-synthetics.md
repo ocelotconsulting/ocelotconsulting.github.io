@@ -1,7 +1,7 @@
 ---
 layout:      posts
 background:  shortBackground
-title:       "AWS Cloudwatch Synthetics"
+title:       "Cloudwatch Synthetics"
 subtitle:    "Using Cloudwatch Synthetic Canaries in a Private Network"
 date:        2020-05-20 20:00
 author:      "Tim Krupinski"
