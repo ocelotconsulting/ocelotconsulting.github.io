@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
   <link rel="stylesheet" href="{{ '/assets/css/code.css' | relative_url }}" />
 
-  <!-- Author for blog posts. -->
+  <!-- Author for posts. -->
   {% if page.author %}
     <meta name="author" content="{{ page.author }}" />
   {% endif %}
@@ -40,7 +40,7 @@
   <meta name="twitter:site" content="@ocelot_llc" />
   <meta name="twitter:title" content="{{ page.title }}" />
 
-  <!-- Blog post image or logo. -->
+  <!-- Post image or logo. -->
   {% if page.headerImg %}
     <meta property="og:image" content="{{ site.url | append: page.headerImg }}" />
     <meta name="twitter:image" content="{{ site.url | append: page.headerImg }}" />

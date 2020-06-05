@@ -5,7 +5,7 @@ title:       "Cloudwatch Synthetics"
 subtitle:    "Using Cloudwatch Synthetic Canaries in a Private Network"
 date:        2020-05-20 20:00
 author:      "Tim Krupinski"
-headerImg:  "/assets/images/blog/launch.jpg"
+headerImg:  "/assets/images/posts/launch.jpg"
 description: "How to use the new AWS Cloudwatch Synthetics in your private network"
 ---
 
@@ -38,8 +38,8 @@ to delineate which lambda is invoked behind the gateway
 group is created specifically for our Canaries, limiting egress to only our 
 VPC endpoints
 
-{: .blog-center}
-![Cloudwatch Synthetics Overview](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/overview.png)
+{: .posts-center}
+![Cloudwatch Synthetics Overview](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/overview.png)
 
 Before we set up our synthetic monitor, it is important for the reader to
 understand some of the terms and assumptions as part of this exercise.
@@ -147,8 +147,8 @@ an interval - currently health checks are scheduled to run on 5 minute intervals
 Once the Canary is saved, it will begin running on the interval you set.  After
 a few minutes you should see the canary running successfully:
 
-{: .blog-center}
-![Canary Success Example](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/canary-success.png)
+{: .posts-center}
+![Canary Success Example](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/canary-success.png)
 
 ### What you actually built
 
@@ -171,8 +171,8 @@ There are two layers:
 - Generic synthetic layer provided by AWS
 - A custom layer dynamically built based on your configuration.
 
-{: .blog-center}
-![Synthetic Lambda](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/synthetic-lambda.png)
+{: .posts-center}
+![Synthetic Lambda](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/synthetic-lambda.png)
 
 To find the code, navigate to the Lambda console and search for your canary.  It
 takes on a name of the form `cwsyn-<canary_name>-<uuid>`.  The first layer is
@@ -228,8 +228,8 @@ an ultra-wide band.  For example, with just a handful of data points running aro
 60-80ms, the band went from -30seconds to 30seconds.  Over time this becomes
 more precise, and should eventually look similar to the following screenshot.
 
-{: .blog-center}
-![Anomaly Detection Band](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/detection-band.png).
+{: .posts-center}
+![Anomaly Detection Band](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/detection-band.png).
 
 ### Handling Cold Starts
 
@@ -243,8 +243,8 @@ Combined with a Cloudwatch alarm configured to activate if it detects multiple
 data points in a row, this can help to avoid false positives that are due to
 cold starts.
 
-{: .blog-center}
-![Alarm based on Anomaly Detection](/assets/images/blog/2020-05-20-using-cloudwatch-synthetics/anomaly-alarm.png)
+{: .posts-center}
+![Alarm based on Anomaly Detection](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/anomaly-alarm.png)
 
 ## Conclusion
 

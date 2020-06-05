@@ -5,7 +5,7 @@ title:       "AWS Lambda + API Gateway"
 subtitle:    "Simple Deployment via CloudFormation"
 date:        2017-12-18 09:45:00
 author:      "Larry Anderson"
-headerImg:  "/assets/images/blog/gateway-lambda.png"
+headerImg:  "/assets/images/posts/gateway-lambda.png"
 description: "Deploying a simple lambda with an API Gateway integration including custom authorizer and domain name."
 ---
 
@@ -19,24 +19,24 @@ I have written several AWS Lambda functions over the past few years, normally ar
 
 The AWS API Gateway has always on its surface appeared to be a black box due to what I've previously believed to be an overwhelming amount of AWS Console-based configuration. When I had perused the available functionality in the past, it seemed like there was a lot of vernacular which didn't quite fit my previous API work. Words like "resource", "stage", "methods", integration request/responses, models, etc all seemed not as coherent as coming up with a swagger specification along with an HTTP route and calling it a day.
 
-{: .blog-center}
-![API Gateway Vernacular](/assets/images/blog/2017-12-18-gateway-lambda/gateway_vernacular.png)
+{: .posts-center}
+![API Gateway Vernacular](/assets/images/posts/2017-12-18-gateway-lambda/gateway_vernacular.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 1 - Lots of words used by API Gateway
 
 To get from an internal non-callable Lambda to a vanity-url fronted HTTP(s) API with cached authorization seemed like something which would take either a lot of custom work in the console or maybe something that should be better left for a docker swarm behind an ELB which also allowed for other application multi-tenancy. Hence, I ignored the AWS API Gateway for a few years, as gateways themselves (Akana for one) had always seemed to over-promise and under-deliver, and had never lived synergistically along-side of API development.
 
 ## Authorization
 
-For blogging purposes, I created a simple custom authorizer for the Lambda functions, which always ["Allow"](https://github.com/ocelotconsulting/sample-custom-authorizer/blob/master/app.js#L17) the API to be called via http(s). Normally I would not recommend it, as it's the same as not securing the API, and the only inherent security in API Gateway is the obfuscation of the API ID being the first part of the URL. I'll probably blog again in the future on writing a proper custom authorizer.
+I created a simple custom authorizer for the Lambda functions, which always ["Allow"](https://github.com/ocelotconsulting/sample-custom-authorizer/blob/master/app.js#L17) the API to be called via http(s). Normally I would not recommend it, as it's the same as not securing the API, and the only inherent security in API Gateway is the obfuscation of the API ID being the first part of the URL. I'll probably post again in the future on writing a proper custom authorizer.
 
 The repo is [here](https://github.com/ocelotconsulting/sample-custom-authorizer), and it is [deployed](https://github.com/ocelotconsulting/sample-custom-authorizer/blob/master/cf-deploy.json) as a simple Lambda prior to usage in the Gateway as an authorizer by other Lambdas. Most often a custom authorizer would be used to validate an OAuth token and authorization data, to render an access decision. This is then cached by the API Gateway to improve performance.
 
-{: .blog-center}
-![Custom Authorizer](/assets/images/blog/2017-12-18-gateway-lambda/authorizer.png)
+{: .posts-center}
+![Custom Authorizer](/assets/images/posts/2017-12-18-gateway-lambda/authorizer.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 2 - Authorizer created by combo of the Cloudformation used below and an existing Authorizer Lambda
 
 ## Process
@@ -184,4 +184,4 @@ The contents of the `swagger.json` file would look something like the following:
 
 The above integration work combines the needs that an organization would have around deploying multiple API endpoints for a given project, and fitting a cloud-native solution for Functions As A Service (FaaS) into a larger CI/CD framework. CloudFormation and API Documentation (swagger) offer convenient ways of expressing API's so that all parties are clear on requirements as well as infrastructure needs. Lambdas are a powerful tool with their ability to serve as stand-alone ephemeral functionality. 
 
-In addition to the CI/CD work necessary to deploy Lambda's via the Gateway, things like access to logging and accurate eventing/monitoring are still needed to come full circle in serverless infrastructure. Perhaps that's a blog topic for another day!
+In addition to the CI/CD work necessary to deploy Lambda's via the Gateway, things like access to logging and accurate eventing/monitoring are still needed to come full circle in serverless infrastructure. Perhaps that's a topic for another day!

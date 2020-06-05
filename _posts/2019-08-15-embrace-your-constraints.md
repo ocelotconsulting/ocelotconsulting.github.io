@@ -4,7 +4,7 @@ background:  shortBackground
 title:           "Embrace Your Constraints"
 date:            2019-08-15 09:00:00
 author:          "Artem Chernyak"
-headerImg:      "/assets/images/blog/code.jpg"
+headerImg:      "/assets/images/posts/code.jpg"
 description:     "Common constraints and techniques to deal with them"
 cross-post-link: "https://hackeryarn.com/post/the-right-abstraction-for-lambdas/"
 cross-post-text: "hackeryarn.com"

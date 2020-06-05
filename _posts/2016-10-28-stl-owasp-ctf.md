@@ -5,7 +5,7 @@ title:       "STL OWASP CTF"
 subtitle:    "Seeing information security from the other side"
 date:        2016-10-28 09:45:00
 author:      "Larry Anderson"
-headerImg:  "/assets/images/blog/war_room.jpg"
+headerImg:  "/assets/images/posts/war_room.jpg"
 description: "My experience at the October 20th Capture The Flag event put on by the St. Louis OWASP chapter."
 ---
 
@@ -19,10 +19,10 @@ When I attended a local [STL Cyber Meetup](https://www.meetup.com/STL-CYBER-Meet
 
 The organizer of the event sent out messages to participants, letting them know that they'd need their own laptop (check) and an installation of Kali linux. I had toyed with Kali years before, but not to the point of using it regularly. Having experience with docker, I realized that Kali had some official docker support recently, so I chose to go this route. I found a [docker image](https://hub.docker.com/r/jgamblin/kalibrowser-lxde/) which came packaged with a VNC server/viewer and decided to use that, as I didn't want to install other software on my machine, especially of the variety used in Kali.
 
-{: .blog-center}
-![Kali docker in browser](/assets/images/blog/2016-10-28-stl-owasp-ctf/kali-browser.png)
+{: .posts-center}
+![Kali docker in browser](/assets/images/posts/2016-10-28-stl-owasp-ctf/kali-browser.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 1 - Kali docker in a browser (courtesy [Jerry Gamblin](http://jerrygamblin.com/))
 
 I'd also previously ran an early version of [Facebook's CTF server](https://github.com/facebook/fbctf), so I was familiar with what the actual premise of a CTF was, and the types of things to be expected in the various levels of challenges.
@@ -35,10 +35,10 @@ We were given credentials to a Symantec site which allowed us to download a VPN 
 
 I found the first few flags relatively quickly, and found myself doing rather well in comparison to other people around the room who were having trouble simply VPNing to the private network. The leaderboard was mine! An example of this type of question was to find the location in the python source code of an unchecked/unvalidated redirect. In this case, you were trying to send a colleague a link to your educational experience on the fake site, and the link was not checked (so could be made to redirect to a locally controlled server where you could scrape details about the remote user) for validity -- like making sure the url was to a page on the current site vs. another server.
 
-{: .blog-center}
-![Yours Truly](/assets/images/blog/2016-10-28-stl-owasp-ctf/yours_truly.jpeg)
+{: .posts-center}
+![Yours Truly](/assets/images/posts/2016-10-28-stl-owasp-ctf/yours_truly.jpeg)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 2 - Yours truly @ the 10/20/2016 STL OWASP CTF at T-Rex downtown.
 
 At some point I arrived at a harder challenge, one that was worth more points but required more work to be done. And that's really where I found issues with the competition. I came up with an idea that I thought would win the flag, but tried repeated variations on that idea to no avail. I revealed a couple of hints to the challenge (reducing the potential reward), and they indicated I was trying the right thing, but still it wasn't working. The idea with a few of these larger challenges was that there was a "bot" representing a fake user on the system end, which would traverse the links and Cross Site Scripting (XSS) attacks I was trying, in order to expose data from that fake bot. The problem was that my bot seemingly never visited the traps I had set up for them.

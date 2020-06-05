@@ -5,7 +5,7 @@ title:       "Snap-Slack Bot"
 subtitle:    "Leveraging AWS lambda for asynchronous slack activities"
 date:        2016-10-17 13:45:00
 author:      "Larry Anderson"
-headerImg:  "/assets/images/blog/snap-slack.jpg"
+headerImg:  "/assets/images/posts/snap-slack.jpg"
 description: "A Snapchat-style slack bot implemented in AWS Lambda"
 ---
 
@@ -15,10 +15,10 @@ Here at Ocelot Consulting, we use [Slack](https://slack.com/) quite heavily for 
 
 For a more lighthearted project, I recently created a Slack bot with a somewhat simple, if not peculiar, purpose. Similar to [Snapchat](https://www.snapchat.com/), sometimes you want to send a message, but not have it live on in perpetuity. Unfortunately one must manually click the `Delete message` button in order to achieve this functionality with normal Slack. Taking automation seriously, what would be nice is if instead of manually clicking on the `Delete message` button, we could instead rely on a specified delay after which Slack would go ahead and delete the given message for us.
 
-{: .blog-center}
-![Delete message button](/assets/images/blog/2016-10-17-snap-slack/delete.png)
+{: .posts-center}
+![Delete message button](/assets/images/posts/2016-10-17-snap-slack/delete.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 1 - The friendly "Delete message" button
 
 ## Slack Setup
@@ -26,10 +26,10 @@ Fig. 1 - The friendly "Delete message" button
 To create such a bot, there is a little setup required on both the Slack side and the
 AWS side. On the Slack side, you have to create a bot custom integration (which provides you with a token that can be used for calling Slack web APIs) as well as a slash command custom integration so that we can conveniently call the command, as easily as sending a normal Slack message.
 
-{: .blog-center}
-![Slack custom integrations](/assets/images/blog/2016-10-17-snap-slack/custom-integrations.png)
+{: .posts-center}
+![Slack custom integrations](/assets/images/posts/2016-10-17-snap-slack/custom-integrations.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 2 - The resulting custom Slack integrations
 
 ## Lambda Setup
@@ -49,10 +49,10 @@ Most of the development of this project was pretty straightforward and simple, S
 
 Where I ran into a slight snag was when I realized slack wants a response within 3 seconds from any command that is called. Lambda is decently quick to operate and respond to commands, but if a new container is spun up and you experience latency over the internet, you can easily go over this limit.
 
-{: .blog-center}
-![Slack timeout error](/assets/images/blog/2016-10-17-snap-slack/timeout.jpg)
+{: .posts-center}
+![Slack timeout error](/assets/images/posts/2016-10-17-snap-slack/timeout.jpg)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 3 - The slack timeout error
 
 Compounding the problem is that Slack expects an HTTP response (a status code of 200 is normal, others are acceptable). The slash command invocation provides a `response_url` to issue other asynchronous responses to, but that is intended for use past the initial response.
@@ -61,10 +61,10 @@ Whenever returning a response from a Node Lambda, the event processing completes
 
 After a few minutes of Google-sleuthing I ran across what I would use as the solution to this asynchronous problem -- [*invoking a second Lambda function*](https://github.com/ocelotconsulting/snap-slack-lambda/blob/master/src/aws/lambda/invokeLambda.js#L4). So essentially what the initial Lambda call does now is proxy an invocation to a second Lambda ([with `InvocationType` parameter set to a value of `Event`](http://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Lambda.html#invoke-property)), and then return the response so that the Slack slash command is satisfied before its 3 second command timeout.
 
-{: .blog-center}
-![Snapslack Slash Command](/assets/images/blog/2016-10-17-snap-slack/slash-command.png)
+{: .posts-center}
+![Snapslack Slash Command](/assets/images/posts/2016-10-17-snap-slack/slash-command.png)
 
-{: .blog-center}
+{: .posts-center}
 Fig. 4 - The Slack slash command in action.
 
 ## Wrap-up

@@ -6,7 +6,7 @@ subtitle:    "Ocelot Consulting introduction"
 date:        2016-09-22 09:05:00
 author:      "Tyler, Larry, Chris, and John"
 description: "Who we are and what we have set out to accomplish!"
-headerImg:  "/assets/images/blog/launch.jpg"
+headerImg:  "/assets/images/posts/launch.jpg"
 ---
 
 Welcome to Ocelot Consulting. It sounds really good to say that, but who are we, what do we do, why do you care?
@@ -25,7 +25,7 @@ Many of you have heard similar stories, the old “we can do that”, or “we o
 
 ## Pay it Forward
 
-Beyond forming these partnerships, we also aim to help the IT community *care* by giving back. As such, we will be posting in this blog on relevant subjects to the technologies we are either currently working with, or have passion around. We hope to spark conversation, interest in our company, and generally educate.
+Beyond forming these partnerships, we also aim to help the IT community *care* by giving back. As such, we will be posting in this space on relevant subjects to the technologies we are either currently working with, or have passion around. We hope to spark conversation, interest in our company, and generally educate.
 
 So, where are we now?  Well, we just started 3 days ago, we are in the process of finding those partners, and things look promising so far.
 
