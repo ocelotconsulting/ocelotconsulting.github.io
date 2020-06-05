@@ -71,4 +71,4 @@ Fig. 4 - The Slack slash command in action.
 
 So now our command is working, and messages are being deleted before they can cause any undue harm. Whew!
 
-While this was certainly a whimsical usage of Slack and Lambda to perform some light automation, the two form a pretty powerful DevOps/ChatOps duo, which can be leveraged for a large number of potential usages. Comments/suggestions? Feel free to drop us a line on [twitter](https://twitter.com/ocelot_llc) or comment below. Thanks!
+While this was certainly a whimsical usage of Slack and Lambda to perform some light automation, the two form a pretty powerful DevOps/ChatOps duo, which can be leveraged for a large number of potential usages. Thanks for reading.

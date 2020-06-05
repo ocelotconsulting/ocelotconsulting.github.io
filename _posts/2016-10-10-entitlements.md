@@ -169,4 +169,4 @@ Given the base design described here for dynamic entitlements, some extensions n
 
 For brevity's sake I've left out a lot of detail - such as how we kept the entitlement model in sync with AD and our legacy systems and how we used a basic workflow system and web UI to speed adoption. Also the actual model was far more complex than I've illustrated here.
 
-Thanks for reading --- I hope you've found this material useful. Let us know what you think via [twitter](https://twitter.com/ocelot_llc) or comment below.
+Thanks for reading.

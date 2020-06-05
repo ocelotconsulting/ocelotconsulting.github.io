@@ -127,7 +127,7 @@ We might have focused more on just making something that looked good if we felt 
 
 Normally in iterative software development the goal of having working software wins out initially, and client needs get met going forward whether that be polishing a UI or extended functionality. We have no doubt in our user interface and presentation skills, but we chose certain priorities for this competition and are pleased with the results.
 
-If you would like to view our work, check out the links below, and feel free to drop us a line via twitter or comment.
+If you would like to view our work, check out the links below:
 
 * [Submission for GlobalHack 6](https://devpost.com/software/ocelot-consulting-s-global-hack-6-project)
 * [Github Repository](https://github.com/ocelotconsulting/global-hack-6/tree/1.0)
