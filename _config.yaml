@@ -61,3 +61,12 @@ social:
     url: /feed.xml
   - title: slack
     url: http://slack-registration.foxeared.com
+
+contactForm:
+  url: https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/
+  # url: https://bai15rjzze.execute-api.us-east-1.amazonaws.com/poc
+  to: info@ocelotconsulting.com
+  redirect: https://ocelotconsulting.com
+recaptcha:
+  # siteKey: 6LdnFgEVAAAAAKcCPOLnl3G3ERGDivtzYYkhOvVI # local development
+  siteKey: 6LduFgEVAAAAAJLy0R672PEdTafugaVHktVYcMLD # production

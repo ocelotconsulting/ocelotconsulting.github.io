@@ -1,4 +1,19 @@
 <section class="section grey-dark-1">
+<script src="https://www.google.com/recaptcha/api.js?render={{ site.recaptcha.siteKey }}"></script>
+
+<script>
+  function onSubmitContactFormClick(e) {
+    var contactForm = document.getElementById('contactForm')
+    contactForm.reportValidity() &&
+    grecaptcha.ready(function() {
+      console.info('executing grecaptcha.execute()')
+      grecaptcha.execute('{{ site.recaptcha.siteKey }}', {action: 'submit'}).then(function(token) {
+        document.getElementById('_recaptcha').value = token
+        contactForm.submit()
+      });
+    });
+  }
+</script>
 <div id="contact">
     <section class="hero is-medium">
       <div class="hero-body">
@@ -9,37 +24,49 @@
           <h3 class="subtitle subtitle__white">
             Give us a call at <a href="tel:+1314-384-3225" class="subtitle__link">+1 314 384 3225</a> or send us a message.
           </h3>
-          <form name="sentMessage" id="contactForm" action="https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/" method="POST" novalidate>
-            <input type="hidden" id="_to" name="_to" value="info@ocelotconsulting.com" >
+          <form
+            name="contactForm"
+            id="contactForm"
+            action="{{ site.contactForm.url }}"
+            method="POST"
+          >
+            <input type="hidden" id="_to" name="_to" value="{{ site.contactForm.to }}" >
             <input type="hidden" id="_honeypot" name="_honeypot" value="" >
+            <input type="hidden" id="_recaptcha" name="_recaptcha" value="" >
             <div class="columns">
               <div class="column">
                 <div class="field">
                     <div class="control">
-                        <input type="text" class="input" placeholder="Your Name *" id="name" name="name" required data-validation-required-message="Please enter your name.">
+                        <input type="text" class="input" placeholder="Your Name *" id="name" name="name" minlength="4" required>
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <input type="email" class="input" placeholder="Your Email *" id="email" name="email" required data-validation-required-message="Please enter your email address.">
+                        <input type="email" class="input" placeholder="Your Email *" id="email" name="email" pattern="^.*@.*\.[a-zA-Z]*$" required>
                     </div>
                 </div>
                 <div class="field">
                     <div class="control">
-                        <input type="text" class="input" placeholder="Subject *" id="subject" name="subject" required data-validation-required-message="Please enter a subject.">
+                        <input type="text" class="input" placeholder="Subject *" id="subject" name="subject" minlength="4" required>
                     </div>
                 </div>
               </div>
               <div class="column">
                 <div class="field">
                     <div class="control">
-                        <textarea class="textarea" placeholder="Your Message *" rows="4" id="message" name="message" required data-validation-required-message="Please enter a message." style="height: 132px;" ></textarea>
+                        <textarea class="textarea" placeholder="Your Message *" rows="4" id="message" name="message" minlength="15" required style="height: 132px;" ></textarea>
                     </div>
                 </div>
-                <input type="hidden" name="_redirect" value="https://ocelotconsulting.com" />
+                <input type="hidden" name="_redirect" value="{{ site.contactForm.redirect }}" />
               </div>
             </div>
-            <button type="submit" class="button button--white is-outlined">Send Message</button>
+            <button
+              type="button"
+              class="button button--white is-outlined"
+              onclick="onSubmitContactFormClick()"
+            >
+              Send Message
+            </button>
         </form>
         </div>
       </div>
