@@ -5,7 +5,7 @@ title:       "Dynamic Entitlements"
 subtitle:    "using Neo4j"
 date:        2016-10-10 10:05:00
 author:      "John O'Malley"
-headerImg:  "/assets/images/blog/nodes.png"
+headerImg:  "/assets/images/posts/nodes.png"
 description: "Enabling dynamic entitlements using neo4j"
 ---
 
@@ -34,8 +34,8 @@ As a model centered on entities and relationships emerged, two choices for the d
 
 If you're the type of person that learns best by doing, I recommend you install Neo4j and follow along with the example below. Even if you're entirely unfamiliar with graph databases you'll find that the barrier to entry is small -- it has a nice web interface that makes interacting with the DB easy.  You can download Community Edition [directly from Neo4j](https://neo4j.com/download/) or if you're like me you might prefer [docker](https://www.docker.com/products/docker) and the official [Neo4j image](https://hub.docker.com/_/neo4j/). Once you're up and running open [http://localhost:7474](http://localhost:7474), log in, set your admin password, and you're ready to start building your model:
 
-{: .blog-center}
-![Neo4j welcome](/assets/images/blog/2016-10-10-entitlements/neo4j-welcome.png)
+{: .posts-center}
+![Neo4j welcome](/assets/images/posts/2016-10-10-entitlements/neo4j-welcome.png)
 
 ### Building the model
 
@@ -51,8 +51,8 @@ create (:User {id: 'bob', name: 'Bob'})
 
 Run these statements one at a time in the Neo4j console and take note of the results. Neo4j tells you exactly what was created:
 
-{: .blog-center}
-![Neo4j welcome](/assets/images/blog/2016-10-10-entitlements/neo4j-feedback.png)
+{: .posts-center}
+![Neo4j welcome](/assets/images/posts/2016-10-10-entitlements/neo4j-feedback.png)
 
 Next let's create a slice of an organizational hierarchy.  In our example the *IT* organization contains an
 *Application Development* organization that in turn contains a *Web Application Development* organization:
@@ -136,8 +136,8 @@ match (o:Org {id: 'IT'}) match (e:Entitlement {id: 'b7a564adc81e830fe95b'}) crea
 
 The Neo4j web console provides a nice visualization for our simplified model:
 
-{: .blog-center}
-![Neo4j welcome](/assets/images/blog/2016-10-10-entitlements/model-visualization.png)
+{: .posts-center}
+![Neo4j welcome](/assets/images/posts/2016-10-10-entitlements/model-visualization.png)
 
 ### Querying a user's entitlements
 
@@ -155,8 +155,8 @@ The first statement matches any entitlement granted to the user by virtue of his
 
 The expression `[:CONTAINS*0..]` implies that there may be zero or more relationships to traverse between organizations before we find the entitlement granted to an organization in the hierarchy. For Bob we don't traverse any parent organizations because he is a member of the *IT* organization directly. The same entitlement requires two traversals for Alice.
 
-{: .blog-center}
-![Neo4j welcome](/assets/images/blog/2016-10-10-entitlements/entitlement-query-result.png)
+{: .posts-center}
+![Neo4j welcome](/assets/images/posts/2016-10-10-entitlements/entitlement-query-result.png)
 
 ### Extensions
 
@@ -169,4 +169,4 @@ Given the base design described here for dynamic entitlements, some extensions n
 
 For brevity's sake I've left out a lot of detail - such as how we kept the entitlement model in sync with AD and our legacy systems and how we used a basic workflow system and web UI to speed adoption. Also the actual model was far more complex than I've illustrated here.
 
-Thanks for reading --- I hope you've found this material useful. Let us know what you think via [twitter](https://twitter.com/ocelot_llc) or comment below.
+Thanks for reading.

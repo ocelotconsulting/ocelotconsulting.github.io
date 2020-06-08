@@ -6,7 +6,7 @@ subtitle:    "Secure, scalable and worry free websites"
 date:        2016-10-03 00:00:00
 author:      "Chris Coffman"
 description: "Securing your AWS CloudFront distribution using Cognito and Lambda"
-headerImg:  "/assets/images/blog/code.jpg"
+headerImg:  "/assets/images/posts/code.jpg"
 ---
 
 Recently, I was developing a website for a company that needed to be globally available. The site also needed to be secured so only employees could access the content. Up to this point I had been hosting my websites in AWS EC2 instances and I wanted to try hosting this site using S3 and CloudFront. I ran into an issue securing the site. We had previously been using a security gateway to provide security to our VPC. If I was going to secure CloudFront, what was the best way to enable security?
@@ -17,13 +17,13 @@ The solution I came up with involves taking advantage of the error pages in a Cl
 
 ## Solution Diagram
 
-![solution diagram](/assets/images/blog/2016-10-03-cloudfront-security/flow.jpg)
+![solution diagram](/assets/images/posts/2016-10-03-cloudfront-security/flow.jpg)
 
 ## S3 Setup
 
 To implement this solution, I started by setting up an S3 bucket with the following structure:
 
-![S3 layout](/assets/images/blog/2016-10-03-cloudfront-security/heirarchy.jpg)
+![S3 layout](/assets/images/posts/2016-10-03-cloudfront-security/heirarchy.jpg)
 
 The www folder hosts my website, and the public folder hosts my unsecured HTML pages. The keys folder contains my CloudFront private key file, used to generate cookies to access the content in the www folder.
 
@@ -31,23 +31,23 @@ The www folder hosts my website, and the public folder hosts my unsecured HTML p
 
 In CloudFront I created a secure web distribution for my S3 origin, serving content out of the the www folder. I created an additional behavior for the public folder for the purpose of un-securing it.
 
-![Distribution behavior](/assets/images/blog/2016-10-03-cloudfront-security/behaviors.jpg)
+![Distribution behavior](/assets/images/posts/2016-10-03-cloudfront-security/behaviors.jpg)
 
 Next, I created an error handler for HTTP 403 errors. Now, instead of giving back a cryptic forbidden response, CloudFront would serve up a webpage that would redirect users to the login page in the public folder.
 
-![Error page](/assets/images/blog/2016-10-03-cloudfront-security/error_pages.jpg)
+![Error page](/assets/images/posts/2016-10-03-cloudfront-security/error_pages.jpg)
 
 ## The Login Page
 
 In the login page I provided as an example, users log in with their Google credentials using the vanilla example from Google's [documentation](https://developers.google.com/identity/sign-in/web/).
 
-![Login page](/assets/images/blog/2016-10-03-cloudfront-security/login.jpg)
+![Login page](/assets/images/posts/2016-10-03-cloudfront-security/login.jpg)
 
 ## Cognito Integration
 
 Once authenticated, the login page receives an OpenID token for the user. Once obtained, I used AWS Cognito to obtain temporary AWS credentials to directly invoke an AWS Lambda. This is possible because my Cognito federated user pool is integrated with Google+ and anyone in the user pool is allowed to invoke my Lambda.
 
-![Cognito Integration](/assets/images/blog/2016-10-03-cloudfront-security/auth_providers.jpg)
+![Cognito Integration](/assets/images/posts/2016-10-03-cloudfront-security/auth_providers.jpg)
 
 ## Lambda
 

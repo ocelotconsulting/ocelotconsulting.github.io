@@ -29,7 +29,7 @@ plugins:
   - jekyll-sitemap
   - rouge
 paginate: 5
-paginate_path: "/blog/page:num/"
+paginate_path: "/posts/page:num/"
 sass:
   style: compact # possible values: nested expanded compact compressed
 
@@ -49,14 +49,10 @@ kramdown:
 # ----------------------- #
 
 social:
-  - title: twitter
-    url: https://twitter.com/ocelot_llc
   - title: github
     url: https://github.com/ocelotconsulting/
   - title: linkedin
     url: https://www.linkedin.com/company/ocelot-consulting-llc
-  - title: facebook
-    url: https://facebook.com/ocelotconsultingllc/
   - title: rss
     url: /feed.xml
   - title: slack

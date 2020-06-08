@@ -5,7 +5,7 @@ title:       "Rebooting Error Handling"
 subtitle:    "Using the Rust programming language"
 date:        2018-01-08 10:00:00
 author:      "John O'Malley"
-headerImg:  "/assets/images/blog/code.jpg"
+headerImg:  "/assets/images/posts/code.jpg"
 description: "Error handling in the Rust programming language"
 ---
 
@@ -14,7 +14,7 @@ Software engineering is a constant learning experience, but sometimes we get stu
 I've been wanting to learn a new language for a few years now, and [Rust](http://rust-lang.org) has been near the top of my list.  Rust is primarily a systems language although its designers claim it's fine for general purpose use. My recent background is primarily in applications and web development - Scala, Java, and lately mostly client and server-side JavaScript, but since Rust is a popular language for developing [WebAssembly](http://webassembly.org/)
 there's some overlap. 
 
-Rust's killer feature is memory safety without garbage collection via a complex system of accounting built into the language. It's a new concept that's been a fun challenge to learn, and potentially the subject of a future blog post. Today, though, I'm going to focus on error handling. Rust (and Go) are outliers among modern languages because they don't rely on exceptions for error handling.
+Rust's killer feature is memory safety without garbage collection via a complex system of accounting built into the language. It's a new concept that's been a fun challenge to learn, and potentially the subject of a future post. Today, though, I'm going to focus on error handling. Rust (and Go) are outliers among modern languages because they don't rely on exceptions for error handling.
 
 ## What's wrong with exceptions?
 

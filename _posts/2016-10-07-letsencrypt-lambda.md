@@ -6,7 +6,7 @@ subtitle:    "Free SSL Certificate Automation via AWS Lambda"
 date:        2016-10-07 08:30:00
 author:      "Larry Anderson"
 description: "Obtain and maintain SSL certificates worry-free by harnessing the power of AWS lambda"
-headerImg:  "/assets/images/blog/fence.jpg"
+headerImg:  "/assets/images/posts/fence.jpg"
 ---
 
 ### Free Certificates!
@@ -29,10 +29,10 @@ Let's Encrypt can be simple to use, as long as you understand what the ACME prot
 * Second, the admin proves to the LE CA that they control one or more domains.
 * Lastly, the automation procures certificates according to the domains it can prove control over.
 
-{: .blog-center}
-![Let's Encrypt ChallengePseudocode Process](/assets/images/blog/2016-10-07-letsencrypt-lambda/howitworks_authorization.png){:width="75%"}
+{: .posts-center}
+![Let's Encrypt ChallengePseudocode Process](/assets/images/posts/2016-10-07-letsencrypt-lambda/howitworks_authorization.png){:width="75%"}
 
-{: .blog-center}
+{: .posts-center}
 Fig. 1 - The Let's Encrypt Challenge Process
 
 ### Proving Domain Control
@@ -51,10 +51,10 @@ On an initial run of the lambda, the following high-level events take place:
 
 1. Check to see if certificate is close to expiring (within 30 days of the expiration date). If it's fine, exit... if not, #2.
 
-    {: .blog-center}
-    ![Certificate Expiration Notice](/assets/images/blog/2016-10-07-letsencrypt-lambda/expired-cert.jpg)
+    {: .posts-center}
+    ![Certificate Expiration Notice](/assets/images/posts/2016-10-07-letsencrypt-lambda/expired-cert.jpg)
 
-    {: .blog-center}
+    {: .posts-center}
     Fig. 2 - Expired Certificate... *don't let this happen to you!*
 
 2. Register a configured admin (generate a keypair and send the public key in with the email to register). Write the admin data (keypair and registration info) to a file in S3.
@@ -65,10 +65,10 @@ On an initial run of the lambda, the following high-level events take place:
 
     2. Take a token from LE's DNS challenge and insert a TXT record for the domain in Route53 corresponding to a digest of the token using the private key of the admin.
 
-        {: .blog-center}
-        ![Certificate Expiration Notice](/assets/images/blog/2016-10-07-letsencrypt-lambda/TXT_Record.png)
+        {: .posts-center}
+        ![Certificate Expiration Notice](/assets/images/posts/2016-10-07-letsencrypt-lambda/TXT_Record.png)
 
-        {: .blog-center}
+        {: .posts-center}
         Fig. 3 - DNS TXT Record
 
     3. Poll DNS for the TXT record containing the latest digest value.
