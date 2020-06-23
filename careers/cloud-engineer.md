@@ -33,9 +33,7 @@ As a cloud engineer, you will build and automate highly available, elastic, and 
 * Experience with common configuration management software (Ansible, Puppet, AWS SSM, etc.)
 
 # Perks
-Standard Benefits Program (medical, dental, retirement, PTO, etc.)
+Benefits include medical, dental, retirement, and PTO. For more details, see our [Careers page](https://www.ocelotconsulting.com/careers/#benefits).
 
 # Contact
-Interested candidates please submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Cloud%20Engineer%20application).
-
-<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Cloud%20Engineer%20application" target="_blank">Email your Resume</a>
+Interested candidates: please submit resumes to **[hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Cloud%20Engineer%20application).**

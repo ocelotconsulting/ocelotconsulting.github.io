@@ -34,9 +34,7 @@ At Ocelot, full stack developers work as a team to build modern, cloud-native pr
 * Experience with deploying to cloud environments using Docker, Ansible, Puppet, Chef, CloudFormation, Terraform, etc.
 
 # Perks
-Standard Benefits Program (medical, dental, retirement, PTO, etc.)
+Benefits include medical, dental, retirement, and PTO. For more details, see our [Careers page](https://www.ocelotconsulting.com/careers/#benefits).
 
 # Contact
-Interested candidates please submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application).
-
-<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application" target="_blank">Email your Resume</a>
+Interested candidates: please submit resumes to **[hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application).**

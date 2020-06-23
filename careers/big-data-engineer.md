@@ -31,9 +31,7 @@ As a Big Data Engineer, you will develop innovative software using distributed d
 
 
 # Perks
-Standard Benefits Program (medical, dental, retirement, PTO, etc.)
+Benefits include medical, dental, retirement, and PTO. For more details, see our [Careers page](https://www.ocelotconsulting.com/careers/#benefits).
 
 # Contact
-Interested candidates submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Big%20Data%20Engineer%20application).
-
-<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Big%20Data%20Engineer%20application" target="_blank">Email your Resume</a>
+Interested candidates: please submit resumes to **[hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Big%20Data%20Engineer%20application)**.
