@@ -31,16 +31,6 @@
   padding-top: 5rem;
 }
 
-.columns {
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
-
-  &:not(:last-child) {
-    margin-bottom: 0;
-  }
-}
-
 /* Suggested workaround for Bulma bug that causes horizontal 
    scrolling. See https://github.com/jgthms/bulma/issues/2242 */
 .columns {
