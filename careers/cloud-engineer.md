@@ -36,7 +36,6 @@ As a cloud engineer, you will build and automate highly available, elastic, and 
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
 
 # Contact
-Interested candidates please apply <a href="https://www.indeed.com/job/cloud-engineer-9ba60935db492951" target="_blank">online</a> or submit resumes to: [careers@ocelotconsulting.com](mailto:careers@ocelotconsulting.com).
+Interested candidates please submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Cloud%20Engineer%20application).
 
-<a class="button is-primary is-outlined" href="https://www.indeed.com/job/cloud-engineer-9ba60935db492951" target="_blank">Apply Online</a>
-<a class="button is-link is-outlined" href="mailto:careers@ocelotconsulting.com" target="_blank">Email your Resume</a>
+<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Cloud%20Engineer%20application" target="_blank">Email your Resume</a>

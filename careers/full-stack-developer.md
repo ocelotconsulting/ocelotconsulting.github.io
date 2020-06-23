@@ -37,7 +37,6 @@ At Ocelot, full stack developers work as a team to build modern, cloud-native pr
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
 
 # Contact
-Interested candidates please apply <a href="https://www.indeed.com/job/full-stack-developer-cloud-native-b85dc9073f5bdf8e" target="_blank">online</a> or submit resumes to: [careers@ocelotconsulting.com](mailto:careers@ocelotconsulting.com).
+Interested candidates please submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application).
 
-<a class="button is-primary is-outlined" href="https://www.indeed.com/job/full-stack-developer-cloud-native-b85dc9073f5bdf8e" target="_blank">Apply Online</a>
-<a class="button is-link is-outlined" href="mailto:careers@ocelotconsulting.com" target="_blank">Email your Resume</a>
+<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application" target="_blank">Email your Resume</a>
