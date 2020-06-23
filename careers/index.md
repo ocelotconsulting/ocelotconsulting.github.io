@@ -45,13 +45,13 @@ attribution: Icons made by <a href="https://www.flaticon.com/authors/eucalyp" ti
       <h1 class="title">Open Positions</h1>
       <div class="columns">
         <div class="column is-one-third">
-          {% include card.html title="Full Stack Engineer" description="For developers who are comfortable building an app from UI to API, and Database to Cloud provisioning." cardImage="/assets/images/software.png" route="/careers/full-stack-developer" applyRoute="https://www.indeed.com/job/full-stack-developer-cloud-native-b85dc9073f5bdf8e" %}
+          {% include card.html title="Full Stack Engineer" description="For developers who are comfortable building an app from UI to API, and Database to Cloud provisioning." cardImage="/assets/images/software.png" route="/careers/full-stack-developer" %}
         </div>
         <div class="column is-one-third">
-          {% include card.html title="Big Data Engineer" description="For developers who are comfortable processing terabytes of data. You know your Kafka from your Spark." cardImage="/assets/images/dashboard.png" route="/careers/big-data-engineer" applyRoute="https://www.indeed.com/job/big-data-engineer-18a7c0d744835ec4" %}
+          {% include card.html title="Big Data Engineer" description="For developers who are comfortable processing terabytes of data. You know your Kafka from your Spark." cardImage="/assets/images/dashboard.png" route="/careers/big-data-engineer" %}
         </div>
         <div class="column is-one-third">
-          {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding Cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" applyRoute="https://www.indeed.com/job/cloud-engineer-9ba60935db492951" %}
+          {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding Cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" %}
         </div>
       </div>
     </div>

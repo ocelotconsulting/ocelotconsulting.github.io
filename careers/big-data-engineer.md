@@ -34,7 +34,6 @@ As a Big Data Engineer, you will develop innovative software using distributed d
 Standard Benefits Program (medical, dental, retirement, PTO, etc.)
 
 # Contact
-Interested candidates please apply <a href="https://www.indeed.com/job/big-data-engineer-18a7c0d744835ec4" target="_blank">online</a> or submit resumes to: [careers@ocelotconsulting.com](mailto:careers@ocelotconsulting.com).
+Interested candidates submit resumes to: [hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Big%20Data%20Engineer%20application).
 
-<a class="button is-primary is-outlined" href="https://www.indeed.com/job/big-data-engineer-18a7c0d744835ec4" target="_blank">Apply Online</a>
-<a class="button is-link is-outlined" href="mailto:careers@ocelotconsulting.com" target="_blank">Email your Resume</a>
+<a class="button is-link is-outlined" href="mailto:hiring@ocelotconsulting.com?subject=Big%20Data%20Engineer%20application" target="_blank">Email your Resume</a>
