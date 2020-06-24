@@ -14,7 +14,6 @@
   <span id="{{ include.linkId }}" />
   <br/>
   <div class="column is-full">
-    <a href="{{ include.link }}">
       <div class="box">
         <article class="media">
           <div class="media-left is-hidden-mobile">
@@ -37,10 +36,11 @@
               <div class="has-text-weight-light">
                 {{ include.solution }}
               </div>
+              <br/>
+              <a href="{{ include.link }}" class="button is-primary is-outlined"> Read Our {{ include.title }} Case Study</a>
             </div>
           </div>
         </article>
       </div>
-    </a>
   </div>
 </div>

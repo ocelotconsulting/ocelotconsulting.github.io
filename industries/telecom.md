@@ -3,7 +3,7 @@ layout: page_w_header
 title:  "Telecommunications"
 subtitle: "Optimizing Call Center Tools and Technology"
 background: shortBackground
-overviewStatement: Ocelot partnered with a Fortune 500 Telecom Client to help them modernize their service ordering tool and deploy it to agents across their Call Centers.
+overviewStatement: Ocelot partnered with a Fortune 500 telecom client to help them modernize their service ordering tool and deploy it to agents across their call centers.
 overviewList:
   - Web portal using React
   - Web services using Java
@@ -18,7 +18,7 @@ needImageAlt: Telecom
     To help the client meet their goal, Ocelot put together a team of individuals with a history of developing and deploying modern web applications. These individuals joined a diverse team of other developers to help drive the product over the finish line. In addition to delivering on features, Ocelot participated in knowledge sharing with the rest of the team helping to establish best practices which could be shared across the organization.
   </div>
   <div class="padding-top-1">
-    In order to better understand the struggles faced by the Call Center representatives and build the right solution for them, members of the team shadowed the representatives through their day to day practices. This close contact with the end users allowed the team to provide a solution that not only solved the high-level business problem but was intuitive and user friendly.
+    In order to better understand the struggles faced by the call center representatives and build the right solution for them, members of the team shadowed the representatives through their day to day practices. This close contact with the end users allowed the team to provide a solution that not only solved the high-level business problem but was intuitive and user friendly.
   </div>
   <div class="padding-top-1">
     Over the course of six months Ocelot and the rest of the development team successfully completed the development of the updated ordering system and ensured that its release and adoption was successful.
@@ -27,7 +27,7 @@ needImageAlt: Telecom
 
 {% capture resultsStatement %}
   <div class="padding-top-1">
-    With the help of Ocelot, the client was able to successfully complete the upgrade of their existing Call Center ordering software. This allowed them to roll it out to all of their customer service agents. Call Center agents were very pleased with the new tool and reported that it helped them process customer requests easier and quicker than they were able to previously.
+    With the help of Ocelot, the client was able to successfully complete the upgrade of their existing call center ordering software. This allowed them to roll it out to all of their customer service agents. Call center agents were very pleased with the new tool and reported that it helped them process customer requests easier and quicker than they were able to previously.
   </div>
 {% endcapture %}
 
