@@ -44,6 +44,12 @@
                 <i>Posted by {{page.author}} on {{page.date | date: "%b %d, %Y"}}</i>
               </p>
               {{ content }}
+              <br/>
+              <div class="social-share-btns-container">
+                <div class="social-share-btns">
+                  {% include share-buttons.html text_label=true %}
+                </div>
+              </div>
             </div>
           </div> 
         </div>

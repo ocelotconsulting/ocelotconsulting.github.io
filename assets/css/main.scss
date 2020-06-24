@@ -56,6 +56,76 @@
   vertical-align: middle;
 }
 
+// Styles the social media share buttons on the post pages
+.social-share-floating-bar {
+  position: fixed;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.social-share-floating-bar a {
+  display: block;
+  transition: all 0.3s ease;
+  padding: 16px;
+  color: #fff;
+  font-size: 20px;
+  text-align: center;
+}
+
+.social-share-btns-container {
+  font-size: 14px;
+  text-align: left;
+}
+
+.social-share-btns {
+  display: inline-block;
+}
+
+.social-share-btns .share-btn {
+  margin: 0 5px;
+  padding: 4px 8px;
+  color: #fff;
+}
+
+.social-share-btns .share-btn i {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.share-btn {
+  background-color: #95a5a6;
+}
+
+.share-btn:hover, .share-btn:active, .share-btn:visited {
+  background-color: #798d8f;
+  text-decoration: none;
+}
+
+.share-btn-twitter {
+  background-color: #0087ba;
+}
+
+.share-btn-twitter:hover, .share-btn-twitter:active, .share-btn-twitter:visited {
+  background-color: #0087ba;
+}
+
+.share-btn-facebook {
+  background-color: #2d4373;
+}
+
+.share-btn-facebook:hover, .share-btn-facebook:active, .share-btn-facebook:visited {
+  background-color: #2d4373;
+}
+
+.share-btn-linkedin {
+  background-color: #005983;
+}
+
+.share-btn-linkedin:hover, .share-btn-linkedin:active, .share-btn-linkedin:visited {
+  background-color: #005983;
+}
+
 @import "_animations";
 @import "_common";
 @import "_nav";
