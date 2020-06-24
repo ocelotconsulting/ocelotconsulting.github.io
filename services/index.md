@@ -97,8 +97,8 @@ services:
 	</div>
 </div>
 <div class="columns is-centered">
-	<div class="column is-one-third">
-        <br/>
+	<div class="column is-one-third has-text-centered">
+        <br />
         <a href="/industries/" class="button is-primary is-outlined">Learn More With Our Case Studies </a>
     </div>
 </div>
