@@ -74,15 +74,16 @@
       display: inline-block;
       margin-right: 5px;
     }
-  }
-  .share-btn-twitter {
-    background-color: #0087ba;
-  }
-  .share-btn-facebook {
-    background-color: #2d4373;
-  }
-  .share-btn-linkedin {
-    background-color: #005983;
+    
+    &-twitter {
+      background-color: #0087ba;
+    }
+    &-facebook {
+      background-color: #2d4373;
+    }
+    &-linkedin {
+      background-color: #005983;
+    }
   }
 }
 
