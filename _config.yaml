@@ -56,7 +56,7 @@ social:
   - title: rss
     url: /feed.xml
   - title: slack
-    url: http://slack-registration.foxeared.com
+    url: https://join.slack.com/t/ocelot-consulting-pub/shared_invite/zt-fbfmqoz9-30Ur9KmHYALDm17akmGOng
 
 contactForm:
   url: https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/

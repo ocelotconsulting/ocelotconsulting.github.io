@@ -5,16 +5,16 @@ subtitle: "Saint Louis, MO | Full Time"
 background: shortBackground
 ---
 
-# About Us
+## About Us
 
 Ocelot Consulting was born out of an idea that autonomy and mastery are worthy goals of good developers. We had an idea that the classical development organization could be made more efficient and pleasurable to work in if run in ways that developers valued. Ocelot works to innovate and inspire developers to try new things, applying them to client needs to solve today's biggest problems.
 
 We aim to give our Ocelot family challenging and rewarding work, competitive compensation and the opportunity to make their role into everything they want it to become. The establishment of a collaborative community of experts is the goal we aim to integrate all new team members into.
 
-# The Role
+## The Role
 At Ocelot, full stack developers work as a team to build modern, cloud-native products with our clients.  Teams are empowered to own all facets of development including frontend, backend, infrastructure, and data pipelines.  An ideal candidate will enjoy being a generalist – not expected to be an expert in all of these, but enthusiastic and capable of learning and contributing wherever needed.
 
-## Requirements
+### Requirements
 
 * Experience developing cloud-native applications and deploying to a cloud environment (i.e. AWS, Google Cloud Platform, Azure, etc.)
 * One or more general purpose programming languages (JavaScript, Java, .NET, Scala, etc.)
@@ -27,14 +27,14 @@ At Ocelot, full stack developers work as a team to build modern, cloud-native pr
 * Understanding of DevOps responsibilities including OS and Container Management
 * Practical understanding of security best practices in software development
 
-## Nice to have
+### Nice to have
 * Docker / Kubernetes / Cloud Foundry experience
 * Progressive Web App experience
 * Native mobile app development experience
 * Experience with deploying to cloud environments using Docker, Ansible, Puppet, Chef, CloudFormation, Terraform, etc.
 
-# Perks
+## Perks
 Benefits include medical, dental, retirement, and PTO. For more details, see our [Careers page](https://www.ocelotconsulting.com/careers/#benefits).
 
-# Contact
+## Contact
 Interested candidates: please submit resumes to **[hiring@ocelotconsulting.com](mailto:hiring@ocelotconsulting.com?subject=Full%20Stack%20Developer%20application).**

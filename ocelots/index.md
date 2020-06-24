@@ -21,7 +21,7 @@ background: mediumBackground
               </h1>
               <br/>
               <h4 class="subtitle">
-                Ocelot was founded in 2016 by a small group of engineers who worked together at a large corporation here in St. Louis. Having successfully helped that company modernize on multiple fronts - agility, modern web development, migration to public cloud, DevOps, APIs and microservices - they saw an opportunity to share those experiences with other companies in the region.
+                Ocelot was founded in 2016 by a small group of engineers who worked together at a large corporation here in St. Louis. Having successfully helped that company modernize on multiple fronts - agility, modern web development, migration to public cloud, DevOps, APIs, and microservices - they saw an opportunity to share those experiences with other companies in the region.
               </h4>
             </div>
             <div class="column is-4">

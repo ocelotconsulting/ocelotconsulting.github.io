@@ -16,7 +16,7 @@ needImageAld: Financial Services
 
 {% capture solutionStatement %}
   <div class="padding-top-1">
-    Utilizing experts in application modernization and cloud migrations, Ocelot was able to work on multiple client goals at once. Working with the client, Ocelot was able to help take existing legacy desktop tools and rearchitect them using browser technologies and deploy them to their existing on-premise servers. This allowed the client to quickly see the positive effects of the change. Users were now able to access these tools from any browser as well as see improvements in performance and usability. Simultaneously, other Ocelots were able to help establish an AWS cloud environment. Among the initial proofs of concept provided for the client, Ocelot helped to develop a Cloud based Data Lake with automation built for data ingestion and metadata generation. This not only showed the client the potential and benefits of using the cloud but provided a strong base for further development and migrations to make use of data already present in the cloud.
+    Utilizing experts in application modernization and cloud migrations, Ocelot was able to work on multiple client goals at once. Working with the client, Ocelot was able to help take existing legacy desktop tools and rearchitect them using browser technologies and deploy them to their existing on-premise servers. This allowed the client to quickly see the positive effects of the change. Users were now able to access these tools from any browser as well as see improvements in performance and usability. Simultaneously, other Ocelots were able to help establish an AWS cloud environment. Among the initial proofs of concept provided for the client, Ocelot helped to develop a Cloud based data lake with automation built for data ingestion and metadata generation. This not only showed the client the potential and benefits of using the cloud but provided a strong base for further development and migrations to make use of data already present in the cloud.
   </div>
   <div class="padding-top-1">
     As the initial proofs of concept were being completed and the client was seeing the level of success they could achieve, more teams and business units wanted to get involved and leverage the new technologies. This came with its own set of concerns though. With each team and business unit having their own processes and ways of working it quickly became apparent that there needed to be some standardization across the wider organization for handling cloud migrations and modernizations. Luckily, Ocelot was able to help the client take what was learned in the early initiatives and generate standards and best practices which could be adapted and adopted by other groups in the organization.
@@ -28,14 +28,14 @@ needImageAld: Financial Services
 
 {% capture resultsStatement %}
   <div class="padding-top-1">
-    After the success of early initiatives, the client has continued to embrace Cloud migrations as well as applications modernization. With Ocelots' continued collaboration the client has achieved some impressive results including:
+    After the success of early initiatives, the client has continued to embrace cloud migrations as well as applications modernization. With Ocelots' continued collaboration the client has achieved some impressive results including:
   </div>
   <div class="padding-top-1">
     <ul class="menu-list">
       <li>Established a data lake with automated ingestion and metadata generation</li>
       <li>New security improvements while promoting stability and performance</li>
       <li>Established centralized cloud operations team along with patterns which can be leveraged across all client cloud infrastructures</li>
-      <li>Modernization of 5 applications using the latest technologies and cloud architectures</li>
+      <li>Modernization of five applications using the latest technologies and cloud architectures</li>
     </ul>
   </div>
 {% endcapture %}
