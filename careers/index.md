@@ -36,7 +36,7 @@ attribution: Icons made by <a href="https://www.flaticon.com/authors/eucalyp" ti
 ---
 
 {% include icon-list.html title="Culture" id="culture" section="is-medium" icons=page.culture %}
-
+<br/>
 {% include icon-list.html title="Benefits" id="benefits" section="is-medium" icons=page.benefits %}
 
 <section class="hero is-medium">
@@ -45,13 +45,13 @@ attribution: Icons made by <a href="https://www.flaticon.com/authors/eucalyp" ti
       <h1 class="title">Open Positions</h1>
       <div class="columns">
         <div class="column is-one-third">
-          {% include card.html title="Full Stack Engineer" description="For developers who are comfortable building an app from UI to API, and Database to Cloud provisioning." cardImage="/assets/images/software.png" route="/careers/full-stack-developer" %}
+          {% include card.html title="Full Stack Engineer" description="For developers who are comfortable building an app from UI to API, and database to cloud provisioning." cardImage="/assets/images/software.png" route="/careers/full-stack-developer" %}
         </div>
         <div class="column is-one-third">
           {% include card.html title="Big Data Engineer" description="For developers who are comfortable processing terabytes of data. You know your Kafka from your Spark." cardImage="/assets/images/dashboard.png" route="/careers/big-data-engineer" %}
         </div>
         <div class="column is-one-third">
-          {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding Cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" %}
+          {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" %}
         </div>
       </div>
     </div>
