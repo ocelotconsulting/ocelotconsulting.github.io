@@ -22,7 +22,7 @@ services:
             <div class="info-card__image" style="background-image: linear-gradient(to right bottom, #63A4FF, transparent), url(/assets/images/cloud-technologies.jpg"></div>
             <div class="info-card__title">
                 <div class="info-card__text">
-                    Cloud
+                    Cloud Architecture
                 </div>
             </div>
             <div class="info-card__subtitle">
@@ -52,7 +52,7 @@ services:
             <div class="info-card__image" style="background-image: linear-gradient(to right bottom, #404040, transparent), url(/assets/images/data.jpg"></div>
             <div class="info-card__title">
                 <div class="info-card__text">
-                    Data
+                    Data Management
                 </div>
             </div>
             <div class="info-card__subtitle">
@@ -70,7 +70,7 @@ services:
             <div class="info-card__image" style="background-image: linear-gradient(to right bottom, #966b4e, transparent), url(/assets/images/security.jpg"></div>
             <div class="info-card__title">
                 <div class="info-card__text">
-                    Security
+                    Security & Compliance
                 </div>
             </div>
             <div class="info-card__subtitle">
@@ -95,4 +95,10 @@ services:
             </div>
         </div>
 	</div>
+</div>
+<div class="columns is-centered">
+	<div class="column is-one-third has-text-centered">
+        <br />
+        <a href="/industries/" class="button is-primary is-outlined">Learn More With Our Case Studies </a>
+    </div>
 </div>

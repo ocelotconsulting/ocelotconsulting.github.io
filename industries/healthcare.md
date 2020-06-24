@@ -23,14 +23,14 @@ needImageAlt: Healthcare
     <ul class="menu-list">
       <li>AWS networking and infrastructure</li>
       <li>Data extraction, transformation, and loading processes</li>
-      <li>User Interface and Microservice creation</li>
+      <li>User interface and microservice creation</li>
     </ul>
   </div>
   <div class="padding-top-1">
     The team got to work building the necessary components for a successful cloud proof of concept. All the infrastructure was managed as code using AWS CloudFormation and a continuous integration/continuous deployment pipeline was established using GitLab and Jenkins on AWS. As the team worked, the client was able to see just how effectively the cloud could be utilized to develop solutions to meet their needs and they began to get excited by the possibilities.
   </div>
   <div class="padding-top-1">
-    The process was not without its roadblocks, however. One of the biggest challenges was integrating the 3rd party Business Intelligence solution the client used. There was an AWS Marketplace option availablefor the tool, but it did not meet the strict security and production readiness standards required for such sensitive information. Instead, the team implemented their own solution to manage and host the 3rd party services needed to analyze and visualize the data for the client. This showed the client that even without the availability of premade solutions, the cloud provided them the flexibility to adapt and still meet their requirements.
+    The process was not without its roadblocks, however. One of the biggest challenges was integrating the 3rd party business intelligence solution the client used. There was an AWS Marketplace option availablefor the tool, but it did not meet the strict security and production readiness standards required for such sensitive information. Instead, the team implemented their own solution to manage and host the 3rd party services needed to analyze and visualize the data for the client. This showed the client that even without the availability of premade solutions, the cloud provided them the flexibility to adapt and still meet their requirements.
   </div>
   <div class="padding-top-1">
     Over the course of a year, Ocelot was able to help the client exceed their expectations around what operating in the cloud could do for them and provided them with a template to help ease other teams and business units in their own adoptions.
@@ -39,7 +39,7 @@ needImageAlt: Healthcare
 
 {% capture resultsStatement %}
   <div class="padding-top-1">
-    Due to the massive success of this initial proof of concept, the client has gained confidence in Cloud Computing and has proceeded to move forward into a full, department and companywide, cloud transformation. Some of the highlights that have occurred since this initial success include:
+    Due to the massive success of this initial proof of concept, the client has gained confidence in cloud computing and has proceeded to move forward into a full, department and companywide, cloud transformation. Some of the highlights that have occurred since this initial success include:
   </div>
   <div class="padding-top-1">
     <ul class="menu-list">
@@ -47,7 +47,7 @@ needImageAlt: Healthcare
       <li>Creation of a dedicated Cloud Services team with the help of Ocelot</li>
       <li>Building a companywide AWS standard using Landing Zone</li>
       <li>Adoption of the cloud across the entire department as well as others spinning up</li>
-      <li>Creation of a Cloud Data Lake to begin migrating their entire data warehouse</li>
+      <li>Creation of a cloud data lake to begin migrating their entire data warehouse</li>
     </ul>
   </div>
 {% endcapture %}
