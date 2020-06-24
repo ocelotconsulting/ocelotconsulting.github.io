@@ -1,38 +1,25 @@
 {% assign title = page.title | default: layout.title %}
-{% capture tweet_by %} by @{{ site.author.contact.twitter }}{% endcapture %}
 {% assign share_url = site.url | append: page.url | url_encode %}
-{% assign tweet_hashtags = "" | split: "," %}
 
-{% if page.tags contains "docker" %}
-  {% assign tweet_hashtags = tweet_hashtags | push: "Docker" %}
-{% endif %}
-{% if page.tags contains "ansible" %}
-  {% assign tweet_hashtags = tweet_hashtags | push: "Ansible" %}
-{% endif %}
-{% if page.tags contains "flask" %}
-  {% assign tweet_hashtags = tweet_hashtags | push: "Flask" %}
-{% endif %}
-{% capture tweet_hashtags_output %}&hashtags={{ tweet_hashtags | array_to_sentence_string: "," | remove: " " }}{% endcapture %}
-
-<a class="{% if include.text_label %}share-btn{% endif %} share-btn-twitter"
+<a class="share-btn share-btn-twitter"
    rel="noopener"
-    href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ title | append: tweet_by | url_encode }}{{ tweet_hashtags_output }}"
+    href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ title | url_encode }}"
     target="_blank">
   <i class="fab fa-twitter"></i>
-  {% if include.text_label %}Tweet{% endif %}
+  Tweet
 </a>
-<a class="{% if include.text_label %}share-btn{% endif %} share-btn-facebook"
+<a class="share-btn share-btn-facebook"
    rel="noopener"
    href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&title={{ title | url_encode }}"
    target="_blank">
   <i class="fab fa-facebook"></i>
-  {% if include.text_label %}Share{% endif %}
+  Share
 
 </a>
-<a class="{% if include.text_label %}share-btn{% endif %} share-btn-linkedin"
+<a class="share-btn share-btn-linkedin"
    rel="noopener"
    href="http://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}&title={{ title | url_encode }}"
    target="_blank">
   <i class="fab fa-linkedin"></i>
-  {% if include.text_label %}Share{% endif %}
+  Share
 </a>
