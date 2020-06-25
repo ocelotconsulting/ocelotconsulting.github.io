@@ -56,6 +56,37 @@
   vertical-align: middle;
 }
 
+/* Styles the social media share buttons on the post pages
+   From: https://nickjanetakis.com/blog/add-social-share-buttons-to-your-static-site-without-tracking */
+.social-share-btns-container {
+  font-size: 14px;
+  text-align: left;
+}
+.social-share-btns {
+  display: inline-block;
+
+  .share-btn {
+    margin: 0 5px;
+    padding: 4px 8px;
+    color: #fff;
+
+    i {
+      display: inline-block;
+      margin-right: 5px;
+    }
+    
+    &-twitter {
+      background-color: #0087ba;
+    }
+    &-facebook {
+      background-color: #2d4373;
+    }
+    &-linkedin {
+      background-color: #005983;
+    }
+  }
+}
+
 @import "_animations";
 @import "_common";
 @import "_nav";

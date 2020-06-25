@@ -1,0 +1,25 @@
+{% assign title = page.title | default: layout.title %}
+{% assign share_url = site.url | append: page.url | url_encode %}
+
+<a class="share-btn share-btn-twitter"
+   rel="noopener"
+    href="https://twitter.com/intent/tweet?url={{ share_url }}&text={{ title | url_encode }}"
+    target="_blank">
+  <i class="fab fa-twitter"></i>
+  Tweet
+</a>
+<a class="share-btn share-btn-facebook"
+   rel="noopener"
+   href="https://www.facebook.com/sharer/sharer.php?u={{ share_url }}&title={{ title | url_encode }}"
+   target="_blank">
+  <i class="fab fa-facebook"></i>
+  Share
+
+</a>
+<a class="share-btn share-btn-linkedin"
+   rel="noopener"
+   href="http://www.linkedin.com/shareArticle?mini=true&url={{ share_url }}&title={{ title | url_encode }}"
+   target="_blank">
+  <i class="fab fa-linkedin"></i>
+  Share
+</a>
