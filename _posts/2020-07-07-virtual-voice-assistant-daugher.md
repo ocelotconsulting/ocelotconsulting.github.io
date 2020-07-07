@@ -1,15 +1,16 @@
 ---
 layout:      posts
 background:  shortBackground
-title:       "Pokémon Virtual Voice Assistant"
-subtitle:    "Today's Options for Creating a Resiliant Voice Experience"
+title:       "Pokémon Virtual Assistant"
+subtitle:    "Today's Options for Creating a Resilient Voice Experience"
 date:        2020-07-07 11:00
 author:      "Jay Silverman"
 headerImg:  "/assets/images/posts/launch.jpg"
-description: "Today's Options for Creating a Resiliant Voice Experience"
+description: "Today's Options for Creating a Resilient Voice Experience"
 ---
 
-## Pokémon virtual voice assistant: today's options for creating a resiliant voice experience
+## Pokémon virtual assistant: today's options for creating a resilient voice experience  
+
 The prevalence of virtual assistants in the past ten years has skyrocketed since Apple acquired Siri in 2010. Today we can write code and deploy voice experience applications to Amazon Alexa, Google Assistant, Facebook Messenger, Samgsung Bixby, and others. I started my own voice assistant coding journey a few years ago by creating an Alexa Skill that pulls random Pokémon facts from [PokéAPI](https://pokeapi.co/){:target="_blank"}. Creating the skill had immediate satisfaction both to myself and my daughter who was 3 years old at the time. 
 
 ![PokeAPI](/assets/images/posts/2020-07-07-virtual-voice-assistant-daughter/pokeapi.png){:target="_blank"}
@@ -23,3 +24,7 @@ Curious what similar tools are popular today, I recently tried during a hackatho
 ![Voiceflow](/assets/images/posts/2020-07-07-virtual-voice-assistant-daughter/voiceflow.png){:target="_blank"}
 
 If you are interested in your creating your first voice experience, check out [Alexa Skill Blueprints](https://blueprints.amazon.com/){:target="_blank"}. Leveraging its visual interface to deploy a skill is a quick way to judge how passionate you are about voice experiences. Moving onto Jovo or Voiceflow next would let you more easily and reliably create larger conversations. 
+
+***
+
+This work by [Jay Silverman](https://jaysilverman.net){:target="_blank"} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}.
