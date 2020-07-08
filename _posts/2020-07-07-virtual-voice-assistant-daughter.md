@@ -1,6 +1,6 @@
 ---
 layout:      posts
-background:  shortBackground
+background:  mediumBackground
 title:       "Pokémon Virtual Assistant"
 subtitle:    "Today's Options for Creating a Resilient Voice Experience"
 date:        2020-07-07 11:00
