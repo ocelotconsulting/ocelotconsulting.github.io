@@ -1,8 +1,8 @@
 ---
 layout:      posts
 background:  mediumBackground
-title:       "Diversity in IT"
-subtitle:    "Don't just build the \"best\" product, build the right one"
+title:       "Diversity is Key"
+subtitle:    "build the **right** thing, don't just build the thing right"
 date:        2020-07-11 11:00
 author:      "Kara Waldemer"
 headerImg:  "/assets/images/posts/code.jpg"
