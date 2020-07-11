@@ -1,7 +1,7 @@
 ---
 layout:      posts
-background:  shorterBackground
-title:       "Diversity"
+background:  mediumBackground
+title:       "Diversity in IT"
 subtitle:    "Don't just build the \"best\" product, build the right one"
 date:        2020-07-11 11:00
 author:      "Kara Waldemer"
