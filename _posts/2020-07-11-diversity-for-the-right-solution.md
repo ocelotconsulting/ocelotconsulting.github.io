@@ -1,6 +1,6 @@
 ---
 layout:      posts
-background:  shortBackground
+background:  shorterBackground
 title:       "Diversity"
 subtitle:    "Don't just build the \"best\" product, build the right one"
 date:        2020-07-11 11:00
@@ -17,7 +17,7 @@ For many products, diversity can be the missing key. Diversity in all stages of 
 
 ![Seatbelt](/assets/images/posts/2020-07-10-diversity-for-the-right-solution/alexandria-gilliott-VBFbVw8kZdI-unsplash.jpg){:target="_blank"}
 
-Here is an example of how it is possible to do everything you can think of to build the best product and still get so much wrong. The seat belt has existed for a long time. It has been engineered and reengineered in attempts to improve it and cars go through rigorous testing dedicated to them and other safety features and yet it is still not “right” for many of its users. According to a [study](https://ajph.aphapublications.org/doi/10.2105/AJPH.2011.300275) published in 2011, women are 73% more likely than men to be injured in an accident when wearing a seatbelt.
+Here is an example of how it is possible to do everything you can think of to build the best product and still get so much wrong. The seat belt has existed for a long time. It has been engineered and reengineered in attempts to improve it and cars go through rigorous testing dedicated to them and other safety features and yet it is still not “right” for many of its users. According to a [study](https://ajph.aphapublications.org/doi/10.2105/AJPH.2011.300275){:target="_blank"} published in 2011, women are 73% more likely than men to be injured in an accident when wearing a seatbelt.
 
 How could this happen, what about all of the testing and reengineering? It turns out all of it was done from the perspective of male bodies and because they didn’t have more diversity in their design, engineering, and testing teams, they missed the mark for a huge percent of their users.
 
