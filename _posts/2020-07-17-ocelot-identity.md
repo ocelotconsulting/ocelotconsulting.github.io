@@ -26,6 +26,7 @@ Instead of telling our followers we were hiring, we published videos spotlightin
 ![Collaboration video](/assets/images/posts/2020-07-17-ocelot-identity/collaboration-video.png)
 
 So far, our strategy has been successful. According to LinkedIn Analytics, during the first 30 days of the campaign, our post impressions increased by almost 4,000%, new followers increased by over 350%, and unique visitors increased by over 280%. By freezing publication of new content on every social media site other than LinkedIn, we were able to focus our efforts on creating one account that provided consistent value to its followers.
+
 The “show don’t tell” mantra is a good summation of my role at Ocelot. Classroom lectures are good at telling students how things should be done, but real-life experience is how we show what we can do. While some internships are focused on watching from the sidelines, Ocelot has given me the opportunity to experiment, fail, get feedback, try new things, and push the limits of what I was previously capable of doing. Building an Ocelot identity has been an incredible journey thus far, and it’s a process I hope continues long after I move on.
 
 Learn more about the Ocelot identity on the [Ocelot LinkedIn page](https://www.linkedin.com/company/ocelot-consulting-llc/){:target="_blank"}.
