@@ -19,7 +19,7 @@ My first order of business was to conduct a content analysis on 35 of Ocelot’s
 
 After a couple weeks of research, I decided to model Ocelot’s LinkedIn strategy after an old educational saying: show don’t tell. According to LinkedIn Marketing Solutions, “companies that post weekly see a 2x lift in engagement with their content” and “video gets 5x more engagement.” To me, the initial answer was simple: frequent video and graphic content that highlights company values and employee satisfaction. After a couple weeks on the job, our posting schedule was populated with core value videos, new hire welcome videos, employee quotes, and shared articles.
 
-![Collaboration video](/assets/images/posts/2020-07-17-ocelot-identity/cathy-quote.png)
+![Cathy quote](/assets/images/posts/2020-07-17-ocelot-identity/cathy-quote.png)
 
 Instead of telling our followers we were hiring, we published videos spotlighting all of the incredible people who were joining our organization. Instead of telling our audience how great the culture is in our St. Louis office, we asked our employees for quotes talking about why they liked working for the company. In every circumstance, Ocelot has stopped telling the world what it’s capable of and decided to show the world instead.
 
