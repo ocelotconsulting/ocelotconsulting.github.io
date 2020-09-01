@@ -25,7 +25,7 @@ culture:
     description: "Ocelot was built by and for technologists and we keep that in mind with everything we do."
   - title: Never an Island
     icon: fa-users
-    description: "No Ocelot works alone. We are believe we are stronger together so you will always work with a team of Ocelots as well as client teams."
+    description: "No Ocelot works alone. We believe we are stronger together so you will always work with a team of Ocelots as well as client teams."
   - title: Work your Passion
     icon: fa-smile-beam
     description: "We want you to enjoy coming to work each day and we give you the opportunity to find what you really want to work on and pursue it."
