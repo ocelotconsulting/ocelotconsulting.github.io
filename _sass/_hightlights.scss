@@ -55,7 +55,7 @@
     .container {
       z-index: 2;
       &--padding {
-        padding: 6rem 0rem;
+        padding: 12rem 0rem;
         @include mobile {
           padding: 12rem 1rem;
         }
@@ -69,7 +69,7 @@
         color: $grey-light;
         .welcome-text {
           ul {
-            margin: 6rem 0 0 ;
+            margin: 0.5rem 0 0 ;
             list-style: none;
             //min-height: 15rem;
             text-transform: uppercase;
@@ -88,7 +88,7 @@
           animation-fill-mode: backwards;
 
           &__subtitle {
-            margin: 12rem 0 0;
+            margin: 0.5rem 0 0;
             color: white;
           }
         }
