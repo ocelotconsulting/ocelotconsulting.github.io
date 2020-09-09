@@ -53,16 +53,17 @@
     }
 
     /* Container sizes for our background container */
+    /* Every page that has the background includes 3.25rem for the nav we remove from the height */
     .shortBackground-container {
-      min-height: 25rem !important;
+      min-height: 22rem !important;
     }
     
     .shorterBackground-container {
-      min-height: 28rem !important;
+      min-height: 25rem !important;
     }
 
     .mediumBackground-container {
-      min-height: 31rem !important;
+      min-height: 28rem !important;
     }
 
     .container {
