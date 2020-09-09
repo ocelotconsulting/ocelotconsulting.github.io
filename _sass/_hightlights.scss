@@ -55,9 +55,9 @@
     .container {
       z-index: 2;
       &--padding {
-        padding: 11rem 0rem;
+        padding: 12rem 0rem;
         @include mobile {
-          padding: 11rem 1rem;
+          padding: 12rem 1rem;
         }
       }
       .card {
