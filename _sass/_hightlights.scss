@@ -52,6 +52,19 @@
       height: 31rem !important;
     }
 
+    /* Container sizes for our background container */
+    .shortBackground-container {
+      min-height: 25rem !important;
+    }
+    
+    .shorterBackground-container {
+      min-height: 28rem !important;
+    }
+
+    .mediumBackground-container {
+      min-height: 31rem !important;
+    }
+
     .container {
       z-index: 2;
       &--padding {

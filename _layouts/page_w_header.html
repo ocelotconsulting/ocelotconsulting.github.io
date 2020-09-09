@@ -7,42 +7,44 @@
   <div class='nav-spacer page-contents'>
     <div id="highlights">
       <section class="section grey-gradiant">
-        {% if page.background %}
-        <div class="background {{ page.background }}">
-          <div class="dot-background"></div>
-        </div>
-        {% else %}
-        <div class="background"></div>
-        {% endif %}
-        <div class="container">
-          <div class="content">
-            <div class="columns welcome-text is-hidden-mobile">
-              <div class="column is-6">
-                <ul class="is-size-1">
-                  <li> {{ page.title }}</li>
-                </ul>
+        <div class="{% if page.background %}{{ page.background }}{% else %}background{% endif %}-container">
+          {% if page.background %}
+          <div class="background {{ page.background }}">
+            <div class="dot-background"></div>
+          </div>
+          {% else %}
+          <div class="background"></div>
+          {% endif %}
+          <div class="container">
+            <div class="content">
+              <div class="columns welcome-text is-hidden-mobile">
+                <div class="column is-6">
+                  <ul class="is-size-1">
+                    <li> {{ page.title }}</li>
+                  </ul>
+                </div>
+                <div class="column is-5">
+                  <h2 class="subtitle welcome-text__subtitle">
+                    {{ page.subtitle }}
+                  </h2>
+                </div>
               </div>
-              <div class="column is-5">
-                <h2 class="subtitle welcome-text__subtitle">
-                  {{ page.subtitle }}
-                </h2>
-              </div>
-            </div>
-            <div class="columns welcome-text is-hidden-tablet">
-              <div class="column is-5">
-                <ul style="padding-left: 2rem;" class="is-size-1 has-text-left is-capitalized">
-                  <li> {{ page.title }}</li>
-                </ul>
+              <div class="columns welcome-text is-hidden-tablet">
+                <div class="column is-5">
+                  <ul style="padding-left: 2rem;" class="is-size-1 has-text-left is-capitalized">
+                    <li> {{ page.title }}</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
         {% if page.customClass %}
-        <div class="container container--padding container--{{ page.customClass }}">
+        <div class="container with-padding container--{{ page.customClass }}">
           {{ content }}
         </div>
         {% else %}
-        <div class="container container--padding">
+        <div class="container with-padding">
           {{ content }}
         </div>
         {% endif %}
