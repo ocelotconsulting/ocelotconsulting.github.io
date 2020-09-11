@@ -29,6 +29,7 @@
     text-align: center;
     line-height: 4rem;
     &__icon {
-        padding: 1rem;
+        padding: 0 1rem;
+        display: inline-flex;
     }
 }
