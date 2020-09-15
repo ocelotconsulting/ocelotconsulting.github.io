@@ -52,10 +52,24 @@
       height: 31rem !important;
     }
 
+    /* Container sizes for our background container */
+    /* Every page that has the background includes 3.25rem for the nav we remove from the height */
+    .shortBackground-container {
+      min-height: 22rem !important;
+    }
+    
+    .shorterBackground-container {
+      min-height: 25rem !important;
+    }
+
+    .mediumBackground-container {
+      min-height: 28rem !important;
+    }
+
     .container {
       z-index: 2;
       &--padding {
-        padding: 6rem 0rem;
+        padding: 12rem 0rem;
         @include mobile {
           padding: 12rem 1rem;
         }
@@ -69,7 +83,7 @@
         color: $grey-light;
         .welcome-text {
           ul {
-            margin: 6rem 0 0 ;
+            margin: 1rem 0 0 ;
             list-style: none;
             //min-height: 15rem;
             text-transform: uppercase;
@@ -88,7 +102,7 @@
           animation-fill-mode: backwards;
 
           &__subtitle {
-            margin: 12rem 0 0;
+            margin: 1rem 0 0;
             color: white;
           }
         }
