@@ -3,7 +3,7 @@ layout:      posts
 background:  shortBackground
 title:       "Predicting House Prices"
 subtitle:    "Using Azure AutoML"
-date:        2021-01-07 17:30
+date:        2021-01-08 00:00
 author:      "Greg Krause"
 headerImg:  "/assets/images/posts/code.jpg"
 description: "Tackling Kaggle's House Prices - Advanced Regression Techniques competition using Azure's AutoML."
@@ -205,12 +205,12 @@ kaggle_submission.to_csv('./data/submission.csv', index=False)
 <br/>
 
 The model created managed to obtain a Root-Mean-Squared-Error (RMSE) score of 0.14511.
-![Kaggle Score](/assets/images/posts/2021-01-07-predicting-house-prices/kaggle-score.jpg)
+![Kaggle Score](/assets/images/posts/2021-01-08-predicting-house-prices/kaggle-score.jpg)
 
 <br/>
 
 If we take a look at the leaderboard score distribution for this competition, it seems as though scores tend to top out around 0.11. While this model didn't place in the top 10 (or top 1,000), its RMSE of 0.14 comes close behind.
-![Kaggle Leaderboard Distribution](/assets/images/posts/2021-01-07-predicting-house-prices/kaggle-leaderboard-distribution.jpg)
+![Kaggle Leaderboard Distribution](/assets/images/posts/2021-01-08-predicting-house-prices/kaggle-leaderboard-distribution.jpg)
 
 ### Parting Thoughts
 AutoML appears to live up to its promise of "automating the time consuming, iterative tasks of machine learning model development". It may not win Kaggle competitions, but it sure is a solid start.
