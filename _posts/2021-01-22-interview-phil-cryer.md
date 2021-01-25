@@ -28,7 +28,7 @@ I love what I do but am always learning. So, when I haven’t used $TOOL for 2 y
 
 Phil: My first real IT job was desktop support technician but what I loved about it was that we did everything for the systems, end to end. We’d run all the Cat5 for network, all the phone lines, terminating them on both ends, punching down the phone block, running all the servers, switches, and T1 connection. All while building out and supporting all the desktop computers and printers. It was an amazing time of learning all new things, and that only accelerated when we starting solving things with Linux and open-source software.
 
-**Jay: I always appreciate you sharing Linux tips and the latest distributions you are trying out. Could you even estimate: how many Linux distros do you think you've tried?**
+**Jay: I always appreciate you sharing Linux tips and the latest distributions you are trying out. How many Linux distros do you think you've tried?**
 
 I don’t know how many distros I’ve tried. Honestly, so many on different platforms (desktops, laptops, servers, IoT boards, phones). Anytime there’s one that does something new or interesting I like to try it out. 
 
@@ -38,7 +38,7 @@ Recently I’ve moved from using Debian-based distros for desktop to an Arch Lin
 
 My next challenge is to try Slackware again. Slackware is the 2nd oldest still running Linux (after Debian) and is the one with which I really felt I started to learn Linux (after a short time with Red Hat). Slackware really allows you to learn how to run Linux and I really loved it in the day. I started on the server and used it as a desktop before moving on to BSDs and various Debian or Ubuntu offshoots for desktops. I ran FreeBSD (BSD is not Linux, but can run almost all of the same software) for my main server for many years and it’s a great distro for that.
 
-**Jay: Are there any Linux projects or hacks that you've done of which are most proud?**
+**Jay: Are there any Linux projects or hacks which you are the most proud of?**
 
 I think hacks is the right term since I’ve never considered myself a developer - more of a sys-admin, dev-ops, hacker in the true sense of the word. I like looking at a problem and learning how to address it with (most of the time) open-source software. 
 
@@ -46,7 +46,7 @@ Often times I feel like my ideas are more important than how I get them done. Fo
 
 ![lipsync](/assets/images/posts/2021-01-22-interview-phil-cryer/lipsync.png)
 
-Another was an idea of how you could brute force and guess a unique string. Unmasking a service that was expected to be private by the user. In this case I looked at how a file sharing service was naming their files to try and anonymize them but by not using enough variety which made it somewhat easy to guess. ...And if you scripted it, well we have all the time in the world to script it! So by using a bash script to tie together simple Unix utilities, I came up with a project to do just that, shared on [a github repo](https://github.com/philcryer/ca-harvester){:target="_blank"}. While this service was mainly used to share ideas and screenshots, I found all sorts of things that shouldn’t be public. As the repo spells out, this was revealed to the company in an ethical manner and it was only after they replied that I posted it publicly.
+Another was an idea of how you could brute force and guess a unique string. Unmasking a service that was expected to be private by the user. In this case I looked at how a file sharing service was naming their files to try and anonymize them but by not using enough variety which made it somewhat easy to guess... And if you scripted it, well we have all the time in the world to script it! So by using a bash script to tie together simple Unix utilities, I came up with a project to do just that, shared on [a github repo](https://github.com/philcryer/ca-harvester){:target="_blank"}. While this service was mainly used to share ideas and screenshots, I found all sorts of things that shouldn’t be public. As the repo spells out, this was revealed to the company in an ethical manner and it was only after they replied that I posted it publicly.
 
 ![harvester](/assets/images/posts/2021-01-22-interview-phil-cryer/harvester.png)
 
