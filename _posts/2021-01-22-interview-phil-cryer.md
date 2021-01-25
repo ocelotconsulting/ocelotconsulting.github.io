@@ -28,7 +28,7 @@ I love what I do but am always learning. So, when I haven’t used $TOOL for 2 y
 
 Phil: My first real IT job was desktop support technician but what I loved about it was that we did everything for the systems, end to end. We’d run all the Cat5 for network, all the phone lines, terminating them on both ends, punching down the phone block, running all the servers, switches, and T1 connection. All while building out and supporting all the desktop computers and printers. It was an amazing time of learning all new things, and that only accelerated when we starting solving things with Linux and open-source software.
 
-**Jay: I always appreciate you sharing Linux tips and the latest distributions are you are trying out. Could you even estimate: how many Linux distros do you think you've tried?**
+**Jay: I always appreciate you sharing Linux tips and the latest distributions you are trying out. Could you even estimate: how many Linux distros do you think you've tried?**
 
 I don’t know how many distros I’ve tried. Honestly, so many on different platforms (desktops, laptops, servers, IoT boards, phones). Anytime there’s one that does something new or interesting I like to try it out. 
 
