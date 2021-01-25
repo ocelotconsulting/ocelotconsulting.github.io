@@ -36,7 +36,7 @@ Recently I’ve moved from using Debian-based distros for desktop to an Arch Lin
 
 ![ArchLabs Linux](/assets/images/posts/2021-01-22-interview-phil-cryer/archlabs.png)
 
-My next challenge is to try Slackware again. Slackware is the 2nd oldest still running Linux (after Debian) and is the one with which I really felt I started to learn Linux (after a short time with Red Hat). Slackware really allows you to learn how to run Linux and I really loved it in the day. I started on the server and used it as a desktop before moving on to BSDs and various Debian or Ubuntu offshoots for desktops. I ran FreeBSD (BSD is not Linux, but can run almost all of the same software) for my main server for many years and it’s a great distro for that.
+My next challenge is to try Slackware again. Slackware is the oldest still running Linux distribution (followed by Debian) and is the one with which I really felt I started to learn Linux (after a short time with Red Hat). Slackware really allows you to learn how to run Linux and I really loved it in the day. I started on the server and used it as a desktop before moving on to BSDs and various Debian or Ubuntu offshoots for desktops. I ran FreeBSD (BSD is not Linux, but can run almost all of the same software) for my main server for many years and it’s a great distro for that.
 
 **Jay: Are there any Linux projects or hacks which you are the most proud of?**
 
