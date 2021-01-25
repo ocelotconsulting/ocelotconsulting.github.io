@@ -5,7 +5,7 @@ title:       "Ocelot Interviews Phil Cryer"
 subtitle:    ""
 date:        2021-01-22 9:00
 author:      "Jay Silverman"
-headerImg:  "/assets/images/posts/code.jpg"
+headerImg:  "/assets/images/posts/interview.jpg"
 description: ""
 ---
 
