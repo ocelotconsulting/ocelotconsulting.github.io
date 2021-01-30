@@ -1,0 +1,95 @@
+---
+layout:      posts
+background:  shorterBackground
+title:       "Cloud Compliance Automation"
+subtitle:    ""
+date:        2021-02-01 9:00
+author:      "Larry Anderson"
+headerImg:  "/assets/images/posts/order-chaos.jpg"
+description: ""
+---
+
+## Compliance Automation using AWS Config & ServiceNow
+
+In large companies, often there are entire departments of IT staff whose sole purpose is to assist with ensuring compliance with many policies and regulations. Often times this proves very burdensome, with hundreds of disparate deployments all wishing to operate within corporate bounds, but needing oversight to help create visibility of non-compliant items and steps towards remediation.
+
+When I started thinking about writing on this topic, the 1987 film "RoboCop" came to mind...
+
+<iframe style="height:360px;width:640px" src="https://www.youtube.com/embed/LJxvlpbc6M4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Much like the Enforcement Droid 209 (ED209), organizations often desire to automate their response to security posture changes which are not desirable in the light of compliance rules.
+
+## AWS Config
+
+If your chosen deployment environment is Amazon Web Services (AWS), one of the ways to assist with compliance is by utilizing AWS Config. AWS touts it as "a service that enables you to assess, audit, and evaluate the configurations of your AWS resources" which "enables you to simplify compliance auditing, security analysis, change management, and operational troubleshooting".
+
+AWS Config works by defining rules, which encapsulate requirements from agreed policy or regulation. AWS Config provides some <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">managed rules</a> directly, but also provides the ability to define custom rules as AWS Lambda Functions. These are run periodically against AWS resources to determine if configurations are satisfactorily compliant or not.
+
+While AWS Config does allow for remediation to be automated through a combination with AWS Systems Manager Automation documents, automated remediation is not always a desirable outcome. Often, automated remediation of compliance violations can cause application outages if not handled correctly, and the outage impact can be larger than the impact of allowing the non-compliance to extend for a time while appropriate manual remediation occurs.
+
+This is not the case in every scenario, but decisions need to be made about either automating some remediation actions or none. If none, remediation still needs to occur, and normally the compliance department will have specified the timeframe for which a non-compliant asset needs to be remediated or face further consequences.
+
+## ServiceNow
+
+In large companies, many choose to utilize workflow automation software, and one of the most popular of these systems, is the cloud-based <a href="https://www.servicenow.com/">ServiceNow</a> platform. ServiceNow can be utilized in a variety of ways, but normally it is used as the source-of-truth for internal configuration management database (CMDB) needs, allowing an organization to have visibility and centralized control of disperse assets. Another use of ServiceNow is to help manage IT processes around internal Help Desk, as well as problem and incident tracking. These types of requests generally blend together with CMDB needs to the point where a central tool encompassing all of these needs is very beneficial.
+
+When considering the normal IT process workflows that some companies help to automate with the help of ServiceNow, compliance needs become very similar. The normal mode of operation for IT assets would be to have them in compliance with regulations and policy, so when an asset is found to be non-compliant, this is an issue just like several other IT issues (service outages, request tracking, other incicents, etc), and as such it makes sense to track utilizing the same system as those other issues.
+
+If ServiceNow is accurately reflecting configuration item (CI) data in the CMDB, there are some useful direct integrations possible using a combination of AWS Config, AWS Simple Notification Service (SNS), and ServiceNow. However, many organizations do not have a 1:1 reflection of AWS resources as CI's in their ServiceNow CMDB, so some customization is required. Unfortunately when this is necessary, the <a href="https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/cloud-management-v2-setup/task/aws-config-service-cloud-mgt.html">out-of-the-box capabilities utilizing the tools</a> is not possible.
+
+## Alternative solution
+
+In these cases, some customization is necessary to drive visibility of the non-compliant items from AWS Config into the normal resolution workflow in ServiceNow. A solution that is possible, is to pull data from AWS Config using `aws-sdk` API's, and then feeding that information into ServiceNow using ServiceNow API's.
+
+Many organizations deploy resources into several AWS accounts, making management of these items a little trickier. Luckily, AWS Config provides a capability to track compliance data at an <a href="https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html">aggregate-level, across many accounts</a>. Once aggregated, the data is made available in a few different ways, but the most flexible seems to be utilizing <a href="https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html">AWS Config Advanced Queries</a> to pull back compliance information across many accounts while utilizing the same method to get the data for each. 
+
+A sample query used from the aggregator to get non-compliant information from a single account could look like the following:
+
+```sql
+SELECT
+  resourceId,
+  configuration.targetResourceType,
+  configuration.complianceType,
+  configuration.configRuleList
+WHERE
+  accountId = '<account-id>'
+  AND configuration.complianceType = 'NON_COMPLIANT'
+```
+
+which pulls back the offending resource, its type, and information about which AWS Config rules the resource was shown to be non-compliant for.
+
+Once this information is retrieved, it can be compared against previous known state to determine if the compliance finding is new (and needing ServiceNow tracking) or has been previously reported (and subsequently tracked in ServiceNow). It can also be determined if a finding has been previously reported, but the AWS resource is now shown to be back in compliance (say for instance, if someone in IT has manually intervened to reconfigure the resource such that it now complies with configuration rules). If the resource is back in compliance, the correlated ServiceNow item used to track the offense can be successfully closed.
+
+One way to help assist with all of these abilities, is to create an AWS Step Function surrounding the process. AWS Step Functions can document and help coordinate the workflows of tasks in many areas of AWS, but a very typical workflow can be orchestrating by pulling together AWS Lambda Functions into a coordinate set of tasks. 
+
+Storing metadata around the process is helpful to, and any persistence store desired can be used. AWS DynamoDB lends itself very well to simple data storage needs, and a sample set of information stored in DynamoDB which could assist a process such as compliance automation might look something like:
+
+| Field      | Description |
+| ----------- | ----------- |
+| resourceId      | The AWS Config `resourceId`       |
+| ruleName   | The AWS Config rule name reporting non-compliance        |
+| accountId   | The AWS Account holding the resource        |
+| resourceStatus   | An internal tracking status for the integration        |
+| serviceNowItem   | Item from ServiceNow used to hold a single non-compliance finding (user-friendly number & `sys_id`)        |
+| serviceNowItem   | Request from ServiceNow, contains one-to-many `serviceNowItem`'s  (user-friendly number & `sys_id`)        |
+{: .table}
+
+This tracking information can then be utilized by the different steps in the Step Function to determine the adequate course of action (open ServiceNow item, close ServiceNow item, no action, etc).
+
+## All Together Now
+
+Creation of ServiceNow items is great, but only really starts to shine when it fits or enhances the normal way of confronting compliance issues for the organization. Normally, an organization will have "runbooks" or ways of addressing issues as they arise. An organization will also normally categorize compliance issues, according to their risk/impact to security posture. 
+
+All of this data is vital to ensuring that the compliance issues are addressed appropriately. For instance, an organization that deems a compliance rule as very `CRITICAL` will want to make sure that anything found to be in non-compliance with that rule is addressed as soon as possible. This might mean anything from separate alerting/notifications, to putting a hard deadline on action towards resolution (i.e. a `CRITICAL` finding might need to be addressed within the day, while something with a `LOW` criticality could be put off for a couple of weeks or more).
+
+Data in an organization's "runbook" might detail the normal course of remediation for resources found non-compliant with a given rule. This information is very helpful if a team is responsible for addressing findings within ServiceNow, and ServiceNow Item's description can list this as an added help to anyone that might be tasked with moving the resource back towards being in compliance.
+
+## Conclusion
+
+Overall, increases in automation generally assist in increasing an IT Operation's teams productivity. Tracking down compliance issues and manually remediating them is normallly very time consuming and leaves a lot of room for error. Compliance Automation can help increase visibility, reduce mean-time to resolution, contribute to a better overall security posture, and ensure compliance requirements are capable of being met with less overall work.
+
+If an organization is utilizing AWS to perform some of its IT needs and has compliance requirements, the above helps to provide an approach towards meeting stated compliance goals.
+
+YOU NOW HAVE 5 SECONDS TO COMPLY!!!
+
+This work by [Larry Anderson](https://www.linkedin.com/in/larryanderson/){:target="_blank"} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}.
