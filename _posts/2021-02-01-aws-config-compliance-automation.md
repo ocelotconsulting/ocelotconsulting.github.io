@@ -11,7 +11,7 @@ description: ""
 
 ## Compliance Automation using AWS Config & ServiceNow
 
-In large companies, often there are entire departments of IT staff whose sole purpose is to assist with ensuring compliance with many policies and regulations. Often times this proves very burdensome, with hundreds of disparate deployments all wishing to operate within corporate bounds, but needing oversight to help create visibility of non-compliant items and steps towards remediation.
+In large companies, often there are entire departments of IT staff whose sole purpose is to assist with ensuring compliance with many policies and regulations. Oftentimes this proves very burdensome, with hundreds of disparate deployments all wishing to operate within corporate bounds but needing oversight to help create visibility of non-compliant items and steps towards remediation.
 
 When I started thinking about writing on this topic, the 1987 film "RoboCop" came to mind...
 
@@ -31,15 +31,15 @@ This is not the case in every scenario, but decisions need to be made about eith
 
 ## ServiceNow
 
-In large companies, many choose to utilize workflow automation software, and one of the most popular of these systems, is the cloud-based <a href="https://www.servicenow.com/">ServiceNow</a> platform. ServiceNow can be utilized in a variety of ways, but normally it is used as the source-of-truth for internal configuration management database (CMDB) needs, allowing an organization to have visibility and centralized control of disperse assets. Another use of ServiceNow is to help manage IT processes around internal Help Desk, as well as problem and incident tracking. These types of requests generally blend together with CMDB needs to the point where a central tool encompassing all of these needs is very beneficial.
+In large companies, many choose to utilize workflow automation software, and one of the most popular of these systems, is the cloud-based <a href="https://www.servicenow.com/">ServiceNow</a> platform. ServiceNow can be utilized in a variety of ways, but normally it is used as the source-of-truth for internal configuration management database (CMDB) needs, allowing an organization to have visibility and centralized control of dispersed assets. Another use of ServiceNow is to help manage IT processes around the internal Help Desk, as well as problem and incident tracking. These types of requests generally blend together with CMDB needs to the point where a central tool encompassing all of these needs is very beneficial.
 
-When considering the normal IT process workflows that some companies use ServiceNow to help automate, compliance needs become very similar. The normal mode of operation for IT assets would be to have them in compliance with regulations and policy, so when an asset is found to be non-compliant, this is an issue just like several other IT issues (service outages, request tracking, other incicents, etc), and as such it makes sense to track utilizing the same system as those other issues.
+When considering the normal IT process workflows that some companies use ServiceNow to help automate, compliance needs become very similar. The normal mode of operation for IT assets would be to have them in compliance with regulations and policy, so when an asset is found to be non-compliant, this is an issue just like several other IT issues (service outages, request tracking, other incidents, etc.), and as such it makes sense to track utilizing the same system as those other issues.
 
 If ServiceNow is accurately reflecting configuration item (CI) data in the CMDB, there are some useful direct integrations possible using a combination of AWS Config, AWS Simple Notification Service (SNS), and ServiceNow. However, many organizations do not have a 1:1 reflection of AWS resources as CI's in their ServiceNow CMDB, so some customization is required. Unfortunately, when customization is necessary, these <a href="https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/cloud-management-v2-setup/task/aws-config-service-cloud-mgt.html">out-of-the-box capabilities</a> are not possible.
 
 ## Alternative solution
 
-In these cases, some customization is necessary to drive visibility of the non-compliant items from AWS Config into the normal resolution workflow in ServiceNow. A solution that is possible, is to pull data from AWS Config using `aws-sdk` API's, and then feeding that information into ServiceNow using ServiceNow API's.
+In these cases, some customization is necessary to drive visibility of the non-compliant items from AWS Config into the normal resolution workflow in ServiceNow. A solution that is possible, is to pull data from AWS Config using `aws-sdk` API's, and then feed that information into ServiceNow using ServiceNow API's.
 
 Many organizations deploy resources into several AWS accounts, making management of these items a little trickier. Luckily, AWS Config provides a capability to track compliance data at an <a href="https://docs.aws.amazon.com/config/latest/developerguide/aggregate-data.html">aggregate-level, across many accounts</a>. Once aggregated, the data is made available in a few different ways. The most flexible of which seems to be utilizing <a href="https://docs.aws.amazon.com/config/latest/developerguide/querying-AWS-resources.html">AWS Config Advanced Queries</a> to pull back compliance information across many accounts while utilizing the same method to get the data for each. 
 
@@ -58,7 +58,7 @@ WHERE
 
 which pulls back the offending resource, its type, and information about which AWS Config rules the resource was shown to be non-compliant for.
 
-Once this information is retrieved, it can be compared against previous known state to determine if the compliance finding is new (and needing ServiceNow tracking) or has been previously reported (and subsequently tracked in ServiceNow). It can also be used to determine if a resource, which was previously reported as non compliant, is now compliant (say for instance, if someone in IT has manually intervened to reconfigure the resource such that it now complies with configuration rules). If the resource is back in compliance, the correlated ServiceNow item used to track the offense can be successfully closed.
+Once this information is retrieved, it can be compared against previous known state to determine if the compliance finding is new (and needing ServiceNow tracking) or has been previously reported (and subsequently tracked in ServiceNow). It can also be used to determine if a resource, which was previously reported as non-compliant, is now compliant (say for instance, if someone in IT has manually intervened to reconfigure the resource such that it now complies with configuration rules). If the resource is back in compliance, the correlated ServiceNow item used to track the offense can be successfully closed.
 
 One way to help assist with all of these abilities, is to create an AWS Step Function surrounding the process. AWS Step Functions can document and help coordinate the workflows of tasks in many areas of AWS, but a very typical workflow can be orchestrated by pulling together AWS Lambda Functions into a coordinate set of tasks. 
 
@@ -74,7 +74,7 @@ Storing metadata around the process is helpful too, and any persistence store de
 | serviceNowItem   | Request from ServiceNow, contains one-to-many `serviceNowItem`'s  (user-friendly number & `sys_id`)        |
 {: .table}
 
-This tracking information can then be utilized by the different steps in the Step Function to determine the adequate course of action (open ServiceNow item, close ServiceNow item, no action, etc).
+This tracking information can then be utilized by the different steps in the Step Function to determine the adequate course of action (open ServiceNow item, close ServiceNow item, no action, etc.).
 
 ## All Together Now
 
@@ -86,7 +86,7 @@ Data in an organization's "runbook" might detail the normal course of remediatio
 
 ## Conclusion
 
-Overall, added automation generally assists in increasing IT Operation teams productivity. Tracking down compliance issues and manually remediating them is normally very time consuming and leaves a lot of room for error. Compliance Automation can help increase visibility, reduce mean-time to resolution, contribute to a better overall security posture, and ensure compliance requirements are capable of being met with less overall work.
+Overall, added automation generally assists in increasing IT Operation team's productivity. Tracking down compliance issues and manually remediating them is normally very time consuming and leaves a lot of room for error. Compliance Automation can help increase visibility, reduce the mean-time to resolution, contribute to a better overall security posture, and ensure compliance requirements are capable of being met with less overall work.
 
 If an organization is utilizing AWS to perform some of its IT needs and has compliance requirements, the above helps to provide an approach towards meeting stated compliance goals.
 
