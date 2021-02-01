@@ -25,7 +25,7 @@ If your chosen deployment environment is Amazon Web Services (AWS), one of the w
 
 AWS Config works by defining rules, which encapsulate requirements from agreed policy or regulation. AWS Config provides some <a href="https://docs.aws.amazon.com/config/latest/developerguide/managed-rules-by-aws-config.html">managed rules</a> directly, but also provides the ability to define custom rules as AWS Lambda Functions. These are run periodically against AWS resources to determine if configurations are satisfactorily compliant or not.
 
-While AWS Config does allow for remediation to be automated through a combination with AWS Systems Manager Automation documents, automated remediation is not always a desirable outcome. Often, automated remediation of compliance violations can cause application outages if not handled correctly, and the outage impact can be larger than the impact of allowing the non-compliance to extend for a time while appropriate manual remediation occurs.
+While AWS Config does allow for remediation to be automated via AWS Systems Manager Automation documents, automated remediation is not always a desirable outcome. Often, automated remediation of compliance violations can cause application outages if not handled correctly, and the outage impact can be larger than the impact of allowing the non-compliance to extend for a time while appropriate manual remediation occurs.
 
 This is not the case in every scenario, but decisions need to be made about either automating some remediation actions or none. If none, remediation still needs to occur, and normally the compliance department will have specified the timeframe for which a non-compliant asset needs to be remediated or face further consequences.
 
