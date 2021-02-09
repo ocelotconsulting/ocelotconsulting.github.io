@@ -73,7 +73,7 @@ Storing metadata around the process is helpful too, and any persistence store de
 | accountId   | The AWS Account holding the resource        |
 | resourceStatus   | An internal tracking status for the integration        |
 | serviceNowItem   | Item from ServiceNow used to hold a single non-compliance finding (user-friendly number & `sys_id`)        |
-| serviceNowItem   | Request from ServiceNow, contains one-to-many `serviceNowItem`'s  (user-friendly number & `sys_id`)        |
+| serviceNowRequest   | Request from ServiceNow, contains one-to-many `serviceNowItem`'s  (user-friendly number & `sys_id`)        |
 {: .table}
 
 This tracking information can then be utilized by the different steps in the Step Function to determine the adequate course of action (open ServiceNow item, close ServiceNow item, no action, etc.).
