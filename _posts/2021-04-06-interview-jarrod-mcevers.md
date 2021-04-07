@@ -3,7 +3,7 @@ layout:      posts
 background:  shorterBackground
 title:       "Ocelot Interviews Jarrod McEvers"
 subtitle:    ""
-date:        2021-04-06 7:00
+date:        2021-04-08 7:00
 author:      "Jay Silverman"
 headerImg:  "/assets/images/posts/questions.jpg"
 description: ""
