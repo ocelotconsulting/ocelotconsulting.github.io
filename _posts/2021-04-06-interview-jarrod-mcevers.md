@@ -35,8 +35,8 @@ Jarrod: I knew I wanted to do something with computers/electronics from an early
 
 I knew my collegiate path would be two years at a community college (Lewis and Clark Community College in Godfrey, IL) then finish my Bachelor's degree at Southern Illinois University Edwardsville (SIUE). While setting up classes for Lewis and Clark, my advisor informed me that there was no transfer program with SIUE for graphic design. This was a problem because there was no guarantee that any graphic design credits would transfer. I was not going to enroll at a different community college since my first year of tuition at Lewis and Clark was covered by a scholarship. After some research and advice from my advisor, I decided to go for a computer science degree as it could potentially lead to jobs with a graphics focus. The first line of code I wrote was in my first programming class during my second semester at Lewis and Clark, and I haven't stopped writing code since that class!
 
-![AWS IoT](/assets/images/posts/2021-04-06-interview-jarrod/lewis-and-clark.jpg)
-![AWS IoT](/assets/images/posts/2021-04-06-interview-jarrod/SIUE.png)
+![Lewis and Clark](/assets/images/posts/2021-04-06-interview-jarrod/lewis-and-clark.jpg)
+![SIUE](/assets/images/posts/2021-04-06-interview-jarrod/siue.png)
 
 **Jay: I see you grew up in Wrights and now live in Alton, IL. What's the difference in any between the two areas? Do you miss living in Wrights?**
 
