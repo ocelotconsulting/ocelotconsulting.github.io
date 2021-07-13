@@ -3,7 +3,7 @@ layout:      posts
 background:  shorterBackground
 title:       "Randomize your Slack Avatar"
 subtitle:    ""
-date:        2020-07-13 12:00
+date:        2021-07-13 12:00
 author:      "Drew Garrett"
 headerImg:   "/assets/images/posts/code.jpg"
 description: ""
