@@ -23,7 +23,7 @@ I enjoy having some fun with my Slack avatars which are almost never a photo of 
 
 ## Overall Requirements
 
-In order to perform this work, we will need a Slack Workspace and account and an Azure Subscription. The app **must** be built using a Windows machine for the proof of concept to work. It is entirely possible to switch to [another OS supported by .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md), however the Azure Function app will need to be modified accordingly. You will also be required to create a new Slack App as a part of this. If you are unable to create a Slack App, this proof of concept will not be possible.
+In order to perform this work, we will need a Slack Workspace and account and an Azure Subscription. The app **must** be built using a Windows machine for the proof of concept to work. It is entirely possible to switch to [another OS supported by .NET 5](https://github.com/dotnet/core/blob/main/release-notes/5.0/5.0-supported-os.md), however the Azure Function app will need to be modified accordingly. You will also be required to create a new Slack App as a part of this. This permission may be restricted by your Slack Workspace administrators.
 
 ### Required Slack Permissions
 
