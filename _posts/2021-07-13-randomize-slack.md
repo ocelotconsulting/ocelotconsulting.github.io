@@ -11,7 +11,7 @@ description: ""
 
 ## Randomize Your Slack Avatar with Azure Functions
 
-I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post]({% post_url 2021-07-13-randomize-slack %}) last year, I decided to implement a random avatars using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
+I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post]({% post_url 2021-07-13-randomize-slack %}) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
 
 ![Sample 1](/assets/images/posts/2021-07-13-randomize-slack/sample1-small.jpg)
 ![Sample 2](/assets/images/posts/2021-07-13-randomize-slack/sample2-small.jpg)
@@ -66,7 +66,7 @@ Our [Azure Function App](https://docs.microsoft.com/en-us/azure/azure-functions/
 
 #### Setup the Azure Infrastructure
 
-You can utilize the portal to configure you're own Azure Function App, however we have provided a template you can use. You will need to change the names of the resources however.
+You can utilize the portal to configure your own Azure Function App, however we have provided a template you can use. You will need to change the names of the resources however.
 
 1. Create a Resource Group to use
 2. Open the Resource Group
