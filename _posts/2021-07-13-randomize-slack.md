@@ -33,7 +33,7 @@ Slack works in an OAuth 2.0 setup where permissions are defined as scopes. For t
 
 ### Get the Code
 
-Our POC code is in the `single-token-poc` branch for now.
+Our POC code is in the `single-token-poc` branch.
 
 ```bash
 git clone https://github.com/ocelotconsulting/randomize-avatar.git
