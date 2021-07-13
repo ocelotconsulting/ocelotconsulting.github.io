@@ -11,7 +11,7 @@ description: ""
 
 ## Randomize Your Slack Avatar with Azure Functions
 
-I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post]({% post_url 2021-07-13-randomize-slack %}) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
+I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post]({% post_url 2020-09-28-randomize-twitter %}) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
 
 ![Sample 1](/assets/images/posts/2021-07-13-randomize-slack/sample1-small.jpg)
 ![Sample 2](/assets/images/posts/2021-07-13-randomize-slack/sample2-small.jpg)
