@@ -121,6 +121,12 @@ In testing, the "Test/Run" button was not always accessible. You can utilize the
 curl --request POST -H 'x-functions-key:[KEY]' -H "Content-Type:application/json" --data "{}" 'http://[FUNCAPP_NAME].azurewebsites.net/admin/functions/UpdateAvatar'
 ```
 
+## Slack Example
+
+How does it look in Slack? Here's an example:
+
+![Slack Sample](/assets/images/posts/2021-07-13-randomize-slack/slack-sample.png)
+
 ## What's Next?
 
 If you wish to modify how frequently the function app updates your avatar, edit `UpdateAvatar.cs` and modify the `TimerTrigger()` [attribute](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#configuration) to different values. This is a [NCRONTAB expression](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) which includes seconds. Only use the NCRONTAB format for now as you cannot use a `TimeSpan` with a consumption app service plan.
