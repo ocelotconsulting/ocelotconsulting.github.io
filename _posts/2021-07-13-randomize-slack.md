@@ -54,6 +54,8 @@ git checkout single-token-poc
 7. Click Next
 8. Review the setup information and click Confirm when you're satisfied
 
+You may be prompted to "Install to Workspace". If so, click the button to do so and follow the prompts before continuing.
+
 #### Retrieve the Slack User Access Token
 
 After your app is created, it will appear in your apps list at [https://api.slack.com/apps](https://api.slack.com/apps). Open that app and browse to "OAuth & Permissions" in the menu. Copy the `User OAuth Token` presented at the top of the page. It must begin with `xoxp-` to be valid.
