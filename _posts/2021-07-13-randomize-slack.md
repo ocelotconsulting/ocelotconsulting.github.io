@@ -125,6 +125,15 @@ curl --request POST -H 'x-functions-key:[KEY]' -H "Content-Type:application/json
 
 If you wish to modify how frequently the function app updates your avatar, edit `UpdateAvatar.cs` and modify the `TimerTrigger()` [attribute](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#configuration) to different values. This is a [NCRONTAB expression](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions) which includes seconds. Only use the NCRONTAB format for now as you cannot use a `TimeSpan` with a consumption app service plan.
 
+Example CRONs:
+
+```plain
+0 0 * * * *     - Hourly at 0 minutes
+0 0,30 * * * *  - Every 30 minutes
+0 0 0 * * *     - Daily at midnight (Timezone based on Function App, default is UTC)
+0 0 * */2 * *   - Hourly but only on even numbered days
+```
+
 It would be great to expand this function to accept multiple users in the same workspace with registration via the Slack UI instead of the API website. That may be for a future blog post.
 
 ## Reminder to Cleanup Resources
