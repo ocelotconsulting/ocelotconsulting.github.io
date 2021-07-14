@@ -87,6 +87,59 @@
   }
 }
 
+/* In bulma, lists outside of .content
+ * divs have no margins or padding
+ * Content from bulma/elements/content.sass
+ * and converted to scss
+ */
+
+.post-list-fix {
+  li + li {
+  margin-top: 0.25em;
+  }
+
+  ol,
+  ul {
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  ol {
+    list-style-position: outside;
+    margin-left: 2em;
+    margin-top: 1em;
+    &:not([type]) {
+      list-style-type: decimal;
+      &.is-lower-alpha {
+        list-style-type: lower-alpha;
+      }
+      &.is-lower-roman {
+        list-style-type: lower-roman;
+      }
+      &.is-upper-alpha {
+        list-style-type: upper-alpha;
+      }
+      &.is-upper-roman {
+        list-style-type: upper-roman;
+      }
+    }
+  }
+
+  ul {
+    list-style: disc outside;
+    margin-left: 2em;
+    margin-top: 1em;
+    ul {
+      list-style-type: circle;
+      margin-top: 0.5em;
+      ul {
+        list-style-type: square;
+      }
+    }
+  }
+}
+
 @import "_animations";
 @import "_common";
 @import "_nav";
