@@ -55,6 +55,7 @@ A workflow of the process is shown below:
 
 This function is a semi-user-friendly function that will redirect users to Slack.com to authorize the application on their account. This was used to make the process simpler, but the ideal way to send users to Slack is to use a "Add to Slack" button that looks like this:
 
+{: style="text-align: center" }
 ![Add to Slack Example](https://platform.slack-edge.com/img/add_to_slack.png){: style="max-width: 139px; min-width: 50px" }
 
 The destination URL is defined by the `Client Id` and desired scopes of the Slack App after being registered.
