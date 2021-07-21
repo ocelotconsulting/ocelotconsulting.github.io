@@ -28,6 +28,8 @@ To make this work, Slack has certain requirements for interactivity:
 
 For our purposes, we update the applications's Home Tab for each user when the avatar is updated (updated timestamp), on initial registration (initial view definition), or on a setting change (updated timestamp).
 
+In our use case, we are building the functions off C#. Unfortunately there is no official [Slack SDK](https://api.slack.com/start/building) built for C# .NET. There is a [community sponsored API](https://github.com/Inumedia/SlackAPI), however it was faster to manually develop the request structure and handle the formatting and JSON manually.
+
 ## Our Functions
 
 ### UpdateAvatar
@@ -83,6 +85,18 @@ A workflow for this is below:
 
 ![SlackInteractiveResponse Workflow](/assets/images/posts/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){: style="width: 100%; min-width: 400px" }
 
+## Updating the Home Tab
+
+A background method that is called by all of the functions is the `ClientInteractivity.UpdateHomeTab` method. This method is simple overall but it must string together two different JSON files as strings and deliver them to the Slack API. The file `SlackViews/HomeTab.json` defines the structure of the view according to the [Block Kit](https://api.slack.com/block-kit/building) schema. There are several variable replacements including the frequency dropdown. Since we want the Slack App to be somewhat user-friendly, the drop-down select list is pre-populated with the current user's value. The last avatar change and the estimated future change date are also replaced using a provided [Slack date formatting](https://api.slack.com/reference/surfaces/formatting#date-formatting) helper.
+
+This is all built into a single string of JSON that is sent to the Slack [views.publish](https://api.slack.com/methods/views.publish) API. The changes are sent down to users almost immediately due to Slack's real-time client communication. That means that within a couple of seconds of choosing a new frequency interval, the `Next Update` date is refreshed.
+
+**Options**  
+![Drop Down Options](/assets/images/posts/2021-07-22-randomize-slack-2/drop-down-options.png)
+
+**Updated**  
+![Drop Down Options Updated](/assets/images/posts/2021-07-22-randomize-slack-2/drop-down-updated.png)
+
 ## Multi-User and Multitenancy
 
 In the workflows above, we highlight the fact we use an external user and workspace table to track the access tokens for users and the bot accounts. This allows us to easily support multitenancy in Slack. By enabling the "Manage Distribution" options in the Slack App configuration, Slack will automatically ask users what workspace they want to use when click the "Add to Slack" button (or using the `SignInWithSlack` API).
@@ -93,4 +107,4 @@ Access to a workspace/team is removed once the last user in the workspace remove
 
 ## Reminder to Cleanup Resources
 
-As always, these are resources that cost money in Azure. Be sure to clean up the resources to prevent further billing once you're done using them. You should also delete the Slack App, or at a minimum revoke the `User OAuth Token` for security purposes.
+As always, these are resources that cost money in Azure. Be sure to clean up the resources to prevent further billing once you're done using them. You should absolutely delete the Slack App when finished. Without doing so, the user and bot tokens will not be revoked and that could be deemed a security risk.
