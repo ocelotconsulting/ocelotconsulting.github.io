@@ -13,7 +13,13 @@ description: ""
 
 Building off [the post last week]({% post_url 2021-07-13-randomize-slack %}), we have expanded the proof of concept to include multiple users and multiple tenants. This example will show how you can utilize Azure Functions to build an interactive Slack App relying on sending and receiving real-time updates to and from Slack.
 
-In this walk-through, we will talk more about how the function app uses Azure resources to operate and interact with Slack. We will not be walking through setting it up. Instructions on how to setup the infrastructure and Slack App are included in the code repository under the `multi-user-poc` [branch](https://github.com/ocelotconsulting/randomize-avatar/tree/multi-user-poc).
+In this walk-through, we will talk more about how the function app uses Azure resources to operate and interact with Slack. We will not be walking through setting it up. Instructions on how to setup the infrastructure and Slack App are included in the same code repository under the `multi-user-poc` [branch](https://github.com/ocelotconsulting/randomize-avatar/tree/multi-user-poc).
+
+```bash
+git clone https://github.com/ocelotconsulting/randomize-avatar.git
+cd randomize-avatar
+git checkout multi-user-poc
+```
 
 ## Slack Interaction Requirements
 
