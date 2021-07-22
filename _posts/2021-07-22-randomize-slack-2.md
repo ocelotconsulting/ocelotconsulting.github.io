@@ -40,7 +40,7 @@ In our use case, we are building the functions off C#. Unfortunately there is no
 
 ### UpdateAvatar
 
-This function originated from the `single-user-poc` code base but was reworked to support looking up user information via an [Azure Table](https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview) and operate on multiple users at one time. We selected Azure Table storage because it offered a NoSQL option to store user data and the contents are encrypted as rest and in transit. This user data is sensitive enough that it should be protected.
+This function originated from the `single-user-poc` code base but was reworked to support looking up user information via an [Azure Table](https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview) and operate on multiple users at one time. We selected Azure Table storage because it offered a NoSQL option to store user data and the contents are encrypted at rest and in transit. This user data is sensitive enough that it should be protected.
 
 This job is triggered by a `TimerTrigger` hourly at the top of each hour.
 
