@@ -27,3 +27,12 @@
     }
   }
 }
+
+// Hides the list bullets but keeps the spacing (primarily used in page_w_header.html)
+.content .dashboard-panel ul.menu-list, .content .dashboard-panel ol.menu-list {
+  list-style-type: none;
+
+  li {
+    margin-bottom: 1em;
+  }
+}
