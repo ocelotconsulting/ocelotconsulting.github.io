@@ -146,3 +146,7 @@ It would be great to expand this function to accept multiple users in the same w
 ## Reminder to Cleanup Resources
 
 As always, these are resources that cost money in Azure. Be sure to clean up the resources to prevent further billing once you're done using them. You should also delete the Slack App, or at a minimum revoke the `User OAuth Token` for security purposes.
+
+## Part Two
+
+Please check out [part two of this series]({% post_url 2021-07-22-randomize-slack-2 %}): expanding to multiple users and multiple tenants!
