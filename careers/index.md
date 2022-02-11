@@ -44,14 +44,17 @@ attribution: Icons made by <a href="https://www.flaticon.com/authors/eucalyp" ti
     <div class="container has-text-centered">
       <h1 class="title">Open Positions</h1>
       <div class="columns">
-        <div class="column is-one-third">
+        <div class="column is-one-quarter">
           {% include card.html title="Full Stack Engineer" description="For developers who are comfortable building an app from UI to API, and database to cloud provisioning." cardImage="/assets/images/software.png" route="/careers/full-stack-developer" %}
         </div>
-        <div class="column is-one-third">
+        <div class="column is-one-quarter">
           {% include card.html title="Data Engineer" description="For developers who are comfortable processing terabytes of data. You know your Kafka from your Spark." cardImage="/assets/images/dashboard.png" route="/careers/data-engineer" %}
         </div>
-        <div class="column is-one-third">
+        <div class="column is-one-quarter">
           {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" %}
+        </div>
+        <div class="column is-one-quarter">
+          {% include card.html title="Entry-Level Technology Consultant" description="For entry-level developers looking to launch their careers in software, data, and cloud engineering. An outstanding opportunity to learn from industry experts." cardImage="/assets/images/computer.png" route="/careers/entry-level-technology-consultant" %}
         </div>
       </div>
     </div>
