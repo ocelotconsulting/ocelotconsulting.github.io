@@ -54,7 +54,7 @@ attribution: Icons made by <a href="https://www.flaticon.com/authors/eucalyp" ti
           {% include card.html title="Cloud Engineer" description="For developers who are comfortable enabling and expanding cloud adoption and proficiency via automation and best practices." cardImage="/assets/images/computer.png" route="/careers/cloud-engineer" %}
         </div>
         <div class="column is-one-quarter">
-          {% include card.html title="Entry-Level Technology Consultant" description="For entry-level developers looking to launch their careers in software, data, and cloud engineering. An outstanding opportunity to learn from industry experts." cardImage="/assets/images/computer.png" route="/careers/entry-level-technology-consultant" %}
+          {% include card.html title="Entry-Level Technology Consultant" description="For entry-level developers looking to launch their careers in software, data, and cloud engineering. An outstanding opportunity to learn from industry experts." cardImage="/assets/images/innovation.png" route="/careers/entry-level-technology-consultant" %}
         </div>
       </div>
     </div>
