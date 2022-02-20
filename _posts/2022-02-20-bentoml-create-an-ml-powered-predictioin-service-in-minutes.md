@@ -2,6 +2,7 @@
 layout:      posts
 background:  shortBackground
 title:       "Containerize and Deploy Your ML Model in Python"
+subtitle:    ""
 date:        2022-02-20 10:00:00
 author:      "Khuyen Tran"
 description: ""
