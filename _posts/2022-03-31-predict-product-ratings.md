@@ -14,12 +14,11 @@ headerImg:  "/assets/images/posts/mean_rating.gif"
 
 Imagine you have a database of product ratings from different users. There are some products in the system that your users haven’t bought. How do recommend new and relevant products to your users using this data?
 
-![](../assets/images/data.png)
-
+![](/assets/images/data.png)
 
 One straightforward approach is to guess the rating of user 1 on a product using the rating of user 2 on the same product. To increase the chance of guessing it right, user 2 should have similar rating behaviors to user 1.
 
-![](../assets/images/table.gif)
+![](/assets/images/table.gif)
 
 After predicting all ratings, we will then recommend user 1 the products that are predicted to be highly rated by user 1.
 
@@ -38,7 +37,7 @@ import pandas as pd
 ratings_df = pd.read_csv('../data/cereal_ratings.csv', index_col=0)
 ratings_df
 ```
-![](../assets/images/data.png)
+![](/assets/images/data.png)
 
 
 Note that there are some missing values in this data. We will start with finding the similarity between each pair of users.
@@ -109,7 +108,7 @@ def get_rated_user_for_a_product(ratings_df: pd.DataFrame, product: str):
     return ratings_df.loc[product, :].dropna().index.values
 ```
 
-![](../assets/images/get_rated_users.gif)
+![](/assets/images/get_rated_users.gif)
 
 
 Next, we only pick the _k_ number of users that are the most similar to user 3. We call these _k_ number of users the _neighbors_ of user 3.
@@ -120,14 +119,14 @@ def get_top_neighbors(similarity_df: pd.DataFrame, user: str, rated_users: str, 
 ```
 In the example below, we set the number of neighbors to be 2.
 
-![](../assets/images/get_neighbors.gif)
+![](/assets/images/get_neighbors.gif)
 
 
 ## Get the Ratings of the Similar Users on a product
 
 Since different users might have different rating scales for the product that they like, we want to adjust for this bias by **subtracting** a rating of a user for **a product** by the **mean** ratings of that user for **all products**.
 
-![](../assets/images/why_5_stars.png)
+![](/assets/images/why_5_stars.png)
 
 
 This means the rating of user 𝑣 for the product 𝑖 after adjusting for bias is:
@@ -182,7 +181,7 @@ For example, the similarity of user 1 and user 3 is 0.8. The rating of user 1 fo
 
 We can do the similar calculation for user 2. The table below summarizes the calculations.
 
-![](../assets/images/table2.png)
+![](/assets/images/table2.png)
 
 
 We then divide the sum of these weighted ratings by the sum of 0.8 and 0.5.
@@ -208,7 +207,7 @@ def ger_user_rating(ratings_df: pd.DataFrame, user: str, avg_neighbor_rating: fl
 ```
 In the GIF below, the expected rating of user 3 for product 1 before adjusting for bias is 1.61, and the mean rating of user 3 for all products is 2. Taking the sum of 1.61 and 2 will give us 3.61.
 
-![](../assets/images/mean_rating.gif)
+![](/assets/images/mean_rating.gif)
 
 
 ## Get the Missing Ratings of All Users
@@ -277,7 +276,7 @@ Let’s take a look at the rating database after filling in all missing ratings:
 ```python
 full_ratings
 ```
-![](../assets/images/full_rating.png)
+![](/assets/images/full_rating.png)
 
 
 Pretty cool! Now we can suggest the products that are predicted to be highly rated to the users who haven’t watched those products before.
