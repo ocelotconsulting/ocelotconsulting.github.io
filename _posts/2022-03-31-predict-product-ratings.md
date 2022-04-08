@@ -16,7 +16,6 @@ Imagine you have a database of product ratings from different users. There are s
 
 ![](/assets/images/data.png)
 
-
 One straightforward approach is to guess the rating of user 1 on a product using the rating of user 2 on the same product. To increase the chance of guessing it right, user 2 should have similar rating behaviors to user 1.
 
 ![](/assets/images/table.gif)
