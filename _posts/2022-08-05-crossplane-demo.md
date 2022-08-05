@@ -11,7 +11,6 @@ cross-post-link: "https://nalth.is/crossplane"
 cross-post-text: "Nalthis"
 ---
 
-##
 
 Header Image - Photo by <a href="https://unsplash.com/es/@taylorheeryphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Taylor Heery</a> on <a href="https://unsplash.com/s/photos/popsicle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
@@ -46,7 +45,7 @@ There are many tools to work with infrastructure-as-code and they work each in t
 
   But I want to talk about a specific one of these - [Crossplane](crossplane.io).
 
-  ### What is Crossplane?
+### What is Crossplane?
 
 Crossplane is an infrastructure-as-code tool that manages your infrastructure as Kubernetes objects and keeps state within Kubernetes, leveraging controllers and extensions for various cloud providers and their object types.
 
@@ -73,7 +72,7 @@ Which brings me to the `ProviderConfig` object. This is how you reference your u
 
 Each `ProviderConfig` has a slightly different way of presenting credentials and this is something that Crossplane has room for improvement on. For instance, to get the AWS Credentials, assuming you have credentials locally and in the default profile, you run a little script:
 
-```bash
+```
 BASE64ENCODED_AWS_ACCOUNT_CREDS=$(echo -e "[default]\naws_access_key_id = $(aws configure get aws_access_key_id --profile $aws_profile)\naws_secret_access_key = $(aws configure get aws_secret_access_key --profile $aws_profile)" | base64  | tr -d "\n")
 ```
 
