@@ -5,8 +5,9 @@
 1. Install [Ruby][ruby].
 
     ```bash
-    brew install ruby
+    brew install ruby@2
     ```
+_Note: this version of Jekyll doesn't run on Ruby 3+, and you need to use 2.x_
 
 2. Ruby installations are not symlinked to `/usr/local` because macOS already provides a (much older) ruby installation. You have to update your `$PATH` to put the Homebrew Ruby installation ahead of the default macOS installation.
 
