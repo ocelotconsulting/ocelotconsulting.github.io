@@ -89,6 +89,10 @@
             letter-spacing: 1rem;
             font-size: 3rem;
             color: $grey-light;
+
+            &.blog-color {
+              color: #f06001;
+            }
           }
 
           @include mobile {
@@ -104,6 +108,10 @@
           &__subtitle {
             margin: 1rem 0 0;
             color: white;
+
+            &.blog-color {
+              color: #f06001;
+            }
           }
         }
         .welcome-cards {
