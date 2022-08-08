@@ -3,7 +3,7 @@ layout:      posts
 background:  shortBackground
 title:       "Crossplane, a Kubernetes-powered IaC Tool"
 subtitle:    ""
-date:        2022-08-05 09:00:00
+date:        2022-08-08 09:00:00
 author:      "Marty Henderson"
 description: ""
 headerImg:  "/assets/images/posts/2022-08-05-crossplane/popsicle-header.jpg"
@@ -12,11 +12,11 @@ cross-post-text: "Nalthis"
 ---
 
 
-Header Image - Photo by <a href="https://unsplash.com/es/@taylorheeryphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Taylor Heery</a> on <a href="https://unsplash.com/s/photos/popsicle?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+Photo by <a href="https://unsplash.com/es/@taylorheeryphoto">Taylor Heery</a> on <a href="https://unsplash.com/s/photos/popsicle">Unsplash</a>
   
 _This post originally appeared on Marty Henderson's [personal blog](https://nalth.is/crossplane)._
 
-[Crossplane](crossplane.io) is a newer member of the Infrastructure-as-Code team, with many components still yet to be built or in an alpha or beta state. Although it is new, it introduces some novel ideas of how to manage infrastructure that you deploy, especially if you are familiar with Kubernetes
+[Crossplane](https://crossplane.io) is a newer member of the Infrastructure-as-Code team, with many components still yet to be built or in an alpha or beta state. Although it is new, it introduces some novel ideas of how to manage infrastructure that you deploy, especially if you are familiar with Kubernetes
 
 ### Where's the demo?
 
@@ -198,15 +198,15 @@ Alright, there's a lot of notes in here, but let's skip down to the relevant par
 
 !["AKS Status Successful"](/assets/images/posts/2022-08-05-crossplane/aks-status-state.png)
 
-So, we're cooking with gas now! You can even verify in the Azure console if you really want.
+So, we're cooking with gas now! You can even verify in the Azure Portal if you really want.
 
-!["Status in Azure Console of AKS"](/assets/images/posts/2022-08-05-crossplane/aks-in-azure-console.png)
+!["Status in Azure Portal of AKS"](/assets/images/posts/2022-08-05-crossplane/aks-in-azure-console.png)
 
 So, now that it's in state, what if I don't want it anymore?
 
 Delete the yaml file!
 
-As you can guess by the fact I have the DigitalOcean provider and configuration, I had some DigitalOcean resources. However, that Provider is still maturing and would created a brand new Droplet every time the status of configuration was checked - 8 droplets later, I hastily deleted the yaml file and applied it and the Droplets stopped being created. The DO Provider is still not good at deleting resources, but the AWS one is!
+As you can guess by the fact I have the DigitalOcean provider and configuration, I had some DigitalOcean resources. However, that Provider is still maturing and would created a brand new Droplet every time the status of configuration was checked - 8 droplets later, I hastily deleted the yaml file and applied it and the Droplets stopped being created. The DigitalOcean Provider is still not good at deleting resources, but the AWS one is!
 
 If we want to hand-delete an object, we can, just like normal.
 
