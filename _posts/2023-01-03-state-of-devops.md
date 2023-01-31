@@ -3,7 +3,7 @@ layout:      posts
 background:  shortBackground
 title:       "State of DevOps 2022: The J-Curve"
 subtitle:    ""
-date:        2023-02-01 09:00:00
+date:        2023-01-31 09:00:00
 author:      "Marty Henderson"
 description: ""
 headerImg: "/assets/images/posts/2023-01-03-state-of-devops/statedevops_header.jpg"
