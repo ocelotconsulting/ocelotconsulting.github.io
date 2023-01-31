@@ -3,15 +3,15 @@ layout:      posts
 background:  shortBackground
 title:       "State of DevOps 2022: A Review"
 subtitle:    ""
-date:        2022-12-29 09:00:00
-author:      "Ethan Harstad and Marty Henderson"
+date:        2023-02-01 09:00:00
+author:      "Marty Henderson"
 description: ""
 headerImg: "/assets/images/posts/2023-01-03-state-of-devops/statedevops_header.jpg"
 ---
 
 # State of DevOps
 
-With 2022 behind us, DORA - that is, [DevOps Research and Assessment](https://dora.community) - has released their [2022 State of DevOps Report](https://services.google.com/fh/files/misc/2022_state_of_devops_report.pdf), a thorough, 77-page PDF on DevOps as it impacts the success of software development. Sounds like an easy read, right? Well despite it being well written, there's a few important points that can be pulled out and discussed in context of where we see clients and organizations at today on their path to their goals and visions. Specifically, there are three major callouts that we see happening often.
+With 2022 behind us, DORA - that is, [DevOps Research and Assessment](https://dora.community) - has released their [2022 State of DevOps Report](https://services.google.com/fh/files/misc/2022_state_of_devops_report.pdf), a thorough, 77-page PDF on DevOps as it impacts the success of software development. Sounds like an easy read, right? Well despite it being well written, there's a few important points that can be pulled out and discussed in context of where we see clients and organizations at today on their path to their goals and visions. One of the biggest points that we see often is something they refer to as the J-Curve.
 
 ## Acknowledge the J-Curve
 
@@ -35,20 +35,16 @@ The ability to camp without a tent was my goal, however, and so with a lot more 
 
 This is how the J-Curve works, not only did I need to learn a new tool (driving the truck) and a new technique (moving the camper), I also had to get over the fear of sliding the camper into other cars, thinking ahead on my turns, and planning places to take the camper. However, today in 2023, I can take the camper many places and my real concern is did I remember to pack everything and can drive my truck pretty efficiently. As you look to adapt to new tools to ensure reliability and the ability to pull your organization to your vision, just realize there will be a time they slow down and learn and that the whole organization will need to adapt to a new way of thinking. You can't just jump from a little car to a truck-and-trailer nor can you jump from a classic software desire to a powerful, robust, and scalable one without several months of adapting to it.
 
+## Summary
 
-## Good Security Practices
+The J-Curve is one factor of a DevOps journey - a journey you don't have to take alone! A good consulting partner, like Ocelot, can help make sure you follow the best of practices, keep your metaphorical trailer out of the ditch, and keep on your journey. Be sure to page through DORA's report above and see what part of the journey you're at and see if we can help you handle more than a J-Curve problem!
 
-## Continuous Deployment and Deployment Frequency 
+## About the Author
 
-## About the Authors
-
-### Ethan Harstad
-
-Ethan is a Staff Cloud Engineer at Ocelot Consulting. Ethan has spent time in many regulated fields from aerospace, to agri-tech, to finance and a number of spaces in between. Ethan's best known for solving problems that are massive in scale, such as processing satellite data.
 
 ### Marty Henderson
 
-Marty Henderson is a Staff Consultant at Ocelot Consulting. Certified Architect in Google Cloud, AWS, as well as a certified PMP, Marty leads and designs complex projects based on containers and cloud, with heavy emphasis on security-first mindset.
+Marty Henderson is a Staff Consultant at Ocelot Consulting. Certified Architect in Google Cloud and AWS, Marty leads and designs complex projects based on containers and cloud, with heavy emphasis on teaching and enablement of teams.
 
 
 ### Acknowledgements
