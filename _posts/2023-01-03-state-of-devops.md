@@ -51,5 +51,5 @@ Marty Henderson is a Staff Consultant at Ocelot Consulting. Certified Architect 
 
 Header Photo Photo by <a href="https://unsplash.com/ja/@justjohnl">John Lockwood</a> on <a href="https://unsplash.com/photos/FcLq69V7Rsc">Unsplash</a>
 
-Peter, et al, "ACCELERATE 2022 - State of DevOps" https://services.google.com/fh/files/misc/2022_state_of_devops_report.pdf 
+Peter, et al., "ACCELERATE 2022 - State of DevOps" https://services.google.com/fh/files/misc/2022_state_of_devops_report.pdf 
   
