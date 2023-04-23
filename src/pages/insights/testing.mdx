@@ -1,0 +1,26 @@
+import InsightLayout from '../../components/insights/InsightLayout'
+
+export const meta = {
+  title: 'Testing',
+  image: "john-lockwood-FcLq69V7Rsc-unsplash-scaled.jpg",
+  date:  'December 15, 3022',
+  author: 'Patrick Byrne',
+  description: 'this is just a test blog post',
+  url: '/insights/testing'
+}
+
+# My MDX page
+
+This is a list in markdown:
+
+- One
+- Two
+- Three
+
+Checkout my React component:
+
+
+
+export default function ({ children }) {
+  return <InsightLayout {...meta}>{children}</InsightLayout>
+}

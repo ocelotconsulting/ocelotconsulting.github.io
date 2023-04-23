@@ -1,0 +1,80 @@
+[
+  {
+    "level": "PUBLIC MIDSIZE CLIENT",
+    "icon": "agtech.png",
+    "industry": "AgTech",
+    "blurb": "Enabled a rapidly-growing company with an analytics platform that adapts and scales with them."
+  },
+  {
+    "level": "RESEARCH CLIENT",
+    "icon": "agtech.png",
+    "industry": "AgTech",
+    "blurb": "Comprehensive assessment of people, processes, and technology in software organization."
+  },
+  {
+    "level": "GLOBAL 250 CLIENT",
+    "icon": "agtech.png",
+    "industry": "AgTech",
+    "blurb": "Delivered Digital Twin of key decision processes to enable strategic planning with the power of what-if."
+  },
+  {
+    "level": "PUBLIC MIDSIZE CLIENT",
+    "icon": "first-aid.svg",
+    "industry": "Healthcare",
+    "blurb": "Development of voice and chat bots integrating with enterprise platforms."
+  },
+  {
+    "level": " PRIVATE MIDSIZE CLIENT",
+    "icon": "cash-dollar.svg",
+    "industry": "Finance",
+    "blurb": "Led architecture, engineering, and organizational change for company migration to public cloud."
+  },
+  {
+    "level": "GLOBAL 250 CLIENT",
+    "icon": "dinner.svg",
+    "industry": "Food & Beverage",
+    "blurb": "Delivered IoT data pipeline ingesting two billion datapoints per day to the cloud for analytics and data science."
+  },
+  {
+    "level": "STARTUP CLIENT",
+    "icon": "automation.svg",
+    "industry": "Transportation",
+    "blurb": "Built machine learning powered MVP, launched product to market and secured successful Series A funding."
+  },
+  {
+    "level": "GOVERNMENT CLIENT",
+    "icon": "cash-dollar.svg",
+    "industry": "Finance",
+    "blurb": "Transformed data pipelines behind one of the country’s most important websites with a novel, cloud-native approach."
+  },
+  {
+    "level": "Fortune 1000 Client",
+    "icon": "cash-dollar.svg",
+    "industry": "Finance",
+    "blurb": "Architected and delivered data pipelines as part of global cloud transformation."
+  },
+  {
+    "level": "Fortune 500 Client",
+    "icon": "outlet.svg",
+    "industry": "Utilities",
+    "blurb": "Partnered to deliver a scalable resilient primary web site leveraging public cloud for the first time."
+  },
+  {
+    "level": "Fortune 250 Client",
+    "icon": "shield-check.svg",
+    "industry": "Insurance",
+    "blurb": "Empowered an emerging data science organization to build and integrate DS capabilities company-wide."
+  },
+  {
+    "level": "Fortune 50 Client",
+    "icon": "coffee-cup.svg",
+    "industry": "Food & Beverage",
+    "blurb": "Innovation partner for global R&D delivering cloud, data engineering, and application development solutions."
+  },
+  {
+    "level": "Fortune 50 Client",
+    "icon": "first-aid.svg",
+    "industry": "Healthcare",
+    "blurb": "Partnered to deliver a major University Provider Portal leveraging the public cloud for the first time."
+  }
+]

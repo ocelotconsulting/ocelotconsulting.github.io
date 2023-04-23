@@ -1,0 +1,62 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Chasing Certifications',
+    image: 'john-thomas-XodiSw1wA8A-unsplash-2048x1365.jpg',
+    date: 'December 15, 2022',
+    author: 'Marty Henderson',
+    description: 'As we get towards the end of the year, I get the itch that most people get - the urge to get new certifications.',
+    url: '/insights/chasing-certifications'
+}
+
+As we get towards the end of the year, I get the itch that most people get - the urge to get new certifications. This is completely normal, right? The pursuit of difficult exams for unnecessary letters after one's name?
+
+No?
+
+Well, after clearing the [GCP Professional Architect](https://www.credential.net/77f186c9-f61f-465e-a182-31d1ffb39c4f) last month, I realized why I chase these things - maybe not why in the end of the year, but as to why I have a buffet of letters after my name, I think I figured it out.
+
+## Which Certifications Matters
+
+I have a variety of certifications from PMI's PMP and PMI-ACP to GCP Professional Arch and AWS' Solution Architect Associate and a mess in between. The real question is, which ones matter though? This is highly opinionated, but to me the ones that matter most meet two specific qualifications - that they offer a set of standards and that the exam is high-stakes, or has a limited number of retries, a cost, and closed books/notes.
+
+Why does this matter? The core part of certifications is testing your knowledge against something and not a guesswork. It should be possible to look up things you don't know from something, whether a book of knowledge or whitepapers and documentations. PMI notoriously tests against their massive paper books, whether knowing and applying formulas or understanding what steps are including in the M&amp;O phase of a project. AWS, however, references their documentation, white papers, blog posts, and everything they list out, so knowing what DAX is or when to use ECS instead of EKS are in all kinds of documentation.
+
+Some other certifications lack this, like the original Comptia A+ (which has since changed), which just assumed you knew how to build computers and learned what PCI is from…somewhere. These don't help any more than just the tribal knowledge of computers, which is relatively untestable and highly opinionated. The move towards a more standardized A+ both helped make it valid but also showed how weak it is of a certification compared to big league ones. However, what determines it as big league? The fact that a certification improves a person's understanding.
+
+## Improving understanding
+
+The GCP Architect Pro exam is hard because it's not “what is Cloud SQL” but instead analyzing a case and using the logic of a cloud architect to find an optimal solution. It's not pure knowledge of GCP's products, but what a cloud architect should do given these pieces and which ones to pick up and which to put down. It requires that you understand how scaling, resillency, and cloud native do and how to apply it. There are still answers you can look up, but it's application of what you find to get there.
+
+In order to pass GCP, you need to understand what is going on behind the scenes. Likewise, the PMP helps improve what pieces of the project need to be used and which pieces can stand aside. When project delivery is a goal, you might need to risk happiness or costs to get things across the line. This change in understanding priorities helps the discipline and those in it grow. All certifications should require improved understanding to pass and not just allowing any answer - it's not your college philosophy class!
+
+## Standardizing Language
+
+The other big piece is to get all the people with the certifications to standardize on language and word choices. After the AWS Security exam, you should know the difference between NACLs and Security Groups and be able to intelligently divide which does what, where someone without the Security exam may sometimes confuse or conflate the two. As a matter of fact, I feel that a number of people blend a few concepts together until they study for and pass the requisite exam. It helps make the understanding of everything easier for those that have passed certifications - at least, it should.
+
+The same is very true of something such as the PMI-ACP, discussing types of agile and kanban instead of scrum or what XP stands for and uses (Extreme Programming for those curious). Having such a certification requires the distinguishing knowledge.
+
+## So why chase them?
+
+I like to be welcome into rooms where discussions are happening and that's much easier if you understand the phrasing, terminology, and why. The fact you get letters and logos is nice, and sometimes what you need to walk into that room (especially with a PMI or ISACA cert), but it does welcome you to a conversation that you might otherwise not be able to join or simply locked out of.
+
+This, in turn, leads my career and the company I work for - [Ocelot Consulting](https://www.ocelotconsulting.com/) - to explore new methods with our customers. Instead of simply filling a role, we can partner up and look at pathways otherwise closed together. It's actually quite fun to know that the certifications I have not only unlock things for me, but the clients I work with. Helping those client and companies is what really makes getting those worthwhile.
+
+Plus, I mean, I get credits for doing it, making my exploration of new services, especially cloud services, cheaper.
+
+## So what's next?
+
+Having the Pro level of AWS sets a new standard of understanding that I am looking forward to, so I plan on those. In addition, the Databricks certifications would let me into new rooms as well. I think widening my list (after getting an AWS Pro-level cert) is the best way to help myself grow and help clients better see potential pathways to follow that might not understand or use today.
+
+## What about you?
+
+Go find one that's interesting. I often point to the [AWS Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/) as a good entry one. Plus, if you pass it, you get 50% off your next AWS exam. It lets a lot of people not deep into technology - like sales, business analysts, and technical writers - into the cloud room and understand what's going on.
+
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
+
