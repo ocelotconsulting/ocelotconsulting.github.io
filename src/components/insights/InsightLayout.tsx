@@ -10,10 +10,17 @@ export interface InsightLayoutProps {
     image: string
     date: string
     author: string
+    url: string
     children: ReactNode
 }
 
-export default function InsightLayout({title, image, date, author, children}: InsightLayoutProps) {
+export default function InsightLayout({title, image, date, author, children, url}: InsightLayoutProps) {
+    let origin = 'https://www.ocelotconsulting.com'
+
+    if (typeof window !== 'undefined') {
+        origin = window.location.origin
+    }
+
     return (
         <>
             <Head>
@@ -33,9 +40,9 @@ export default function InsightLayout({title, image, date, author, children}: In
 
                 { !!image
                     ?   <>
-                            <meta property="og:url" content={`/assets/insights/${image}`} />
-                            <meta property="og:image" content={`/assets/insights/${image}`} />
-                            <meta name="twitter:image" content={`/assets/insights/${image}`} />
+                            <meta property="og:url" content={`${origin}${url}`} />
+                            <meta property="og:image" content={`${origin}/assets/insights/${image}`} />
+                            <meta name="twitter:image" content={`${origin}/assets/insights/${image}`} />
                         </>
                     :   null
                 }

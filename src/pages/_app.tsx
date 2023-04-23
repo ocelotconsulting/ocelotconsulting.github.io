@@ -28,6 +28,12 @@ export default function App({ Component, pageProps }: AppProps) {
     const [showMenu, setShowMenu] = useState(false)
     const [showContact, setShowContact] = useState(false)
 
+    let origin = 'https://www.ocelotconsulting.com'
+
+    if (typeof window !== 'undefined') {
+        origin = window.location.origin
+    }
+
     return (
         <GoogleReCaptchaProvider
             reCaptchaKey={process.env.NEXT_PUBLIC_ANALYTICS_ID ?? ''}
@@ -41,13 +47,13 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Ocelot Consulting</title>
                 <meta name='designed by' content='Fluid22' />
-                <link rel="shortcut icon" href="/assets/ocelot.svg" />
+                <link rel="shortcut icon" href={`${origin}/assets/ocelot.svg`} />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
-                <meta property="og:image" content="/assets/ocelot.svg" />
+                <meta property="og:image" content={`${origin}/assets/ocelot.svg`} />
                 <meta property="og:image:type" content="image/svg+xml" />
-                <meta name="twitter:image" content="/assets/ocelot.svg" />
+                <meta name="twitter:image" content={`${origin}/assets/ocelot.svg`} />
             </Head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=UA-84294052-1"
