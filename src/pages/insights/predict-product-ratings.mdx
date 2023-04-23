@@ -5,13 +5,13 @@ export const meta = {
     image: "2022-03-31-predict-product-ratings/mean_rating.gif",
     date: "2022-03-31 10:00:00",
     author: "Khuyen Tran",
-    description: 'Crossplane is an infrastructure-as-code tool that manages your infrastructure as Kubernetes objects and keeps state within Kubernetes, leveraging controllers and extensions for various cloud providers and their object types.',
+    description: 'How do you recommend new and relevant products using product ratings from different users?',
     url: '/insights/predict-product-ratings',
 }
 
 ## Motivation
 
-Imagine you have a database of product ratings from different users. There are some products in the system that your users haven’t bought. How do recommend new and relevant products to your users using this data?
+Imagine you have a database of product ratings from different users. There are some products in the system that your users haven't bought. How do you recommend new and relevant products to your users using this data?
 
 ![](/assets/insights/2022-03-31-predict-product-ratings/data.png)
 
@@ -43,7 +43,7 @@ Note that there are some missing values in this data. We will start with finding
 
 ## Find Similarities Between Users
 
-We’ll use the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) to find the correlation between users based on their rated products.
+We'll use the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) to find the correlation between users based on their rated products.
 
 If two users give exactly the same ratings, the Pearson correlation is 1.
 ```python
@@ -75,7 +75,7 @@ np.corrcoef(user1, user2)[0, 1]
 -1
 ```
 
-Let’s use this method to create a function that finds a correlation between two users:
+Let's use this method to create a function that finds a correlation between two users:
 ```python
 def find_correlation_between_two_users(ratings_df: pd.DataFrame, user1: str, user2: str):
     """Find correlation between two users based on their rated products using Pearson correlation"""
@@ -211,7 +211,7 @@ In the GIF below, the expected rating of user 3 for product 1 before adjusting f
 
 ## Get the Missing Ratings of All Users
 
-Now we are ready to put all of the functions shown above into the function `predict_rating` . This function predicts the rating of a user for a product based on the ratings of that user’s neighbors.
+Now we are ready to put all of the functions shown above into the function `predict_rating` . This function predicts the rating of a user for a product based on the ratings of that user's neighbors.
 
 ```python
 def predict_rating(
@@ -271,14 +271,14 @@ Top 2 neighbors of user 624, Apple Jacks: ['468', '509']
 Top 2 neighbors of user 73, Bran Chex: ['311', '509']
 ```
 
-Let’s take a look at the rating database after filling in all missing ratings:
+Let's take a look at the rating database after filling in all missing ratings:
 ```python
 full_ratings
 ```
 ![](/assets/insights/2022-03-31-predict-product-ratings/full_rating.png)
 
 
-Pretty cool! Now we can suggest the products that are predicted to be highly rated to the users who haven’t watched those products before.
+Pretty cool! Now we can suggest the products that are predicted to be highly rated to the users who haven't watched those products before.
 
 ## Conclusion
 
