@@ -11,7 +11,7 @@ export function useMDXComponents(components) {
     a: ({ href, children }) => <a style={{ color: '#3273dc' }} href={href}>{children}</a>,
     ul: ({ children }) => <ul className='mb-4 list-disc pl-4'>{children}</ul>,
     ol: ({ children }) => <ol className='mb-4 list-decimal pl-4'>{children}</ol>,
-    pre: ({ children }) => <pre className='p-4 mb-4 bg-black'>{children}</pre>,
+    pre: ({ children }) => <pre className='p-4 mb-4 bg-black' style={{ overflowY: 'scroll' }}>{children}</pre>,
     ...components,
   }
 }
