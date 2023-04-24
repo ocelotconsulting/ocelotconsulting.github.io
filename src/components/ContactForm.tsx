@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { FormEventHandler, useEffect, useState } from 'react'
 import FormInput from '@/components/FormInput'
 import FormTextArea from '@/components/FormTextArea'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useRouter } from 'next/router'
+
+const tokenRefreshInterval = 1000 * 60 * 1.75
 
 export default function ContactForm({ redirectTarget }: { redirectTarget?: string }) {
     const router = useRouter()
@@ -20,6 +22,11 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
         };
 
         handleReCaptchaVerify();
+
+        const interval = setInterval(handleReCaptchaVerify, tokenRefreshInterval)
+        return () => {
+            clearInterval(interval)
+        }
     }, [executeRecaptcha]);
 
     return (
@@ -38,6 +45,13 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
                 <button className="bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token}>
                     Submit
                 </button>
+                <small className='text-xs'>
+                    <span>This site is protected by reCAPTCHA and the Google </span>
+                    <a className='underline decoration-dashed' href="https://policies.google.com/privacy">Privacy Policy</a>
+                    <span> and </span>
+                    <a className='underline decoration-dashed' href="https://policies.google.com/terms">Terms of Service</a>
+                    <span> apply.</span>
+                </small>
             </div>
         </form>
     )

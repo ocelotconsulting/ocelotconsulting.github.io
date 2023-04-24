@@ -58,3 +58,6 @@ body {
   animation: zoomIn linear 6s;
 }
 
+.grecaptcha-badge {
+  opacity: 0;
+}
