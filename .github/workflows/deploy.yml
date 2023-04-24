@@ -23,6 +23,11 @@ permissions:
 concurrency:
   group: "pages"
   cancel-in-progress: false
+  
+env:
+  NEXT_PUBLIC_ANALYTICS_ID: 6LduFgEVAAAAAJLy0R672PEdTafugaVHktVYcMLD
+  NEXT_PUBLIC_CONTACT_FORM_TO: info@ocelotconsulting.com
+  NEXT_PUBLIC_CONTACT_FORM_URL: https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/
 
 jobs:
   # Build job
