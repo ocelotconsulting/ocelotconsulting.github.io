@@ -145,11 +145,11 @@ export default function Careers() {
                     <ul className="text-xl">
                         <li className="flex items-center mb-5">
                             <HeartBeatIcon className="fill-white w-8 h-auto shrink-0" />
-                            <span className="ml-5">Comprehensive medical, dental & vision benefits, disability & 401(k) plan</span>
+                            <span className="ml-5">Comprehensive medical, dental & vision benefits, disability, and 401(k) plan</span>
                         </li>
                         <li className="flex items-center mb-5">
                             <HeadGearIcon className="fill-white w-8 h-auto shrink-0" />
-                            <span className="ml-5">Learning & development through certifications, training and conferences</span>
+                            <span className="ml-5">Learning & development through certifications, training, and conferences</span>
                         </li>
                         <li className="flex items-center mb-5">
                             <MoneyHandshakeIcon className="fill-white w-8 h-auto shrink-0" />
