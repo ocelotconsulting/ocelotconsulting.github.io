@@ -20,7 +20,7 @@ I have written several AWS Lambda functions over the past few years, normally ar
 The AWS API Gateway has always on its surface appeared to be a black box due to what I've previously believed to be an overwhelming amount of AWS Console-based configuration. When I had perused the available functionality in the past, it seemed like there was a lot of vernacular which didn't quite fit my previous API work. Words like "resource", "stage", "methods", integration request/responses, models, etc all seemed not as coherent as coming up with a swagger specification along with an HTTP route and calling it a day.
 
 {: .posts-center}
-![API Gateway Vernacular](/assets/images/posts/2017-12-18-gateway-lambda/gateway_vernacular.png)
+![API Gateway Vernacular](/assets/insights/2017-12-18-gateway-lambda/gateway_vernacular.png)
 
 {: .posts-center}
 Fig. 1 - Lots of words used by API Gateway
@@ -34,7 +34,7 @@ I created a simple custom authorizer for the Lambda functions, which always ["Al
 The repo is [here](https://github.com/ocelotconsulting/sample-custom-authorizer), and it is [deployed](https://github.com/ocelotconsulting/sample-custom-authorizer/blob/master/cf-deploy.json) as a simple Lambda prior to usage in the Gateway as an authorizer by other Lambdas. Most often a custom authorizer would be used to validate an OAuth token and authorization data, to render an access decision. This is then cached by the API Gateway to improve performance.
 
 {: .posts-center}
-![Custom Authorizer](/assets/images/posts/2017-12-18-gateway-lambda/authorizer.png)
+![Custom Authorizer](/assets/insights/2017-12-18-gateway-lambda/authorizer.png)
 
 {: .posts-center}
 Fig. 2 - Authorizer created by combo of the Cloudformation used below and an existing Authorizer Lambda

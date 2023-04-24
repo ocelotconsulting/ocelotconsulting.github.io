@@ -30,7 +30,7 @@ Let's Encrypt can be simple to use, as long as you understand what the ACME prot
 * Lastly, the automation procures certificates according to the domains it can prove control over.
 
 {: .posts-center}
-![Let's Encrypt ChallengePseudocode Process](/assets/images/posts/2016-10-07-letsencrypt-lambda/howitworks_authorization.png){:width="75%"}
+![Let's Encrypt ChallengePseudocode Process](/assets/insights/2016-10-07-letsencrypt-lambda/howitworks_authorization.png){:width="75%"}
 
 {: .posts-center}
 Fig. 1 - The Let's Encrypt Challenge Process
@@ -52,7 +52,7 @@ On an initial run of the lambda, the following high-level events take place:
 1. Check to see if certificate is close to expiring (within 30 days of the expiration date). If it's fine, exit... if not, #2.
 
     {: .posts-center}
-    ![Certificate Expiration Notice](/assets/images/posts/2016-10-07-letsencrypt-lambda/expired-cert.jpg)
+    ![Certificate Expiration Notice](/assets/insights/2016-10-07-letsencrypt-lambda/expired-cert.jpg)
 
     {: .posts-center}
     Fig. 2 - Expired Certificate... *don't let this happen to you!*
@@ -66,7 +66,7 @@ On an initial run of the lambda, the following high-level events take place:
     2. Take a token from LE's DNS challenge and insert a TXT record for the domain in Route53 corresponding to a digest of the token using the private key of the admin.
 
         {: .posts-center}
-        ![Certificate Expiration Notice](/assets/images/posts/2016-10-07-letsencrypt-lambda/TXT_Record.png)
+        ![Certificate Expiration Notice](/assets/insights/2016-10-07-letsencrypt-lambda/TXT_Record.png)
 
         {: .posts-center}
         Fig. 3 - DNS TXT Record

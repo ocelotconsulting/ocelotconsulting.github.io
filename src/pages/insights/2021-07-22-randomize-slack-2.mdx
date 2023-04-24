@@ -55,7 +55,7 @@ The user data includes:
 
 A workflow of the process is shown below:
 
-![UpdateAvatar Workflow](/assets/images/posts/2021-07-22-randomize-slack-2/UpdateAvatar.drawio.svg){: style="width: 100%; min-width: 400px" }
+![UpdateAvatar Workflow](/assets/insights/2021-07-22-randomize-slack-2/UpdateAvatar.drawio.svg){: style="width: 100%; min-width: 400px" }
 
 ### SignInWithSlack
 
@@ -78,7 +78,7 @@ Once this information is validated, the function app updates the user and worksp
 
 A workflow for this is below:
 
-![SlackCallback Workflow](/assets/images/posts/2021-07-22-randomize-slack-2/SlackCallback.drawio.svg){: style="width: 100%; min-width: 400px" }
+![SlackCallback Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackCallback.drawio.svg){: style="width: 100%; min-width: 400px" }
 
 ### SlackInteractiveResponse
 
@@ -90,7 +90,7 @@ Once the inputs are validated, the user table and user Home Tab are updated. The
 
 A workflow for this is below:
 
-![SlackInteractiveResponse Workflow](/assets/images/posts/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){: style="width: 100%; min-width: 400px" }
+![SlackInteractiveResponse Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){: style="width: 100%; min-width: 400px" }
 
 ## Updating the Home Tab
 
@@ -99,10 +99,10 @@ A background method that is called by all of the functions is the `ClientInterac
 This is all built into a single string of JSON that is sent to the Slack [views.publish](https://api.slack.com/methods/views.publish) API. The changes are sent down to users almost immediately due to Slack's real-time client communication. That means that within a couple of seconds of choosing a new frequency interval, the `Next Update` date is refreshed.
 
 **Options**  
-![Drop Down Options](/assets/images/posts/2021-07-22-randomize-slack-2/drop-down-options.png)
+![Drop Down Options](/assets/insights/2021-07-22-randomize-slack-2/drop-down-options.png)
 
 **Updated**  
-![Drop Down Options Updated](/assets/images/posts/2021-07-22-randomize-slack-2/drop-down-updated.png)
+![Drop Down Options Updated](/assets/insights/2021-07-22-randomize-slack-2/drop-down-updated.png)
 
 ## Multi-User and Multitenancy
 

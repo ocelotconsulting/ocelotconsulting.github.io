@@ -39,7 +39,7 @@ group is created specifically for our Canaries, limiting egress to only our
 VPC endpoints
 
 {: .posts-center}
-![Cloudwatch Synthetics Overview](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/overview.png)
+![Cloudwatch Synthetics Overview](/assets/insights/2020-05-20-using-cloudwatch-synthetics/overview.png)
 
 Before we set up our synthetic monitor, it is important for the reader to
 understand some of the terms and assumptions as part of this exercise.
@@ -148,7 +148,7 @@ Once the Canary is saved, it will begin running on the interval you set.  After
 a few minutes you should see the canary running successfully:
 
 {: .posts-center}
-![Canary Success Example](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/canary-success.png)
+![Canary Success Example](/assets/insights/2020-05-20-using-cloudwatch-synthetics/canary-success.png)
 
 ### What you actually built
 
@@ -172,7 +172,7 @@ There are two layers:
 - A custom layer dynamically built based on your configuration.
 
 {: .posts-center}
-![Synthetic Lambda](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/synthetic-lambda.png)
+![Synthetic Lambda](/assets/insights/2020-05-20-using-cloudwatch-synthetics/synthetic-lambda.png)
 
 To find the code, navigate to the Lambda console and search for your canary.  It
 takes on a name of the form `cwsyn-<canary_name>-<uuid>`.  The first layer is
@@ -229,7 +229,7 @@ an ultra-wide band.  For example, with just a handful of data points running aro
 more precise, and should eventually look similar to the following screenshot.
 
 {: .posts-center}
-![Anomaly Detection Band](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/detection-band.png).
+![Anomaly Detection Band](/assets/insights/2020-05-20-using-cloudwatch-synthetics/detection-band.png).
 
 ### Handling Cold Starts
 
@@ -244,7 +244,7 @@ data points in a row, this can help to avoid false positives that are due to
 cold starts.
 
 {: .posts-center}
-![Alarm based on Anomaly Detection](/assets/images/posts/2020-05-20-using-cloudwatch-synthetics/anomaly-alarm.png)
+![Alarm based on Anomaly Detection](/assets/insights/2020-05-20-using-cloudwatch-synthetics/anomaly-alarm.png)
 
 ## Conclusion
 
