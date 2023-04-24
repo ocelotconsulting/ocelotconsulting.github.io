@@ -1,0 +1,124 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Randomize your Twitter avatar',
+    image: 'September 28, 2020',
+    date: '',
+    author: 'Phil Cryer',
+    description: '',
+    url: ''
+}
+
+---
+layout:      posts
+background:  shorterBackground
+title:       "Randomize your Twitter avatar"
+subtitle:    ""
+date:        2020-09-28 9:00
+author:      "Phil Cryer"
+headerImg:  "/assets/images/posts/code.jpg"
+description: ""
+---
+
+## Randomize your Twitter avatar from the command line
+
+I'm pretty active on [Twitter](https://twitter.com/fak3r){:target="_blank"}, and I wanted a way to change my Twitter avatar, to a randomly 'glitched' out version, on a set time (say hourly). I figured out a way to do this using Python, Twitter's API, and some random glitch services online. This method requires that you manually glitch the images you want, drop them in a directory, create a new Twitter App to get permissions to change your avatar, then install and use [Tweepy](https://www.tweepy.org/){:target="_blank"} to do the heavy lifting, all called by cron. I called the project [randota](https://github.com/philcryer/randota.git){:target="_blank"} = randomize twitter avatar = randomize your Twitter avatar from the commandline.
+
+Follow the steps to do this for your own Twitter avatar.
+
+<img src="/assets/images/posts/2020-09-28-randomize-twitter/me.jpg" height="150" width="150"/> &nbsp;&nbsp;&nbsp;
+<img src="/assets/images/posts/2020-09-28-randomize-twitter/me-glitched-11-23-2019-3-55-53-PM.png" height="150" width="150"/> &nbsp;&nbsp;&nbsp;
+<img src="/assets/images/posts/2020-09-28-randomize-twitter/me-glitched-11-23-2019-3-54-18-PM.png" height="150" width="150"/> &nbsp;&nbsp;&nbsp;
+<img src="/assets/images/posts/2020-09-28-randomize-twitter/me-glitched-11-23-2019-3-53-48-PM.png" height="150" width="150"/>
+
+## Install
+
+With all of my work, I'll assume you're comfortable playing around on a Linux system, and have git installed, if not you should be, it's endless amounts of fun! (Disclaimer: it may not be fun for you, no refunds)
+
+### Get the code
+
+Clone the git repo and start to configure your environment
+
+```
+git clone https://github.com/philcryer/randota.git
+cd randota
+rm -rf img/*
+cp config.json.dist config.json
+``` 
+
+### Create a Twitter app
+
+The first step you should take is to create a new Twitter App so you can get permissions to update your user's avatar. While there are many howtos out there, this one is complete and should get you going; [How to create a Twitter application](https://docs.inboundnow.com/guide/create-twitter-application/){:target="_blank"}
+
+Once you get to step "8. Make a note of your OAuth Settings", be sure and save:
+
+* Consumer Key
+* Consumer secret
+* Access token
+* Access token secret
+
+Then define each of these values in your newly created config.json file:
+
+```
+{
+    "consumer_key":        "<enter value here>",
+    "consumer_secret":     "<enter value here>",
+    "access_token":        "<enter value here>",
+    "access_token_secret": "<enter value here>"
+}
+```
+
+and save that.
+
+### Glitch your avatar
+
+To glitch your avatar, play on here, otherwise if you just want to use standard avatars and rotate between them, jump to the next section
+
+* save your avatar locally
+* hit [jpg-glitch](https://snorpey.github.io/jpg-glitch/){:target="_blank"}, upload your avatar, glitch it as much as you want, or just choose the 'random' option
+* save the file into a directory /img
+* repeat as many times as you'd like to increase your randomness
+
+TODO: I'd like to have an automated way to do this, maybe using some [ImageMagik](https://imagemagick.org/){:target="_blank"} commands, that way we could have the script glitch the original on the fly and really get randomized images! Of course one strange blip and the images are unrecognizable to the original, but hey, that's random
+
+### Install requirements
+
+```
+sudo python -m pip install -r requirements.txt
+```
+
+### Run it
+
+```
+python randota.py
+```
+
+View the hilarity on `Twitter.com/<your_username>`
+
+### Automate it
+
+Add a new line to your user's crontab, fill out the path to where your code is
+
+```
+0 * * * *    python ${HOME}/code/randota/randota.py >/dev/null 2>&1
+```
+
+<br/>
+
+### What's next?
+
+So when I started this I wanted it to just randomize my avatar for some variety and for fun, but what else could we do? Obviously it could be more active, for example, your hockey team wins, maybe it puts up an icon of your team (much like the [Cub's W flag](https://en.wikipedia.org/wiki/Cubs_Win_Flag){:target="_blank"}). Maybe it shows an umbrella if it's raining, maybe something related to the news of the day. Maybe you're a different Pokemon everyday. I've also thought of having it change the displayed name in Twitter, again, responding to some action in the "real world" that changes something on your account. Think of something cooler to do than just this and please fork, make a PR, or share your thoughts. Thanks!
+
+*This article was originally posted on [Phil's blog](https://fak3r.com/2020/08/23/randomize-your-twitter-avatar-from-the-commandline/){:target="_blank"}.*
+
+***
+
+This work by [Phil Cryer](https://philcryer.com/){:target="_blank"} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}.
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
