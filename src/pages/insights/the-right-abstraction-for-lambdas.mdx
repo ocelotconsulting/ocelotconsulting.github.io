@@ -9,8 +9,6 @@ export const meta = {
     url: '/insights/the-right-abstraction-for-lambdas'
 }
 
-<!-- *{{page.author}} - {{page.date | date: "%b %d, %Y"}}* -->
-
 Serverless functions are a great alternative for many light tasks that would traditionally required a server. They allow you to split up work across mutiple small functions, and you only pay for what you use. On top of that, they require less maintenance than managing your own server or Kubernetes cluster.
 
 However, the single function per lambda approach can become too granular. Shared functionality becomes hard to group together. You only have hard to enforce naming convention for lambda that belong together. Then comes the problem of sharing code between lamdas. Do you need a library for a few common functions?

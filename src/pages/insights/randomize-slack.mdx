@@ -11,9 +11,9 @@ export const meta = {
 
 ## Randomize Your Slack Avatar with Azure Functions
 
-I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post]({% post_url 2020-09-28-randomize-twitter %}) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
+I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post](/insights/randomize-twitter) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
 
-{: style="text-align: center" }
+{/* {: .posts-center} */}
 ![Sample 1](/assets/insights/2021-07-13-randomize-slack/sample1-small.jpg)
 ![Sample 2](/assets/insights/2021-07-13-randomize-slack/sample2-small.jpg)
 ![Sample 3](/assets/insights/2021-07-13-randomize-slack/sample3-small.jpg)
@@ -125,7 +125,7 @@ curl --request POST -H 'x-functions-key:[KEY]' -H "Content-Type:application/json
 
 How does it look in Slack? Here's an example:
 
-{: style="text-align: center" }
+{/* {: .posts-center} */}
 ![Slack Sample](/assets/insights/2021-07-13-randomize-slack/slack-sample.png)
 
 ## What's Next?
@@ -149,7 +149,7 @@ As always, these are resources that cost money in Azure. Be sure to clean up the
 
 ## Part Two
 
-Please check out [part two of this series]({% post_url 2021-07-22-randomize-slack-2 %}): expanding to multiple users and multiple tenants!
+Please check out [part two of this series](/insights/2021-07-22-randomize-slack-2): expanding to multiple users and multiple tenants!
 
 export default function ({ children }) {
     return (

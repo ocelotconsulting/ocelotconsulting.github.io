@@ -15,7 +15,7 @@ In large companies, often there are entire departments of IT staff whose sole pu
 
 When I started thinking about writing on this topic, the 1987 film "RoboCop" came to mind...
 
-<iframe style="height:360px;width:640px" src="https://www.youtube.com/embed/LJxvlpbc6M4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe style={{height: "360px", width: "640px"}} src="https://www.youtube.com/embed/LJxvlpbc6M4" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="allowFullScreen"></iframe>
 
 Much like the Enforcement Droid 209 (ED209), organizations often desire to automate their response to security posture changes which are not desirable in the light of compliance rules.
 
@@ -67,14 +67,14 @@ One way to help assist with all of these abilities, is to create an AWS Step Fun
 Storing metadata around the process is helpful too, and any persistence store desired can be used. AWS DynamoDB lends itself very well to simple data storage needs, and a sample set of information stored in DynamoDB which could assist a process such as compliance automation might look something like:
 
 | Field      | Description |
-| ----------- | ----------- |
+| ---------- | ----------- |
 | resourceId      | The AWS Config `resourceId`       |
 | ruleName   | The AWS Config rule name reporting non-compliance        |
 | accountId   | The AWS Account holding the resource        |
 | resourceStatus   | An internal tracking status for the integration        |
 | serviceNowItem   | Item from ServiceNow used to hold a single non-compliance finding (user-friendly number & `sys_id`)        |
 | serviceNowRequest   | Request from ServiceNow, contains one-to-many `serviceNowItem`'s  (user-friendly number & `sys_id`)        |
-{: .table}
+{/* : .table */}
 
 This tracking information can then be utilized by the different steps in the Step Function to determine the adequate course of action (open ServiceNow item, close ServiceNow item, no action, etc.).
 
@@ -94,7 +94,9 @@ If an organization is utilizing AWS to perform some of its IT needs and has comp
 
 YOU NOW HAVE 5 SECONDS TO COMPLY!!!
 
-This work by [Larry Anderson](https://www.linkedin.com/in/larryanderson/){:target="_blank"} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){:target="_blank"}.
+***
+
+This work by [Larry Anderson](https://www.linkedin.com/in/larryanderson/){/* :target="_blank" */} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){/* :target="_blank" */}.
 
 export default function ({ children }) {
     return (

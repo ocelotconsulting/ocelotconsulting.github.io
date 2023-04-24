@@ -11,7 +11,7 @@ export const meta = {
 
 ## Randomize Your Slack Avatar with Azure Functions: Part 2
 
-Building off [the post last week]({% post_url 2021-07-13-randomize-slack %}), we have expanded the proof of concept to include multiple users and multiple tenants. This example will show how you can utilize Azure Functions to build an interactive Slack App relying on sending and receiving real-time updates to and from Slack.
+Building off [the post last week](/insights/randomize-slack), we have expanded the proof of concept to include multiple users and multiple tenants. This example will show how you can utilize Azure Functions to build an interactive Slack App relying on sending and receiving real-time updates to and from Slack.
 
 In this walk-through, we will talk more about how the function app uses Azure resources to operate and interact with Slack. We will not be walking through setting it up. Instructions on how to setup the infrastructure and Slack App are included in the same code repository under the `multi-user-poc` [branch](https://github.com/ocelotconsulting/randomize-avatar/tree/multi-user-poc).
 
@@ -55,14 +55,14 @@ The user data includes:
 
 A workflow of the process is shown below:
 
-![UpdateAvatar Workflow](/assets/insights/2021-07-22-randomize-slack-2/UpdateAvatar.drawio.svg){: style="width: 100%; min-width: 400px" }
+![UpdateAvatar Workflow](/assets/insights/2021-07-22-randomize-slack-2/UpdateAvatar.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
 
 ### SignInWithSlack
 
 This function is a semi-user-friendly function that will redirect users to Slack.com to authorize the application on their account. This was used to make the process simpler, but the ideal way to send users to Slack is to use a "Add to Slack" button that looks like this:
 
-{: style="text-align: center" }
-![Add to Slack Example](https://platform.slack-edge.com/img/add_to_slack.png){: style="max-width: 139px; min-width: 50px" }
+{/* {: .posts-center} */}
+![Add to Slack Example](https://platform.slack-edge.com/img/add_to_slack.png){/* : style="max-width: 139px; min-width: 50px" */}
 
 The destination URL is defined by the `Client Id` and desired scopes of the Slack App after being registered.
 
@@ -78,7 +78,7 @@ Once this information is validated, the function app updates the user and worksp
 
 A workflow for this is below:
 
-![SlackCallback Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackCallback.drawio.svg){: style="width: 100%; min-width: 400px" }
+![SlackCallback Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackCallback.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
 
 ### SlackInteractiveResponse
 
@@ -90,7 +90,7 @@ Once the inputs are validated, the user table and user Home Tab are updated. The
 
 A workflow for this is below:
 
-![SlackInteractiveResponse Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){: style="width: 100%; min-width: 400px" }
+![SlackInteractiveResponse Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
 
 ## Updating the Home Tab
 
