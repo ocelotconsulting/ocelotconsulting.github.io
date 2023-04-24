@@ -1,8 +1,12 @@
-const withMDX = require('@next/mdx')({
+import nextMDX from '@next/mdx'
+import remarkGfm from 'remark-gfm'
+import remarkPrism from 'remark-prism'
+
+const withMDX = nextMDX({
   extension: /\.mdx?$/,
   providerImportSource: "@mdx-js/react",
   options: {
-    remarkPlugins: [require("remark-prism")],
+    remarkPlugins: [remarkPrism, remarkGfm],
   },
 })
 
@@ -17,4 +21,4 @@ const nextConfig = {
   }
 }
 
-module.exports = withMDX(nextConfig)
+export default withMDX(nextConfig)
