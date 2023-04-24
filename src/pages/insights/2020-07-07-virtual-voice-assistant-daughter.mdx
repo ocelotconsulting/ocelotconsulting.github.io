@@ -9,24 +9,13 @@ export const meta = {
     url: ''
 }
 
----
-layout:      posts
-background:  mediumBackground
-title:       "Pokémon Virtual Assistant"
-subtitle:    "Today's Options for Creating a Resilient Voice Experience"
-date:        2020-07-07 11:00
-author:      "Jay Silverman"
-headerImg:  "/assets/images/posts/launch.jpg"
-description: "Today's Options for Creating a Resilient Voice Experience"
----
-
 ## Pokémon virtual assistant: today's options for creating a resilient voice experience  
 
 The prevalence of virtual assistants in the past ten years has skyrocketed since Apple acquired Siri in 2010. Today we can write code and deploy voice experience applications to Amazon Alexa, Google Assistant, Facebook Messenger, Samgsung Bixby, and others. I started my own voice assistant coding journey a few years ago by creating an Alexa Skill that pulls random Pokémon facts from [PokéAPI](https://pokeapi.co/){:target="_blank"}. Creating the skill had immediate satisfaction both to myself and my daughter who was 3 years old at the time. 
 
 ![PokeAPI](/assets/images/posts/2020-07-07-virtual-voice-assistant-daughter/pokeapi.png){:target="_blank"}
  
-Although Amazon has tutorials teaching how to deploy new skills in hours, I was curious about minimizing time coding boilerplate logic while maximizing time creating my Pokémon-related logic. I decided to use [Flask-Ask](https://github.com/johnwheeler/flask-ask){:target="_blank"}, an extension to the Flask python web framework, along with the [serverless deployment framework](https://www.serverless.com/){:target="_blank"}. Leveraging python decorators and YAML template files via Flask-Ask, I wrote a couple dozen lines of code and deployed my ΓÇ£Ask StellaΓÇ¥ skill. A conversation might go like this: ΓÇ£Alexa, Ask StellaΓÇ¥, ΓÇ£Stella, would you like to hear a Pokémon fact?ΓÇ¥, ΓÇ£Did you know that Rhyhorn and Charizard have the same cry?ΓÇ¥. Unfortunately, Flask-Ask is no longer actively developed.  
+Although Amazon has tutorials teaching how to deploy new skills in hours, I was curious about minimizing time coding boilerplate logic while maximizing time creating my Pokémon-related logic. I decided to use [Flask-Ask](https://github.com/johnwheeler/flask-ask){:target="_blank"}, an extension to the Flask python web framework, along with the [serverless deployment framework](https://www.serverless.com/){:target="_blank"}. Leveraging python decorators and YAML template files via Flask-Ask, I wrote a couple dozen lines of code and deployed my "Ask Stella" skill. A conversation might go like this: "Alexa, Ask Stella", "Stella, would you like to hear a Pokémon fact?", "Did you know that Rhyhorn and Charizard have the same cry?". Unfortunately, Flask-Ask is no longer actively developed.  
 
 ![Flask-Ask](/assets/images/posts/2020-07-07-virtual-voice-assistant-daughter/flask-ask.png){:target="_blank"}
  

@@ -9,17 +9,6 @@ export const meta = {
     url: ''
 }
 
----
-layout:      posts
-background:  shorterBackground
-title:       "Randomize your Twitter avatar"
-subtitle:    ""
-date:        2020-09-28 9:00
-author:      "Phil Cryer"
-headerImg:  "/assets/images/posts/code.jpg"
-description: ""
----
-
 ## Randomize your Twitter avatar from the command line
 
 I'm pretty active on [Twitter](https://twitter.com/fak3r){:target="_blank"}, and I wanted a way to change my Twitter avatar, to a randomly 'glitched' out version, on a set time (say hourly). I figured out a way to do this using Python, Twitter's API, and some random glitch services online. This method requires that you manually glitch the images you want, drop them in a directory, create a new Twitter App to get permissions to change your avatar, then install and use [Tweepy](https://www.tweepy.org/){:target="_blank"} to do the heavy lifting, all called by cron. I called the project [randota](https://github.com/philcryer/randota.git){:target="_blank"} = randomize twitter avatar = randomize your Twitter avatar from the commandline.

@@ -9,16 +9,6 @@ export const meta = {
     url: ''
 }
 
----
-layout:      posts
-background:  mediumBackground
-title:       "Unit testing with React and Enzyme"
-date:        2019-02-21 09:00:00
-author:      "John O'Malley"
-description: "Unit Testing React Components"
-headerImg:  "/assets/images/posts/code.jpg"
----
-
 One of the benefits of [React](https://reactjs.org/) is that rendering logic is completely independent of the DOM. This feature provides a number of advantages - server-side rendering, for instance - but perhaps the greatest is that unit testing using Node is made much easier.
 
 Applications developed using Angular 1 + jQuery, for example, pretty much required that a DOM implementation exist in the global namespace. This was relatively easy to do with [jsdom](https://github.com/jsdom/jsdom) but required management of global state, which could be painful at times. Also, loading a full DOM implementation added significant
