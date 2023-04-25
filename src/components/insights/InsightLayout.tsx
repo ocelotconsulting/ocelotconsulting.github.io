@@ -4,6 +4,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faCalendar} from '@fortawesome/free-solid-svg-icons/faCalendar'
 import {faUserCircle} from '@fortawesome/free-solid-svg-icons/faUserCircle'
 import Head from 'next/head'
+import dayjs from 'dayjs'
 
 export interface InsightLayoutProps {
     title: string
@@ -56,7 +57,7 @@ export default function InsightLayout({title, image, date, author, children, url
                 <h1 className="text-4xl md:text-7xl font-bold text-white md:text-left text-center">{title}</h1>
                 <p className="text-white">
                     <FontAwesomeIcon className="text-accent mr-2" icon={faCalendar} />
-                    {date}
+                    {dayjs(date).format('MMMM D, YYYY')}
                 </p>
                 <p className="text-white">
                     <FontAwesomeIcon className="text-accent mr-2" icon={faUserCircle} />

@@ -40,7 +40,9 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
                     slidesPerView={1}
                     spaceBetween={20}
                     modules={[Navigation]}
-                    loop={true}
+                    // Doc: Because of nature of how the loop mode works (it will rearrange slides), total number of slides must be >= slidesPerView * 2
+                    // Loop only if we meet the highest breakpoint
+                    loop={caseStudies.length / 2 >= 4}
                     autoplay={true}
                     navigation={{
                         nextEl: '.button-next',
@@ -55,8 +57,8 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
                         }
                     }}
                 >
-                    {caseStudies.map((caseStudy) => (
-                        <SwiperSlide key={caseStudy.slug}>
+                    {caseStudies.map((caseStudy, index) => (
+                        <SwiperSlide key={index}>
                             <CaseStudyCard
                                 level={caseStudy.level}
                                 icon={caseStudy.icon}
