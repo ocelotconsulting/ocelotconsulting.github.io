@@ -15,6 +15,12 @@ export interface InsightsProps {
 }
 
 export default function Insights({posts}: InsightsProps) {
+    const filteredPosts = posts.filter(_ => {
+        const firstDate = dayjs(_.date)
+        const now = dayjs()
+        const isSameOrBefore = firstDate.isSameOrBefore(now, 'day')
+        return isSameOrBefore
+    })
     return (
         <>
         <PageTitle image={banner}>
@@ -23,7 +29,7 @@ export default function Insights({posts}: InsightsProps) {
 
         <Section className="bg-light-gray">
             <div className="grid md:grid-cols-3 gap-10">
-                {posts.filter(_ => dayjs(_.date).isSameOrBefore(dayjs(), 'day')).map(post => (
+                {filteredPosts.map(post => (
                     <InsightCard
                         key={post.title}
                         {...post}
@@ -36,14 +42,12 @@ export default function Insights({posts}: InsightsProps) {
 }
 
 export async function getStaticProps() {
-    const files = fs.readdirSync(path.resolve('./src/pages/insights')).filter(_ => _.endsWith('.mdx'))
+    const files: string[] = fs.readdirSync(path.resolve('./src/pages/insights')).filter(_ => _.endsWith('.mdx'))
 
-    let posts = []
-
-    for (const file of files) {
+    let posts = await Promise.all(files.map(async (file) => {
         const {meta} = await import(`@/pages/insights/${file}`)
-        posts.push(meta)
-    }
+        return meta
+    }))
 
     posts = posts.sort((a, b) => {
         const aDate = dayjs(a.date)

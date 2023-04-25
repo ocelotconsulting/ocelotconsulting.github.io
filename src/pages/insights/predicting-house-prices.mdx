@@ -26,7 +26,7 @@ The models created by Azure AutoML can then be [registered as a service](https:/
 The code snippets in this post are intended to be run from an AML Jupyter Notebook. For more information, please see [Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup).
 
     1. Create a new AML notebook named kaggle-house-prices-advanced-regression-techniques.ipynb
-       - [If you'd rather skip this guide, the complete notebook is available here](https://www.kaggle.com/gregckrause/house-prices-advanced-regression-azure-automl)
+        - [If you'd rather skip this guide, the complete notebook is available here](https://www.kaggle.com/gregckrause/house-prices-advanced-regression-azure-automl)
     2. Download the [competition dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
 
 ## AML Workspace File Structure
@@ -67,12 +67,12 @@ test_df = pd.read_csv('./data/test.csv').fillna(0)
 ```python
 ws = Workspace.from_config()
 
-default_store = ws.get_default_datastore() 
+default_store = ws.get_default_datastore()
 
 default_store.upload_files(
-    ['./data/train.csv'], 
-    target_path='kaggle-house-prices-training', 
-    overwrite=True, 
+    ['./data/train.csv'],
+    target_path='kaggle-house-prices-training',
+    overwrite=True,
     show_progress=True
 )
 ```
@@ -137,7 +137,7 @@ To view all available hyperparameters and AutoML config options, see [AutoMLConf
 automl_settings = {
     "n_cross_validations": 3,
     "primary_metric": 'normalized_root_mean_squared_error',
-    "enable_early_stopping": True, 
+    "enable_early_stopping": True,
     "experiment_timeout_hours": 1,
     "max_concurrent_iterations": 4,
     "max_cores_per_iteration": -1,
