@@ -47,7 +47,7 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Ocelot Consulting</title>
                 <meta name='designed by' content='Fluid22' />
-                <link rel="shortcut icon" href={`${origin}/assets/ocelot.png`} />
+                <link rel="shortcut icon" href={`${origin}/assets/favicon.ico`} />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
