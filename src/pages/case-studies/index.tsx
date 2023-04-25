@@ -83,18 +83,18 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
                     </h2>
 
                     <div className="flex flex-col md:flex-row mb-5">
-                        <div className="w-14 mx-auto md:mx-0">
-                            <PeopleIcon className="w-full h-auto" />
+                        <div className="mx-auto md:mx-0">
+                            <PeopleIcon className="w-10 h-auto" />
                         </div>
-                        <div className="grow ml-5 text-center md:text-left">
-                            <h3 className="text-xl font-bold text-black mb-2">Engineering experts</h3>
+                        <div className="grow ml-5 text-center text-black md:text-left">
+                            <h3 className="text-xl font-bold mb-2">Engineering experts</h3>
                             <p>We specialize in delivering technology solutions, and our technologists are experts at guiding clients through this process.</p>
                         </div>
                     </div>
 
                     <div className="flex flex-col md:flex-row mb-5">
-                        <div className="w-14 mx-auto md:mx-0">
-                            <HandshakeIcon className="w-full h-auto" />
+                        <div className="mx-auto md:mx-0">
+                            <HandshakeIcon className="w-10 h-auto" />
                         </div>
                         <div className="grow ml-5 text-center text-black md:text-left">
                             <h3 className="text-xl font-bold mb-2">Partnership-focused</h3>
@@ -103,8 +103,8 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
                     </div>
 
                     <div className="flex flex-col md:flex-row">
-                        <div className="w-14 mx-auto md:mx-0">
-                            <MoneyBackIcon className="w-full h-auto" />
+                        <div className="mx-auto md:mx-0">
+                            <MoneyBackIcon className="w-10 h-auto" />
                         </div>
                         <div className="grow ml-5 text-center text-black md:text-left">
                             <h3 className="text-xl font-bold mb-2">No extras</h3>
