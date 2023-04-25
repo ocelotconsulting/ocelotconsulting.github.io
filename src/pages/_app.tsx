@@ -54,12 +54,12 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta property="og:url" content={origin} />
                 <meta property="og:title" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
-                <meta property="og:image" content={`${origin}/assets/ocelot.svg`} />
+                <meta property="og:image" content={`${origin}/assets/ocelot.png`} />
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={origin} />
                 <meta property="twitter:title" content="Modern solutions for companies seeking to innovate" />
                 <meta property="twitter:description" content="Modern solutions for companies seeking to innovate" />
-                <meta property="twitter:image" content={`${origin}/assets/ocelot.svg`} />
+                <meta property="twitter:image" content={`${origin}/assets/ocelot.png`} />
             </Head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=UA-84294052-1"
