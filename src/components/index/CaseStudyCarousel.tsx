@@ -18,7 +18,9 @@ export default function CaseStudyCarousel({cards}: CaseStudyCarouselProps) {
                 modules={[Navigation]}
                 slidesPerView={1}
                 spaceBetween={20}
-                loop={true}
+                // Doc: Because of nature of how the loop mode works (it will rearrange slides), total number of slides must be >= slidesPerView * 2
+                // Loop only if we meet the highest breakpoint
+                loop={cards.length / 2 >= 5}
                 autoplay={true}
                 breakpoints={{
                     768: {

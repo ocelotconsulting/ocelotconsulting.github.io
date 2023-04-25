@@ -49,6 +49,11 @@ body {
   font-size: 1rem !important;
 }
 
+/* Hide the buttons when disabled */
+.swiper-button-disabled {
+  visibility: hidden;
+}
+
 .hero-slider img {
   transform-origin: center;
   transform: scale(1.05);
