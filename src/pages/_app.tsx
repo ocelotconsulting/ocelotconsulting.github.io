@@ -47,13 +47,13 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Ocelot Consulting</title>
                 <meta name='designed by' content='Fluid22' />
-                <link rel="shortcut icon" href={`${origin}/assets/ocelot.svg`} />
+                <link rel="shortcut icon" href={`${origin}/assets/ocelot.png`} />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
-                <meta property="og:image" content={`${origin}/assets/ocelot.svg`} />
+                <meta property="og:image" content={`${origin}/assets/ocelot.png`} />
                 <meta property="og:image:type" content="image/svg+xml" />
-                <meta name="twitter:image" content={`${origin}/assets/ocelot.svg`} />
+                <meta name="twitter:image" content={`${origin}/assets/ocelot.png`} />
             </Head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=UA-84294052-1"
