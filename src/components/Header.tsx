@@ -73,7 +73,7 @@ export default function Header({setShowMenu, setShowContact}: HeaderProps) {
                                 About
                             </Link>
                         </li>
-                        <li className="px-8 py-4 text-lg">
+                        <li className="lg:px-8 py-4 text-lg">
                             <Link href="/case-studies">
                                 Case Studies
                             </Link>
