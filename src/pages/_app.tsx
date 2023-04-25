@@ -50,15 +50,11 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="shortcut icon" href={`${origin}/assets/favicon.ico`} />
                 <meta name="title" content="Modern solutions for companies seeking to innovate" />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
-                
-                <!-- Open Graph / Facebook -->
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={origin} />
                 <meta property="og:title" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:image" content={`${origin}/assets/ocelot.svg`} />
-
-                <!-- Twitter -->
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={origin} />
                 <meta property="twitter:title" content="Modern solutions for companies seeking to innovate" />
