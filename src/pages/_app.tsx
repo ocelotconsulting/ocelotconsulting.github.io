@@ -48,16 +48,16 @@ export default function App({ Component, pageProps }: AppProps) {
                 <title>Ocelot Consulting</title>
                 <meta name='designed by' content='Fluid22' />
                 <link rel="shortcut icon" href={`${origin}/assets/favicon.ico`} />
-                <meta name="title" content="Modern solutions for companies seeking to innovate" />
+                <meta name="title" content="Ocelot Consulting" />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content={origin} />
-                <meta property="og:title" content="Modern solutions for companies seeking to innovate" />
+                <meta property="og:title" content="Ocelot Consulting" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:image" content={`${origin}/assets/ocelot.png`} />
                 <meta property="twitter:card" content="summary_large_image" />
                 <meta property="twitter:url" content={origin} />
-                <meta property="twitter:title" content="Modern solutions for companies seeking to innovate" />
+                <meta property="twitter:title" content="Ocelot Consulting" />
                 <meta property="twitter:description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="twitter:image" content={`${origin}/assets/ocelot.png`} />
             </Head>
