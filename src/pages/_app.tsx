@@ -52,7 +52,6 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
                 <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:image" content={`${origin}/assets/ocelot.png`} />
-                <meta property="og:image:type" content="image/svg+xml" />
                 <meta name="twitter:image" content={`${origin}/assets/ocelot.png`} />
             </Head>
             <Script
