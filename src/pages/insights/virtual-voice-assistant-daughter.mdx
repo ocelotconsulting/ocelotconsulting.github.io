@@ -1,0 +1,38 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Pokémon Virtual Assistant',
+    image: 'launch.jpg',
+    date: '2020-07-07',
+    author: 'Jay Silverman',
+    description: "Today's Options for Creating a Resilient Voice Experience",
+    url: '/insights/virtual-voice-assistant-daughter'
+}
+
+## Pokémon virtual assistant: today's options for creating a resilient voice experience  
+
+The prevalence of virtual assistants in the past ten years has skyrocketed since Apple acquired Siri in 2010. Today we can write code and deploy voice experience applications to Amazon Alexa, Google Assistant, Facebook Messenger, Samgsung Bixby, and others. I started my own voice assistant coding journey a few years ago by creating an Alexa Skill that pulls random Pokémon facts from [PokéAPI](https://pokeapi.co/){/* :target="_blank" */}. Creating the skill had immediate satisfaction both to myself and my daughter who was 3 years old at the time. 
+
+![PokeAPI](/assets/insights/2020-07-07-virtual-voice-assistant-daughter/pokeapi.png)
+ 
+Although Amazon has tutorials teaching how to deploy new skills in hours, I was curious about minimizing time coding boilerplate logic while maximizing time creating my Pokémon-related logic. I decided to use [Flask-Ask](https://github.com/johnwheeler/flask-ask){/* :target="_blank" */}, an extension to the Flask python web framework, along with the [serverless deployment framework](https://www.serverless.com/){/* :target="_blank" */}. Leveraging python decorators and YAML template files via Flask-Ask, I wrote a couple dozen lines of code and deployed my "Ask Stella" skill. A conversation might go like this: "Alexa, Ask Stella", "Stella, would you like to hear a Pokémon fact?", "Did you know that Rhyhorn and Charizard have the same cry?". Unfortunately, Flask-Ask is no longer actively developed.  
+
+![Flask-Ask](/assets/insights/2020-07-07-virtual-voice-assistant-daughter/flask-ask.png)
+ 
+Curious what similar tools are popular today, I recently tried during a hackathon [Jovo](https://www.jovo.tech/){/* :target="_blank" */} and [Voiceflow](https://www.voiceflow.com/){/* :target="_blank" */}. Jovo is an open-source coding framework where a single codebase (javascript or typescript) can be used to deploy seamlessly to multiple virtual assistants. I found the local development server and debugger very helpful and took advantage of the expansive community forum. Voiceflow is a visual designer with a drag-and-drop interface for creating conversations for Alexa and Google Assistant. Voiceflow has tiers based on invocation with a free option that limits interactions per month. I concluded that in the future I would use Jovo if I needed to deploy to many types of assistants or to integrate extensively with third-party systems and I would use Voiceflow if I needed to create very large conversations. 
+
+![Voiceflow](/assets/insights/2020-07-07-virtual-voice-assistant-daughter/voiceflow.png)
+
+If you are interested in your creating your first voice experience, check out [Alexa Skill Blueprints](https://blueprints.amazon.com/). Leveraging its visual interface to deploy a skill is a quick way to judge how passionate you are about voice experiences. Moving onto Jovo or Voiceflow next would let you more easily and reliably create larger conversations. 
+
+***
+
+This work by [Jay Silverman](https://jaysilverman.net){/* :target="_blank" */} is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/){/* :target="_blank" */}.
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}

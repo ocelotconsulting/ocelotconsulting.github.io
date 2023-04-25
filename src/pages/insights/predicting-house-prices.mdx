@@ -1,0 +1,210 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Predicting House Prices',
+    image: 'code.jpg',
+    date: 'January 8, 2021',
+    author: 'Greg Krause',
+    description: 'Tackling Kaggle\'s House Prices - Advanced Regression Techniques competition using Azure\'s AutoML.',
+    url: '/insights/predicting-house-prices'
+}
+
+Gartner places AI Engineering in the [Top Strategic Technology Trends for 2021](https://www.gartner.com/smarterwithgartner/gartner-top-strategic-technology-trends-for-2021/).
+
+Microsoft's cloud solution for this, [Azure Machine Learning \(AML\)](https://azure.microsoft.com/en-us/services/machine-learning/), is a suite of tools that "empower developers and data scientists with a wide range of productive experiences for building, training, and deploying machine learning models faster".
+
+In this post, we will utilize a subset of AML's features to tackle the [House Prices - Advanced Regression Techniques](https://www.kaggle.com/c/house-prices-advanced-regression-techniques) prediction competition on Kaggle.
+
+# What is AutoML?
+
+According to the Azure [concept page](https://docs.microsoft.com/en-us/azure/machine-learning/concept-automated-ml), AutoML is the "process of automating the time consuming, iterative tasks of machine learning model development".
+
+The models created by Azure AutoML can then be [registered as a service](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where?tabs=azcli), or referenced for baseline performance expectations.
+
+## Prerequisites
+
+The code snippets in this post are intended to be run from an AML Jupyter Notebook. For more information, please see [Tutorial: Get started with Azure Machine Learning in Jupyter Notebooks](https://docs.microsoft.com/en-us/azure/machine-learning/tutorial-1st-experiment-sdk-setup).
+
+    1. Create a new AML notebook named kaggle-house-prices-advanced-regression-techniques.ipynb
+        - [If you'd rather skip this guide, the complete notebook is available here](https://www.kaggle.com/gregckrause/house-prices-advanced-regression-azure-automl)
+    2. Download the [competition dataset](https://www.kaggle.com/c/house-prices-advanced-regression-techniques/data)
+
+## AML Workspace File Structure
+
+```
+house-prices-advanced-regression-techniques/
+  kaggle-house-prices-advanced-regression-techniques.ipynb
+  data/
+    test.csv # From competition dataset
+    train.csv # From competition dataset
+    submission.csv # We will create this file
+```
+
+## Using AML Jupyter Python Notebook
+
+### Import Dependencies
+
+```python
+from azureml.core import Dataset, Experiment, Workspace
+from azureml.core.compute import ComputeTarget, AmlCompute
+from azureml.core.compute_target import ComputeTargetException
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import RunConfiguration
+from azureml.train.automl import AutoMLConfig
+import logging
+import pandas as pd
+```
+
+### Load Data and Fill NA/NaN Values with 0
+
+```python
+train_df = pd.read_csv('./data/train.csv').fillna(0)
+test_df = pd.read_csv('./data/test.csv').fillna(0)
+```
+
+### Upload Data to Azure Blob
+
+```python
+ws = Workspace.from_config()
+
+default_store = ws.get_default_datastore()
+
+default_store.upload_files(
+    ['./data/train.csv'],
+    target_path='kaggle-house-prices-training',
+    overwrite=True,
+    show_progress=True
+)
+```
+
+### Create and Register Training Dataset
+
+Datasets are used to "[access data for your local or remote experiments with the AML Python SDK](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-register-datasets)".
+
+```python
+train_dataset = Dataset.Tabular.from_delimited_files(
+  default_store.path('kaggle-house-prices-training')
+)
+train_dataset = train_dataset.register(ws, 'kaggle-house-prices-training')
+```
+
+### Create Compute Cluster If Not Exists
+
+AML Compute Cluster is "[managed-compute infrastructure that allows you to easily create a single or multi-node compute](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-create-attach-compute-cluster?tabs=python)".
+
+We will create a modest, one node sandbox "cluster". This compute cluster will automatically zero-scale when not in use.
+
+```python
+amlcompute_cluster_name = "sandbox"
+
+try:
+    aml_compute = ComputeTarget(workspace=ws, name=amlcompute_cluster_name)
+except ComputeTargetException:
+    print('Compute cluster %s not found. Attempting to create it now.' % amlcompute_cluster_name)
+    compute_config = AmlCompute.provisioning_configuration(
+        vm_size='Standard_DS2_v2',
+        max_nodes=1
+    )
+    aml_compute = ComputeTarget.create(ws, amlcompute_cluster_name, compute_config)
+
+aml_compute.wait_for_completion(show_output=True)
+```
+
+### Define Compute RunConfiguration
+
+The RunConfiguration can be used to define any conda or pip python packages required.
+
+```python
+aml_run_config = RunConfiguration()
+aml_run_config.target = aml_compute
+aml_run_config.environment.docker.enabled = True
+aml_run_config.environment.python.user_managed_dependencies = False
+
+aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
+    conda_packages=['packaging']
+)
+```
+
+### Define AutoMLConfig
+
+At the time of writing, Azure AutoML supports classification, regression, and forecasting ML task types. To predict a continuous, non-discrete home value, we will use a regression configuration.
+
+We will utilize normalized_root_mean_squared_error as our loss function, paired with enable_early_stopping for cost savings.
+
+To view all available hyperparameters and AutoML config options, see [AutoMLConfig Class Documentation](https://docs.microsoft.com/en-us/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)
+
+```python
+automl_settings = {
+    "n_cross_validations": 3,
+    "primary_metric": 'normalized_root_mean_squared_error',
+    "enable_early_stopping": True,
+    "experiment_timeout_hours": 1,
+    "max_concurrent_iterations": 4,
+    "max_cores_per_iteration": -1,
+    "verbosity": logging.INFO,
+}
+
+automl_config = AutoMLConfig(
+    task = 'regression',
+    compute_target = aml_compute,
+    training_data = train_dataset,
+    label_column_name = 'SalePrice',
+    **automl_settings
+)
+```
+
+### Create Experiment
+
+```python
+experiment_name = 'kaggle-house-prices-training'
+experiment = Experiment(workspace=ws, name=experiment_name)
+```
+
+### Run AutoML Training Job Experiment and Wait for Completion
+
+If you utilized the settings in this post, the AutoML job should take approximately 40 minutes to complete.
+
+```python
+remote_run = experiment.submit(automl_config, show_output=False)
+remote_run.wait_for_completion()
+```
+
+### Retrieve the Best Model
+
+Azure AutoML tests a variety of ML algorithms and hyperparameters to find the best performing values.
+Here, we will retrieve the model with the lowest normalized_root_mean_squared_error (as defined in our AutoMLConfig).
+
+```python
+best_run, fitted_model = remote_run.get_output()
+```
+
+### Generate Predictions
+
+Generate SalePrice predictions, select the desired fields (as defined by the Kaggle competition), and write to a local csv.
+This file can then be submitted via the [competition site](https://www.kaggle.com/c/house-prices-advanced-regression-techniques).
+
+```python
+test_df['SalePrice'] = fitted_model.predict(test_df)
+kaggle_submission = test_df[['Id', 'SalePrice']]
+kaggle_submission.to_csv('./data/submission.csv', index=False)
+```
+
+## Results
+
+The model created managed to obtain a Root-Mean-Squared-Error (RMSE) score of 0.14511.
+![Kaggle Score](/assets/insights/2021-01-08-predicting-house-prices/kaggle-score.jpg)
+
+If we take a look at the leaderboard score distribution for this competition, it seems as though scores tend to top out around 0.11. While this model didn't place in the top 10 (or top 1,000), its RMSE of 0.14 comes close behind.
+![Kaggle Leaderboard Distribution](/assets/insights/2021-01-08-predicting-house-prices/kaggle-leaderboard-distribution.jpg)
+
+### Parting Thoughts
+
+AutoML appears to live up to its promise of "automating the time consuming, iterative tasks of machine learning model development". It may not win Kaggle competitions, but it sure is a solid start.
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}

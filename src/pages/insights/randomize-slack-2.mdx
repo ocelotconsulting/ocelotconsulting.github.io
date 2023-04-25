@@ -1,0 +1,125 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Randomize your Slack Avatar: Part 2',
+    image: 'code.jpg',
+    date: '2021-07-22',
+    author: 'Drew Garrett',
+    description: '',
+    url: '/insights/randomize-slack-2'
+}
+
+## Randomize Your Slack Avatar with Azure Functions: Part 2
+
+Building off [the post last week](/insights/randomize-slack), we have expanded the proof of concept to include multiple users and multiple tenants. This example will show how you can utilize Azure Functions to build an interactive Slack App relying on sending and receiving real-time updates to and from Slack.
+
+In this walk-through, we will talk more about how the function app uses Azure resources to operate and interact with Slack. We will not be walking through setting it up. Instructions on how to setup the infrastructure and Slack App are included in the same code repository under the `multi-user-poc` [branch](https://github.com/ocelotconsulting/randomize-avatar/tree/multi-user-poc).
+
+```bash
+git clone https://github.com/ocelotconsulting/randomize-avatar.git
+cd randomize-avatar
+git checkout multi-user-poc
+```
+
+## Slack Interaction Requirements
+
+To make this work, Slack has certain requirements for interactivity:
+
+1. To update the Home Tab for an application, you must send the view definition to [views.publish](https://api.slack.com/methods/views.publish) on a per-user basis
+2. To receive interactive data back, you must supply a `request_url` in the manifest. That URL must:
+   * Be HTTPS with a valid certificate
+   * Not require authentication
+   * Accept `application/x-www-form-urlencoded` POST data which is then deserialized into a JSON object
+   * Must respond with HTTP 200 OK within 3 seconds, otherwise users receive an error message
+
+For our purposes, we update the applications's Home Tab for each user when the avatar is updated (updated timestamp), on initial registration (initial view definition), or on a setting change (updated timestamp).
+
+In our use case, we are building the functions off C#. Unfortunately there is no official [Slack SDK](https://api.slack.com/start/building) built for C# .NET. There is a [community sponsored API](https://github.com/Inumedia/SlackAPI), however it was faster to manually develop the request structure and handle the formatting and JSON manually.
+
+## Our Functions
+
+### UpdateAvatar
+
+This function originated from the `single-user-poc` code base but was reworked to support looking up user information via an [Azure Table](https://docs.microsoft.com/en-us/azure/storage/tables/table-storage-overview) and operate on multiple users at one time. We selected Azure Table storage because it offered a NoSQL option to store user data and the contents are encrypted at rest and in transit. This user data is sensitive enough that it should be protected.
+
+This job is triggered by a `TimerTrigger` hourly at the top of each hour.
+
+The user data includes:
+
+* User Id (unique only to a workspace/team)
+* Team Id (Workspace/Team Id where an app bot is scoped)
+* Update Frequency in Seconds
+* User Access Token
+* Last Update Date and Time
+* Valid flag (we ignore users that have errors when updating in the past)
+
+A workflow of the process is shown below:
+
+![UpdateAvatar Workflow](/assets/insights/2021-07-22-randomize-slack-2/UpdateAvatar.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
+
+### SignInWithSlack
+
+This function is a semi-user-friendly function that will redirect users to Slack.com to authorize the application on their account. This was used to make the process simpler, but the ideal way to send users to Slack is to use a "Add to Slack" button that looks like this:
+
+{/* {: .posts-center} */}
+![Add to Slack Example](https://platform.slack-edge.com/img/add_to_slack.png){/* : style="max-width: 139px; min-width: 50px" */}
+
+The destination URL is defined by the `Client Id` and desired scopes of the Slack App after being registered.
+
+`https://slack.com/oauth/v2/authorize?client_id=<Client_Id>&scope=chat:write&user_scope=users.profile:write`
+
+### SlackCallback
+
+After a user authorizes the application in Slack, the user is redirected back to this URL with a special code. That code can then by used against the [oauth.v2.access](https://api.slack.com/methods/oauth.v2.access) API endpoint to retrieve secrets such as the user access token, user id, bot access token, bot id, and more. To do this, we also provide a per-application `Client Secret` which identifies that it is actually our function app making the request.
+
+The HTTP request is unprotected because we validate that we have a code first, then send that to Slack for information and Slack validates the code against their records. If the code is missing or invalid, an error is returned.
+
+Once this information is validated, the function app updates the user and workspace tables with the appropriate information. Finally, the app will update the Home Tab view for that user and sends a [HTML Meta header redirect](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta) back to the Slack application via a [deep link](https://api.slack.com/reference/deep-linking).
+
+A workflow for this is below:
+
+![SlackCallback Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackCallback.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
+
+### SlackInteractiveResponse
+
+The full details of Slack interactivity is [well documented](https://api.slack.com/interactivity/handling). Here we will cover our specific use-case. When a user performs an interaction in the Home Tab (app surface), Slack sends a HTTP POST request with a JSON object with the details. In our case, that is called a [block_action](https://api.slack.com/reference/interaction-payloads/block-actions) and requires an [Acknowledgement Response](https://api.slack.com/interactivity/handling#acknowledgment_response) within 3 seconds or an error is shown to the user.
+
+The payload is delivered as a `application/x-www-form-urlencoded` body with the parameter `payload`. Once deserialized, the function checks for various requirements such as the user id, team id, and the selected option for the update frequency setting. These are validated against our user table and possible options. If an invalid entry is detected, an error status is returned.
+
+Once the inputs are validated, the user table and user Home Tab are updated. The Home Tab is updated to reflect the next estimated avatar update time.
+
+A workflow for this is below:
+
+![SlackInteractiveResponse Workflow](/assets/insights/2021-07-22-randomize-slack-2/SlackInteractiveResponse.drawio.svg){/* : style="width: 100%; min-width: 400px" */}
+
+## Updating the Home Tab
+
+A background method that is called by all of the functions is the `ClientInteractivity.UpdateHomeTab` method. This method is simple overall but it must string together two different JSON files as strings and deliver them to the Slack API. The file `SlackViews/HomeTab.json` defines the structure of the view according to the [Block Kit](https://api.slack.com/block-kit/building) schema. There are several variable replacements including the frequency dropdown. Since we want the Slack App to be somewhat user-friendly, the drop-down select list is pre-populated with the current user's value. The last avatar change and the estimated future change date are also replaced using a provided [Slack date formatting](https://api.slack.com/reference/surfaces/formatting#date-formatting) helper.
+
+This is all built into a single string of JSON that is sent to the Slack [views.publish](https://api.slack.com/methods/views.publish) API. The changes are sent down to users almost immediately due to Slack's real-time client communication. That means that within a couple of seconds of choosing a new frequency interval, the `Next Update` date is refreshed.
+
+**Options**  
+![Drop Down Options](/assets/insights/2021-07-22-randomize-slack-2/drop-down-options.png)
+
+**Updated**  
+![Drop Down Options Updated](/assets/insights/2021-07-22-randomize-slack-2/drop-down-updated.png)
+
+## Multi-User and Multitenancy
+
+In the workflows above, we highlight the fact we use an external user and workspace table to track the access tokens for users and the bot accounts. This allows us to easily support multitenancy in Slack. By enabling the "Manage Distribution" options in the Slack App configuration, Slack will automatically ask users what workspace they want to use when click the "Add to Slack" button (or using the `SignInWithSlack` API).
+
+The bot tokens are used to allow the app to perform [bot API operations](https://api.slack.com/methods) without being tied directly to a specific user. The [views.publish](https://api.slack.com/methods/views.publish) operation, which is used to update the Home Tab for each user, relies on this token.
+
+Access to a workspace/team is removed once the last user in the workspace removes or revokes the app from their account.
+
+## Reminder to Cleanup Resources
+
+As always, these are resources that cost money in Azure. Be sure to clean up the resources to prevent further billing once you're done using them. You should absolutely delete the Slack App when finished. Without doing so, the user and bot tokens will not be revoked and that could be deemed a security risk.
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}

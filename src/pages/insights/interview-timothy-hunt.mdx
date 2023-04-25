@@ -1,0 +1,58 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Ocelot Interviews Timothy Hunt',
+    image: 'questions.jpg',
+    date: '2021-02-18',
+    author: 'Jay Silverman',
+    description: '',
+    url: '/insights/interview-timothy-hunt'
+}
+
+## Ocelot Interviews Timothy Hunt
+
+[Timothy Hunt](https://www.linkedin.com/in/timothyjhunt/){/* :target="_blank" */} is a Cloud Engineer at Ocelot Consulting. He is a UK native and passionate about board games and the St. Louis community. We recently interviewed him to learn more.
+
+![Timothy Hunt](/assets/insights/2021-02-18-interview-timothy-hunt/timothy.png)
+
+**Jay (interviewer): Hi Timothy, thank you for taking time to answer a few questions about yourself! So, how did you originally get into IT?**
+
+Timothy: One of my older brothers was into computers. Growing up I had access to my Dad's ZX Spectrum and my brother's Atari 800, and later we also had Commodore Amigas. I studied Computer Science in Upper School (equivalent of High School) and went on to pursue an Information Systems Engineering B.Eng. degree at the University of Surrey. While I was there, I got to know the department systems administrators and got a job with them during one of the summer breaks, which is what got me into Unix administration using SunOS and HPUX.
+
+**Jay: Before Ocelot, could you share with us what your most rewarding project that you worked on was?**
+
+Timothy: I think the one that gave the most satisfaction was refactoring infrastructure in order to provide redundancy and the ability to scale out. The company had an annual event to show off new products to their customers. In the three previous years, the registration system had gone down from being overloaded for at least 15 minutes when registration opened. Initially, the system consisted of a single front-end web host, a single back-end API host, and a database cluster. I worked with the developers to keep web and API session data in a shared resource rather than locally. That would allow the system to have multiple hosts in each tier, with all of them having access to the session data they needed to preserve the session, and I was then able to provide redundancy by moving to a 2x2 model across multiple availability zones. The system could also scale out if needed. We started out in an 8x8 configuration which handled the initial traffic easily, quickly scaling in to 4x4 which probably could have coped that initial load adequately. As the day progressed, the system was scaled in further until we were back to our standard 2x2 configuration. The site did not go down at all and that was seen as a big win by the senior management.
+
+**Jay: I have always appreciated your insight into board games. In what ways have you been involved with board games and the community?**
+
+Timothy: When I moved to St. Louis, I found a small group of board gamers that met together occasionally but getting an email at 4pm to meet at 6pm was often too short notice. In early 2011, I found out about [Meetup](https://meetup.com){/* :target="_blank" */} and decided that I could start a [St. Louis board game meetup group](https://www.meetup.com/St-Louis-Board-Games/). That first event we had about 18 people. The next month we had about 25. At its height, we had around 15 events each month with many of those events regularly getting 30 or more attendees, across maybe 10 venues in the St. Louis area. I didn't attend all of them but built a team of assistant organizers to help run events. I've taken a step back in leading the group more recently but the other organizers have continued to do a good job. Currently, we're taking advantage of various online implementations of board games in order to play on Saturdays but we're looking forward to being able to meet again in person once it is safe to do so. 
+
+![St. Louis board game meetup group](/assets/insights/2021-02-18-interview-timothy-hunt/meetup.jpeg)
+
+Pre-pandemic in-person St. Louis board game meetup
+
+**Jay: For elementary age children, would you happen to have any board game recommendations? [Jay has a six-year old!]**
+
+Timothy: One I would recommend is [Pyramid Arcade](https://boardgamegeek.com/boardgame/187988/pyramid-arcade){/* :target="_blank" */}. This is a game system rather than a game in itself. The main components are lots of plastic pyramids in 10 different colours. Many different games can be played with them - just like you can play lots of different games with a regular 52-card deck. There are 22 games in the box and they accommodate different numbers of players and range from really simple games to real brain burners. There are cooperative games and dexterity games in the collection, so a wide variety, and the pieces are beautiful. 
+
+![Pyramid Arcade](/assets/insights/2021-02-18-interview-timothy-hunt/pyramid-arcade.png)
+
+Another I would recommend is [The Crew: The Quest for Planet Nine](https://boardgamegeek.com/boardgame/284083/crew-quest-planet-nine){/* :target="_blank" */}. This is a trick taking game (think "Hearts" or "Spades") but it's cooperative. While the game play follows fairly standard trick taking rules, there's no table talk allowed, and there are "missions" which give particular instructions to "win" that mission - such as a particular player is required to win the trick that contains a particular card. Every time you win a mission, you get a new mission that is a little bit harder to win. With 50 missions in total, there's a lot of game play.
+
+![The Crew](/assets/insights/2021-02-18-interview-timothy-hunt/the-crew.png)
+
+**Jay: I hear a special date is coming up on February 18th. Could you share any details?** 
+
+February 18th is the 10th anniversary of my becoming a US citizen. I started down the road primarily because a former colleague of mine wanted me to join the company he worked for but government contracts they had required security clearance, which in turn required US citizenship. Another benefit of becoming a citizen is that I am able to vote, a right and responsibility I take seriously. Last December was the 20th anniversary of my moving to the USA and there is one particular story I have about UK/US differences. 
+
+I decided to go to a small church when I first came here, and the pastor, knowing I would otherwise be alone for Christmas Day, invited me to his home. As one does, at some point I needed to use the bathroom. It's important to note that in the UK, because our home electricity runs at 240 volts, the electrical code says that in a bathroom you cannot have a wall switch for the light inside the room. You can either have a pull cord or a wall switch outside the room. It's to help avoid accidents involving wet hands. So, I went to the bathroom but couldn't find a pull cord on the inside. I looked outside and saw a switch on the wall. I pressed it but nothing happened. I asked for some help locating the light switch and I was told where it was. Later, I opened the door to discover the hallway was full of smoke. The switch I had turned on was for the attic fan, an appliance that houses in the UK don't have. This had caused the airflow to draw the smoke from the fire into the house instead of up the chimney. 
+
+**Jay: Thank you Timothy for taking time to share your experiences with us!**
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
