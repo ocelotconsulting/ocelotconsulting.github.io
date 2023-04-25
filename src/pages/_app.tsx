@@ -50,9 +50,9 @@ export default function App({ Component, pageProps }: AppProps) {
                 <link rel="shortcut icon" href={`${origin}/assets/favicon.ico`} />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
-                <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
+                <meta property="twitter:description" content="Modern solutions for companies seeking to innovate" />
                 <meta property="og:image" content={`${origin}/assets/ocelot.png`} />
-                <meta name="twitter:image" content={`${origin}/assets/ocelot.png`} />
+                <meta property="twitter:image" content={`${origin}/assets/ocelot.png`} />
             </Head>
             <Script
                 src="https://www.googletagmanager.com/gtag/js?id=UA-84294052-1"
