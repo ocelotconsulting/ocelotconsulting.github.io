@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
     const [showMenu, setShowMenu] = useState(false)
     const [showContact, setShowContact] = useState(false)
 
-    let origin = 'https://www.ocelotconsulting.com'
+    let origin = 'https://deploy-preview-138--romantic-austin-f85522.netlify.app'
 
     if (typeof window !== 'undefined') {
         origin = window.location.origin
