@@ -65,7 +65,7 @@ export default function InsightLayout({title, image, date, author, children, url
                 </p>
             </Section>
 
-            <Section>
+            <Section className='prose lg:prose-xl max-w-none prose-code:before:hidden prose-code:after:hidden'>
                 {children}
             </Section>
         </>
