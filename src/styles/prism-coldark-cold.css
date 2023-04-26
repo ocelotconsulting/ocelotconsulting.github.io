@@ -1,7 +1,8 @@
 code[class*="language-"],
 pre[class*="language-"] {
 	color: #ebdbb2; /* fg1 / fg */
-	font-family: Consolas, Monaco, "Andale Mono", monospace;
+	/* Leaving this unset inherits from font-mono from Tailwind */
+	/* font-family: Consolas, Monaco, "Andale Mono", monospace; */
 	direction: ltr;
 	text-align: left;
 	white-space: pre;

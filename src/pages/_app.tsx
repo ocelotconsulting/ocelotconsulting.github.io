@@ -22,6 +22,12 @@ const gantari = Gantari({
     variable: '--font-gantari',
 })
 
+const robotoMono = Roboto_Mono({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-roboto-mono',
+})
+
 export default function App({ Component, pageProps }: AppProps) {
     const [showMenu, setShowMenu] = useState(false)
     const [showContact, setShowContact] = useState(false)
@@ -46,6 +52,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 {`
                     :root,:host {
                         --font-gantari: ${gantari.style.fontFamily};
+                        --font-roboto-mono: ${robotoMono.style.fontFamily};
                     }
                 `}
             </style>

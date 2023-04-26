@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -26,9 +28,10 @@ module.exports = {
       }
     },
     fontFamily: {
-      heading: ['var(--font-gantari)', 'sans-serif'],
-      body: ['var(--font-gantari)', 'sans-serif'],
-      sans: ['var(--font-gantari)', 'sans-serif']
+      heading: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
+      body: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
+      mono: ['var(--font-roboto-mono)', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       xs: ['0.75rem', '1rem'],
@@ -66,7 +69,7 @@ module.exports = {
     }
   },
   plugins: [
-      require('@tailwindcss/forms'),
-      require("@tailwindcss/typography")
+    require('@tailwindcss/forms'),
+    require("@tailwindcss/typography")
   ],
 }
