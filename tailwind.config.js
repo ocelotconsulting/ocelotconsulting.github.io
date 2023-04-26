@@ -28,9 +28,9 @@ module.exports = {
       }
     },
     fontFamily: {
-      heading: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
-      body: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
-      sans: ['var(--font-gantari)', ...defaultTheme.fontFamily.sans],
+      heading: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+      body: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
       mono: ['var(--font-roboto-mono)', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
