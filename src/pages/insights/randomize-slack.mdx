@@ -13,13 +13,26 @@ export const meta = {
 
 I enjoy having some fun with my Slack avatars which are almost never a photo of myself. With inspiration from [Phil Cryer's post](/insights/randomize-twitter) last year, I decided to implement a random avatar using an [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/) and images from [https://thispersondoesnotexist.com/](https://thispersondoesnotexist.com/). The images provided are all AI generated and not real people. In the samples below, you can see there are some malformations that stand out.
 
-{/* {: .posts-center} */}
+
+<ImageGrid
+    images={[
+        { src: '/assets/insights/2021-07-13-randomize-slack/sample1-small.jpg', desc: 'Sample 1'},
+        { src: '/assets/insights/2021-07-13-randomize-slack/sample2-small.jpg', desc: 'Sample 2'},
+        { src: '/assets/insights/2021-07-13-randomize-slack/sample3-small.jpg', desc: 'Sample 3'},
+        { src: '/assets/insights/2021-07-13-randomize-slack/sample4-small.jpg', desc: 'Sample 4'},
+        { src: '/assets/insights/2021-07-13-randomize-slack/sample5-small.jpg', desc: 'Sample 5'},
+    ]}
+    {/* showLabel */}
+/>
+
+{/*
 ![Sample 1](/assets/insights/2021-07-13-randomize-slack/sample1-small.jpg)
 ![Sample 2](/assets/insights/2021-07-13-randomize-slack/sample2-small.jpg)
 ![Sample 3](/assets/insights/2021-07-13-randomize-slack/sample3-small.jpg)
 ![Sample 4](/assets/insights/2021-07-13-randomize-slack/sample4-small.jpg)
 ![Sample 5](/assets/insights/2021-07-13-randomize-slack/sample5-small.jpg)
 ![Sample 6](/assets/insights/2021-07-13-randomize-slack/sample6-small.jpg)
+*/}
 
 ## Overall Requirements
 
