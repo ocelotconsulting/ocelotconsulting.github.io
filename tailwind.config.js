@@ -26,9 +26,9 @@ module.exports = {
       }
     },
     fontFamily: {
-      heading: ['Levenim', 'sans-serif'],
-      body: ['Poppins', 'sans-serif'],
-      sans: ['Poppins', 'sans-serif']
+      heading: ['var(--font-gantari)', 'sans-serif'],
+      body: ['var(--font-gantari)', 'sans-serif'],
+      sans: ['var(--font-gantari)', 'sans-serif']
     },
     fontSize: {
       xs: ['0.75rem', '1rem'],
