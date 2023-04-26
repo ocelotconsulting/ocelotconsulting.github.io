@@ -18,7 +18,7 @@ export function useMDXComponents(components) {
       return <div className="flex w-full flex-wrap justify-between" style={{flexWrap: 'wrap'}}>
         { images.map((image, i) => (
           <div className='shrink-0 mx-2 px-2 ms-2 me-2' key={i}>
-            <img style={{ margin: 0 }} src={image.src} alt={image.desc}/>
+            <img style={{ margin: 0 }} src={image.src} alt={image.desc} width={image.width} height={image.height}/>
             <div className="w-full text-center">
               {showLabel && image.desc ? <span>{image.desc}</span> : null}
             </div>
