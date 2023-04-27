@@ -1,5 +1,5 @@
 // @ts-ignore
-import { Player, Controls, PlayerState } from '@lottiefiles/react-lottie-player'
+import { Player, PlayerState } from '@lottiefiles/react-lottie-player'
 import { ComponentPropsWithoutRef, createRef, useState, useEffect } from 'react'
 import animationData from '@/public/waves.json'
 
@@ -43,7 +43,7 @@ export default function Waves(props: ComponentPropsWithoutRef<'div'>) {
                 ref={player}
                 loop={true}
                 autoplay={wavesAutoplay}
-                controls={true}
+                controls={false}
                 src={JSON.stringify(animationData)}
                 rendererSettings={rendererSettings}
 
