@@ -9,9 +9,6 @@
     "lint": "next lint"
   },
   "overrides": {
-    "react-lottie": {
-      "react": "^0.14.7 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0"
-    },
     "tailwindcss": {
       "postcss-load-config": "^4.0.0"
     }
