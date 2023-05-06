@@ -1,6 +1,6 @@
 [
   {
-    "level": "GLOBAL 250 CLIENT",
+    "level": "Global 250 Client",
     "icon": "agtech.png",
     "industry": "AgTech",
     "blurb": "Delivered Digital Twin of key decision processes to enable strategic planning with the power of what-if."
@@ -12,37 +12,37 @@
     "blurb": "Partnered to deliver a scalable resilient primary web site leveraging public cloud for the first time."
   },
   {
-    "level": "STARTUP CLIENT",
+    "level": "Startup Client",
     "icon": "automation.svg",
     "industry": "Transportation",
     "blurb": "Built machine learning powered MVP, launched product to market and secured successful Series A funding."
   },
   {
-    "level": "PRIVATE MIDSIZE CLIENT",
+    "level": "Private Midsize Client",
     "icon": "cash-dollar.svg",
     "industry": "Finance",
     "blurb": "Led architecture, engineering, and organizational change for company migration to public cloud."
   },
   {
-    "level": "GLOBAL 250 CLIENT",
+    "level": "Global 250 Client",
     "icon": "dinner.svg",
     "industry": "Food & Beverage",
     "blurb": "Delivered IoT data pipeline ingesting two billion datapoints per day to the cloud for analytics and data science."
   },
   {
-    "level": "PUBLIC MIDSIZE CLIENT",
+    "level": "Public Midsize Client",
     "icon": "first-aid.svg",
     "industry": "Healthcare",
     "blurb": "Development of voice and chat bots integrating with enterprise platforms."
   },
   {
-    "level": "PUBLIC MIDSIZE CLIENT",
+    "level": "Public Midsize Client",
     "icon": "agtech.png",
     "industry": "AgTech",
     "blurb": "Enabled a rapidly-growing company with an analytics platform that adapts and scales with them."
   },
   {
-    "level": "GOVERNMENT CLIENT",
+    "level": "Government Client",
     "icon": "cash-dollar.svg",
     "industry": "Finance",
     "blurb": "Transformed data pipelines behind one of the country's most important websites with a novel, cloud-native approach."
@@ -54,7 +54,7 @@
     "blurb": "Empowered an emerging data science organization to build and integrate DS capabilities company-wide."
   },
   {
-    "level": "RESEARCH CLIENT",
+    "level": "Research Client",
     "icon": "agtech.png",
     "industry": "AgTech",
     "blurb": "Comprehensive assessment of people, processes, and technology in software organization."
