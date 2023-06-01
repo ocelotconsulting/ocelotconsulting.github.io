@@ -11,9 +11,9 @@ import {faThumbsUp} from '@fortawesome/free-regular-svg-icons/faThumbsUp'
 import {faThumbsDown} from '@fortawesome/free-regular-svg-icons/faThumbsDown'
 
 import banner from '@/public/about/about-banner.jpg'
-import ourOrigins from '@/public/about/our-origins.jpg'
+import ourOrigins from '@/public/about/our-origins.webp'
 import leaders from '@/public/about/leaders.jpg'
-import weMeetYou from '@/public/about/we-meet-you.jpg'
+import weMeetYou from '@/public/about/we-meet-you.webp'
 import ctaBg from '@/public/about/about-cta.jpg'
 import FadeIn from "@/components/animations/FadeIn";
 import SlideUp from "@/components/animations/SlideUp";
@@ -25,13 +25,12 @@ export default function About({team, setShowContact}: any) {
             About
         </PageTitle>
 
-        <Section
-            style={{backgroundImage: `url(${ourOrigins.src})`}}
-            className="mx-5 bg-left bg-no-repeat bg-[length:65%_auto] md:!py-0 px-0 sm:bg-none max-md:!bg-none"
-        >
-            <div className="grid md:grid-cols-2 gap-5">
+        <Section>
+            <div className="grid md:grid-cols-2 gap-5 items-center">
                 <div>
-                    <Image className="md:hidden" src={ourOrigins} alt='' />
+                    <Image
+                    // className="md:hidden"
+                    src={ourOrigins} alt='' />
                 </div>
                 <div className="bg-white md:p-16 text-center md:text-left">
                     <p className="tracking-widest mb-2">NOT YOUR TYPICAL CONSULTING FIRM</p>
