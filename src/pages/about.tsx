@@ -25,37 +25,55 @@ export default function About({team, setShowContact}: any) {
             About
         </PageTitle>
 
-        <Section>
-            <div className="grid md:grid-cols-2 gap-5 items-center">
-                <div>
-                    <Image
-                    // className="md:hidden"
-                    src={ourOrigins} alt='' />
+        <section>
+            <div className='flex flex-row flex-wrap lg:flex-nowrap max-w-[100vw]'>
+                <div className='flex basis-full lg:basis-1/2 grow-0 justify-end content-center lg:w-1/2 mt-2 lg:mt-0'>
+                    <Image className='object-contain lg:object-cover lg:max-w-[1200px] max-w-[100vw] lg:w-[50vw] xl:w-full' src={ourOrigins} alt='' />
                 </div>
-                <div className="bg-white md:p-16 text-center md:text-left">
-                    <p className="tracking-widest mb-2">NOT YOUR TYPICAL CONSULTING FIRM</p>
-                    <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Origin Story</h2>
-                    <p className="mb-2">Ocelot Consulting was formed in 2016 by four former software engineering colleagues at a large St. Louis-based corporation. Their goal was to share the transformational lessons learned (Agility, Cloud, Security, DevOps) with other companies in the region.</p>
-                    <p className="mb-2"><strong>You will notice the difference working with a company that was founded by technologists and is run by technologists. It is a refreshing, no-nonsense approach to solution delivery that our clients appreciate.</strong></p>
-                    <p>That customer satisfaction has fueled our growth as we continue to expand our presence regionally and nationwide.</p>
+                <div className="flexx basis-full lg:basis-1/2 grow-0 bg-white p-8 md:p-16 text-center md:text-left lg:w-1/2">
+                    <div className='max-w-[660px]'>
+                        <p className="tracking-widest mb-2">NOT YOUR TYPICAL CONSULTING FIRM</p>
+                        <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Origin Story</h2>
+                        <p className="mb-2">Ocelot Consulting was formed in 2016 by four former software engineering colleagues at a large St. Louis-based corporation. Their goal was to share the transformational lessons learned (Agility, Cloud, Security, DevOps) with other companies in the region.</p>
+                        <p className="mb-2"><strong>You will notice the difference working with a company that was founded by technologists and is run by technologists. It is a refreshing, no-nonsense approach to solution delivery that our clients appreciate.</strong></p>
+                        <p>That customer satisfaction has fueled our growth as we continue to expand our presence regionally and nationwide.</p>
+                    </div>
                 </div>
             </div>
-        </Section>
+        </section>
 
-        <Section>
-            <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 items-center">
-                <FadeIn className="order-2 md:order-1 text-center md:text-left">
-                    <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">We meet you where you are</h2>
-                    <p className="mb-2">We appreciate that every company is at a different spot in its transformation journey. Our expertise is in understanding where our clients are, where they want to go, and collaborating on a practical plan to get there.</p>
-                    <p className="mb-2">We understand that sometimes this change must be incremental, and we will never try to force a technology or solution that our clients are unable to consume.</p>
-                    <p className="mb-2">Transformation requires comprehensive change management that includes engaging and partnering with client Enterprise Architecture, Program Management, Information Security, and Application Development teams.</p>
-                    <p><strong>We are uniquely prepared to provide recommendations and lessons learned from real-world implementations.</strong></p>
-                </FadeIn>
-                <div className="md:order-2">
-                    <Image src={weMeetYou} alt="" />
+        <section>
+            <div className='flex flex-col-reverse md:flex-row flex-wrap lg:flex-nowrap max-w-[100vw]'>
+                <div className='flex basis-full lg:basis-1/2 grow-0 justify-end content-center lg:w-1/2 mt-2 lg:mt-0 bg-white p-8 md:p-16 '>
+                    <FadeIn className="order-2 md:order-1 text-center md:text-left max-w-[660px]">
+                        <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">We meet you</h2>
+                        <p className="mb-2">We appreciate that every company is at a different spot in its transformation journey. Our expertise is in understanding where our clients are, where they want to go, and collaborating on a practical plan to get there.</p>
+                        <p className="mb-2">We understand that sometimes this change must be incremental, and we will never try to force a technology or solution that our clients are unable to consume.</p>
+                        <p className="mb-2">Transformation requires comprehensive change management that includes engaging and partnering with client Enterprise Architecture, Program Management, Information Security, and Application Development teams.</p>
+                        <p><strong>We are uniquely prepared to provide recommendations and lessons learned from real-world implementations.</strong></p>
+                    </FadeIn>
+                </div>
+                <div className="basis-full lg:basis-1/2 grow-0 text-center md:text-left lg:w-1/2">
+                    <Image className='object-contain lg:object-cover lg:max-w-[1200px] max-w-[100vw] lg:w-[50vw] xl:w-full' src={weMeetYou} alt='' />
                 </div>
             </div>
-        </Section>
+        </section>
+
+        {/* Leaving this here incase we want the image in the grey section to be larger and scale more, but I think it works better as is to contrast the rest of the page */}
+        {/* <section className="bg-light-gray">
+            <div className='flex flex-row flex-wrap lg:flex-nowrap max-w-[100vw]'>
+                <div className='flex basis-full lg:basis-1/2 grow-0 justify-end content-center lg:w-1/2 mt-2 lg:mt-0'>
+                    <Image className='object-contain lg:object-cover lg:max-w-[1200px] max-w-[100vw] lg:w-[50vw] xl:w-full' src={leaders} alt='' />
+                </div>
+                <div className="basis-full lg:basis-1/2 grow-0 p-8 md:p-16 text-center md:text-left max-w-[660px] lg:w-1/2">
+                    <FadeIn className="text-center md:text-left">
+                        <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">We know you, because we were you</h2>
+                        <p className="mb-2">Ocelot Consulting’s senior leadership is proud of our backgrounds rooted in Enterprise IT. We’ve cultivated a deep appreciation for what makes successful (and unsuccessful) partnerships. We understand the opportunities and the challenges of transforming established corporations.</p>
+                        <p><strong>Ocelot Consulting strives to be the type of company that our founders always wanted as a partner.</strong></p>
+                    </FadeIn>
+                </div>
+            </div>
+        </section> */}
 
         <Section className="bg-light-gray">
             <div className="grid md:grid-cols-2 gap-x-16 gap-y-8 items-center">
