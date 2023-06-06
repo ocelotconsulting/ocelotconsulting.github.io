@@ -46,7 +46,10 @@ export default function About({team, setShowContact}: any) {
             <div className='flex flex-col-reverse md:flex-row flex-wrap lg:flex-nowrap max-w-[100vw]'>
                 <div className='flex basis-full lg:basis-1/2 grow-0 justify-end content-center lg:w-1/2 mt-2 lg:mt-0 bg-white p-8 md:p-16 '>
                     <FadeIn className="order-2 md:order-1 text-center md:text-left max-w-[660px]">
-                        <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">We meet you</h2>
+                        <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">
+                            <div>We meet you</div>
+                            <div>where you are</div>
+                        </h2>
                         <p className="mb-2">We appreciate that every company is at a different spot in its transformation journey. Our expertise is in understanding where our clients are, where they want to go, and collaborating on a practical plan to get there.</p>
                         <p className="mb-2">We understand that sometimes this change must be incremental, and we will never try to force a technology or solution that our clients are unable to consume.</p>
                         <p className="mb-2">Transformation requires comprehensive change management that includes engaging and partnering with client Enterprise Architecture, Program Management, Information Security, and Application Development teams.</p>
@@ -143,7 +146,6 @@ export default function About({team, setShowContact}: any) {
                 <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Our goal is to get better, together</h2>
                 <p className="mb-2">We not only deliver on our commitments, but we care just as much about developing the skills and capabilities of our clients.</p>
                 <p className="mb-4">While collaborating, we provide coaching, training, and mentoring to ensure that our clients are fully prepared to support, run, and maintain the solutions after our engagement is complete.</p>
-
                 <div>
                     <Button href="/case-studies">
                         Browse Our Success Stories
