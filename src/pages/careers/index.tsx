@@ -9,8 +9,8 @@ import CareersForm from '@/components/careers/CareersForm'
 
 import banner from '@/public/careers/careers-banner.jpg'
 import launch from '@/public/careers/launch-your-career.jpg'
-import workWith from '@/public/careers/work-with-a-company.jpg'
-import interview from '@/public/careers/interview.jpg'
+import workWith from '@/public/careers/work-with-a-company.webp'
+import interview from '@/public/careers/interview.webp'
 import Link from "next/link";
 import FadeIn from "@/components/animations/FadeIn";
 
