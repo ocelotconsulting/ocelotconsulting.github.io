@@ -4,7 +4,7 @@ import Section from '@/components/Section'
 export default function Fortune500FoodConsumerProducts() {
     return (
         <>
-        <CaseStudyTitle subtitle="Data Engineering">
+        <CaseStudyTitle subtitle="Data Engineering | Cloud Transformation">
             Fortune 500 Food Consumer Products
         </CaseStudyTitle>
 
