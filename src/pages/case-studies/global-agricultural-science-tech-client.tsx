@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 export default function GlobalAgScienceTechClient() {
     return (
         <>
-            <CaseStudyTitle subtitle="Data Management | Data Science">
+            <CaseStudyTitle subtitle="Data Science | Cloud Transformation | Full-Stack Development">
                 Global Agricultural Science & Tech. Client
             </CaseStudyTitle>
 
