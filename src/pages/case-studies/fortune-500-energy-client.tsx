@@ -4,7 +4,7 @@ import Section from "@/components/Section";
 export default function Fortune500EnergyClient() {
     return (
         <>
-            <CaseStudyTitle subtitle="Data Management | Data Engineering">
+            <CaseStudyTitle subtitle="Cloud Transformation | Data Engineering | Data Science">
                 Fortune 500 Energy Client
             </CaseStudyTitle>
 
