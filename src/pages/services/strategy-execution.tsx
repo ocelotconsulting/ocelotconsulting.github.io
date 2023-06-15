@@ -83,7 +83,7 @@ export default function StrategyAndExecution({setShowContact}: any) {
 
         <Section
             style={{backgroundImage: `url(${ctaBg.src})`}}
-            className="bg-cover bg-center max-lg:!bg-none bg-med-gray"
+            className="bg-cover bg-left max-lg:!bg-none bg-med-gray"
         >
             <Grid>
                 <div>
