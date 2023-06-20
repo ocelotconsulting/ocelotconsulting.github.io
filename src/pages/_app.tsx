@@ -13,27 +13,13 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 // Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; /* eslint-disable import/first */
-import { Roboto_Mono, Gantari, Figtree, Noto_Sans_Display } from 'next/font/google'
-
-const gantari = Gantari({
-    subsets: ['latin'],
-    weight: [ '400' ],
-    display: 'swap',
-    variable: '--font-gantari',
-})
+import { Roboto_Mono, Figtree } from 'next/font/google'
 
 const figtree = Figtree({
     subsets: ['latin'],
     weight: ['300'],
     display: 'swap',
     variable: '--font-figtree',
-})
-
-const notoSansDisplay = Noto_Sans_Display({
-    subsets: ['latin'],
-    weight: ['300'],
-    display: 'swap',
-    variable: '--font-noto-sans-display',
 })
 
 const robotoMono = Roboto_Mono({
@@ -65,10 +51,8 @@ export default function App({ Component, pageProps }: AppProps) {
             <style jsx global>
                 {`
                     :root,:host {
-                        --font-gantari: ${gantari.style.fontFamily};
                         --font-roboto-mono: ${robotoMono.style.fontFamily};
                         --font-figtree: ${figtree.style.fontFamily};
-                        --font-noto-sans-display: ${notoSansDisplay.style.fontFamily};
                     }
                 `}
             </style>
