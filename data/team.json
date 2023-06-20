@@ -348,4 +348,21 @@
   "firstName": "Khuyen",
   "lastName": "Tran",
   "title": "Data & Analytics"
+}, {
+  "firstName": "JP",
+  "lastName": "Latreille",
+  "title": "Data & Analytics"
+}, {
+  "firstName": "Kevin",
+  "lastName": "Belobrajdic",
+  "title": "Cloud Engineer"
+}, {
+  "firstName": "Morgan",
+  "lastName": "Jackson",
+  "title": "Full Stack Development",
+  "image": "men-placeholder.svg"
+}, {
+  "firstName": "Bruce",
+  "lastName": "Harrison",
+  "title": "Cloud Engineer"
 }]

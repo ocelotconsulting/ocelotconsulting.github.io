@@ -49,8 +49,7 @@ export default function Home({cards, setShowContact}: any) {
     </div>
 
     <Section
-        style={{backgroundImage: `url(${services.src})`}}
-        className={`md:mx-5 bg-left bg-no-repeat bg-[length:65%_auto] md:!py-0 px-0 sm:bg-none`}
+        className={`md:mx-5 bg-left bg-no-repeat bg-[length:65%_auto] md:!py-0 px-0 lg:bg-[url('/assets/index/services.jpg')]`}
     >
       <div className="grid lg:grid-cols-2">
         <div>
