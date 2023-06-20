@@ -49,11 +49,11 @@ module.exports = {
       '9xl': ['8rem', '1.1'],
     },
     letterSpacing: {
-      tighter: '-0.05em',
-      tight: '-.025em',
-      normal: '0',
-      wide: '.025em',
-      wider: '.05em',
+      tighter: '-0.025em',
+      tight: '0',
+      normal: '.05em',
+      wide: '.075em',
+      wider: '.1em',
       widest: '.25em',
     },
     extend: {
