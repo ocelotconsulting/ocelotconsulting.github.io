@@ -117,8 +117,7 @@
 }, {
   "firstName": "Christopher",
   "lastName": "Hargarten",
-  "title": "Full Stack Development",
-  "image": "men-placeholder.svg"
+  "title": "Full Stack Development"
 }, {
   "firstName": "Melanie",
   "lastName": "Harrison",
@@ -242,8 +241,7 @@
 }, {
   "firstName": "Ryan",
   "lastName": "Polak",
-  "title": "Cloud Engineering",
-  "image": "men-placeholder.svg"
+  "title": "Cloud Engineering"
 }, {
   "firstName": "Matthew",
   "lastName": "Potter",
@@ -355,14 +353,13 @@
 }, {
   "firstName": "Kevin",
   "lastName": "Belobrajdic",
-  "title": "Cloud Engineer"
+  "title": "Cloud Engineering"
 }, {
   "firstName": "Morgan",
   "lastName": "Jackson",
-  "title": "Full Stack Development",
-  "image": "men-placeholder.svg"
+  "title": "Full Stack Development"
 }, {
   "firstName": "Bruce",
   "lastName": "Harrison",
-  "title": "Cloud Engineer"
+  "title": "Cloud Engineering"
 }]
