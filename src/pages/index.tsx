@@ -188,7 +188,7 @@ export default function Home({cards, setShowContact}: any) {
           <Image className="lg:hidden object-cover md:h-[600px] lg:h-auto" src={empowerMobile} alt="" />
         </div>
         <FadeIn className="lg:p-12 md:py-4 md:pr-8">
-          <h2 className="text-3xl lg:text-5xl font-bold text-black mb2">Making technology work for you, not the other way around</h2>
+          <h2 className="text-3xl lg:text-5xl font-bold text-black mb-2">Making technology work for you, not the other way around</h2>
           <p className="mb-10">Technology investments don’t always yield the desired value, and companies are facing major challenges in harnessing technology to fuel innovation. <strong>Ocelot can help you navigate modern platforms to maximize your return on investment.</strong></p>
 
           <Button href="/case-studies">

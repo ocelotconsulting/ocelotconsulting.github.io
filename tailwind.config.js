@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -26,9 +28,10 @@ module.exports = {
       }
     },
     fontFamily: {
-      heading: ['Levenim', 'sans-serif'],
-      body: ['Poppins', 'sans-serif'],
-      sans: ['Poppins', 'sans-serif']
+      heading: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+      body: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+      sans: ['var(--font-figtree)', ...defaultTheme.fontFamily.sans],
+      mono: ['var(--font-roboto-mono)', ...defaultTheme.fontFamily.mono],
     },
     fontSize: {
       xs: ['0.75rem', '1rem'],
@@ -46,11 +49,11 @@ module.exports = {
       '9xl': ['8rem', '1.1'],
     },
     letterSpacing: {
-      tighter: '-0.05em',
-      tight: '-.025em',
-      normal: '0',
-      wide: '.025em',
-      wider: '.05em',
+      tighter: '-0.025em',
+      tight: '0',
+      normal: '.025em',
+      wide: '.05em',
+      wider: '.75em',
       widest: '.25em',
     },
     extend: {
@@ -66,7 +69,7 @@ module.exports = {
     }
   },
   plugins: [
-      require('@tailwindcss/forms'),
-      require("@tailwindcss/typography")
+    require('@tailwindcss/forms'),
+    require("@tailwindcss/typography")
   ],
 }

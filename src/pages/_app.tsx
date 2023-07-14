@@ -4,7 +4,6 @@ import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import localFont from 'next/font/local'
 import ContactDrawer from '@/components/ContactDrawer'
 import MenuDrawer from '@/components/MenuDrawer'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
@@ -14,14 +13,19 @@ import '@fortawesome/fontawesome-svg-core/styles.css';
 // Prevent fontawesome from adding its CSS since we did it manually above:
 import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false; /* eslint-disable import/first */
+import { Roboto_Mono, Figtree } from 'next/font/google'
 
-const font = localFont({
-    src: [
-        {path: '../../public/assets/lvnm.woff2'},
-        {path: '../../public/assets/lvnm.woff'},
-        {path: '../../public/assets/lvnm.ttf'},
-        {path: '../../public/assets/lvnm.eot'}
-    ],
+const figtree = Figtree({
+    subsets: ['latin'],
+    weight: ['300'],
+    display: 'swap',
+    variable: '--font-figtree',
+})
+
+const robotoMono = Roboto_Mono({
+    subsets: ['latin'],
+    display: 'swap',
+    variable: '--font-roboto-mono',
 })
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -44,6 +48,14 @@ export default function App({ Component, pageProps }: AppProps) {
                 nonce: undefined,
             }}
         >
+            <style jsx global>
+                {`
+                    :root,:host {
+                        --font-roboto-mono: ${robotoMono.style.fontFamily};
+                        --font-figtree: ${figtree.style.fontFamily};
+                    }
+                `}
+            </style>
             <Head>
                 <title>Ocelot Consulting</title>
                 <meta name='designed by' content='Fluid22' />
@@ -68,15 +80,13 @@ export default function App({ Component, pageProps }: AppProps) {
                 gtag('config', 'UA-84294052-1');
                 `}
             </Script>
-            <div className={font.className}>
-                <Header setShowMenu={setShowMenu} setShowContact={setShowContact} />
-                <main>
-                    <Component {...pageProps} setShowContact={setShowContact} />
-                </main>
-                <Footer />
-                <MenuDrawer show={showMenu} setShow={setShowMenu} showContactForm={() => setShowContact(true)}/>
-                <ContactDrawer show={showContact} setShow={setShowContact} />
-            </div>
+            <Header setShowMenu={setShowMenu} setShowContact={setShowContact} />
+            <main>
+                <Component {...pageProps} setShowContact={setShowContact} />
+            </main>
+            <Footer />
+            <MenuDrawer show={showMenu} setShow={setShowMenu} showContactForm={() => setShowContact(true)}/>
+            <ContactDrawer show={showContact} setShow={setShowContact} />
         </GoogleReCaptchaProvider>
     )
 }
