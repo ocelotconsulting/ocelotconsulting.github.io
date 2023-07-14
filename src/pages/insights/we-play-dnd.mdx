@@ -1,0 +1,61 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'We play D&D',
+    image: 'dnd-dice-unsplash.jpg',
+    date: '2023-07-14',
+    author: 'Marty Henderson',
+    description: 'Our culture at Ocelot is Engineering focused, which shows every day',
+    url: '/insights/we-play-dnd'
+}
+
+Ever wonder what the consultants you work with are like outside of when they're helping you succeed each day? 
+Let me walk you through a few things.
+
+## We play D&D
+
+At Ocelot, we have a D&D game every other Thursday that eight of us are involved in.
+That means we all get on our machine, login, and pretend to be heroes and fight off dragons and fly magical ships. 
+This game is open to everyone at Ocelot, one of our most senior employees, who has been around since nearly the beginning, [Kara](https://www.youtube.com/watch?v=kaVZtFxNx6Q), played alongside one of the Partners here at Ocelot. 
+Other times, it's a mix of senior employees, talent acquisition, and some newer-to-Ocelot employees. 
+Once, the president of our company visiting employees in Omaha even sat down and played a game!
+
+We also have a ping-pong table at HQ where one of our co-owners, Chris,  and the talent acquisition lead, Ryan, will pretty much pick up a paddle and play anyone. 
+Chris will usually win, though, and we tried to get him to play at the tournament at AWS re:invent last year, but he politely declined to focus on the rest of the conference. 
+When some of us remote employees come in, it's almost tradition that we play a round of ping-pong, even though some of us are not the best at it. 
+I am a liability to lighting fixtures and still have played once.  
+
+Internally, we debate about all kinds of topics, such as should we use Slack to train our internal LLM (no, because not everyone consented to that before using it), whether Provel is a correct pizza topping (an ongoing debate), and which board games are good for which groups of people (family board games and quick board games being two of the bigger categories). 
+They're all friendly, filled with emojis, jokes, and logic to answers (evidently Provel is better freshly hot and not delivered according to internal discussions).  
+
+## Why talk about this?
+
+Ocelot is not a traditional consulting firm. 
+We are professional engineers with a lot of thoughts and opinions but also strive to work together towards goals. 
+Rarely do you find people in shiny shoes writing PowerPoints here.  
+
+1. We are all doers, from the President, co-founders, and partners who all do work on internal and external projects, to our recent college graduate hires. 
+1. We all have the normal hobbies one would expect from an engineer-focused firm. 
+1. We all work together to go for goals, whether it's beating a dungeon in D&D, figuring out LLMs, or helping our clients meet their goals with hands-on, engineering work.
+
+## Want to know more?
+
+If this seems like the kind of person you are - someone who puts hands on keyboard and works hard to help other hit goals, [reach out to us](https://www.ocelotconsulting.com/careers).
+
+If you want truly professional work done that's delivering results beyond documents and powerpoints but with day-to-day work experience from top down, let us know by hitting "Contact" at the top right - we're glad to talk to you.
+
+## About the author
+
+Marty Henderson is a Staff Consultant at Ocelot Consulting. 
+Certified Architect in Google Cloud and AWS, Marty leads and designs complex projects based on cloud technologies, with heavy emphasis on teaching and enablement of teams.
+
+Photo by Alperen Yazgı on Unsplash
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
+  
