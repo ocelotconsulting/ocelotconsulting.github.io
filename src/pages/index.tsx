@@ -16,6 +16,7 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 
 import fastest50 from '@/public/fast-50.png'
 import services from '@/public/index/services.jpg'
+import servicesLg from '@/public/index/services-lg.jpg'
 import automate from '@/public/index/automate.jpg'
 import automateMobile from '@/public/index/automate-mobile.jpg'
 import empower from '@/public/index/empower.jpg'
@@ -49,7 +50,7 @@ export default function Home({cards, setShowContact}: any) {
     </div>
 
     <Section
-        className={`md:mx-5 bg-left bg-no-repeat bg-[length:65%_auto] md:!py-0 px-0 lg:bg-[url('/assets/index/services.jpg')]`}
+        className={`md:mx-5 bg-left lg:bg-left-top bg-no-repeat bg-[length:65%_auto] md:!py-0 px-0 lg:bg-[url('/assets/index/services.jpg')] xl:bg-[url('/assets/index/services-lg.jpg')]`}
     >
       <div className="grid lg:grid-cols-2">
         <div>
