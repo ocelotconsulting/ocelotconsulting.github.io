@@ -69,7 +69,7 @@ jobs:
     steps:
       - name: Test
         run: |
-          echo 'Test'
+          echo '${{ needs.get-pr.outputs.pr }}'
           exit 1
 
   deploy-preview:
