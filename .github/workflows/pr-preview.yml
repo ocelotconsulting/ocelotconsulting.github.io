@@ -186,5 +186,5 @@ jobs:
         if: failure()
         with:
           message: |
-            **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted.
+            **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted. Please check and delete manually if required.
           reactions: eyes
