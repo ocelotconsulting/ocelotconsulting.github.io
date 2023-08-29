@@ -139,6 +139,7 @@ jobs:
             # We must upload the proper content types
             # We have a known quantity of file types in use
             # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+            # Discovered: get-childitem -Recurse -File | Select-Object -Unique Extension
             $exts = @{
               ".htm" = "text/html"
               ".html" = "text/html"
@@ -152,6 +153,7 @@ jobs:
               ".woff2" = "font/woff2"
               ".json" = "application/json"
               ".jpeg" = "image/jpeg"
+              ".gif" = "image/gif"
               ".js" = "text/javascript"
               ".css" = "text/css"
             }
@@ -162,7 +164,7 @@ jobs:
             # Escape with backtick the $web container name
             Get-ChildItem -File -Recurse | ForEach-Object {
               $contentType = $exts.ContainsKey($_.Extension) ? $exts[$_.Extension] : $defaultType
-              Set-AzStorageBlobContent -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
+              $_ | Set-AzStorageBlobContent -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
             }
 
       - name: logout
