@@ -15,6 +15,10 @@ on:
         description: 'The PR number to run this against.'
         required: true
         type: number
+      forceDeploy:
+        description: Forces deployment of the site if the PR is in draft mode.
+        type: boolean
+        default: false
 
 # Azure OIDC:
 # App: github-deploy-site
@@ -54,7 +58,8 @@ jobs:
   build:
     needs: [ get-pr ]
     # If this is a PR, only run this if the PR is not a draft or closed
-    if: ${{ fromJson(needs.get-pr.outputs.pr).draft == false && fromJson(needs.get-pr.outputs.pr).state != 'closed' }}
+    # This can be force deployed as well
+    if: ${{ (fromJson(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJson(needs.get-pr.outputs.pr).state != 'closed' }}
     uses: ./.github/workflows/build.yml
 
   deploy-preview:
