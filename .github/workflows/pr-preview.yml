@@ -59,7 +59,7 @@ jobs:
     needs: [ get-pr ]
     # If this is a PR, only run this if the PR is not a draft or closed
     # This can be force deployed as well
-    if: ${{ (fromJson(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJson(needs.get-pr.outputs.pr).state != 'closed' }}
+    if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
     uses: ./.github/workflows/build.yml
 
   deploy-preview:
@@ -163,7 +163,7 @@ jobs:
     needs: [ get-pr ]
     runs-on: ubuntu-latest
     # Only run this if the PR is closed
-    if: ${{ fromJson(needs.get-pr.outputs.pr).state == 'closed' }}
+    if: ${{ fromJSON(needs.get-pr.outputs.pr).state == 'closed' }}
     steps:
       - name: Azure Login
         uses: azure/login@v1
