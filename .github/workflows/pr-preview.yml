@@ -42,7 +42,7 @@ jobs:
   get-pr:
     runs-on: ubuntu-latest
     outputs:
-      pr: fromJSON(steps.get-pr.outputs.pr)
+      pr: steps.get-pr.outputs.pr
     steps:
       - uses: dkershner6/get-pull-request-action@v1
         id: get-pr
@@ -53,14 +53,9 @@ jobs:
   # Build job
   build:
     needs: [ get-pr ]
-    runs-on: ubuntu-latest
     # If this is a PR, only run this if the PR is not a draft or closed
-    if: ${{ needs.get-pr.outputs.pr.state != 'draft' && needs.get-pr.outputs.pr.state != 'closed' }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - uses: ./.github/workflows/build.yml
+    if: ${{ fromJson(needs.get-pr.outputs.pr).draft == false && fromJson(needs.get-pr.outputs.pr).state != 'closed' }}
+    uses: ./.github/workflows/build.yml
 
   deploy-preview:
     # Add a dependency to the build job
@@ -163,7 +158,7 @@ jobs:
     needs: [ get-pr ]
     runs-on: ubuntu-latest
     # Only run this if the PR is closed
-    if: ${{ needs.get-pr.outputs.pr.state == 'closed' }}
+    if: ${{ fromJson(needs.get-pr.outputs.pr).state == 'closed' }}
     steps:
       - name: Azure Login
         uses: azure/login@v1
