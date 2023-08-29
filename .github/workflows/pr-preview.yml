@@ -64,7 +64,7 @@ jobs:
 
   deploy-preview:
     # Add a dependency to the build job
-    needs: build
+    needs: [ get-pr, build ]
 
     runs-on: ubuntu-latest
     steps:
