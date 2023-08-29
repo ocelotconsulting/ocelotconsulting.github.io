@@ -164,13 +164,13 @@ jobs:
 
             # Copy all files recursively from the current directory
             # Escape with backtick the $web container name
-            Get-ChildItem -File -Recurse | ForEach-Object {
+            Get-ChildItem -File -Recurse | ForEach-Object -Parallel {
               $contentType = $defaultType
 
               if ($exts.ContainsKey($_.Extension)) {
                 $contentType = $exts[$_.Extension]
               } else {
-                Write-Host "Missing contentType: $($_.Extension)"
+                Write-Warning "Missing contentType: $($_.Extension)"
               }
 
               # Because we've modified the pipeline, Set-AzStorageBlobContent no longer respects the relative path
