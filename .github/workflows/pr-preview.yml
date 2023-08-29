@@ -63,7 +63,7 @@ jobs:
     needs: [ get-pr ]
     # If this is a PR, only run this if the PR is not a draft or closed
     # This can be force deployed as well
-    if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
+    # if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
     # uses: ./.github/workflows/build.yml
     runs-on: ubuntu-latest
     steps:
