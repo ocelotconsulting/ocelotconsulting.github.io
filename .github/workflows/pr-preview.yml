@@ -46,7 +46,7 @@ jobs:
   get-pr:
     runs-on: ubuntu-latest
     outputs:
-      pr: steps.get-pr.outputs.pr
+      pr: ${{ steps.get-pr.outputs.pr }}
     steps:
       - uses: dkershner6/get-pull-request-action@v1
         id: get-pr
@@ -63,14 +63,8 @@ jobs:
     needs: [ get-pr ]
     # If this is a PR, only run this if the PR is not a draft or closed
     # This can be force deployed as well
-    # if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
-    # uses: ./.github/workflows/build.yml
-    runs-on: ubuntu-latest
-    steps:
-      - name: Test
-        run: |
-          echo '${{ needs.get-pr.outputs.pr }}'
-          exit 1
+    # if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || github.event.inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
+    uses: ./.github/workflows/build.yml
 
   deploy-preview:
     # Add a dependency to the build job
