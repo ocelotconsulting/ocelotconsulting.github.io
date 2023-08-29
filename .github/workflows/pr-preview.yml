@@ -1,0 +1,190 @@
+name: PR Preview
+
+on:
+  # Pull Request previews
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+
+  workflow_dispatch:
+    inputs:
+      prNumber:
+        description: 'The PR number to run this against.'
+        required: true
+        type: number
+
+# Azure OIDC:
+# App: github-deploy-site
+# Credential Name: gh-actions-pr-preview
+# Subscription: Sandbox
+
+env:
+  prNumber: ${{ github.event.inputs.prNumber > 0 && github.event.inputs.prNumber || github.event.number }}
+  resourceGroup: rg-ocelot-website
+  storageName: "ocelotprpreview${{ github.event.inputs.prNumber > 0 && github.event.inputs.prNumber || github.event.number }}"
+
+# Sets permissions of the GITHUB_TOKEN to allow Azure OIDC
+permissions:
+  contents: read
+  id-token: write # This is required for requesting the JWT from Azure
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages-preview-${{ github.event.inputs.prNumber > 0 && github.event.inputs.prNumber || github.event.number }}"
+  cancel-in-progress: false
+
+jobs:
+  # This may be run manually so get the PR status
+  get-pr:
+    runs-on: ubuntu-latest
+    outputs:
+      pr: fromJSON(steps.get-pr.outputs.pr)
+    steps:
+      - uses: dkershner6/get-pull-request-action@v1
+        id: get-pr
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pull-number: ${{ env.prNumber }}
+
+  # Build job
+  build:
+    needs: [ get-pr ]
+    runs-on: ubuntu-latest
+    # If this is a PR, only run this if the PR is not closed
+    if: ${{ needs.get-pr.outputs.pr.state != 'closed' }}
+    steps:
+      - uses: ./.github/workflows/build.yml
+
+  deploy-preview:
+    # Add a dependency to the build job
+    needs: build
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download Build Artifact
+        id: download-artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: github-pages # Automatically named from actions/upload-pages-artifact
+
+      - name: Extract Artifact
+        id: extract-artifact
+        # The file is artifact.tar from https://github.com/actions/upload-pages-artifact/blob/main/action.yml#L69
+        run: |
+          tar xvf artifact.tar
+          rm artifact.tar
+
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: Create Storage Account
+        id: storage-account
+        uses: azure/powershell@v1
+        with:
+          azPSVersion: latest
+          inlineScript: |
+            $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
+            if (!($acct)) {
+              Write-Host 'Creating storage account: ${{ env.storageName }}'
+              New-AzStorageAccount `
+                -ResourceGroupName '${{ env.resourceGroup }}' `
+                -Name '${{ env.storageName }}' `
+                -SkuName Standard_LRS `
+                -Location eastus `
+                -Tag @{'managed-by'='GitHub'; 'sha'='${{ github.sha }}'; 'pullrequest'='${{ github.event.repository }}/${{ github.event.number }}'}
+
+              Write-Host 'Enabling Static Websites'
+              $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
+              Enable-AzStorageStaticWebsite -IndexDocument index.html -ErrorDocument404Path 404.html -Context $acct.Context
+            } else {
+              Write-Host 'Storage account exists, skipping.'
+            }
+
+            Write-Host 'URL:'
+            Write-Host $acct.PrimaryEndpoints.Web
+            Write-Output "previewUrl=$($acct.PrimaryEndpoints.Web)" >> $env:GITHUB_OUTPUT
+
+      - name: Deploy Preview to Azure Storage
+        id: deploy-preview
+        uses: azure/powershell@v1
+        with:
+          azPSVersion: latest
+          inlineScript: |
+            $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
+            if (!($acct)) {
+              Write-Error 'Unable to find the storage account: ${{ env.storageName }}'
+              exit 1
+            }
+
+            # Copy all files recursively from the current directory
+            # Escape with backtick the $web container name
+            Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container `$web -Context $acct.Context
+
+      - name: logout
+        run: |
+              az logout
+        if: always()
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Preview deployed to [${{ steps.storage-account.outputs.previewUrl }}](${{ steps.storage-account.outputs.previewUrl }})
+          comment_tag: pr-link
+          mode: recreate
+          reactions: hooray, rocket
+
+  destroy-preview:
+    needs: [ get-pr ]
+    runs-on: ubuntu-latest
+    # Only run this if the PR is closed
+    if: ${{ needs.get-pr.outputs.pr.state == 'closed' }}
+    steps:
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+          enable-AzPSSession: true
+
+      - name: Create Storage Account
+        uses: azure/powershell@v1
+        with:
+          azPSVersion: latest
+          inlineScript: |
+            $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
+            if ($acct) {
+              Write-Host 'Removing storage account: ${{ env.storageName }}'
+              Remove-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction Stop
+            } else {
+              Write-Host 'Storage account does not exist, skipping.'
+            }
+
+      - name: logout
+        run: |
+              az logout
+        if: always()
+
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            The preview storage account has been deleted.
+
+      - name: Storage Account Deletion Failed
+        uses: thollander/actions-comment-pull-request@v2
+        if: failure()
+        with:
+          message: |
+            **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted.
+          reactions: eyes
