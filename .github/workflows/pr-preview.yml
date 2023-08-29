@@ -18,7 +18,7 @@ on:
       forceDeploy:
         description: Forces deployment of the site if the PR is in draft mode.
         type: boolean
-        default: false
+        default: true
 
 # Azure OIDC:
 # App: github-deploy-site
