@@ -163,7 +163,14 @@ jobs:
             # Copy all files recursively from the current directory
             # Escape with backtick the $web container name
             Get-ChildItem -File -Recurse | ForEach-Object {
-              $contentType = $exts.ContainsKey($_.Extension) ? $exts[$_.Extension] : $defaultType
+              $contentType = $defaultType
+
+              if ($exts.ContainsKey($_.Extension)) {
+                $contentType = $exts[$_.Extension]
+              } else {
+                Write-Host "Missing contentType: $($_.Extension)"
+              }
+
               $_ | Set-AzStorageBlobContent -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
             }
 
