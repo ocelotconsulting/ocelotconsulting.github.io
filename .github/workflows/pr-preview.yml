@@ -125,6 +125,9 @@ jobs:
               exit 1
             }
 
+            # Enforce a robots.txt which blocks all crawlers
+            "User-agent: *`nDisallow: /" | Out-File -FilePath robots.txt -Force
+
             # Copy all files recursively from the current directory
             # Escape with backtick the $web container name
             Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container `$web -Context $acct.Context
