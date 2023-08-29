@@ -171,7 +171,10 @@ jobs:
                 Write-Host "Missing contentType: $($_.Extension)"
               }
 
-              $_ | Set-AzStorageBlobContent -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
+              # Because we are not manipulating the object, we must specify the proper relative path
+              $relativePath = (Resolve-Path -LiteralPath $_.FullName -Relative) -replace '^\.\/',''
+
+              Set-AzStorageBlobContent -File $_.FullName -Blob $relativePath -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
             }
 
       - name: logout
