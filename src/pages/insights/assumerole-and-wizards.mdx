@@ -11,7 +11,7 @@ export const meta = {
 
 So, you've started down the path of learning how AWS' IAM works and you've come across the AssumeRole function and thought "what is going on here?". I am here to help you with that, alongside one of my favorite book/movie series, Lord of the Rings.
 
-So, let's dig in and see what we can do!
+Let's dig in and see what we can do!
 
 ## AssumeRole's core function
 
@@ -37,7 +37,7 @@ Ian McKellen agreed to be Gandalf, so he has a trust relationship with the role.
 
 Gandalf Trust Policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -56,7 +56,7 @@ As you can see, this allows a user named `IanMcKellen` to assume the role of Gan
 
 Then, we can attach policies to this role, such as granting him the Flame of Anor or Glamdring, something like
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": {
@@ -94,7 +94,7 @@ Imagine you have an SSO group who get the role of `GandalfActors` and it include
 
 If you want any of them to become Gandalf, you simply update your trust policy:
 
-```
+```json
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -115,7 +115,7 @@ Then, when we finally decide to make Meryl Streep a Gandalf, we can simply add h
 
 So, imagine that you have a cool new idea - you're going to replace actors with AWS's Generative AI platform, [Bedrock](https://aws.amazon.com/bedrock/). Since Bedrock isn't a user, nor a group, we actually trust it as a service. This applies to all services (such as Lambda, EC2, ECS, and others), but the policy looks somewhat similar
 
-```
+```json
 {
     "Version" : "2012-10-17",
     "Statement" : [
