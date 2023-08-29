@@ -100,7 +100,7 @@ jobs:
                 -Name '${{ env.storageName }}' `
                 -SkuName Standard_LRS `
                 -Location eastus `
-                -Tag @{'managed-by'='GitHub'; 'sha'='${{ github.sha }}'; 'pullrequest'='${{ github.event.repository }}/${{ github.event.number }}'}
+                -Tag @{'managed-by'='GitHub'; 'sha'='${{ github.sha }}'; 'pullrequest'='${{ github.event.repository }}/${{ env.prNumber }}'}
 
               Write-Host 'Enabling Static Websites'
               $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
