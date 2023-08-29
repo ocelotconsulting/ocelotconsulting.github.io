@@ -143,6 +143,16 @@ jobs:
           mode: recreate
           reactions: hooray, rocket
 
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v2
+        if: failure()
+        with:
+          message: |
+            Unable to deploy the preview. Check the Actions log.
+          comment_tag: pr-link
+          mode: recreate
+          reactions: eyes
+
   destroy-preview:
     needs: [ get-pr ]
     runs-on: ubuntu-latest
@@ -180,6 +190,8 @@ jobs:
         with:
           message: |
             The preview storage account has been deleted.
+          comment_tag: pr-link
+          mode: recreate
 
       - name: Storage Account Deletion Failed
         uses: thollander/actions-comment-pull-request@v2
@@ -188,3 +200,5 @@ jobs:
           message: |
             **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted. Please check and delete manually if required.
           reactions: eyes
+          comment_tag: pr-link
+          mode: recreate
