@@ -156,6 +156,8 @@ jobs:
               ".gif" = "image/gif"
               ".js" = "text/javascript"
               ".css" = "text/css"
+              ".webm" = "video/webm"
+              ".webp" = "image/webp"
             }
 
             $defaultType = "application/octet-stream"
@@ -171,7 +173,8 @@ jobs:
                 Write-Host "Missing contentType: $($_.Extension)"
               }
 
-              # Because we are not manipulating the object, we must specify the proper relative path
+              # Because we've modified the pipeline, Set-AzStorageBlobContent no longer respects the relative path
+              # We must set that ourselves
               $relativePath = (Resolve-Path -LiteralPath $_.FullName -Relative) -replace '^\.\/',''
 
               Set-AzStorageBlobContent -File $_.FullName -Blob $relativePath -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType } -Force
