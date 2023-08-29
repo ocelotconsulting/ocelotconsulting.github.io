@@ -1,0 +1,162 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Assume Role and Wizards',
+    image: 'lotr-map-unsplash.jpg',
+    date: '2023-08-29',
+    author: 'Marty Henderson',
+    description: 'A comparison between who play Gandalf and how AssumeRole works',
+    url: '/insights/assume-role-and-wizards'
+}
+
+So, you've started down the path of learning how AWS' IAM works and you've come across the AssumeRole function and thought "what is going on here?". I am here to help you with that, alongside one of my favorite book/movie series, Lord of the Rings.
+
+So, let's dig in and see what we can do!
+
+## AssumeRole's core function
+
+AssumeRole, at its core, is a function of the Secure Token Service (sts) that allows a Principal, such as a user, to become a particular role. This then allows a policy to be assumed include its permissions attached. This can take place within and across accounts.
+
+However.
+
+It is a bit messy to consume in a simple paragraph, so let's work through an example.
+
+## Gandalf the Wizard
+
+If you've read or seen Lord of the Rings, you probably know of Gandalf the Wizard (With many titles/names, such as Olórin, Gandalf the Grey, Mithrandir, Gandalf the White, and so on). There are other Wizards in Middle-Earth, where the story takes place, such a Saruman and Radagast.
+
+For Tolkien nerds, I apologize, but we're going to cruise through a few details.
+
+Gandalf, in movies, radio dramas, and audiobooks has been played by a myriad of people - Ian McKellen in Peter Jackson's version, John Huston in the Rankin/Bass version, Norman Shelley in the 1955 BBC version, Michael Hordern in the 1981 BBC version, Andy Serkis in the Audible adaptation, and many more across languages and various other adaptations. All of them assumed the role of Gandalf and played him quite well.
+
+In addition, several others were considered for Peter Jackson's version - Sean Connery, Tom Baker, Patrick Stewart, and David Bowie, but turned it down one way or another.
+
+So imagine each of these actors as a user in AWS.
+
+Ian McKellen agreed to be Gandalf, so he has a trust relationship with the role. Peter Jackson then allowed McKellen to be Gandalf, and allowed him to assume the role. This would look something like this:
+
+Gandalf Trust Policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::xxxxxx:user/IanMcKellen"
+      },
+      "Action": "sts:AssumeRole",
+    }
+  ]
+}
+```
+
+As you can see, this allows a user named `IanMcKellen` to assume the role of Gandalf from account `xxxxxx`.
+
+Then, we can attach policies to this role, such as granting him the Flame of Anor or Glamdring, something like
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": "ishar:FlameofAnor",
+    "Resource": "*"
+  }
+    "Statement": {
+    "Effect": "Allow",
+    "Action": "weapon:*",
+    "Resource": ["weapon:Glamdring", "weapon:GandalfStaff"]
+  }
+}
+```
+
+Now, when Ian McKellen becomes Gandalf, he has these two abilities. In the future, we can dig into these more about, but for now, McKellen's Gandalf has his sword, staff, and Flame of Anor.
+
+## Okay, what about groups?
+
+In my original edit, I said that you could use groups. Thankfully, a fellow Community Builder, [Hendrik Hagen](https://www.linkedin.com/in/hendrik-hagen-79959b169/), corrected me.
+
+You cannot use groups to assign a trust policy to, because you don't authenticate to groups. It's a messy, nuanced point, with more details in the [AWS Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups.html). That said, there is a group-like Principal we can use.
+
+Many large organizations use SSO to authenticate into accounts. When they are authenticated in this way, you can attach a policy to a group of people at once. SSO users are authenticated into an SSO role, which is allowed to be a Principal in a policy.
+
+Imagine you have an SSO group who get the role of `GandalfActors` and it includes
+
+* Ian McKellen
+* John Huston
+* Norman Shelley
+* Michael Horndern
+* Andy Serkis
+
+(Andy Serkis is in multiple SSO groups too)
+
+If you want any of them to become Gandalf, you simply update your trust policy:
+
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::xxxxxx:role/GandalfActors"
+      },
+      "Action": "sts:AssumeRole",
+    }
+  ]
+}
+```
+
+Then, when we finally decide to make Meryl Streep a Gandalf, we can simply add her to `GandalfActors` SSO group and she can immediately become Gandalf. That's why using SSO is so handy!
+
+## Trust Policies on Services
+
+So, imagine that you have a cool new idea - you're going to replace actors with AWS's Generative AI platform, [Bedrock](https://aws.amazon.com/bedrock/). Since Bedrock isn't a user, nor a group, we actually trust it as a service. This applies to all services (such as Lambda, EC2, ECS, and others), but the policy looks somewhat similar
+
+```
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Action" : "sts:AssumeRole",
+        "Principal" : {
+          "Service" : "bedrock.amazonaws.com"
+        },
+        "Effect" : "Allow",
+
+      }
+    ]
+ }
+ ```
+
+ You can see here, that we've change the Principal to a `"Service"` instead of `"AWS"` since it's trusting an inherent service of AWS instead of a person or group.
+
+Be careful though, now Bedrock can use Glamdring, and we aren't sure that is a good thing...
+
+(Note: this is not quite how Bedrock itself works. Using AI requires interaction and not simply throw things at it and hoping it works out)
+
+## Summary
+
+In summary, having an assumed role trust policy allows a user, group, or service to pick up policies you've written to a role by trusting it through its principal. From here, you can expand to even cross account access, limiting how trust works between roles and customize policies even further with conditions - you can even require MFA before a role is assumed!
+
+## About the Author
+
+Marty Henderson is a Staff Consultant at Ocelot Consulting. 
+Certified Architect in Google Cloud and AWS, and an AWS Community Builder, Marty leads and designs complex projects based on cloud technologies, with heavy emphasis on teaching and enablement of teams.
+
+## Credits
+
+Photo by Amandine BATAILLE on Unsplash
+
+_This post originally appeared on [Marty Henderson's personal blog](https://nalth.is/assumerole-and-wizards/)._
+
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
