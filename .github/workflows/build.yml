@@ -1,5 +1,6 @@
 on:
   workflow_call:
+  workflow_dispatch:
 
 env:
   NEXT_PUBLIC_ANALYTICS_ID: 6LduFgEVAAAAAJLy0R672PEdTafugaVHktVYcMLD
