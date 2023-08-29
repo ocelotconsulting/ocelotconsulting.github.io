@@ -135,10 +135,35 @@ jobs:
 
             # Enforce a robots.txt which blocks all crawlers
             "User-agent: *`nDisallow: /" | Out-File -FilePath robots.txt -Force
+            
+            # We must upload the proper content types
+            # We have a known quantity of file types in use
+            # https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Common_types
+            $exts = @{
+              ".htm" = "text/html"
+              ".html" = "text/html"
+              ".png" = "image/png"
+              ".jpg" = "image/jpeg"
+              ".ico" = "image/vnd.microsoft.icon"
+              ".eot" = "application/vnd.ms-fontobject"
+              ".svg" = "image/svg+xml"
+              ".ttf" = "font/ttf"
+              ".woff" = "font/woff"
+              ".woff2" = "font/woff2"
+              ".json" = "application/json"
+              ".jpeg" = "image/jpeg"
+              ".js" = "text/javascript"
+              ".css" = "text/css"
+            }
+
+            $defaultType = "application/octet-stream"
 
             # Copy all files recursively from the current directory
             # Escape with backtick the $web container name
-            Get-ChildItem -File -Recurse | Set-AzStorageBlobContent -Container `$web -Context $acct.Context
+            Get-ChildItem -File -Recurse | ForEach-Object {
+              $contentType = $exts.ContainsKey($_.Extension) ? $exts[$_.Extension] : $defaultType
+              Set-AzStorageBlobContent -Container `$web -Context $acct.Context -Properties @{"ContentType" = $contentType }
+            }
 
       - name: logout
         run: |
