@@ -56,7 +56,7 @@ jobs:
 
       - name: Show PR
         run: |
-          echo ${{ steps.get-pr.outputs.pr }}
+          echo '${{ steps.get-pr.outputs.pr }}'
 
   # Build job
   build:
@@ -64,7 +64,13 @@ jobs:
     # If this is a PR, only run this if the PR is not a draft or closed
     # This can be force deployed as well
     if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
-    uses: ./.github/workflows/build.yml
+    # uses: ./.github/workflows/build.yml
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test
+        run: |
+          echo 'Test'
+          exit 1
 
   deploy-preview:
     # Add a dependency to the build job
