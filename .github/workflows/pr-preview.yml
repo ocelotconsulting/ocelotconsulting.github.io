@@ -54,9 +54,12 @@ jobs:
   build:
     needs: [ get-pr ]
     runs-on: ubuntu-latest
-    # If this is a PR, only run this if the PR is not closed
-    if: ${{ needs.get-pr.outputs.pr.state != 'closed' }}
+    # If this is a PR, only run this if the PR is not a draft or closed
+    if: ${{ needs.get-pr.outputs.pr.state != 'draft' && needs.get-pr.outputs.pr.state != 'closed' }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - uses: ./.github/workflows/build.yml
 
   deploy-preview:
