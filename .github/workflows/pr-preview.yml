@@ -33,6 +33,7 @@ env:
 # Sets permissions of the GITHUB_TOKEN to allow Azure OIDC
 permissions:
   contents: read
+  pull-requests: write # Commenting on PRs
   id-token: write # This is required for requesting the JWT from Azure
 
 # Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
