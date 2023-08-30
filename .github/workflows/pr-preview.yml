@@ -55,7 +55,7 @@ jobs:
       - name: Check Secrets
         id: check-secrets
         run: |
-          echo "valid=$([ -n "" ] && [ -n "${{ secrets.AZURE_SUBSCRIPTION_ID }}" ] && [ -n "${{ secrets.AZURE_TENANT_ID }}" ] && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+          echo "valid=$([ -n "${{ secrets.AZURE_CLIENT_ID }}" ] && [ -n "${{ secrets.AZURE_SUBSCRIPTION_ID }}" ] && [ -n "${{ secrets.AZURE_TENANT_ID }}" ] && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
 
       - uses: dkershner6/get-pull-request-action@v1
         id: get-pr
