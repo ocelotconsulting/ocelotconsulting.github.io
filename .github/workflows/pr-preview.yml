@@ -115,7 +115,7 @@ jobs:
               'pullrequest'='${{ github.repository }}/${{ env.prNumber }}'
               'pullrequest-repository'='${{ github.repository }}'
               'pullrequest-number'='${{ env.prNumber }}'
-              'pullrequest-url'='https://github.com/${{ github.repository }}/pulls/${{ env.prNumber }}'
+              'pullrequest-url'='https://github.com/${{ github.repository }}/pull/${{ env.prNumber }}'
               'created'=(Get-Date | ConvertTo-Json) -replace '"',''
               'modified'=(Get-Date | ConvertTo-Json) -replace '"',''
             }
@@ -220,7 +220,7 @@ jobs:
             $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
             if ($acct) {
               Write-Host 'Removing storage account: ${{ env.storageName }}'
-              Remove-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction Stop
+              Remove-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction Stop -Force
             } else {
               Write-Host 'Storage account does not exist, skipping.'
             }
