@@ -184,6 +184,7 @@ jobs:
           comment_tag: pr-link
           mode: recreate
           reactions: hooray, rocket
+          pr_number: ${{ env.prNumber }}
 
       - name: Comment PR
         id: post-failure
@@ -196,6 +197,7 @@ jobs:
           comment_tag: pr-link
           mode: recreate
           reactions: eyes
+          pr_number: ${{ env.prNumber }}
 
   destroy-preview:
     needs: [ get-pr ]
@@ -237,6 +239,7 @@ jobs:
             The preview storage account has been deleted.
           comment_tag: pr-link
           mode: recreate
+          pr_number: ${{ env.prNumber }}
 
       - name: Storage Account Deletion Failed
         id: post-failure
@@ -246,6 +249,7 @@ jobs:
         with:
           message: |
             **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted. Please check and delete manually if required.
-          reactions: eyes
           comment_tag: pr-link
           mode: recreate
+          reactions: eyes
+          pr_number: ${{ env.prNumber }}
