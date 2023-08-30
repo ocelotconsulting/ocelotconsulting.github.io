@@ -110,8 +110,8 @@ jobs:
               'pullrequest-repository'='${{ github.repository }}'
               'pullrequest-number'='${{ env.prNumber }}'
               'pullrequest-url'='https://github.com/${{ github.repository }}/pulls/${{ env.prNumber }}'
-              'created'=(Get-Date | ConvertTo-Json)
-              'modified'=(Get-Date | ConvertTo-Json)
+              'created'=(Get-Date | ConvertTo-Json) -replace '"',''
+              'modified'=(Get-Date | ConvertTo-Json) -replace '"',''
             }
             if (!($acct)) {
               Write-Host 'Creating storage account: ${{ env.storageName }}'
