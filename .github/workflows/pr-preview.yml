@@ -29,6 +29,8 @@ env:
   prNumber: ${{ github.event.inputs.prNumber > 0 && github.event.inputs.prNumber || github.event.number }}
   resourceGroup: rg-ocelot-website
   storageName: "ocelotprpreview${{ github.event.inputs.prNumber > 0 && github.event.inputs.prNumber || github.event.number }}"
+  indexFile: index.html
+  errorFile: 404.html
 
 # Sets permissions of the GITHUB_TOKEN to allow Azure OIDC
 permissions:
@@ -104,9 +106,12 @@ jobs:
             $tags = @{
               'managed-by'='GitHub'
               'sha'='${{ github.sha }}'
-              'pullrequest'='${{ github.event.repository.organization }}/${{ github.event.repository.name }}/${{ env.prNumber }}'
-              'created'=(Get-Date -f 'yyyy-MM-dd')
-              'modified'=(Get-Date -f 'yyyy-MM-dd')
+              'pullrequest'='${{ github.repository }}/${{ env.prNumber }}'
+              'pullrequest-repository'='${{ github.repository }}'
+              'pullrequest-number'='${{ env.prNumber }}'
+              'pullrequest-url'='https://github.com/${{ github.repository }}/pulls/${{ env.prNumber }}'
+              'created'=(Get-Date | ConvertTo-Json)
+              'modified'=(Get-Date | ConvertTo-Json)
             }
             if (!($acct)) {
               Write-Host 'Creating storage account: ${{ env.storageName }}'
@@ -119,7 +124,7 @@ jobs:
 
               Write-Host 'Enabling Static Websites'
               $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
-              Enable-AzStorageStaticWebsite -IndexDocument index.html -ErrorDocument404Path 404.html -Context $acct.Context
+              Enable-AzStorageStaticWebsite -IndexDocument '${{ env.indexFile }}' -ErrorDocument404Path '${{ env.errorFile }}' -Context $acct.Context
             } else {
               Write-Host 'Storage account exists, updating tags.'
 
@@ -163,7 +168,7 @@ jobs:
             # Using AzCopy should make this easy with content type autodetection
             azcopy sync . "$containerUriStr" --recursive --delete-destination true
 
-      - name: logout
+      - name: Logout Azure
         run: |
               az logout
         if: always()
@@ -214,7 +219,7 @@ jobs:
               Write-Host 'Storage account does not exist, skipping.'
             }
 
-      - name: logout
+      - name: Logout Azure
         run: |
               az logout
         if: always()
