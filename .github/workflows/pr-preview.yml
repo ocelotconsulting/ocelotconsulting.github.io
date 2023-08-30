@@ -63,10 +63,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-number: ${{ env.prNumber }}
 
-      - name: Show PR
-        run: |
-          echo '${{ steps.get-pr.outputs.pr }}'
-
   # Build job
   build:
     needs: [ get-pr ]
@@ -180,6 +176,7 @@ jobs:
         if: always()
 
       - name: Comment PR
+        id: post-url
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
@@ -187,16 +184,20 @@ jobs:
           comment_tag: pr-link
           mode: recreate
           reactions: hooray, rocket
+          pr_number: ${{ env.prNumber }}
 
       - name: Comment PR
+        id: post-failure
         uses: thollander/actions-comment-pull-request@v2
-        if: failure()
+        # Make sure we're not posting a failure because we failed to comment
+        if: failure() && steps.post-url.outcome != 'failure'
         with:
           message: |
             Unable to deploy the preview. Check the Actions log.
           comment_tag: pr-link
           mode: recreate
           reactions: eyes
+          pr_number: ${{ env.prNumber }}
 
   destroy-preview:
     needs: [ get-pr ]
@@ -212,7 +213,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           enable-AzPSSession: true
 
-      - name: Create Storage Account
+      - name: Delete Storage Account
         uses: azure/powershell@v1
         with:
           azPSVersion: latest
@@ -231,19 +232,24 @@ jobs:
         if: always()
 
       - name: Comment PR
+        id: delete-post
         uses: thollander/actions-comment-pull-request@v2
         with:
           message: |
             The preview storage account has been deleted.
           comment_tag: pr-link
           mode: recreate
+          pr_number: ${{ env.prNumber }}
 
       - name: Storage Account Deletion Failed
+        id: post-failure
         uses: thollander/actions-comment-pull-request@v2
-        if: failure()
+        # Make sure we're not posting a failure because we failed to comment
+        if: failure() && steps.delete-post.outcome != 'failure'
         with:
           message: |
             **WARNING:** The preview storage account '${{ env.storageName }}' was unable to be deleted. Please check and delete manually if required.
-          reactions: eyes
           comment_tag: pr-link
           mode: recreate
+          reactions: eyes
+          pr_number: ${{ env.prNumber }}
