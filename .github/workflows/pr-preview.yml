@@ -63,10 +63,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           pull-number: ${{ env.prNumber }}
 
-      - name: Show PR
-        run: |
-          echo '${{ steps.get-pr.outputs.pr }}'
-
   # Build job
   build:
     needs: [ get-pr ]
