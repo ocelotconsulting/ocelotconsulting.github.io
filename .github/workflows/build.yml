@@ -1,11 +1,23 @@
 on:
   workflow_call:
+    inputs:
+      basePath:
+        description: The base path to configure for Next.JS (No trailing slash, empty string for root)
+        type: string
+        default: ''
+  
   workflow_dispatch:
+    inputs:
+      basePath:
+        description: The base path to configure for Next.JS (No trailing slash, empty string for root)
+        type: string
+        default: ''
 
 env:
   NEXT_PUBLIC_ANALYTICS_ID: 6LduFgEVAAAAAJLy0R672PEdTafugaVHktVYcMLD
   NEXT_PUBLIC_CONTACT_FORM_TO: info@ocelotconsulting.com
   NEXT_PUBLIC_CONTACT_FORM_URL: https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/
+  NEXT_PUBLIC_BASEPATH: ${{ inputs.basePath }}
 
 jobs:
   # Build job
@@ -14,6 +26,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Detect package manager
         id: detect-package-manager
         run: |
@@ -31,20 +44,17 @@ jobs:
             echo "Unable to determine package manager"
             exit 1
           fi
+
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
-          generator_config_file: next.config.mjs
+
+      # Removed the actions/configure-pages because it was failing to set correctly
+      # and all required settings are already handled in next.config.mjs
+      # https://github.com/actions/configure-pages/blob/f156874f8191504dae5b037505266ed5dda6c382/src/set-pages-config.js#L33-L42
+
       - name: Restore cache
         uses: actions/cache@v3
         with:
@@ -55,10 +65,13 @@ jobs:
           # If source files changed but packages didn't, rebuild from a prior cache.
           restore-keys: |
             ${{ runner.os }}-nextjs-${{ hashFiles('**/package-lock.json', '**/yarn.lock') }}-
+
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
+
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
