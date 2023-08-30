@@ -49,8 +49,14 @@ jobs:
   get-pr:
     runs-on: ubuntu-latest
     outputs:
+      valid: ${{ steps.check-secrets.outputs.valid }}
       pr: ${{ steps.get-pr.outputs.pr }}
     steps:
+      - name: Check Secrets
+        id: check-secrets
+        run: |
+          echo "valid=$([ -n "${{ secrets.AZURE_CLIENT_ID }}" ] && [ -n "${{ secrets.AZURE_SUBSCRIPTION_ID }}" ] && [ -n "${{ secrets.AZURE_TENANT_ID }}" ] && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+
       - uses: dkershner6/get-pull-request-action@v1
         id: get-pr
         with:
@@ -66,7 +72,7 @@ jobs:
     needs: [ get-pr ]
     # If this is a PR, only run this if the PR is not a draft or closed
     # This can be force deployed as well
-    # if: ${{ (fromJSON(needs.get-pr.outputs.pr).draft == false || github.event.inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
+    if: ${{ needs.get-pr.outputs.valid == 'true' && (fromJSON(needs.get-pr.outputs.pr).draft == false || github.event.inputs.forceDeploy == true) && fromJSON(needs.get-pr.outputs.pr).state != 'closed' }}
     uses: ./.github/workflows/build.yml
 
   deploy-preview:
@@ -196,7 +202,7 @@ jobs:
     needs: [ get-pr ]
     runs-on: ubuntu-latest
     # Only run this if the PR is closed
-    if: ${{ fromJSON(needs.get-pr.outputs.pr).state == 'closed' }}
+    if: ${{ needs.get-pr.outputs.valid == 'true' && fromJSON(needs.get-pr.outputs.pr).state == 'closed' }}
     steps:
       - name: Azure Login
         uses: azure/login@v1
