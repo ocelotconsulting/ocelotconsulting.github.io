@@ -101,6 +101,13 @@ jobs:
           azPSVersion: latest
           inlineScript: |
             $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
+            $tags = @{
+              'managed-by'='GitHub'
+              'sha'='${{ github.sha }}'
+              'pullrequest'='${{ github.event.repository.organization }}/${{ github.event.repository.name }}/${{ env.prNumber }}'
+              'created'=(Get-Date -f 'yyyy-MM-dd')
+              'modified'=(Get-Date -f 'yyyy-MM-dd')
+            }
             if (!($acct)) {
               Write-Host 'Creating storage account: ${{ env.storageName }}'
               New-AzStorageAccount `
@@ -108,13 +115,23 @@ jobs:
                 -Name '${{ env.storageName }}' `
                 -SkuName Standard_LRS `
                 -Location eastus `
-                -Tag @{'managed-by'='GitHub'; 'sha'='${{ github.sha }}'; 'pullrequest'='${{ github.event.repository }}/${{ env.prNumber }}'}
+                -Tags $tags
 
               Write-Host 'Enabling Static Websites'
               $acct = Get-AzStorageAccount -ResourceGroupName '${{ env.resourceGroup }}' -Name '${{ env.storageName }}' -ErrorAction SilentlyContinue
               Enable-AzStorageStaticWebsite -IndexDocument index.html -ErrorDocument404Path 404.html -Context $acct.Context
             } else {
-              Write-Host 'Storage account exists, skipping.'
+              Write-Host 'Storage account exists, updating tags.'
+
+              # Save the creation date
+              if ($acct.Tags -and $acct.Tags.ContainsKey('created')) {
+                $tags['created'] = $acct.Tags['created']
+              }
+
+              Set-AzStorageAccount `
+                -ResourceGroupName '${{ env.resourceGroup }}' `
+                -Name '${{ env.storageName }}' `
+                -Tags $tags
             }
 
             Write-Host 'URL:'
