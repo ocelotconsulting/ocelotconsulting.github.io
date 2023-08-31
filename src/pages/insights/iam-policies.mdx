@@ -1,0 +1,163 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'IAM Policies',
+    image: 'cabinets-unsplash.jpg',
+    date: '2023-08-31',
+    author: 'Marty Henderson',
+    description: 'An explanation and example of the pieces of an AWS IAM Policy',
+    url: '/insights/iam-policies'
+}
+
+Welcome to more discussion about IAM policies. My previous post is on [AssumeRole and Trust Policies](https://www.ocelotconsulting.com/insights/assumerole-and-wizards) and a subtle hint at who I think should play Gandalf next. This one, we're going to dive into IAM policy structure and some examples to think about when designing them.
+
+## At the start
+
+IAM is short for Identity and Access Management. This means an IAM policy controls *who* can access things and *what* they can access. IAM policy is not authentication nor authorization - logging in and assigning which policies are attached is handled by another feature of IAM. A policy is strictly a set of rules that can be applied to a person or a service. Services are things such as an EC2 (virtual machines), Lambda (serverless code execution), RDS (databases), Bedrock (Generative AI), Sagemaker (Machine Learning), and so on. There are over 200 AWS services as I write this, so please don't expect to go over all of them.
+
+Okay, so, easy. They're just a set of rules. 
+
+Well...
+
+## The Structure of an IAM policy
+
+Let's say you have an IAM policy that you want to allow something to create logs. An example policy would look like this
+
+```json
+{
+    "Version" : "2012-10-17",
+    "Statement" : [
+      {
+        "Action" : [
+          "logs:CreateLogGroup",
+          "logs:CreateLogStream",
+          "logs:PutLogEvents"
+        ],
+        "Resource" : "arn:aws:logs:*:*:*",
+        "Effect" : "Allow"
+      }
+    ]
+  }
+  ```
+
+You can see here, that the rules come with a structure and that structure can be a little strange. 
+
+*Version* - this refers to the policy syntax version. This has been the same since 2012 (thus the 2012-10-17) and isn't expected to change. For now, assume this is always there.
+
+*Statement* - this contains a singular set of rules. A policy can have multiple statements, but each statement needs 3 pieces: Actions, Resource, and Effect
+Here's where it gets messy, so we'll go in order of least to most complex.
+
+*Effect* - this is the statement's overall purpose. From here you can either `Allow` an action or `Deny` an action. If an action is never marked as allowed anywhere, you can't do it. A denial will always deny the action, even if it's allowed elsewhere.
+A `Deny` absolutely and always denies the action for everyone (except the root user). If you attach two policies to the same user or service, the `Deny` will stop anything allowed. It's a good way to deal with potentially overly permissive policies or things you want to keep locked down.
+
+*Action* - This is which actions someone can take. In the above example, they can Create a Log Group, Create a Log Stream, and Put Events into those logs. Because of the `Effect` they are allowed to do these actions. There is an alternative called `NotAction` that is not in scope of this blog post.
+
+*Resources* -  Here's where things can get very complex. This is, at its core, where those actions are allowed to take place. In this example, it can take place on `wildcard` or any logs. This includes creating logs anywhere in your account and putting those log events into any log stream. Yikes - that can be scary!
+
+## Into the Kitchen
+
+Okay, we've gone over this in the boring way. Let's do an analogy and an example to really discuss what any of this means.
+
+Cooking is a hobby of mine. If you open up a random cabinet in my kitchen, you're likely either finding weird kitchen machines or spices that I stuck in a spot because my main spice cabinet is out of room. I like to "taste the world", so to speak, and cook more than Americana. I have Ajwain in one corner, Dashi in another, a whole variety of lamb seasonings, some Tajin, a bit of black garlic, and, well, the list goes on for a very long time. One of the best things about cooking being a hobby is that people love the output of it - most of the time. 
+
+However, since it's such a hobby of mine, I get a bit touchy when people use my kitchen. I like where everything is and some people want to use a spice or tool that doesn't quite fit what they're cooking, because it's "cool". On the other hand, sometimes they might need to branch out from simple salt and pepper and I encourage them to grab a particular spice or instead of trying to chop things very thinly sliced, use a mandolin slicer instead.
+
+(Related, if you have any really good recipes, especially for non-American cooking, send them my way. I still am trying to master both Plokkfiskur and Biryani.)
+
+### All Access 
+
+What this means is that different people that use my kitchen have different permissions, which map nicely to policies. Let's start with the easy one - my partner can do whatever she wants in the kitchen. She's a good cook and well practiced, so she needs no guard rails. Her policy to the kitchen would look something like this:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+She can take whatever action she wants on any part of the kitchen. Really, nothing can stop her.
+
+### Actions
+
+However, I have a friend that insists on washing dishes when she cooks in someone's kitchen. I believe that it's my house and that she can use every dish she wants, but I don't want her to put dishes back or wash dishes - that's my job (or this dishwashing machine's). If we imagine dishes as a potential resource, we can do some fancy policy work. We're going to give her two statement, one to let her do anything in my kitchen, and one to deny her dishes washing.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "dishes:Washing",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+Because a Deny *always* overrides Allow, this lets her do anything except wash dishes.
+
+### Resources
+
+Another friend of mine is mildly allergic to onions and garlic, but still likes them. Convincing her to not use them is always difficult. If I wanted to make sure she couldn't use just those two ingredients, but otherwise use my kitchen, my policy would deny only certain resources - onions and garlic - and would look something like this
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
+    "Statement": [
+        {
+            "Effect": "Deny",
+            "Action": "spices:*",
+            "Resource": [
+            "arn:aws:*:*:spices:Onions", 
+            "arn:aws:*:*:spices:Garlic"
+            ]
+        }
+    ]
+}
+```
+
+Good, now she can't do anything or even see those spices. Hopefully that tempts her away from them while cooking - though I can't deny she can cook well with them when used. It's truly a conundrum.
+
+## Conclusion
+
+Good, now she can't do anything or even see those spices. Hopefully that tempts her away from them while cooking - though I can't deny she can cook well with them when used. It's truly a conundrum.
+
+## About the Author
+
+Marty Henderson is a Staff Consultant at Ocelot Consulting. 
+Certified Architect in Google Cloud and AWS, and an AWS Community Builder, Marty leads and designs complex projects based on cloud technologies, with heavy emphasis on teaching and enablement of teams.
+
+## Credits
+
+Photo by Tina Witherspoon on Unsplash
+
+_This post originally appeared on [Marty Henderson's personal blog](https://nalth.is/iam-policies/)._
+
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
