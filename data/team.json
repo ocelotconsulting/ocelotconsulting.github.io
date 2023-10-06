@@ -370,4 +370,12 @@
   "firstName": "Dan",
   "lastName": "Schwabe",
   "title": "Full Stack Development"
+}, {
+  "firstName": "Phani Teja",
+  "lastName": "Nallamothu",
+  "title": "Cloud Engineering"
+}, {
+  "firstName": "David",
+  "lastName": "McElligott",
+  "title": "Cloud Engineering"
 }]
