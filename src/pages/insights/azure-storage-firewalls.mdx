@@ -9,9 +9,7 @@ export const meta = {
     url: '/insights/azure-storage-firewalls'
 }
 
-Azure's Storage Account product provides a wide range of services and options from basic blob storage, data lake capabilities, static websites, Samba / CIFS file shares, basic queuing and tables, and much more. With such a wide variety of uses there is a need for a wide range of networking options as well. These options allow access from completely publicly accessible all the way down to completely locked down and only accessible to internal users on a private network. And while the [network security documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security) is very thorough, it can be dense and easy to miss some nuances.
-
-This blog post is intended to consolidate and clarify some of the concepts around the firewall and private endpoint capabilities contained within.
+Azure's Storage Account product provides a wide range of services and options from basic blob storage, data lake capabilities, static websites, Samba / CIFS file shares, basic queuing and tables, and much more. With such a wide variety of uses there is a need for a wide range of networking options as well. These options allow access from completely publicly accessible all the way down to completely locked down and only accessible to internal users on a private network. And while the [network security documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security) is very thorough, it can be dense and easy to miss some nuances. This blog post is intended to consolidate and clarify some of the concepts around the firewall and private endpoint capabilities.
 
 ## Default Security
 
@@ -78,7 +76,7 @@ Private endpoint security is based entirely around the fact they are an internal
 
 However, there it is also possible for an [Azure Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) (NSG) to also restrict traffic. This requires that the private endpoint subnet has [Network Policies](https://learn.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy) enabled for NSGs. Then the associated NSG will restrict inbound traffic to the private endpoint.
 
-Keep in mind that private endpoints are *not* affected by the storage public access settings, firwall rules, or virtual network rules. Those are purely for _public_ clients. Private endpoints rely on the customer's network security and/or NSG policies if applied.
+Keep in mind that private endpoints are **not** affected by the storage public access settings, firwall rules, or virtual network rules. Those are purely for _public_ clients. Private endpoints rely on the customer's network security and/or NSG policies if applied.
 
 > Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=Storage%20firewall%20rules%20apply,hosts%20the%20private%20endpoint.)
 
@@ -86,7 +84,9 @@ Keep in mind that private endpoints are *not* affected by the storage public acc
 
 ## Network Flow Diagram
 
-[![Network flow diagram illustrating the different flow types and directions](/assets/insights/azure-storage-firewalls/azure-storage-firewalls.drawio.svg)](/assets/insights/azure-storage-firewalls/azure-storage-firewalls.drawio.svg)
+<div class="text-center">
+    [![Network flow diagram illustrating the different flow types and directions](/assets/insights/azure-storage-firewalls/azure-storage-firewalls.drawio.svg)](/assets/insights/azure-storage-firewalls/azure-storage-firewalls.drawio.svg)
+</div>
 
 export default function ({ children }) {
     return (
