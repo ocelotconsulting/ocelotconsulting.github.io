@@ -70,7 +70,9 @@ However, there is a second list for [trusted access based on managed identity](h
 
 [Azure Private Endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview) provide the ability to access an Azure PaaS service, or a third party service, via an internal IP and connection rather than over the public Internet. This can be directly related to having a private network with an internal file server.
 
-Storage accounts can have more than one private endpoint, and they likely will. Each private endpoint points to a single service provided by the resource such as blob, file, queue, table, or web services. This is called the `Target Subresource`. A storage account can have multiple private endpoints to the same service as well. This is ideal for isolated Virtual Networks which have clients that need to access the same resources via an internal connection. Private endpoints also work across tenants, subscriptions, and regions.
+Storage accounts can have more than one private endpoint, and they likely will. Each private endpoint points to a single service provided by the resource such as blob, file, queue, table, or web services. This is called the `Target Subresource`. Only the traffic intended for this specific subresource is accounted for. For example, a client connecting to a storage account with only a `blob` private endpoint only uses the private endpoint for blobs. Access to file, queue, or table services will continue to use the public endpoint.
+
+A storage account can have multiple private endpoints to the same service as well. This is ideal for isolated Virtual Networks which have clients that need to access the same resources via an internal connection. Private endpoints also work across tenants, subscriptions, and regions.
 
 Private endpoint security is based entirely around the fact they are an internal service on a virtual network controlled by the customer. This means that the customer's internal firewalls and routing are the primary factor in who can and cannot access the storage account, then followed up by the authentication and authorization pieces built into storage accounts.
 
@@ -81,6 +83,10 @@ Keep in mind that private endpoints are *not* affected by the storage public acc
 > Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=Storage%20firewall%20rules%20apply,hosts%20the%20private%20endpoint.)
 
 > A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules only apply to the public endpoints of a storage account, not private endpoints. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=A%20private%20endpoint%20uses,account%2C%20not%20private%20endpoints.)
+
+## Network Flow Diagram
+
+![Network flow diagram illustrating the different flow types and directions](/assets/insights/azure-storage-firewalls/azure-storage-firewalls.drawio.svg)
 
 export default function ({ children }) {
     return (
