@@ -1,0 +1,91 @@
+import InsightLayout from '@/components/insights/InsightLayout'
+
+export const meta = {
+    title: 'Azure Storage Firewalls',
+    image: 'insights-banner.jpg',
+    date: '2023-10-06',
+    author: 'Drew Garrett',
+    description: 'Demystifying Azure Storage firewalls and options',
+    url: '/insights/azure-storage-firewalls'
+}
+
+Azure's Storage Account product provides a wide range of services and options from basic blob storage, data lake capabilities, static websites, Samba / CIFS file shares, basic queuing and tables, and much more. With such a wide variety of uses there is a need for a wide range of networking options as well. These options allow access from completely publicly accessible all the way down to completely locked down and only accessible to internal users on a private network. And while the [network security documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security) is very thorough, it can be dense and easy to miss some nuances.
+
+This blog post is intended to consolidate and clarify some of the concepts around the firewall and private endpoint capabilities contained within.
+
+## Default Security
+
+By default, an Azure Storage Account is publicly accessible to the world via the Internet. Security is provided via encrypted connections (if required) and via authentication and authorization measures such as SAS tokens, Azure AD authentication, and RBAC controls.
+
+## Storage Firewalls
+
+The first network security option is the storage account firewall. It is important to note that the firewall will *only* affect incoming traffic from public networks or Virtual Networks with [Service Endpoints](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) enabled.
+
+> The Azure Storage firewall provides access control for the public endpoint of your storage account. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=The%20Azure%20Storage%20firewall%20provides%20access%20control%20for%20the%20public%20endpoint%20of%20your%20storage%20account.)
+
+The firewall's settings are provided through the public network access option:
+
+* Enabled from all networks - All public traffic is permitted
+* Enabled from selected virtual networks and IP addresses - Only those in the firewall, virtual network, or Azure services rules are permitted
+  * The below rules only apply in this mode
+* Disabled - All public access is disabled
+
+Disabled does exactly what it says including access from Azure Trusted services. It is common to use `Enabled from selected virtual networks and IP addresses` while not specifying any networks or IP addresses, only permitting trusted services through for specific, Azure managed purpsoes.
+
+### Virtual Network Rules
+
+Virtual network rules are actually per-subnet rules which allow the user to specify specific subnets which can access the storage account via service endpoints. These rules only apply if a subnet has sevice endpoints enabled for storage (in the same region) or global service endpoints for storage (cross-region). Service endpoints intercept traffic leaving a subnet for specific services (ex. all storage, all Azure SQL, all App Services, etc.) and sends that traffic via an internal network instead of the public Internet.
+
+It is important to remember that this traffic is treated as public. It is impacted by the public access firewall setting and users or applications on the source system will still see the public IP of the storage account in DNS queries. This is Microsoft's way of preventing traffic sent over the public network without having to use private endpoints. This feature was also introduced before private endpoints were supported.
+
+### Firewall Rules
+
+The basic firewall rules allow you to specify single IPs or IP ranges (/30 or large subnets) to permit traffic from. These must be public IPs (non-RFC 1918). Anything considered internal will cause an error when trying to save the rule. This is a simple IP whitelist and great for cases where there is a static IP or well known range in use.
+
+> Storage firewall rules apply to the public endpoint of a storage account. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=Storage%20firewall%20rules%20apply%20to%20the%20public%20endpoint%20of%20a%20storage%20account.)
+
+#### Warning!
+
+There is a strange quirk in Azure storage that is called out in the [Restrictions for IP network rules](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#restrictions-for-ip-network-rules) section of the documentation.
+
+> You can't use IP network rules in the following cases:
+>
+> * To restrict access to clients in same Azure region as the storage account. IP network rules have no effect on requests that originate from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests.
+> * To restrict access to clients in a paired region that are in a virtual network that has a service endpoint.
+> * To restrict access to Azure services deployed in the same region as the storage account. Services deployed in the same region as the storage account use private Azure IP addresses for communication. So, you can't restrict access to specific Azure services based on their public outbound IP address range.
+
+Traffic inside the same Azure region (ex. a virtual machine accessing the storage account) uses an Azure private IP which is hidden from the users. The same applies to resources in the paired region (if there is one) if the virtual network has service endpoints enabled. This is essentially how service endpoints work. These internal IPs cannot be blocked by IP rules. In order to control this access, virtual network rules and service endpoints must be used. Otherwise the only option is to disable public access completely.
+
+### Resource Instances
+
+Certain resources can be permitted to bypass the firewall. A full list of supported resources are available in the Azure Portal. These can support a specific instance or any instance, including future instances, in the same resource group, subscription, or Entra tenant as chosen.
+
+### Exceptions
+
+One of the three exception checkboxes is for `Azure Trusted Services`. The list of [default trusted services](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-for-resources-registered-in-your-subscription) is relatively short and include Azure Backup for unmanaged disks, Azure Networking logs, and more.
+
+However, there is a second list for [trusted access based on managed identity](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) which permits a much wider list of services as long as those services authenticate with Azure AD. This list includes services such as Azure Databricks Access Connectors allowing Databricks to read and write from an internal data lake or Azure Databricks to read and write data from a Microsoft provided integration runtime. This list is a much broader way of using the `Resource Instances` feature when the services may be managed in another tenant such as a Microsoft provided service.
+
+## Private Endpoints
+
+[Azure Private Endpoints](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview) provide the ability to access an Azure PaaS service, or a third party service, via an internal IP and connection rather than over the public Internet. This can be directly related to having a private network with an internal file server.
+
+Storage accounts can have more than one private endpoint, and they likely will. Each private endpoint points to a single service provided by the resource such as blob, file, queue, table, or web services. This is called the `Target Subresource`. A storage account can have multiple private endpoints to the same service as well. This is ideal for isolated Virtual Networks which have clients that need to access the same resources via an internal connection. Private endpoints also work across tenants, subscriptions, and regions.
+
+Private endpoint security is based entirely around the fact they are an internal service on a virtual network controlled by the customer. This means that the customer's internal firewalls and routing are the primary factor in who can and cannot access the storage account, then followed up by the authentication and authorization pieces built into storage accounts.
+
+However, there it is also possible for an [Azure Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) (NSG) to also restrict traffic. This requires that the private endpoint subnet has [Network Policies](https://learn.microsoft.com/en-us/azure/private-link/disable-private-endpoint-network-policy) enabled for NSGs. Then the associated NSG will restrict inbound traffic to the private endpoint.
+
+Keep in mind that private endpoints are *not* affected by the storage public access settings, firwall rules, or virtual network rules. Those are purely for _public_ clients. Private endpoints rely on the customer's network security and/or NSG policies if applied.
+
+> Storage firewall rules apply to the public endpoint of a storage account. You don't need any firewall access rules to allow traffic for private endpoints of a storage account. The process of approving the creation of a private endpoint grants implicit access to traffic from the subnet that hosts the private endpoint. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=Storage%20firewall%20rules%20apply,hosts%20the%20private%20endpoint.)
+
+> A private endpoint uses a private IP address from your virtual network to access a storage account over the Microsoft backbone network. With a private endpoint, traffic between your virtual network and the storage account are secured over a private link. Storage firewall rules only apply to the public endpoints of a storage account, not private endpoints. [source](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#:~:text=A%20private%20endpoint%20uses,account%2C%20not%20private%20endpoints.)
+
+export default function ({ children }) {
+    return (
+        <InsightLayout {...meta}>
+            {children}
+        </InsightLayout>
+    )
+}
