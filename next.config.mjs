@@ -17,9 +17,9 @@ const nextConfig = {
   images: { unoptimized: true },
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'mdx'],
   reactStrictMode: true,
-  experimental: {
-    appDir: true,
-  }
+  // experimental: {
+  //   appDir: true,
+  // }
 }
 
 export default withMDX(nextConfig)

@@ -1,5 +1,5 @@
 import {Dispatch, SetStateAction} from "react";
-import { Navigation } from 'swiper'
+import { Navigation } from 'swiper/modules'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import PageTitle from '@/components/PageTitle'
 import Section from '@/components/Section'
