@@ -13,7 +13,7 @@ Azure's Storage Account product provides a wide range of services and options fr
 
 ## Default Security
 
-By default, an Azure Storage Account is publicly accessible to the world via the Internet. Security is provided via encrypted connections (if required) and via authentication and authorization measures such as SAS tokens, Azure AD authentication, and RBAC controls.
+By default, an Azure Storage Account is publicly accessible to the world via the Internet. Security is provided via encrypted connections (if required) and via authentication and authorization measures such as SAS tokens, Microsoft Entra ID authentication, and RBAC controls.
 
 ## Storage Firewalls
 
@@ -56,13 +56,13 @@ Traffic inside the same Azure region (ex. a virtual machine accessing the storag
 
 ### Resource Instances
 
-Certain resources can be permitted to bypass the firewall. A full list of supported resources are available in the Azure Portal. These can support a specific instance or any instance, including future instances, in the same resource group, subscription, or Entra tenant as chosen.
+Certain resources can be permitted to bypass the firewall. A full list of supported resources are available in the Azure Portal. These can support a specific instance or any instance, including future instances, in the same resource group, subscription, or Microsoft Entra ID tenant as chosen.
 
 ### Exceptions
 
 One of the three exception checkboxes is for `Azure Trusted Services`. The list of [default trusted services](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-for-resources-registered-in-your-subscription) is relatively short and include Azure Backup for unmanaged disks and Azure Networking logs for example.
 
-However, there is a second list for [trusted access based on managed identity](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) which permits a much wider list of services as long as those services authenticate with Azure AD. This list includes services such as Azure Databricks Access Connectors allowing Databricks to read and write from an internal data lake or Azure Databricks to read and write data from a Microsoft provided integration runtime. This list is a much broader way of using the `Resource Instances` feature when the services may be managed in another tenant such as a Microsoft provided service.
+However, there is a second list for [trusted access based on managed identity](https://learn.microsoft.com/en-us/azure/storage/common/storage-network-security?tabs=azure-portal#trusted-access-based-on-a-managed-identity) which permits a much wider list of services as long as those services authenticate with Microsoft Entra ID. This list includes services such as Azure Databricks Access Connectors allowing Databricks to read and write from an internal data lake or Azure Databricks to read and write data from a Microsoft provided integration runtime. This list is a much broader way of using the `Resource Instances` feature when the services may be managed in another tenant such as a Microsoft provided service.
 
 ## Private Endpoints
 
