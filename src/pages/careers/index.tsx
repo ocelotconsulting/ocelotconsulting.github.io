@@ -111,11 +111,13 @@ export default function Careers() {
                     </h2>
 
                     <div className="grid md:grid-cols-2 gap-5">
+                        {/*
                         <Link href="/careers/entry-level-technology-consultant" className="block bg-white/20 p-5 text-center">
                             <h3 className="text-xl font-bold">Entry-Level Technology Consultant</h3>
                             <p>Full-Time</p>
                             <p>St. Louis, MO / Remote</p>
                         </Link>
+                        */}
 
                         <Link href="/careers/cloud-engineer" className="block bg-white/20 p-5 text-center">
                             <h3 className="text-xl font-bold">Cloud Engineer</h3>
@@ -129,7 +131,7 @@ export default function Careers() {
                             <p>St. Louis, MO / Remote</p>
                         </Link>
 
-                        <Link href="/careers/full-stack-developer" className="block bg-white/20 p-5 text-center">
+                        <Link href="/careers/full-stack-developer" className="block bg-white/20 p-5 text-center col-span-2">
                             <h3 className="text-xl font-bold">Full-Stack Developer</h3>
                             <p>Full-Time</p>
                             <p>St. Louis, MO / Remote</p>
