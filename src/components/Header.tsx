@@ -57,7 +57,7 @@ export default function Header({setShowMenu, setShowContact}: HeaderProps) {
                                     </li>
                                     <li>
                                         <Link className="block px-8 py-2 whitespace-nowrap hover:bg-white/20" href="/services/data-science">
-                                            Data Science
+                                            Data Science &amp; AI
                                         </Link>
                                     </li>
                                     <li>

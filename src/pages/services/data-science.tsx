@@ -19,7 +19,7 @@ export default function DataScience({setShowContact}: any) {
     return (
         <>
         <PageTitle image={banner}>
-            Data Science
+            Data Science &amp; AI
         </PageTitle>
 
         <Section>

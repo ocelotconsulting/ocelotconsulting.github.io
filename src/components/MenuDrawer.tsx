@@ -103,7 +103,7 @@ export default function MenuDrawer({show, setShow, showContactForm}: MenuDrawerP
                             </li>
                             <li className="py-4">
                                 <Link href="/services/data-science" onClick={() => setShow(false)}>
-                                    Data Science
+                                    Data Science &amp; AI
                                 </Link>
                             </li>
                             <li className="py-4">
