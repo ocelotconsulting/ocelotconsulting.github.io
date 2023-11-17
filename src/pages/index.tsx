@@ -89,7 +89,7 @@ export default function Home({cards, setShowContact}: any) {
           </FadeIn>
 
           <FadeIn>
-            <h2 className="text-xl font-bold text-black">Data Science</h2>
+            <h2 className="text-xl font-bold text-black">Data Science &amp; AI</h2>
             <p>Utilize advanced analytics to leverage complex data and unlock actionable insights</p>
             <Link className="text-accent block mt-5" href="/services/data-science">
               Learn More
