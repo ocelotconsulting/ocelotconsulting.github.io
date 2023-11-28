@@ -22,10 +22,22 @@ import automateMobile from '@/public/index/automate-mobile.jpg'
 import empower from '@/public/index/empower.jpg'
 import empowerMobile from '@/public/index/empower-mobile.jpg'
 
+const pressReleaseUrl = 'https://newsroom.accenture.com/news/2023/accenture-acquires-ocelot-consulting-to-expand-data-engineering-and-cloud-first-capabilities-in-north-america'
 export default function Home({cards, setShowContact}: any) {
   return (
     <>
     <div className="relative">
+      <section className='relative py-14 md:py-10 px-5'>
+        <div className='relative container mx-auto'>
+          <h1 className='text-2xl'>
+            We are delighted to announce that we are joining Accenture!
+            {' '}
+            <Link className="text-accent" href={pressReleaseUrl}>
+              Read the Accenture press release.
+            </Link>
+          </h1>
+        </div>
+      </section>
       <Section
         backLayer={<HeroSlider />}
         className="md:min-h-[678px]"
