@@ -16,7 +16,7 @@ import ArrowIcon from '@/components/icons/ArrowIcon'
 
 import fastest50 from '@/public/fast-50.png'
 import services from '@/public/index/services.jpg'
-import servicesLg from '@/public/index/services-lg.jpg'
+import '@/public/index/services-lg.jpg'
 import automate from '@/public/index/automate.jpg'
 import automateMobile from '@/public/index/automate-mobile.jpg'
 import empower from '@/public/index/empower.jpg'
