@@ -2,6 +2,6 @@
 
 export default function Logo() {
     return (
-      <img src='/assets/logo.svg' alt='Ocelot Logo' />
+      <img src='/assets/logo.png' alt='Ocelot Logo' />
     )
 }
