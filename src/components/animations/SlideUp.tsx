@@ -4,7 +4,8 @@ import {useInView} from 'react-intersection-observer'
 
 export default function SlideUp({className, children, ...props}: ComponentPropsWithoutRef<'div'>) {
     const { ref, inView, entry } = useInView({
-        threshold: 0.5
+        threshold: 0.5,
+        triggerOnce: true
     })
 
     const currentClass = inView ? '' : 'opacity-0 translate-y-6'
