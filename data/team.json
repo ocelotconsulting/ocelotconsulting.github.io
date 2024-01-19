@@ -387,7 +387,11 @@
   "lastName": "Adreon",
   "title": "Strategy & Execution"
 }, {
-   "firstName": "Matt",
+  "firstName": "Ajeeth",
+  "lastName": "Chennadi",
+  "title": "Data & Analytics"
+}, {
+  "firstName": "Matt",
   "lastName": "Parent",
   "title": "Full Stack Development"
 }]
