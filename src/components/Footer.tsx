@@ -109,7 +109,7 @@ export default function Footer() {
             <div className="border-t border-dark-gray p-4 text-xs">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between">
                     <div className="text-center">
-                        &copy; {(new Date()).getFullYear()} Ocelot Consulting. All rights reserved.
+                        &copy; {(new Date()).getFullYear()} Ocelot Consulting. All rights reserved. | <a href="https://www.accenture.com/us-en/about/privacy-policy" target="_blank" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.accenture.com/us-en/support/company-cookies-similar-technology" target="_blank" title="Privacy Policy">Cookies Policy</a>
                     </div>
                 </div>
             </div>
