@@ -57,7 +57,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 `}
             </style>
             <Head>
-                <title>Ocelot Consulting</title>
+                <title>Ocelot Consulting, Part of Accenture</title>
                 <meta name='designed by' content='Fluid22' />
                 <link rel="shortcut icon" href={`${origin}/assets/ocelot.svg`} />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
