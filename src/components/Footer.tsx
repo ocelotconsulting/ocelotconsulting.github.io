@@ -79,9 +79,9 @@ export default function Footer() {
                     <h3 className="text-lg font-bold mb-3">Get In Touch</h3>
 
                     <div className="mb-3">
-                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="tel:+13143453000">
+                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="tel:+13143843225">
                             <FontAwesomeIcon className="mr-4" icon={faPhone} />
-                            <div>(314) 345-3000</div>
+                            <div>(314) 384-3225</div>
                         </a>
                     </div>
 
