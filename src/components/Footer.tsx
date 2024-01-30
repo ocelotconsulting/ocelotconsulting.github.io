@@ -79,20 +79,20 @@ export default function Footer() {
                     <h3 className="text-lg font-bold mb-3">Get In Touch</h3>
 
                     <div className="mb-3">
-                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="tel:(314) 384-3225">
+                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="tel:+13143843225">
                             <FontAwesomeIcon className="mr-4" icon={faPhone} />
                             <div>(314) 384-3225</div>
                         </a>
                     </div>
 
                     <div className="mb-3">
-                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="https://goo.gl/maps/AGhk1LsPnY66R3VL8">
+                        <a className="flex items-center justify-center lg:justify-start hover:text-accent" href="https://maps.app.goo.gl/NsGgWF5UiTerXE6x9">
                             <FontAwesomeIcon className="mr-4" icon={faMapMarker} />
                             <div>
-                                Ocelot Consulting<br />
-                                11477 Olde Cabin Road<br />
-                                Suite 320<br />
-                                St. Louis, MO 63141
+                                Accenture<br />
+                                4220 Duncan Ave<br />
+                                Suite 502<br />
+                                St. Louis, MO 63110
                             </div>
                         </a>
                     </div>
@@ -109,7 +109,7 @@ export default function Footer() {
             <div className="border-t border-dark-gray p-4 text-xs">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between">
                     <div className="text-center">
-                        &copy; {(new Date()).getFullYear()} Ocelot Consulting. All rights reserved. | <a href="https://www.accenture.com/us-en/about/privacy-policy" target="_blank" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.accenture.com/us-en/support/company-cookies-similar-technology" target="_blank" title="Privacy Policy">Cookies Policy</a>
+                        &copy; {(new Date()).getFullYear()} Ocelot Consulting, Part of Accenture. All rights reserved. | <a href="https://www.accenture.com/us-en/about/privacy-policy" className="hover:text-accent" target="_blank" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.accenture.com/us-en/support/company-cookies-similar-technology" className="hover:text-accent" target="_blank" title="Privacy Policy">Cookies Policy</a>
                     </div>
                 </div>
             </div>
