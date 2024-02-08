@@ -4,6 +4,7 @@ import { useState } from 'react'
 import type { AppProps } from 'next/app'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import OneTrustScript from '@/components/OneTrustScript'
 import ContactDrawer from '@/components/ContactDrawer'
 import MenuDrawer from '@/components/MenuDrawer'
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3'
@@ -67,6 +68,7 @@ export default function App({ Component, pageProps }: AppProps) {
                 <meta property="og:image:type" content="image/svg+xml" />
                 <meta name="twitter:image" content={`${origin}/assets/ocelot.svg`} />
             </Head>
+            <OneTrustScript />
             <Header setShowMenu={setShowMenu} setShowContact={setShowContact} />
             <main>
                 <Component {...pageProps} setShowContact={setShowContact} />
