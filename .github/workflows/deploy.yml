@@ -28,6 +28,8 @@ jobs:
   # Build job
   build:
     uses: ./.github/workflows/build.yml
+    with:
+      NEXT_PUBLIC_ONE_TRUST_DOMAIN_SCRIPT: 3a6bb61d-8924-4c57-a2b6-bd2306a9c5ef
 
   deploy:
     # Add a dependency to the build job
