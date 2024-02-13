@@ -109,7 +109,7 @@ export default function Footer() {
             <div className="border-t border-dark-gray p-4 text-xs">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between">
                     <div className="text-center">
-                        &copy; {(new Date()).getFullYear()} Ocelot Consulting, Part of Accenture. All rights reserved. | <a href="https://www.accenture.com/us-en/about/privacy-policy" className="hover:text-accent" target="_blank" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.accenture.com/us-en/support/company-cookies-similar-technology" className="hover:text-accent" target="_blank" title="Privacy Policy">Cookies Policy</a>
+                        &copy; {(new Date()).getFullYear()} Ocelot Consulting, Part of Accenture. All rights reserved. | <a href="https://www.accenture.com/us-en/about/privacy-policy" className="hover:text-accent" target="_blank" title="Privacy Policy">Privacy Policy</a> | <a href="https://www.accenture.com/us-en/support/company-cookies-similar-technology" className="hover:text-accent" target="_blank" title="Privacy Policy">Cookies Policy</a> | <a onClick={() => { (window as any).OneTrust?.ToggleInfoDisplay(); }} id="ot-sdk-btn" className="cursor-pointer hover:text-accent" title="Cookies Settings">Cookies Settings</a>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,10 @@ on:
         description: The base path to configure for Next.JS (No trailing slash, empty string for root)
         type: string
         default: ''
+      NEXT_PUBLIC_ONE_TRUST_DOMAIN_SCRIPT:
+        description: The data-domain-script value to pass for OneTrust cookie handling
+        type: string
+        default: '3a6bb61d-8924-4c57-a2b6-bd2306a9c5ef-test'
   
   workflow_dispatch:
     inputs:
@@ -12,12 +16,17 @@ on:
         description: The base path to configure for Next.JS (No trailing slash, empty string for root)
         type: string
         default: ''
+      NEXT_PUBLIC_ONE_TRUST_DOMAIN_SCRIPT:
+        description: The data-domain-script value to pass for OneTrust cookie handling
+        type: string
+        default: '3a6bb61d-8924-4c57-a2b6-bd2306a9c5ef-test'
 
 env:
   NEXT_PUBLIC_ANALYTICS_ID: 6LduFgEVAAAAAJLy0R672PEdTafugaVHktVYcMLD
   NEXT_PUBLIC_CONTACT_FORM_TO: info@ocelotconsulting.com
   NEXT_PUBLIC_CONTACT_FORM_URL: https://9qpcx5jjib.execute-api.us-east-1.amazonaws.com/prod/
   NEXT_PUBLIC_BASEPATH: ${{ inputs.basePath }}
+  NEXT_PUBLIC_ONE_TRUST_DOMAIN_SCRIPT: ${{ inputs.NEXT_PUBLIC_ONE_TRUST_DOMAIN_SCRIPT }}
 
 jobs:
   # Build job
