@@ -25,7 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Detect package manager
         id: detect-package-manager
@@ -46,7 +46,7 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: "18"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
@@ -56,7 +56,7 @@ jobs:
       # https://github.com/actions/configure-pages/blob/f156874f8191504dae5b037505266ed5dda6c382/src/set-pages-config.js#L33-L42
 
       - name: Restore cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: |
             .next/cache
@@ -73,6 +73,6 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} run build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
