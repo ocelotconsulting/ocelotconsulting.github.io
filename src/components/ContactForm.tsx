@@ -46,6 +46,8 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
 
                 <ContactDataConsent onChange={evt => setDataConsent(evt.target.checked)} />
 
+                <p>Ocelot Consulting was acquired by Accenture on November 27, 2023.</p>
+
                 <button className="bg-dark-gray enabled:bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
                 </button>
