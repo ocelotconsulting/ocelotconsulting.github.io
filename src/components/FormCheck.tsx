@@ -3,19 +3,19 @@ import { ChangeEventHandler, ReactNode } from 'react'
 export interface FormInputProps {
     label: string | ReactNode
     name: string
-    value: string
-    onChange?: ChangeEventHandler
+    checked: boolean
+    onChange?: ChangeEventHandler<HTMLInputElement>
     required?: boolean
 }
 
-export default function FormInput({ label, name, value, onChange, required = false }: FormInputProps) {
+export default function FormInput({ label, name, checked = false, onChange, required = false }: FormInputProps) {
     return (
         <label className="block">
             <input
                 className="m-1 text-black"
                 type='checkbox'
                 name={name}
-                defaultValue={value}
+                defaultChecked={checked}
                 required={required}
                 onChange={onChange}
             />

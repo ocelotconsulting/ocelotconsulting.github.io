@@ -1,6 +1,7 @@
-import { FormEventHandler, useEffect, useState } from 'react'
+import { FormEventHandler, Fragment, useEffect, useState } from 'react'
 import FormInput from '@/components/FormInput'
 import FormTextArea from '@/components/FormTextArea'
+import FormCheck from '@/components/FormCheck'
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useRouter } from 'next/router'
 
@@ -10,6 +11,7 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
     const router = useRouter()
     const { executeRecaptcha } = useGoogleReCaptcha()
     const [token, setToken] = useState('')
+    const [dataConsent, setDataConsent] = useState(false)
 
     useEffect(() => {
         if (!executeRecaptcha) {
@@ -42,7 +44,9 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
 
                 <FormTextArea label="Questions or Comments" name="message" value="" />
 
-                <button className="bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token}>
+                <FormCheck onChange={evt => setDataConsent(evt.target.checked)} label={<>I agree that Accenture can process my personal data in accordance with the <a href="https://www.accenture.com/us-en/about/privacy-policy" target='_blank' className="underline hover:text-accent" title='Accenture Privacy Statement'>Accenture Privacy Statement</a>.</>} name="dataConsent" checked={false} required />
+
+                <button className="bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
                 </button>
                 <small className='text-xs'>
