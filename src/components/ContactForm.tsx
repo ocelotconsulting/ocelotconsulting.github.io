@@ -46,9 +46,10 @@ export default function ContactForm({ redirectTarget }: { redirectTarget?: strin
 
                 <FormCheck onChange={evt => setDataConsent(evt.target.checked)} label={<>I agree that Accenture can process my personal data in accordance with the <a href="https://www.accenture.com/us-en/about/privacy-policy" target='_blank' className="underline hover:text-accent" title='Accenture Privacy Statement'>Accenture Privacy Statement</a>.</>} name="dataConsent" checked={false} required />
 
-                <button className="bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
+                <button className="bg-dark-gray enabled:bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
                 </button>
+
                 <small className='text-xs'>
                     <span>This site is protected by reCAPTCHA and the Google </span>
                     <a className='underline decoration-dashed' href="https://policies.google.com/privacy">Privacy Policy</a>
