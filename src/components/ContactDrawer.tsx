@@ -22,7 +22,7 @@ export default function ContactDrawer({show, setShow}: ContactDrawerProps) {
                     Have a question?
                 </h2>
 
-                { show ? <ContactForm /> : null }
+                { show ? <ContactForm showDrawer={setShow} /> : null }
             </div>
         </div>
     )
