@@ -49,9 +49,9 @@ export default function CareersForm() {
             // Checking status directly because we may get a redirect for OK
             if (response.status < 400) {
                 event.currentTarget.reset();
-                setError("The request was sent. We look forward to speaking with you soon!");
+                setError("The message was sent. We look forward to speaking with you soon!");
 
-                setTimeout(() => { setError(null); }, 5000);
+                setTimeout(() => { setError(null); }, 10000);
             } else {
                 throw new Error("Invalid response from postback.");
             }
