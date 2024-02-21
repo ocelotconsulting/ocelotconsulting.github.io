@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import FormInput from '@/components/FormInput'
 import FormTextArea from '@/components/FormTextArea'
 import ContactDataConsent from '@/components/ContactDataConsent';
@@ -74,8 +74,6 @@ export default function ContactForm({ showDrawer, redirectTarget }: { showDrawer
                 <FormTextArea label="Questions or Comments" name="message" value="" />
 
                 <ContactDataConsent onChange={evt => setDataConsent(evt.target.checked)} />
-
-                <p>Ocelot Consulting was acquired by Accenture on November 27, 2023.</p>
 
                 <button className="bg-dark-gray enabled:bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
