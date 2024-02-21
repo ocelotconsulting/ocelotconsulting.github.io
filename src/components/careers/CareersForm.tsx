@@ -3,7 +3,7 @@ import FormTextArea from "@/components/FormTextArea";
 import ContactDataConsent from '@/components/ContactDataConsent';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 
 const tokenRefreshInterval = 1000 * 60 * 1.75
 
@@ -12,6 +12,7 @@ export default function CareersForm() {
     const { executeRecaptcha } = useGoogleReCaptcha()
     const [token, setToken] = useState('')
     const [dataConsent, setDataConsent] = useState(false)
+    const [error, setError] = useState<string | null>(null)
 
     useEffect(() => {
         if (!executeRecaptcha) {
@@ -31,8 +32,36 @@ export default function CareersForm() {
         }
     }, [executeRecaptcha])
 
+    async function onSubmit(event: FormEvent<HTMLFormElement>) {
+        event.preventDefault();
+
+        if (!token || !dataConsent)
+            return;
+
+        try {
+            const formData = new FormData(event.currentTarget);
+            const response = await fetch(`${process.env.NEXT_PUBLIC_CONTACT_FORM_URL}`, {
+                method: 'POST',
+                body: formData,
+                redirect: 'manual',
+            })
+
+            // Checking status directly because we may get a redirect for OK
+            if (response.status < 400) {
+                event.currentTarget.reset();
+                setError("The request was sent. We look forward to speaking with you soon!");
+
+                setTimeout(() => { setError(null); }, 5000);
+            } else {
+                throw new Error("Invalid response from postback.");
+            }
+        } catch (error) {
+            setError("Please check the form and try again.");
+        }
+    }
+
     return (
-        <form action={`${process.env.NEXT_PUBLIC_CONTACT_FORM_URL}`} method="POST">
+        <form onSubmit={onSubmit}>
             <div className="grid grid-cols-1 gap-5">
                 <input type="hidden" id="_to" name="_to" value={process.env.NEXT_PUBLIC_CONTACT_FORM_TO} />
                 <input type="hidden" id="_honeypot" name="_honeypot" value="" />
@@ -52,6 +81,8 @@ export default function CareersForm() {
                 <button className="bg-dark-gray enabled:bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
                 </button>
+
+                {error && <div className="bg-light-gray border text-accent px-4 py-3 rounded relative">{error}</div>}
 
                 <small className='text-xs'>
                     <span>This site is protected by reCAPTCHA and the Google </span>
