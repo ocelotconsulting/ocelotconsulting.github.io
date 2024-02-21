@@ -1,6 +1,6 @@
 import FormInput from '@/components/FormInput'
 import FormTextArea from "@/components/FormTextArea";
-import FormCheck from '@/components/FormCheck'
+import ContactDataConsent from '@/components/ContactDataConsent';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
@@ -47,9 +47,7 @@ export default function CareersForm() {
                 <FormInput label="LinkedIn Profile" name="linkedin" value="" />
                 <FormTextArea label="Tell us why you think you'd be a good fit:" name="message" value="" />
 
-                <FormCheck onChange={evt => setDataConsent(evt.target.checked)} label={<>I agree that Accenture can process my personal data in accordance with the <a href="https://www.accenture.com/us-en/about/privacy-policy" target='_blank' className="underline hover:text-accent" title='Accenture Privacy Statement'>Accenture Privacy Statement</a>.</>} name="dataConsent" checked={false} required />
-
-                <p>Ocelot Consulting was acquired by Accenture on November 27, 2023.</p>
+                <ContactDataConsent onChange={evt => setDataConsent(evt.target.checked)} />
 
                 <button className="bg-dark-gray enabled:bg-accent text-white px-6 py-3 w-full" type="submit" disabled={!token || !dataConsent}>
                     Submit
