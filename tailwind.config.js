@@ -72,4 +72,7 @@ module.exports = {
     require('@tailwindcss/forms'),
     require("@tailwindcss/typography")
   ],
+  variants: {
+    backgroundColor: ['active']
+  },
 }
