@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from 'react'
+import { FormEvent, useEffect, useState, Dispatch, SetStateAction } from 'react'
 import FormInput from '@/components/FormInput'
 import FormTextArea from '@/components/FormTextArea'
 import ContactDataConsent from '@/components/ContactDataConsent';
