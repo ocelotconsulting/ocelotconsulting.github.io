@@ -60,13 +60,19 @@ export default function App({ Component, pageProps }: AppProps) {
             <Head>
                 <title>Ocelot Consulting, Part of Accenture</title>
                 <meta name='designed by' content='Fluid22' />
-                <link rel="shortcut icon" href={`${origin}/assets/ocelot.svg`} />
+                <link rel="shortcut icon" href={`${origin}/assets/favicon.ico`} />
+                <meta name="title" content="Ocelot Consulting" />
                 <meta name="description" content="Modern solutions for companies seeking to innovate" />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={origin} />
+                <meta property="og:title" content="Ocelot Consulting" />
                 <meta property="og:description" content="Modern solutions for companies seeking to innovate" />
-                <meta name="twitter:description" content="Modern solutions for companies seeking to innovate" />
-                <meta property="og:image" content={`${origin}/assets/ocelot.svg`} />
-                <meta property="og:image:type" content="image/svg+xml" />
-                <meta name="twitter:image" content={`${origin}/assets/ocelot.svg`} />
+                <meta property="og:image" content={`${origin}/assets/index/services.jpg`} />
+                <meta property="twitter:card" content="summary" />
+                <meta property="twitter:url" content={origin} />
+                <meta property="twitter:title" content="Ocelot Consulting" />
+                <meta property="twitter:description" content="Modern solutions for companies seeking to innovate" />
+                <meta property="twitter:image" content={`${origin}/assets/index/services.jpg`} />
             </Head>
             <OneTrustScript />
             <Header setShowMenu={setShowMenu} setShowContact={setShowContact} />
