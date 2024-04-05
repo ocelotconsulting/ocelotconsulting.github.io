@@ -399,6 +399,10 @@
   "lastName": "Parent",
   "title": "Full Stack Development"
 }, {
+  "firstName": "Nathan",
+  "lastName": "Montez",
+  "title": "Full Stack Development"
+}, {
   "firstName": "Chris",
   "lastName": "Marfia",
   "title": "Full Stack Development"
@@ -418,4 +422,8 @@
   "firstName": "Sarah",
   "lastName": "Kuny",
   "title": "Full Stack Development"
+}, {
+  "firstName": "Dylan",
+  "lastName": "Pisechko",
+  "title": "Data & Analytics"
 }]
