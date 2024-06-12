@@ -4,9 +4,9 @@ on:
   # Pull Request previews
   pull_request:
     types:
-      - opened
-      - reopened
-      - synchronize
+      # - opened
+      # - reopened
+      # - synchronize
       - closed
 
   workflow_dispatch:
