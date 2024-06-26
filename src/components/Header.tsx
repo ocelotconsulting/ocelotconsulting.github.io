@@ -79,25 +79,9 @@ export default function Header({setShowMenu, setShowContact}: HeaderProps) {
                             </Link>
                         </li>
                         <li className="px-8 py-4 text-lg">
-                            <Link href="/careers">
-                                Careers
-                            </Link>
-                        </li>
-                        <li className="px-8 py-4 text-lg">
                             <Link href="/insights">
                                 Insights
                             </Link>
-                        </li>
-                        <li className="pl-8 py-4 text-lg">
-                            <a
-                                href="#"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    setShowContact(true)
-                                }}
-                            >
-                                Contact
-                            </a>
                         </li>
                     </ul>
                 </nav>

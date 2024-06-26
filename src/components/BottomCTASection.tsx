@@ -18,10 +18,6 @@ export default function BottomCTASection({setShowContact}: BottomCTASectionProps
                 </h2>
 
                 <p className="tracking-widest mb-10">OUR TEAMS SHOW CLIENTS WHAT IS POSSIBLE AND THEN HELP THEM GET THERE</p>
-
-                <ContactButton className="w-full max-w-[250px]" setShowContact={setShowContact}>
-                    Talk With Us
-                </ContactButton>
             </FadeIn>
         </Section>
     )

@@ -42,9 +42,6 @@ export default function Footer() {
                                 <Link className="hover:text-accent" href="/about">About</Link>
                             </li>
                             <li>
-                                <Link className="hover:text-accent" href="/careers">Careers</Link>
-                            </li>
-                            <li>
                                 <Link className="hover:text-accent" href="/insights">Insights</Link>
                             </li>
                             <li>
