@@ -66,9 +66,9 @@ export default function Footer() {
                             <li>
                                 <Link className="hover:text-accent" href="/services/data-science">Data Science &amp; AI</Link>
                             </li>
-                            <li>
+                            {/* <li>
                                 <Link className="hover:text-accent" href="/services/strategy-execution">Strategy & Execution</Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </div>

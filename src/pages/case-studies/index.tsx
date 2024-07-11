@@ -5,7 +5,7 @@ import PageTitle from '@/components/PageTitle'
 import Section from '@/components/Section'
 import PeopleIcon from '@/components/icons/PeopleIcon'
 import HandshakeIcon from '@/components/icons/HandshakeIcon'
-import MoneyBackIcon from '@/components/icons/MoneyBagIcon'
+import ArchitectureIcon from '@/components/icons/ArchitectureIcon'
 import BottomCTASection from '@/components/BottomCTASection'
 import CaseStudyCard, {CaseStudyCardProps} from '@/components/case-studies/CaseStudyCard'
 import FadeIn from '@/components/animations/FadeIn'
@@ -17,6 +17,7 @@ import 'swiper/css/navigation'
 
 import banner from '@/public/case-studies/case-banner.jpg'
 import modernize from '@/public/case-studies/modernize-your-business.jpg'
+import Image from 'next/image'
 
 export interface CaseStudiesProps {
     caseStudies: CaseStudyCardProps[]
@@ -104,11 +105,11 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
 
                     <div className="flex flex-col md:flex-row">
                         <div className="mx-auto md:mx-0">
-                            <MoneyBackIcon className="w-10 h-auto" />
+                            <Image className="mx-auto mb-2" src='/assets/index/network.svg' alt='' width={50} height={50} />
                         </div>
                         <div className="grow ml-5 text-center text-black md:text-left">
-                            <h3 className="text-xl font-bold mb-2">No extras</h3>
-                            <p>We strive to eliminate all unnecessary overhead and waste.  Over 90% of our staff are engineers & architects focused on delivery. </p>
+                            <h3 className="text-xl font-bold mb-2">Real-world experience</h3>
+                            <p>We are uniquely prepared to provide reliable lessions learned from real-world Enterprise IT experience.</p>
                         </div>
                     </div>
                 </FadeIn>

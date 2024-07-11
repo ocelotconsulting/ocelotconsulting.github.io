@@ -32,10 +32,10 @@ export default function About({team, setShowContact}: any) {
                 </div>
                 <div className="flexx basis-full lg:basis-1/2 grow-0 bg-white p-8 md:p-16 text-center md:text-left lg:w-1/2">
                     <div className='max-w-[660px]'>
-                        <p className="tracking-widest mb-2">NOT YOUR TYPICAL CONSULTING FIRM</p>
+                        {/* <p className="tracking-widest mb-2">NOT YOUR TYPICAL CONSULTING FIRM</p> */}
                         <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Origin Story</h2>
                         <p className="mb-2">Ocelot Consulting was formed in 2016 by four former software engineering colleagues at a large St. Louis-based corporation. Their goal was to share the transformational lessons learned (Agility, Cloud, Security, DevOps) with other companies in the region.</p>
-                        <p className="mb-2"><strong>You will notice the difference working with a company that was founded by technologists and is run by technologists. It is a refreshing, no-nonsense approach to solution delivery that our clients appreciate.</strong></p>
+                        <p className="mb-2"><strong>After 7 years of rapid success fueled by customer satisfaction, we joined Accenture's <a href="https://www.accenture.com/us-en/services/cloud" className='underline'>Cloud First</a> organization in 2023 to expand how we help companies innovate, now backed by Accenture's global resources to help our clients achieve their goals.</strong></p>
                         <p>That customer satisfaction has fueled our growth as we continue to expand our presence regionally and nationwide.</p>
                     </div>
                 </div>
@@ -86,12 +86,12 @@ export default function About({team, setShowContact}: any) {
                 <FadeIn className="text-center md:text-left">
                     <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">We know you, because we were you</h2>
                     <p className="mb-2">Ocelot Consulting’s senior leadership is proud of our backgrounds rooted in Enterprise IT. We’ve cultivated a deep appreciation for what makes successful (and unsuccessful) partnerships. We understand the opportunities and the challenges of transforming established corporations.</p>
-                    <p><strong>Ocelot Consulting strives to be the type of company that our founders always wanted as a partner.</strong></p>
+                    {/* <p><strong>Ocelot Consulting strives to be the type of company that our founders always wanted as a partner.</strong></p> */}
                 </FadeIn>
             </div>
         </Section>
 
-        <Section className="bg-black text-white">
+        {/* <Section className="bg-black text-white">
             <div className="grid md:grid-cols-2 gap-5">
                 <SlideUp className="bg-white/20 p-10">
                     <h2 className="text-3xl lg:text-5xl font-bold text-center mb-4">What we are&hellip;</h2>
@@ -136,7 +136,7 @@ export default function About({team, setShowContact}: any) {
                     </ul>
                 </SlideUp>
             </div>
-        </Section>
+        </Section> */}
 
         <Section
             style={{backgroundImage: `url(${ctaBg.src})`}}

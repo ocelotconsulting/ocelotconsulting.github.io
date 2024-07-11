@@ -17,7 +17,7 @@ export default function BottomCTASection({setShowContact}: BottomCTASectionProps
                     delivering results
                 </h2>
 
-                <p className="tracking-widest mb-10">OUR TEAMS SHOW CLIENTS WHAT IS POSSIBLE AND THEN HELP THEM GET THERE</p>
+                <p className="tracking-widest mb-1">OUR TEAMS SHOW CLIENTS WHAT IS POSSIBLE AND THEN HELP THEM GET THERE</p>
             </FadeIn>
         </Section>
     )
