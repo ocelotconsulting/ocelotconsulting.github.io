@@ -101,7 +101,7 @@ export default function Services({setShowContact}: any) {
                 </Grid>
             </Section>
 
-            <Section>
+            {/* <Section>
                 <Grid>
                     <FadeIn className="order-2 md:order-1">
                         <h2 className="text-3xl md:text-5xl font-bold text-black mb-2">Strategy &amp; Execution</h2>
@@ -116,7 +116,7 @@ export default function Services({setShowContact}: any) {
                         <Image className="object-cover md:h-[430px] lg:h-auto" src={strategy} alt="" />
                     </div>
                 </Grid>
-            </Section>
+            </Section> */}
 
             <BottomCTASection setShowContact={setShowContact} />
         </>

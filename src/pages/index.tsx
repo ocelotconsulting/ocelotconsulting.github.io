@@ -30,7 +30,7 @@ export default function Home({cards, setShowContact}: any) {
       <section className='relative py-14 md:py-10 px-5'>
         <div className='relative container mx-auto'>
           <h1 className='text-2xl'>
-            We are delighted to announce that we are joining Accenture!
+            We are delighted to announce that we are now part of Accenture!
             {' '}
             <Link className="text-accent" href={pressReleaseUrl}>
               Read the Accenture press release.
@@ -51,10 +51,6 @@ export default function Home({cards, setShowContact}: any) {
           <h1 className="text-4xl md:text-7xl font-bold mb-8">
             Modern solutions for companies seeking to innovate
           </h1>
-
-          <ContactButton setShowContact={setShowContact}>
-            Request a Call
-          </ContactButton>
         </div>
       </Section>
 
@@ -109,22 +105,22 @@ export default function Home({cards, setShowContact}: any) {
             </Link>
           </FadeIn>
 
-          <FadeIn>
+          {/* <FadeIn>
             <h2 className="text-xl font-bold text-black">Strategy & Execution</h2>
             <p>Define and deliver business and technical strategies</p>
             <Link className="text-accent block mt-5" href="/services/strategy-execution">
               Learn More
               <ArrowIcon className="w-3 inline-block fill-accent ml-3" />
             </Link>
-          </FadeIn>
+          </FadeIn> */}
 
-          <FadeIn>
+          {/* <FadeIn>
             <Image
               className="max-w-[180px] object-contain mx-auto"
               src={fastest50}
               alt="Fastest-Growing Private Companies"
             />
-          </FadeIn>
+          </FadeIn> */}
         </div>
       </div>
     </Section>
@@ -141,7 +137,7 @@ export default function Home({cards, setShowContact}: any) {
           <SlideUp className="md:my-10 lg:my-20 md:mr-20">
             <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Modernize your technology portfolio</h2>
             <p className="font-bold mb-4">Anything that belongs in source code management or a data repository.</p>
-            <p>We specialize in class-leading solutions for modern application development, cloud engineering, data engineering, and data science</p>
+            <p>We specialize in class-leading solutions for modern application development, cloud engineering, data engineering, and data science.</p>
           </SlideUp>
         </div>
         <div />
@@ -172,12 +168,12 @@ export default function Home({cards, setShowContact}: any) {
           <p>While collaborating, we provide training and mentoring to ensure that you are fully prepared to own solutions after our engagement is complete.</p>
         </SlideUp>
         <SlideUp className="bg-white/20 text-center p-8">
-          <h3 className="text-2xl font-bold mb-4">Low Overhead</h3>
-          <p>We do not oversell services. Over 90% of our staff are engineers & architects focused on delivery. This allows us to offer the best talent with the best return on investment.</p>
-        </SlideUp>
-        <SlideUp className="bg-white/20 text-center p-8">
           <h3 className="text-2xl font-bold mb-4">Real-world Experience</h3>
           <p>With backgrounds rooted in Enterprise IT, we are uniquely prepared to provide reliable lessons learned from real-world experience. We know you, because we were you.</p>
+        </SlideUp>
+        <SlideUp className="bg-white/20 text-center p-8">
+          <h3 className="text-2xl font-bold mb-4">Part of Accenture</h3>
+          <p>Our technical expertise is backed by Accenture's wide range of services and diverse talent, allowing us to expedite your innovative initiatives with wholistic solutions.</p>
         </SlideUp>
       </div>
     </Section>
