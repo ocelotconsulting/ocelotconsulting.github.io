@@ -60,11 +60,11 @@ export default function Header({setShowMenu, setShowContact}: HeaderProps) {
                                             Data Science &amp; AI
                                         </Link>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <Link className="block px-8 py-2 whitespace-nowrap hover:bg-white/20" href="/services/strategy-execution">
                                             Strategy &amp; Execution
                                         </Link>
-                                    </li>
+                                    </li> */}
                                 </ul>
                             </div>
                         </li>
