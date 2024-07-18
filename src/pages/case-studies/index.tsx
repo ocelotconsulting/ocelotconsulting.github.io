@@ -109,7 +109,7 @@ export default function CaseStudies({caseStudies, setShowContact}: CaseStudiesPr
                         </div>
                         <div className="grow ml-5 text-center text-black md:text-left">
                             <h3 className="text-xl font-bold mb-2">Real-world experience</h3>
-                            <p>We are uniquely prepared to provide reliable lessions learned from real-world Enterprise IT experience.</p>
+                            <p>We are uniquely prepared to provide reliable lessons learned from real-world Enterprise IT experience.</p>
                         </div>
                     </div>
                 </FadeIn>

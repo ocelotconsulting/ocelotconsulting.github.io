@@ -36,7 +36,7 @@ export default function About({team, setShowContact}: any) {
                         <h2 className="text-3xl lg:text-5xl font-bold text-black mb-4">Origin Story</h2>
                         <p className="mb-2">Ocelot Consulting was formed in 2016 by four former software engineering colleagues at a large St. Louis-based corporation. Their goal was to share the transformational lessons learned (Agility, Cloud, Security, DevOps) with other companies in the region.</p>
                         <p className="mb-2"><strong>After 7 years of rapid success fueled by customer satisfaction, we joined Accenture's <a href="https://www.accenture.com/us-en/services/cloud" className='underline'>Cloud First</a> organization in 2023 to expand how we help companies innovate, now backed by Accenture's global resources to help our clients achieve their goals.</strong></p>
-                        <p>That customer satisfaction has fueled our growth as we continue to expand our presence regionally and nationwide.</p>
+                        {/* <p>That customer satisfaction has fueled our growth as we continue to expand our presence regionally and nationwide.</p> */}
                     </div>
                 </div>
             </div>
